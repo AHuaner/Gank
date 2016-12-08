@@ -7,16 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		600D2B6C1DF8F1C200D57EA0 /* DispatchTime+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 600D2B691DF8F1C200D57EA0 /* DispatchTime+Extension.swift */; };
+		600D2B6D1DF8F1C200D57EA0 /* NSObject+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 600D2B6A1DF8F1C200D57EA0 /* NSObject+Extension.swift */; };
+		600D2B6E1DF8F1C200D57EA0 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 600D2B6B1DF8F1C200D57EA0 /* UIView+Extension.swift */; };
+		600D2B731DF8F33E00D57EA0 /* AHMineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 600D2B721DF8F33E00D57EA0 /* AHMineViewController.swift */; };
+		600D2B751DF8F35C00D57EA0 /* AHGankViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 600D2B741DF8F35C00D57EA0 /* AHGankViewController.swift */; };
+		600D2BA11DF8F74E00D57EA0 /* AHNetWorkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 600D2BA01DF8F74E00D57EA0 /* AHNetWorkManager.swift */; };
+		600D2BA31DF8F7A900D57EA0 /* AHAdverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 600D2BA21DF8F7A900D57EA0 /* AHAdverView.swift */; };
+		600D2BA51DF8F7CA00D57EA0 /* AHTestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 600D2BA41DF8F7CA00D57EA0 /* AHTestModel.swift */; };
+		600D2BC01DF8FA9200D57EA0 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 600D2BBF1DF8FA9200D57EA0 /* BaseViewController.swift */; };
 		601CF5B91DF836B4002AF8D5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 601CF5B81DF836B4002AF8D5 /* AppDelegate.swift */; };
 		601CF5C01DF836B4002AF8D5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 601CF5BF1DF836B4002AF8D5 /* Assets.xcassets */; };
 		601CF5CE1DF836B5002AF8D5 /* GankTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 601CF5CD1DF836B5002AF8D5 /* GankTests.swift */; };
 		601CF5D91DF836B5002AF8D5 /* GankUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 601CF5D81DF836B5002AF8D5 /* GankUITests.swift */; };
-		601CF5E71DF83757002AF8D5 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 601CF5E61DF83757002AF8D5 /* BaseViewController.swift */; };
 		601CF5E91DF8379A002AF8D5 /* AHLaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 601CF5E81DF8379A002AF8D5 /* AHLaunchViewController.swift */; };
 		60396BEB1DF83C6A00A23DAA /* AHConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60396BEA1DF83C6A00A23DAA /* AHConfig.swift */; };
-		60396BED1DF8507400A23DAA /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60396BEC1DF8507400A23DAA /* UIView+Extension.swift */; };
-		60396BEF1DF850C300A23DAA /* NSObject+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60396BEE1DF850C300A23DAA /* NSObject+Extension.swift */; };
-		60396BF11DF85F1E00A23DAA /* DispatchTime+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60396BF01DF85F1E00A23DAA /* DispatchTime+Extension.swift */; };
+		60DDC86C1DF8FD88003F1464 /* loading1.png in Resources */ = {isa = PBXBuildFile; fileRef = 60DDC8671DF8FD88003F1464 /* loading1.png */; };
+		60DDC86D1DF8FD88003F1464 /* loading2.png in Resources */ = {isa = PBXBuildFile; fileRef = 60DDC8681DF8FD88003F1464 /* loading2.png */; };
+		60DDC86E1DF8FD88003F1464 /* loading3.png in Resources */ = {isa = PBXBuildFile; fileRef = 60DDC8691DF8FD88003F1464 /* loading3.png */; };
+		60DDC86F1DF8FD88003F1464 /* loading4.png in Resources */ = {isa = PBXBuildFile; fileRef = 60DDC86A1DF8FD88003F1464 /* loading4.png */; };
+		60DDC8701DF8FD88003F1464 /* loading5.png in Resources */ = {isa = PBXBuildFile; fileRef = 60DDC86B1DF8FD88003F1464 /* loading5.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +47,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		600D2B691DF8F1C200D57EA0 /* DispatchTime+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DispatchTime+Extension.swift"; sourceTree = "<group>"; };
+		600D2B6A1DF8F1C200D57EA0 /* NSObject+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSObject+Extension.swift"; sourceTree = "<group>"; };
+		600D2B6B1DF8F1C200D57EA0 /* UIView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		600D2B721DF8F33E00D57EA0 /* AHMineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHMineViewController.swift; sourceTree = "<group>"; };
+		600D2B741DF8F35C00D57EA0 /* AHGankViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHGankViewController.swift; sourceTree = "<group>"; };
+		600D2BA01DF8F74E00D57EA0 /* AHNetWorkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHNetWorkManager.swift; sourceTree = "<group>"; };
+		600D2BA21DF8F7A900D57EA0 /* AHAdverView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHAdverView.swift; sourceTree = "<group>"; };
+		600D2BA41DF8F7CA00D57EA0 /* AHTestModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHTestModel.swift; sourceTree = "<group>"; };
+		600D2BBF1DF8FA9200D57EA0 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		601CF5B51DF836B4002AF8D5 /* Gank.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gank.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		601CF5B81DF836B4002AF8D5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		601CF5BF1DF836B4002AF8D5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -47,12 +66,13 @@
 		601CF5D41DF836B5002AF8D5 /* GankUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GankUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		601CF5D81DF836B5002AF8D5 /* GankUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GankUITests.swift; sourceTree = "<group>"; };
 		601CF5DA1DF836B5002AF8D5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		601CF5E61DF83757002AF8D5 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseViewController.swift; path = ../../BaseViewController.swift; sourceTree = "<group>"; };
 		601CF5E81DF8379A002AF8D5 /* AHLaunchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHLaunchViewController.swift; sourceTree = "<group>"; };
 		60396BEA1DF83C6A00A23DAA /* AHConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHConfig.swift; sourceTree = "<group>"; };
-		60396BEC1DF8507400A23DAA /* UIView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
-		60396BEE1DF850C300A23DAA /* NSObject+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSObject+Extension.swift"; sourceTree = "<group>"; };
-		60396BF01DF85F1E00A23DAA /* DispatchTime+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DispatchTime+Extension.swift"; sourceTree = "<group>"; };
+		60DDC8671DF8FD88003F1464 /* loading1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loading1.png; sourceTree = "<group>"; };
+		60DDC8681DF8FD88003F1464 /* loading2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loading2.png; sourceTree = "<group>"; };
+		60DDC8691DF8FD88003F1464 /* loading3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loading3.png; sourceTree = "<group>"; };
+		60DDC86A1DF8FD88003F1464 /* loading4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loading4.png; sourceTree = "<group>"; };
+		60DDC86B1DF8FD88003F1464 /* loading5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loading5.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +100,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		600D2B681DF8F1C200D57EA0 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				600D2B691DF8F1C200D57EA0 /* DispatchTime+Extension.swift */,
+				600D2B6A1DF8F1C200D57EA0 /* NSObject+Extension.swift */,
+				600D2B6B1DF8F1C200D57EA0 /* UIView+Extension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		600D2BA61DF8F80100D57EA0 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				600D2BBF1DF8FA9200D57EA0 /* BaseViewController.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
 		601CF5AC1DF836B4002AF8D5 = {
 			isa = PBXGroup;
 			children = (
@@ -110,9 +148,9 @@
 				601CF5C41DF836B4002AF8D5 /* Info.plist */,
 				60396BE31DF83BE900A23DAA /* Class */,
 				60396BE71DF83C0F00A23DAA /* Model */,
+				600D2BA61DF8F80100D57EA0 /* Base */,
 				60396BE91DF83C2300A23DAA /* Utility */,
-				60396BE61DF83BF000A23DAA /* Extension */,
-				60396BE21DF83BDA00A23DAA /* Base */,
+				600D2B681DF8F1C200D57EA0 /* Extension */,
 				60396BE11DF83BCF00A23DAA /* AHNetworking */,
 				60396BE81DF83C1E00A23DAA /* Resource */,
 			);
@@ -140,17 +178,9 @@
 		60396BE11DF83BCF00A23DAA /* AHNetworking */ = {
 			isa = PBXGroup;
 			children = (
+				600D2BA01DF8F74E00D57EA0 /* AHNetWorkManager.swift */,
 			);
 			path = AHNetworking;
-			sourceTree = "<group>";
-		};
-		60396BE21DF83BDA00A23DAA /* Base */ = {
-			isa = PBXGroup;
-			children = (
-				601CF5E61DF83757002AF8D5 /* BaseViewController.swift */,
-			);
-			name = Base;
-			path = AHNetworking/Base;
 			sourceTree = "<group>";
 		};
 		60396BE31DF83BE900A23DAA /* Class */ = {
@@ -165,6 +195,7 @@
 		60396BE41DF83BE900A23DAA /* Gank */ = {
 			isa = PBXGroup;
 			children = (
+				600D2B741DF8F35C00D57EA0 /* AHGankViewController.swift */,
 			);
 			path = Gank;
 			sourceTree = "<group>";
@@ -172,24 +203,15 @@
 		60396BE51DF83BE900A23DAA /* Mine */ = {
 			isa = PBXGroup;
 			children = (
+				600D2B721DF8F33E00D57EA0 /* AHMineViewController.swift */,
 			);
 			path = Mine;
-			sourceTree = "<group>";
-		};
-		60396BE61DF83BF000A23DAA /* Extension */ = {
-			isa = PBXGroup;
-			children = (
-				60396BEC1DF8507400A23DAA /* UIView+Extension.swift */,
-				60396BEE1DF850C300A23DAA /* NSObject+Extension.swift */,
-				60396BF01DF85F1E00A23DAA /* DispatchTime+Extension.swift */,
-			);
-			name = Extension;
-			path = AHNetworking/Extension;
 			sourceTree = "<group>";
 		};
 		60396BE71DF83C0F00A23DAA /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				600D2BA41DF8F7CA00D57EA0 /* AHTestModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -197,6 +219,11 @@
 		60396BE81DF83C1E00A23DAA /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				60DDC8671DF8FD88003F1464 /* loading1.png */,
+				60DDC8681DF8FD88003F1464 /* loading2.png */,
+				60DDC8691DF8FD88003F1464 /* loading3.png */,
+				60DDC86A1DF8FD88003F1464 /* loading4.png */,
+				60DDC86B1DF8FD88003F1464 /* loading5.png */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -204,6 +231,7 @@
 		60396BE91DF83C2300A23DAA /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				600D2BA21DF8F7A900D57EA0 /* AHAdverView.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -319,7 +347,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				60DDC86E1DF8FD88003F1464 /* loading3.png in Resources */,
+				60DDC86C1DF8FD88003F1464 /* loading1.png in Resources */,
+				60DDC8701DF8FD88003F1464 /* loading5.png in Resources */,
+				60DDC86F1DF8FD88003F1464 /* loading4.png in Resources */,
 				601CF5C01DF836B4002AF8D5 /* Assets.xcassets in Resources */,
+				60DDC86D1DF8FD88003F1464 /* loading2.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -344,13 +377,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				60396BF11DF85F1E00A23DAA /* DispatchTime+Extension.swift in Sources */,
 				60396BEB1DF83C6A00A23DAA /* AHConfig.swift in Sources */,
+				600D2B6E1DF8F1C200D57EA0 /* UIView+Extension.swift in Sources */,
+				600D2BA51DF8F7CA00D57EA0 /* AHTestModel.swift in Sources */,
+				600D2BA31DF8F7A900D57EA0 /* AHAdverView.swift in Sources */,
+				600D2B6C1DF8F1C200D57EA0 /* DispatchTime+Extension.swift in Sources */,
+				600D2BC01DF8FA9200D57EA0 /* BaseViewController.swift in Sources */,
 				601CF5B91DF836B4002AF8D5 /* AppDelegate.swift in Sources */,
 				601CF5E91DF8379A002AF8D5 /* AHLaunchViewController.swift in Sources */,
-				60396BED1DF8507400A23DAA /* UIView+Extension.swift in Sources */,
-				601CF5E71DF83757002AF8D5 /* BaseViewController.swift in Sources */,
-				60396BEF1DF850C300A23DAA /* NSObject+Extension.swift in Sources */,
+				600D2B731DF8F33E00D57EA0 /* AHMineViewController.swift in Sources */,
+				600D2BA11DF8F74E00D57EA0 /* AHNetWorkManager.swift in Sources */,
+				600D2B751DF8F35C00D57EA0 /* AHGankViewController.swift in Sources */,
+				600D2B6D1DF8F1C200D57EA0 /* NSObject+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -484,7 +522,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = LSWWVUU45W;
 				INFOPLIST_FILE = Gank/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = CoderAhuan.Gank;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -500,7 +538,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = LSWWVUU45W;
 				INFOPLIST_FILE = Gank/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = CoderAhuan.Gank;
 				PRODUCT_NAME = "$(TARGET_NAME)";
