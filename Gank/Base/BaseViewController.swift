@@ -12,6 +12,7 @@ class BaseViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = MainBGColor
     }
 
     override func didReceiveMemoryWarning() {
@@ -19,6 +20,6 @@ class BaseViewController: UIViewController {
     }
     
     deinit {
-        AHLog("-----dealloc----\(type(of: self))")
+        AHLog("---dealloc---\(type(of: self))")
     }
 }

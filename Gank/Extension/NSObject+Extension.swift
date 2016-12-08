@@ -39,6 +39,12 @@ func UIColorFromRGB(_ hex:String) -> UIColor {
     return UIColor(red: CGFloat(r) / 255.0, green: CGFloat(g) / 255.0, blue: CGFloat(b) / 255.0, alpha: CGFloat(1))
 }
 
+
+func FontSize(size: CGFloat) -> UIFont {
+    let font = UIFont(name: UILabel().font.fontName, size: size)
+    return font!
+}
+
 func AHLog<T>(_ message: T, fileName: String = #file, methodName: String = #function, lineNumber: Int = #line){
     #if DEBUG
         var fileN = (fileName as NSString).lastPathComponent as NSString
@@ -47,3 +53,28 @@ func AHLog<T>(_ message: T, fileName: String = #file, methodName: String = #func
     #endif
 }
 
+//class SwiftTimer {
+//    
+//    private let internalTimer: DispatchSourceTimer
+//    
+//    init(interval: DispatchTimeInterval, repeats: Bool = false, queue: DispatchQueue = .main , handler: () -> Void) {
+//        
+//        internalTimer = DispatchSource.makeTimerSource(queue: queue)
+//        internalTimer.setEventHandler(handler: handler)
+//        if repeats {
+//            internalTimer.scheduleRepeating(deadline: .now() + interval, interval: interval)
+//        } else {
+//            internalTimer.scheduleOneshot(deadline: .now() + interval)
+//        }
+//    }
+//    
+//    deinit {
+//        //事实上，不需要手动cancel. DispatchSourceTimer在销毁时也会自动cancel。
+//        internalTimer.cancel()
+//    }
+//    
+//    func rescheduleRepeating(interval: DispatchTimeInterval) {
+//        internalTimer.scheduleRepeating(deadline: .now() + interval, interval: interval)
+//    }
+//    
+//}

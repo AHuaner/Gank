@@ -30,6 +30,8 @@ let iPhone6_Height = 667.0
 let iPhone6Plus_Width = 414.0
 let iPhone6Plus_Height = 736.0
 
+let MainBGColor = RGBColor(240.0, g: 240.0, b: 240.0, alpha: 1.0)
+
 class AHConfig {
     //MARK: 通知通用字段
     struct Notification {

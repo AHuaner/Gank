@@ -44,9 +44,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     fileprivate func setRootVC() {
-        let rootVC = AHLaunchViewController()
+//        let rootVC = AHTestViewController()
+//        let nav = UINavigationController(rootViewController: rootVC)
+        let rootVC = AHMainViewController()
         window = UIWindow(frame: UIScreen.main.bounds)
-        window?.backgroundColor = UIColor.white
+        window?.backgroundColor = MainBGColor
         window?.rootViewController = rootVC
         window?.makeKeyAndVisible()
     }

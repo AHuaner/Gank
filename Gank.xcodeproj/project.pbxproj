@@ -13,15 +13,21 @@
 		600D2B731DF8F33E00D57EA0 /* AHMineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 600D2B721DF8F33E00D57EA0 /* AHMineViewController.swift */; };
 		600D2B751DF8F35C00D57EA0 /* AHGankViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 600D2B741DF8F35C00D57EA0 /* AHGankViewController.swift */; };
 		600D2BA11DF8F74E00D57EA0 /* AHNetWorkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 600D2BA01DF8F74E00D57EA0 /* AHNetWorkManager.swift */; };
-		600D2BA31DF8F7A900D57EA0 /* AHAdverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 600D2BA21DF8F7A900D57EA0 /* AHAdverView.swift */; };
+		600D2BA31DF8F7A900D57EA0 /* AHLaunchImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 600D2BA21DF8F7A900D57EA0 /* AHLaunchImageView.swift */; };
 		600D2BA51DF8F7CA00D57EA0 /* AHTestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 600D2BA41DF8F7CA00D57EA0 /* AHTestModel.swift */; };
 		600D2BC01DF8FA9200D57EA0 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 600D2BBF1DF8FA9200D57EA0 /* BaseViewController.swift */; };
+		601731321DF952D40069D4C4 /* AHLaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 601731311DF952D40069D4C4 /* AHLaunchViewController.swift */; };
+		601731351DF96FC10069D4C4 /* AHTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 601731331DF96FC10069D4C4 /* AHTestViewController.swift */; };
+		601731361DF96FC10069D4C4 /* AHTestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 601731341DF96FC10069D4C4 /* AHTestViewController.xib */; };
+		601731381DF97C200069D4C4 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 601731371DF97C200069D4C4 /* TabBarController.swift */; };
 		601CF5B91DF836B4002AF8D5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 601CF5B81DF836B4002AF8D5 /* AppDelegate.swift */; };
 		601CF5C01DF836B4002AF8D5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 601CF5BF1DF836B4002AF8D5 /* Assets.xcassets */; };
 		601CF5CE1DF836B5002AF8D5 /* GankTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 601CF5CD1DF836B5002AF8D5 /* GankTests.swift */; };
 		601CF5D91DF836B5002AF8D5 /* GankUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 601CF5D81DF836B5002AF8D5 /* GankUITests.swift */; };
-		601CF5E91DF8379A002AF8D5 /* AHLaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 601CF5E81DF8379A002AF8D5 /* AHLaunchViewController.swift */; };
+		601CF5E91DF8379A002AF8D5 /* AHMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 601CF5E81DF8379A002AF8D5 /* AHMainViewController.swift */; };
 		60396BEB1DF83C6A00A23DAA /* AHConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60396BEA1DF83C6A00A23DAA /* AHConfig.swift */; };
+		608EED141DF9864700D1984A /* adver.png in Resources */ = {isa = PBXBuildFile; fileRef = 608EED131DF9864700D1984A /* adver.png */; };
+		608EED161DF9898C00D1984A /* AHTimeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 608EED151DF9898C00D1984A /* AHTimeButton.swift */; };
 		60DDC86C1DF8FD88003F1464 /* loading1.png in Resources */ = {isa = PBXBuildFile; fileRef = 60DDC8671DF8FD88003F1464 /* loading1.png */; };
 		60DDC86D1DF8FD88003F1464 /* loading2.png in Resources */ = {isa = PBXBuildFile; fileRef = 60DDC8681DF8FD88003F1464 /* loading2.png */; };
 		60DDC86E1DF8FD88003F1464 /* loading3.png in Resources */ = {isa = PBXBuildFile; fileRef = 60DDC8691DF8FD88003F1464 /* loading3.png */; };
@@ -53,9 +59,13 @@
 		600D2B721DF8F33E00D57EA0 /* AHMineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHMineViewController.swift; sourceTree = "<group>"; };
 		600D2B741DF8F35C00D57EA0 /* AHGankViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHGankViewController.swift; sourceTree = "<group>"; };
 		600D2BA01DF8F74E00D57EA0 /* AHNetWorkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHNetWorkManager.swift; sourceTree = "<group>"; };
-		600D2BA21DF8F7A900D57EA0 /* AHAdverView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHAdverView.swift; sourceTree = "<group>"; };
+		600D2BA21DF8F7A900D57EA0 /* AHLaunchImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHLaunchImageView.swift; sourceTree = "<group>"; };
 		600D2BA41DF8F7CA00D57EA0 /* AHTestModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHTestModel.swift; sourceTree = "<group>"; };
 		600D2BBF1DF8FA9200D57EA0 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		601731311DF952D40069D4C4 /* AHLaunchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHLaunchViewController.swift; sourceTree = "<group>"; };
+		601731331DF96FC10069D4C4 /* AHTestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AHTestViewController.swift; path = ../AHTestViewController.swift; sourceTree = "<group>"; };
+		601731341DF96FC10069D4C4 /* AHTestViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AHTestViewController.xib; path = ../AHTestViewController.xib; sourceTree = "<group>"; };
+		601731371DF97C200069D4C4 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		601CF5B51DF836B4002AF8D5 /* Gank.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gank.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		601CF5B81DF836B4002AF8D5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		601CF5BF1DF836B4002AF8D5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -66,8 +76,10 @@
 		601CF5D41DF836B5002AF8D5 /* GankUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GankUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		601CF5D81DF836B5002AF8D5 /* GankUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GankUITests.swift; sourceTree = "<group>"; };
 		601CF5DA1DF836B5002AF8D5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		601CF5E81DF8379A002AF8D5 /* AHLaunchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHLaunchViewController.swift; sourceTree = "<group>"; };
+		601CF5E81DF8379A002AF8D5 /* AHMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHMainViewController.swift; sourceTree = "<group>"; };
 		60396BEA1DF83C6A00A23DAA /* AHConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHConfig.swift; sourceTree = "<group>"; };
+		608EED131DF9864700D1984A /* adver.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = adver.png; sourceTree = "<group>"; };
+		608EED151DF9898C00D1984A /* AHTimeButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHTimeButton.swift; sourceTree = "<group>"; };
 		60DDC8671DF8FD88003F1464 /* loading1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loading1.png; sourceTree = "<group>"; };
 		60DDC8681DF8FD88003F1464 /* loading2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loading2.png; sourceTree = "<group>"; };
 		60DDC8691DF8FD88003F1464 /* loading3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loading3.png; sourceTree = "<group>"; };
@@ -114,6 +126,8 @@
 			isa = PBXGroup;
 			children = (
 				600D2BBF1DF8FA9200D57EA0 /* BaseViewController.swift */,
+				601731371DF97C200069D4C4 /* TabBarController.swift */,
+				601731311DF952D40069D4C4 /* AHLaunchViewController.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -142,8 +156,8 @@
 			isa = PBXGroup;
 			children = (
 				601CF5B81DF836B4002AF8D5 /* AppDelegate.swift */,
-				601CF5E81DF8379A002AF8D5 /* AHLaunchViewController.swift */,
 				60396BEA1DF83C6A00A23DAA /* AHConfig.swift */,
+				601CF5E81DF8379A002AF8D5 /* AHMainViewController.swift */,
 				601CF5BF1DF836B4002AF8D5 /* Assets.xcassets */,
 				601CF5C41DF836B4002AF8D5 /* Info.plist */,
 				60396BE31DF83BE900A23DAA /* Class */,
@@ -153,6 +167,7 @@
 				600D2B681DF8F1C200D57EA0 /* Extension */,
 				60396BE11DF83BCF00A23DAA /* AHNetworking */,
 				60396BE81DF83C1E00A23DAA /* Resource */,
+				608EED101DF985A000D1984A /* Other */,
 			);
 			path = Gank;
 			sourceTree = "<group>";
@@ -219,6 +234,7 @@
 		60396BE81DF83C1E00A23DAA /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				608EED131DF9864700D1984A /* adver.png */,
 				60DDC8671DF8FD88003F1464 /* loading1.png */,
 				60DDC8681DF8FD88003F1464 /* loading2.png */,
 				60DDC8691DF8FD88003F1464 /* loading3.png */,
@@ -231,9 +247,19 @@
 		60396BE91DF83C2300A23DAA /* Utility */ = {
 			isa = PBXGroup;
 			children = (
-				600D2BA21DF8F7A900D57EA0 /* AHAdverView.swift */,
+				600D2BA21DF8F7A900D57EA0 /* AHLaunchImageView.swift */,
+				608EED151DF9898C00D1984A /* AHTimeButton.swift */,
 			);
 			path = Utility;
+			sourceTree = "<group>";
+		};
+		608EED101DF985A000D1984A /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				601731331DF96FC10069D4C4 /* AHTestViewController.swift */,
+				601731341DF96FC10069D4C4 /* AHTestViewController.xib */,
+			);
+			path = Other;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -351,7 +377,9 @@
 				60DDC86C1DF8FD88003F1464 /* loading1.png in Resources */,
 				60DDC8701DF8FD88003F1464 /* loading5.png in Resources */,
 				60DDC86F1DF8FD88003F1464 /* loading4.png in Resources */,
+				601731361DF96FC10069D4C4 /* AHTestViewController.xib in Resources */,
 				601CF5C01DF836B4002AF8D5 /* Assets.xcassets in Resources */,
+				608EED141DF9864700D1984A /* adver.png in Resources */,
 				60DDC86D1DF8FD88003F1464 /* loading2.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -378,13 +406,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				60396BEB1DF83C6A00A23DAA /* AHConfig.swift in Sources */,
+				608EED161DF9898C00D1984A /* AHTimeButton.swift in Sources */,
 				600D2B6E1DF8F1C200D57EA0 /* UIView+Extension.swift in Sources */,
 				600D2BA51DF8F7CA00D57EA0 /* AHTestModel.swift in Sources */,
-				600D2BA31DF8F7A900D57EA0 /* AHAdverView.swift in Sources */,
+				601731381DF97C200069D4C4 /* TabBarController.swift in Sources */,
+				600D2BA31DF8F7A900D57EA0 /* AHLaunchImageView.swift in Sources */,
+				601731321DF952D40069D4C4 /* AHLaunchViewController.swift in Sources */,
 				600D2B6C1DF8F1C200D57EA0 /* DispatchTime+Extension.swift in Sources */,
 				600D2BC01DF8FA9200D57EA0 /* BaseViewController.swift in Sources */,
+				601731351DF96FC10069D4C4 /* AHTestViewController.swift in Sources */,
 				601CF5B91DF836B4002AF8D5 /* AppDelegate.swift in Sources */,
-				601CF5E91DF8379A002AF8D5 /* AHLaunchViewController.swift in Sources */,
+				601CF5E91DF8379A002AF8D5 /* AHMainViewController.swift in Sources */,
 				600D2B731DF8F33E00D57EA0 /* AHMineViewController.swift in Sources */,
 				600D2BA11DF8F74E00D57EA0 /* AHNetWorkManager.swift in Sources */,
 				600D2B751DF8F35C00D57EA0 /* AHGankViewController.swift in Sources */,
@@ -527,7 +559,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = CoderAhuan.Gank;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				"SWIFT_ACTIVE_COMPILATION_CONDITIONS[arch=*]" = "-D DEBUG";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 3.0.1;
 			};
 			name = Debug;
 		};
@@ -542,7 +574,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = CoderAhuan.Gank;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 3.0.1;
 			};
 			name = Release;
 		};
