@@ -26,6 +26,7 @@ class AHLaunchImageView: UIImageView {
         image = UIImage(named: "adver.png")
         isUserInteractionEnabled = true
     }
+    
     deinit {
         AHLog("---dealloc---\(type(of: self))")
     }

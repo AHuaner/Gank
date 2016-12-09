@@ -9,15 +9,16 @@
 import UIKit
 
 class AHTimeButton: UIButton {
-    var time: Int?
-    var clickClouse: (() -> Void)?
-    var timer: Timer?
+    fileprivate var time: Int
+    fileprivate var clickClouse: (() -> Void)
+    fileprivate var timer: Timer?
     
     init(frame: CGRect, time: Int, clickAction: @escaping () -> Void) {
-        super.init(frame: frame)
-        self.frame = frame
         self.time = time
         self.clickClouse = clickAction
+        
+        super.init(frame: frame)
+        self.frame = frame
         setup()
     }
     
@@ -26,7 +27,7 @@ class AHTimeButton: UIButton {
     }
     
     func setup() {
-        setTitle("\(self.time!)s跳过", for: .normal)
+        setTitle("\(self.time)s跳过", for: .normal)
         titleLabel?.font = FontSize(size: 12)
         backgroundColor = UIColor.orange
         layer.cornerRadius = self.Height * 0.4
@@ -37,15 +38,13 @@ class AHTimeButton: UIButton {
     func skipAction() {
         timer?.invalidate()
         timer = nil
-        if clickClouse != nil {
-            clickClouse!()
-        }
+        clickClouse()
     }
     
     func timerAction() {
-        time = time! - 1
-        setTitle("\(self.time!)s跳过", for: .normal)
-        if time! <= 0 {
+        time = time - 1
+        setTitle("\(self.time)s跳过", for: .normal)
+        if time <= 0 {
             skipAction()
         }
     }

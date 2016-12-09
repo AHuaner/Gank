@@ -17,6 +17,11 @@ class AHMainViewController: BaseViewController {
     
     lazy var LaunchVC: AHLaunchViewController = {
         let LaunchVC = AHLaunchViewController()
+//        let LaunchVC = AHLaunchViewController(launchClouse: { [unowned self] in
+//            AHLog("回调")
+//            self.view.addSubview(self.tabBarVC.view)
+//            self.addChildViewController(self.tabBarVC)
+//        })
         LaunchVC.launchComplete = { [unowned self] in
             AHLog("回调")
             self.view.addSubview(self.tabBarVC.view)
@@ -37,9 +42,5 @@ class AHMainViewController: BaseViewController {
     func setupLaunchVC() {
         addChildViewController(LaunchVC)
         view.addSubview(LaunchVC.view)
-    }
-    
-    fileprivate func setupTabbarVC() {
-        
     }
 }
