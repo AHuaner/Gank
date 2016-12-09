@@ -16,7 +16,7 @@ class AHMainViewController: BaseViewController {
     }()
     
     lazy var LaunchVC: AHLaunchViewController = {
-        let LaunchVC = AHLaunchViewController()
+        let LaunchVC = AHLaunchViewController(showTime: 3)
 //        let LaunchVC = AHLaunchViewController(launchClouse: { [unowned self] in
 //            AHLog("回调")
 //            self.view.addSubview(self.tabBarVC.view)

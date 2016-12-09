@@ -13,13 +13,14 @@ typealias AHLaunchComplete = () -> (Void)
 class AHLaunchViewController: BaseViewController {
 
     var launchComplete: AHLaunchComplete?
+    var showTime: Int
     
     lazy var skipBtn: AHTimeButton = {
         let btnW: CGFloat = 50.0
         let btnH: CGFloat = 30.0
         let margin: CGFloat = 20.0
         let btnF = CGRect(x: kScreen_W - btnW - margin, y: margin, width: btnW, height: btnH)
-        let skipBtn = AHTimeButton(frame: btnF, time: 3, clickAction: { 
+        let skipBtn = AHTimeButton(frame: btnF, time: self.showTime, clickAction: {
             self.skipAction()
         })
         return skipBtn
@@ -30,14 +31,14 @@ class AHLaunchViewController: BaseViewController {
         return LaunchImageView
     }()
     
-//    init(launchClouse: @escaping AHLaunchComplete) {
-//        self.launchComplete = launchClouse
-//        super.init(nibName: nil, bundle: nil)
-//    }
-//
-//    required init?(coder aDecoder: NSCoder) {
-//        fatalError("init(coder:) has not been implemented")
-//    }
+    init(showTime: Int) {
+        self.showTime = showTime
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

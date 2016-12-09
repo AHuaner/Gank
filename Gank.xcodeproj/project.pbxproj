@@ -28,6 +28,14 @@
 		60396BEB1DF83C6A00A23DAA /* AHConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60396BEA1DF83C6A00A23DAA /* AHConfig.swift */; };
 		608EED141DF9864700D1984A /* adver.png in Resources */ = {isa = PBXBuildFile; fileRef = 608EED131DF9864700D1984A /* adver.png */; };
 		608EED161DF9898C00D1984A /* AHTimeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 608EED151DF9898C00D1984A /* AHTimeButton.swift */; };
+		60C7F8B61DFA66D30069E69A /* AHDisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C7F8B51DFA66D30069E69A /* AHDisplayViewController.swift */; };
+		60C7F8B81DFA6B390069E69A /* back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60C7F8B71DFA6B390069E69A /* back@2x.png */; };
+		60C7F8BE1DFA6B4E0069E69A /* find_select@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60C7F8B91DFA6B4E0069E69A /* find_select@2x.png */; };
+		60C7F8BF1DFA6B4E0069E69A /* find@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60C7F8BA1DFA6B4E0069E69A /* find@2x.png */; };
+		60C7F8C01DFA6B4E0069E69A /* property_select@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60C7F8BB1DFA6B4E0069E69A /* property_select@2x.png */; };
+		60C7F8C11DFA6B4E0069E69A /* property@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60C7F8BC1DFA6B4E0069E69A /* property@2x.png */; };
+		60C7F8C21DFA6B4E0069E69A /* tabBar_bgwhiteColor@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60C7F8BD1DFA6B4E0069E69A /* tabBar_bgwhiteColor@2x.png */; };
+		60C7F8C61DFA6DD30069E69A /* Text1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C7F8C51DFA6DD30069E69A /* Text1ViewController.swift */; };
 		60DDC86C1DF8FD88003F1464 /* loading1.png in Resources */ = {isa = PBXBuildFile; fileRef = 60DDC8671DF8FD88003F1464 /* loading1.png */; };
 		60DDC86D1DF8FD88003F1464 /* loading2.png in Resources */ = {isa = PBXBuildFile; fileRef = 60DDC8681DF8FD88003F1464 /* loading2.png */; };
 		60DDC86E1DF8FD88003F1464 /* loading3.png in Resources */ = {isa = PBXBuildFile; fileRef = 60DDC8691DF8FD88003F1464 /* loading3.png */; };
@@ -80,6 +88,14 @@
 		60396BEA1DF83C6A00A23DAA /* AHConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHConfig.swift; sourceTree = "<group>"; };
 		608EED131DF9864700D1984A /* adver.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = adver.png; sourceTree = "<group>"; };
 		608EED151DF9898C00D1984A /* AHTimeButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHTimeButton.swift; sourceTree = "<group>"; };
+		60C7F8B51DFA66D30069E69A /* AHDisplayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHDisplayViewController.swift; sourceTree = "<group>"; };
+		60C7F8B71DFA6B390069E69A /* back@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back@2x.png"; sourceTree = "<group>"; };
+		60C7F8B91DFA6B4E0069E69A /* find_select@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "find_select@2x.png"; sourceTree = "<group>"; };
+		60C7F8BA1DFA6B4E0069E69A /* find@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "find@2x.png"; sourceTree = "<group>"; };
+		60C7F8BB1DFA6B4E0069E69A /* property_select@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "property_select@2x.png"; sourceTree = "<group>"; };
+		60C7F8BC1DFA6B4E0069E69A /* property@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "property@2x.png"; sourceTree = "<group>"; };
+		60C7F8BD1DFA6B4E0069E69A /* tabBar_bgwhiteColor@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabBar_bgwhiteColor@2x.png"; sourceTree = "<group>"; };
+		60C7F8C51DFA6DD30069E69A /* Text1ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Text1ViewController.swift; sourceTree = "<group>"; };
 		60DDC8671DF8FD88003F1464 /* loading1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loading1.png; sourceTree = "<group>"; };
 		60DDC8681DF8FD88003F1464 /* loading2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loading2.png; sourceTree = "<group>"; };
 		60DDC8691DF8FD88003F1464 /* loading3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loading3.png; sourceTree = "<group>"; };
@@ -234,6 +250,12 @@
 		60396BE81DF83C1E00A23DAA /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				60C7F8B91DFA6B4E0069E69A /* find_select@2x.png */,
+				60C7F8BA1DFA6B4E0069E69A /* find@2x.png */,
+				60C7F8BB1DFA6B4E0069E69A /* property_select@2x.png */,
+				60C7F8BC1DFA6B4E0069E69A /* property@2x.png */,
+				60C7F8BD1DFA6B4E0069E69A /* tabBar_bgwhiteColor@2x.png */,
+				60C7F8B71DFA6B390069E69A /* back@2x.png */,
 				608EED131DF9864700D1984A /* adver.png */,
 				60DDC8671DF8FD88003F1464 /* loading1.png */,
 				60DDC8681DF8FD88003F1464 /* loading2.png */,
@@ -247,6 +269,7 @@
 		60396BE91DF83C2300A23DAA /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				60C7F8B51DFA66D30069E69A /* AHDisplayViewController.swift */,
 				600D2BA21DF8F7A900D57EA0 /* AHLaunchImageView.swift */,
 				608EED151DF9898C00D1984A /* AHTimeButton.swift */,
 			);
@@ -256,6 +279,7 @@
 		608EED101DF985A000D1984A /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				60C7F8C51DFA6DD30069E69A /* Text1ViewController.swift */,
 				601731331DF96FC10069D4C4 /* AHTestViewController.swift */,
 				601731341DF96FC10069D4C4 /* AHTestViewController.xib */,
 			);
@@ -376,11 +400,17 @@
 				60DDC86E1DF8FD88003F1464 /* loading3.png in Resources */,
 				60DDC86C1DF8FD88003F1464 /* loading1.png in Resources */,
 				60DDC8701DF8FD88003F1464 /* loading5.png in Resources */,
+				60C7F8C21DFA6B4E0069E69A /* tabBar_bgwhiteColor@2x.png in Resources */,
+				60C7F8C01DFA6B4E0069E69A /* property_select@2x.png in Resources */,
+				60C7F8C11DFA6B4E0069E69A /* property@2x.png in Resources */,
 				60DDC86F1DF8FD88003F1464 /* loading4.png in Resources */,
 				601731361DF96FC10069D4C4 /* AHTestViewController.xib in Resources */,
+				60C7F8BE1DFA6B4E0069E69A /* find_select@2x.png in Resources */,
+				60C7F8B81DFA6B390069E69A /* back@2x.png in Resources */,
 				601CF5C01DF836B4002AF8D5 /* Assets.xcassets in Resources */,
 				608EED141DF9864700D1984A /* adver.png in Resources */,
 				60DDC86D1DF8FD88003F1464 /* loading2.png in Resources */,
+				60C7F8BF1DFA6B4E0069E69A /* find@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -408,6 +438,7 @@
 				60396BEB1DF83C6A00A23DAA /* AHConfig.swift in Sources */,
 				608EED161DF9898C00D1984A /* AHTimeButton.swift in Sources */,
 				600D2B6E1DF8F1C200D57EA0 /* UIView+Extension.swift in Sources */,
+				60C7F8C61DFA6DD30069E69A /* Text1ViewController.swift in Sources */,
 				600D2BA51DF8F7CA00D57EA0 /* AHTestModel.swift in Sources */,
 				601731381DF97C200069D4C4 /* TabBarController.swift in Sources */,
 				600D2BA31DF8F7A900D57EA0 /* AHLaunchImageView.swift in Sources */,
@@ -416,6 +447,7 @@
 				600D2BC01DF8FA9200D57EA0 /* BaseViewController.swift in Sources */,
 				601731351DF96FC10069D4C4 /* AHTestViewController.swift in Sources */,
 				601CF5B91DF836B4002AF8D5 /* AppDelegate.swift in Sources */,
+				60C7F8B61DFA66D30069E69A /* AHDisplayViewController.swift in Sources */,
 				601CF5E91DF8379A002AF8D5 /* AHMainViewController.swift in Sources */,
 				600D2B731DF8F33E00D57EA0 /* AHMineViewController.swift in Sources */,
 				600D2BA11DF8F74E00D57EA0 /* AHNetWorkManager.swift in Sources */,
