@@ -30,7 +30,7 @@ class AHDisplayViewController: BaseViewController {
     fileprivate var isTitleClick: Bool = false
     
     /// 标题滚动视图的高度
-    fileprivate var titleScrollViewH: CGFloat = 40
+    fileprivate var titleScrollViewH: CGFloat = 35
     
     /// 顶部标题的字体
     fileprivate var titleFont: UIFont = UIFont.systemFont(ofSize: 13)
@@ -64,6 +64,9 @@ class AHDisplayViewController: BaseViewController {
     
     /// 添加标题按钮的宽度
     fileprivate var addTitleButtonWidth: CGFloat = 40.0
+    
+    /// contentView是否加载
+    fileprivate var isShow: Bool = false
     
     // MARK: - lazy
     
@@ -162,9 +165,11 @@ class AHDisplayViewController: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        setupTitleWidth()
-        
-        setupAllTitle()
+        if isShow == false {
+            setupTitleWidth()
+            setupAllTitle()
+            isShow = true
+        }
     }
     
     // MARK: - port methods
@@ -209,13 +214,16 @@ extension AHDisplayViewController {
             totalWidth += titleBounds.size.width
         }
         
-        if totalWidth > contentViewW {
+        let RealtotalWidth = totalWidth + CGFloat(count) * margin + (addTitleButton.isHidden ? 0 : addTitleButtonWidth)
+        
+        if RealtotalWidth > contentViewW {
             self.titleMargin = margin
             return
         }
         
-        let titleMargin = (contentViewW - totalWidth) / CGFloat(count + 1)
+        let titleMargin = (contentViewW - totalWidth - (addTitleButton.isHidden ? 0 : addTitleButtonWidth)) / CGFloat(count + 1)
         self.titleMargin = titleMargin < margin ? margin: titleMargin
+        self.titleScrollView.isScrollEnabled = false
     }
     
     /** 设置标题滚动视图中的所有标题 */
@@ -256,7 +264,7 @@ extension AHDisplayViewController {
             return
         }
         
-        titleScrollView.contentSize = CGSize(width: lastBtn.MaxX + titleMargin + (addTitleButton.isHidden ? 0 : 40), height: 0)
+        titleScrollView.contentSize = CGSize(width: lastBtn.MaxX + titleMargin + (addTitleButton.isHidden ? 0 : addTitleButtonWidth), height: 0)
         
         contentScrollView.contentSize = CGSize(width: contentViewW * CGFloat(count), height: 0)
         
@@ -288,6 +296,9 @@ extension AHDisplayViewController {
     
     /** 设置标题居中 */
     fileprivate func setupSelectedBtnToCenter(_ selbtn: UIButton) {
+        if titleScrollView.isScrollEnabled == false {
+            return
+        }
         // 设置标题滚动区域的偏移量
         var offsetX = selbtn.CenterX - contentViewW * 0.5
         
@@ -296,7 +307,6 @@ extension AHDisplayViewController {
         }
         
         // 计算最大的标题视图滚动区域
-//        var maxOffsetX = titleScrollView.contentSize.width - contentViewW + (addTitleButton.isHidden ? 0 : 40)
         var maxOffsetX = titleScrollView.contentSize.width - contentViewW
         
         if maxOffsetX < 0 {
