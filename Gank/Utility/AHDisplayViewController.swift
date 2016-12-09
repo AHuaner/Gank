@@ -76,7 +76,7 @@ class AHDisplayViewController: BaseViewController {
         contentView.backgroundColor = UIColor(red: 225/255.0, green: 225/255.0, blue: 225/255.0, alpha: 1)
         
         if contentView.frame.size.height == 0.0 {
-            contentView.frame = CGRect(x: 0, y: kNavBarHeight, width: self.contentViewW, height: kScreen_H - kNavBarHeight - kBottomBarHeight)
+            contentView.frame = CGRect(x: 0, y: kNavBarHeight, width: self.contentViewW, height: kScreen_H - kNavBarHeight)
         }
         self.view.addSubview(contentView)
         return contentView
@@ -97,15 +97,14 @@ class AHDisplayViewController: BaseViewController {
     /// 添加标题滚动视图中标题的按钮
     lazy var addTitleButton: UIButton = {
         let addTitleButton = UIButton()
-        addTitleButton.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.9)
-        addTitleButton.setTitle("➕", for: UIControlState())
-        addTitleButton.setTitleColor(UIColor.gray, for: UIControlState())
-        addTitleButton.setTitleColor(UIColor.red, for: .highlighted)
+        addTitleButton.setImage(UIImage(named: "add_button_normal"), for: .normal)
+        addTitleButton.setImage(UIImage(named: "add_button_normal"), for: .highlighted)
+        addTitleButton.setImage(UIImage(named: "add_button_high"), for: .selected)
+        addTitleButton.backgroundColor = UIColor(red: 0.95, green: 0.95, blue: 0.95, alpha: 0.9)
         addTitleButton.addTarget(self, action: #selector(AHDisplayViewController.addTitleButtonClick(_:)), for: .touchUpInside)
-        
         return addTitleButton
     }()
-    
+
     /// 内容滚动视图
     fileprivate lazy var contentScrollView: UICollectionView = {
         let layout = AHFlowLayout()
@@ -125,6 +124,15 @@ class AHDisplayViewController: BaseViewController {
         self.contentView.insertSubview(contentScrollView, belowSubview: self.titleScrollView)
         
         return contentScrollView
+    }()
+    
+    lazy var titleListView: AHTitleListView = {
+        let titleListView = AHTitleListView(frame: CGRect(x: 0, y: -(kScreen_H - kNavBarHeight), width: kScreen_W, height: kScreen_H - kNavBarHeight))
+        titleListView.backgroundColor = UIColor.orange
+        titleListView.closeClouse = { [unowned self] in
+            self.tabBarController?.tabBar.Y -= kBottomBarHeight
+        }
+        return titleListView
     }()
 
     /// 下标
@@ -289,13 +297,11 @@ extension AHDisplayViewController {
         }
         
         // 移动标题滚动条
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.15) {
-            self.setupSelectedBtnToCenter(selbtn)
-        }
+        perform(#selector(self.setupSelectedBtnToCenter(_:)), with: selbtn, afterDelay: 0.15)
     }
     
     /** 设置标题居中 */
-    fileprivate func setupSelectedBtnToCenter(_ selbtn: UIButton) {
+    @objc fileprivate func setupSelectedBtnToCenter(_ selbtn: UIButton) {
         if titleScrollView.isScrollEnabled == false {
             return
         }
@@ -427,7 +433,14 @@ extension AHDisplayViewController {
     }
     
     func addTitleButtonClick(_ btn: UIButton) {
-        
+        self.view.addSubview(self.titleListView)
+        UIView.animate(withDuration: 0.5, animations: {
+            self.titleListView.Y = kNavBarHeight
+            self.tabBarController?.tabBar.Y += kBottomBarHeight
+            btn.isEnabled = false
+        }, completion: { (_) in
+            btn.isEnabled = true
+        })
     }
 }
 
@@ -499,6 +512,7 @@ extension AHDisplayViewController: UICollectionViewDataSource, UICollectionViewD
         if willShowVc.isKind(of: UITableViewController.self) {
             let tableVc = willShowVc as! UITableViewController
             tableVc.tableView.contentInset.top = titleScrollViewH
+            tableVc.tableView.contentInset.bottom = kBottomBarHeight
         }
         contentScrollView.addSubview(willShowVc.view)
         willShowVc.view.frame = CGRect(x: 0, y: 0, width: contentView.Width, height: contentView.Height)
@@ -516,10 +530,7 @@ class AHFlowLayout: UICollectionViewFlowLayout {
         
         minimumLineSpacing = 0;
         
-        //        if self.collectionView!.bounds.size.height != nil {
-        
         self.itemSize = self.collectionView!.bounds.size;
-        //        }
         
         self.scrollDirection = UICollectionViewScrollDirection.horizontal;
     }

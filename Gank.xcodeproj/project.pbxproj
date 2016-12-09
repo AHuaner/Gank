@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		58B4672B96870D823E72869C /* Pods_Gank.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBF349F95A2C7F4277EE5517 /* Pods_Gank.framework */; };
 		600D2B6C1DF8F1C200D57EA0 /* DispatchTime+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 600D2B691DF8F1C200D57EA0 /* DispatchTime+Extension.swift */; };
 		600D2B6D1DF8F1C200D57EA0 /* NSObject+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 600D2B6A1DF8F1C200D57EA0 /* NSObject+Extension.swift */; };
 		600D2B6E1DF8F1C200D57EA0 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 600D2B6B1DF8F1C200D57EA0 /* UIView+Extension.swift */; };
@@ -36,6 +37,9 @@
 		60C7F8C11DFA6B4E0069E69A /* property@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60C7F8BC1DFA6B4E0069E69A /* property@2x.png */; };
 		60C7F8C21DFA6B4E0069E69A /* tabBar_bgwhiteColor@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60C7F8BD1DFA6B4E0069E69A /* tabBar_bgwhiteColor@2x.png */; };
 		60C7F8C61DFA6DD30069E69A /* Text1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C7F8C51DFA6DD30069E69A /* Text1ViewController.swift */; };
+		60C7F8CE1DFAC91A0069E69A /* add_button_normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60C7F8CD1DFAC91A0069E69A /* add_button_normal@2x.png */; };
+		60C7F8D01DFAD3FE0069E69A /* add_button_high@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60C7F8CF1DFAD3FE0069E69A /* add_button_high@2x.png */; };
+		60C7F8D21DFAE05F0069E69A /* AHTitleListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C7F8D11DFAE05F0069E69A /* AHTitleListView.swift */; };
 		60DDC86C1DF8FD88003F1464 /* loading1.png in Resources */ = {isa = PBXBuildFile; fileRef = 60DDC8671DF8FD88003F1464 /* loading1.png */; };
 		60DDC86D1DF8FD88003F1464 /* loading2.png in Resources */ = {isa = PBXBuildFile; fileRef = 60DDC8681DF8FD88003F1464 /* loading2.png */; };
 		60DDC86E1DF8FD88003F1464 /* loading3.png in Resources */ = {isa = PBXBuildFile; fileRef = 60DDC8691DF8FD88003F1464 /* loading3.png */; };
@@ -61,6 +65,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		509DED76A424BF17851C5780 /* Pods-Gank.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gank.release.xcconfig"; path = "Pods/Target Support Files/Pods-Gank/Pods-Gank.release.xcconfig"; sourceTree = "<group>"; };
 		600D2B691DF8F1C200D57EA0 /* DispatchTime+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DispatchTime+Extension.swift"; sourceTree = "<group>"; };
 		600D2B6A1DF8F1C200D57EA0 /* NSObject+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSObject+Extension.swift"; sourceTree = "<group>"; };
 		600D2B6B1DF8F1C200D57EA0 /* UIView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
@@ -96,11 +101,17 @@
 		60C7F8BC1DFA6B4E0069E69A /* property@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "property@2x.png"; sourceTree = "<group>"; };
 		60C7F8BD1DFA6B4E0069E69A /* tabBar_bgwhiteColor@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabBar_bgwhiteColor@2x.png"; sourceTree = "<group>"; };
 		60C7F8C51DFA6DD30069E69A /* Text1ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Text1ViewController.swift; sourceTree = "<group>"; };
+		60C7F8C71DFA9CB20069E69A /* Gank-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Gank-Bridging-Header.h"; sourceTree = "<group>"; };
+		60C7F8CD1DFAC91A0069E69A /* add_button_normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "add_button_normal@2x.png"; sourceTree = "<group>"; };
+		60C7F8CF1DFAD3FE0069E69A /* add_button_high@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "add_button_high@2x.png"; sourceTree = "<group>"; };
+		60C7F8D11DFAE05F0069E69A /* AHTitleListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHTitleListView.swift; sourceTree = "<group>"; };
 		60DDC8671DF8FD88003F1464 /* loading1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loading1.png; sourceTree = "<group>"; };
 		60DDC8681DF8FD88003F1464 /* loading2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loading2.png; sourceTree = "<group>"; };
 		60DDC8691DF8FD88003F1464 /* loading3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loading3.png; sourceTree = "<group>"; };
 		60DDC86A1DF8FD88003F1464 /* loading4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loading4.png; sourceTree = "<group>"; };
 		60DDC86B1DF8FD88003F1464 /* loading5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loading5.png; sourceTree = "<group>"; };
+		92E140CCC03B446F1E0E29B6 /* Pods-Gank.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gank.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Gank/Pods-Gank.debug.xcconfig"; sourceTree = "<group>"; };
+		BBF349F95A2C7F4277EE5517 /* Pods_Gank.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Gank.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +119,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				58B4672B96870D823E72869C /* Pods_Gank.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -128,6 +140,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0E0B9EBC23FB2AC050EFE4B6 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				92E140CCC03B446F1E0E29B6 /* Pods-Gank.debug.xcconfig */,
+				509DED76A424BF17851C5780 /* Pods-Gank.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		48C3906A1A4216AA1872B259 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BBF349F95A2C7F4277EE5517 /* Pods_Gank.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		600D2B681DF8F1C200D57EA0 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
@@ -155,6 +184,8 @@
 				601CF5CC1DF836B5002AF8D5 /* GankTests */,
 				601CF5D71DF836B5002AF8D5 /* GankUITests */,
 				601CF5B61DF836B4002AF8D5 /* Products */,
+				0E0B9EBC23FB2AC050EFE4B6 /* Pods */,
+				48C3906A1A4216AA1872B259 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -174,6 +205,7 @@
 				601CF5B81DF836B4002AF8D5 /* AppDelegate.swift */,
 				60396BEA1DF83C6A00A23DAA /* AHConfig.swift */,
 				601CF5E81DF8379A002AF8D5 /* AHMainViewController.swift */,
+				60C7F8C71DFA9CB20069E69A /* Gank-Bridging-Header.h */,
 				601CF5BF1DF836B4002AF8D5 /* Assets.xcassets */,
 				601CF5C41DF836B4002AF8D5 /* Info.plist */,
 				60396BE31DF83BE900A23DAA /* Class */,
@@ -250,6 +282,8 @@
 		60396BE81DF83C1E00A23DAA /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				60C7F8CD1DFAC91A0069E69A /* add_button_normal@2x.png */,
+				60C7F8CF1DFAD3FE0069E69A /* add_button_high@2x.png */,
 				60C7F8B91DFA6B4E0069E69A /* find_select@2x.png */,
 				60C7F8BA1DFA6B4E0069E69A /* find@2x.png */,
 				60C7F8BB1DFA6B4E0069E69A /* property_select@2x.png */,
@@ -272,6 +306,7 @@
 				60C7F8B51DFA66D30069E69A /* AHDisplayViewController.swift */,
 				600D2BA21DF8F7A900D57EA0 /* AHLaunchImageView.swift */,
 				608EED151DF9898C00D1984A /* AHTimeButton.swift */,
+				60C7F8D11DFAE05F0069E69A /* AHTitleListView.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -293,9 +328,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 601CF5DD1DF836B5002AF8D5 /* Build configuration list for PBXNativeTarget "Gank" */;
 			buildPhases = (
+				A50A4088763E1BEDCA6AE77F /* [CP] Check Pods Manifest.lock */,
 				601CF5B11DF836B4002AF8D5 /* Sources */,
 				601CF5B21DF836B4002AF8D5 /* Frameworks */,
 				601CF5B31DF836B4002AF8D5 /* Resources */,
+				881FAEB62DC53E6410E512D0 /* [CP] Embed Pods Frameworks */,
+				18F07969716185540C965370 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -356,6 +394,7 @@
 					601CF5B41DF836B4002AF8D5 = {
 						CreatedOnToolsVersion = 8.1;
 						DevelopmentTeam = LSWWVUU45W;
+						LastSwiftMigration = 0810;
 						ProvisioningStyle = Automatic;
 					};
 					601CF5C81DF836B5002AF8D5 = {
@@ -403,7 +442,9 @@
 				60C7F8C21DFA6B4E0069E69A /* tabBar_bgwhiteColor@2x.png in Resources */,
 				60C7F8C01DFA6B4E0069E69A /* property_select@2x.png in Resources */,
 				60C7F8C11DFA6B4E0069E69A /* property@2x.png in Resources */,
+				60C7F8D01DFAD3FE0069E69A /* add_button_high@2x.png in Resources */,
 				60DDC86F1DF8FD88003F1464 /* loading4.png in Resources */,
+				60C7F8CE1DFAC91A0069E69A /* add_button_normal@2x.png in Resources */,
 				601731361DF96FC10069D4C4 /* AHTestViewController.xib in Resources */,
 				60C7F8BE1DFA6B4E0069E69A /* find_select@2x.png in Resources */,
 				60C7F8B81DFA6B390069E69A /* back@2x.png in Resources */,
@@ -430,6 +471,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		18F07969716185540C965370 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Gank/Pods-Gank-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		881FAEB62DC53E6410E512D0 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Gank/Pods-Gank-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A50A4088763E1BEDCA6AE77F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		601CF5B11DF836B4002AF8D5 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -451,6 +540,7 @@
 				601CF5E91DF8379A002AF8D5 /* AHMainViewController.swift in Sources */,
 				600D2B731DF8F33E00D57EA0 /* AHMineViewController.swift in Sources */,
 				600D2BA11DF8F74E00D57EA0 /* AHNetWorkManager.swift in Sources */,
+				60C7F8D21DFAE05F0069E69A /* AHTitleListView.swift in Sources */,
 				600D2B751DF8F35C00D57EA0 /* AHGankViewController.swift in Sources */,
 				600D2B6D1DF8F1C200D57EA0 /* NSObject+Extension.swift in Sources */,
 			);
@@ -506,6 +596,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -528,7 +619,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -555,6 +646,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -571,7 +663,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -581,9 +673,11 @@
 		};
 		601CF5DE1DF836B5002AF8D5 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 92E140CCC03B446F1E0E29B6 /* Pods-Gank.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = LSWWVUU45W;
 				INFOPLIST_FILE = Gank/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -591,21 +685,26 @@
 				PRODUCT_BUNDLE_IDENTIFIER = CoderAhuan.Gank;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				"SWIFT_ACTIVE_COMPILATION_CONDITIONS[arch=*]" = "-D DEBUG";
+				SWIFT_OBJC_BRIDGING_HEADER = "Gank/Gank-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0.1;
 			};
 			name = Debug;
 		};
 		601CF5DF1DF836B5002AF8D5 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 509DED76A424BF17851C5780 /* Pods-Gank.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = LSWWVUU45W;
 				INFOPLIST_FILE = Gank/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = CoderAhuan.Gank;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Gank/Gank-Bridging-Header.h";
 				SWIFT_VERSION = 3.0.1;
 			};
 			name = Release;

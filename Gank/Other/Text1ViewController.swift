@@ -40,5 +40,11 @@ class Text1ViewController: UITableViewController {
         cell.textLabel?.text = "\(title!)---\(indexPath.row)"
         return cell
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let VC = UIViewController()
+        VC.view.backgroundColor = UIColor.white
+        navigationController?.pushViewController(VC, animated: true)
+    }
 }
 

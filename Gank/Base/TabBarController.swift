@@ -16,7 +16,7 @@ class TabBarController: UITabBarController {
         return nav
     }()
     
-    lazy var mine: UINavigationController = {
+    lazy var mineVC: UINavigationController = {
         let mineVC = AHMineViewController()
         let nav = self.setupNav(viewController: mineVC, title: "我的", barItemTitle: "我的", image: "property", selectedImage: "property_select")
         return nav
@@ -46,7 +46,7 @@ class TabBarController: UITabBarController {
     }
     
     fileprivate func setupTabBar() {
-        viewControllers = [gankVC, mine]
+        viewControllers = [gankVC, mineVC]
         tabBar.shadowImage = UIImage()
         tabBar.selectionIndicatorImage = UIImage()
         tabBar.backgroundImage = UIImage(named: "tabBar_bgwhiteColor")

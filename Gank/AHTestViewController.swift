@@ -22,7 +22,7 @@ class AHTestViewController: BaseViewController {
     }
     
     @IBAction func showMainVc() {
-        navigationController?.pushViewController(AHMainViewController(), animated: true)
+        navigationController?.pushViewController(TabBarController(), animated: true)
     }
 
 }
