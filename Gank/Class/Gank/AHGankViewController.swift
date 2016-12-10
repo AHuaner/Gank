@@ -9,24 +9,22 @@
 import UIKit
 
 class AHGankViewController: AHDisplayViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // 设置下滑指示线样式
-        setupUnderLineEffect { (isShowUnderLine, underLineColor, underLineH) in
-            isShowUnderLine = false
-        }
-        
-        // 设置蒙版样式
-        setupCoverViewEffect { (isShowCoverView, coverViewColor, coverViewCornerRadius) in
-            isShowCoverView = true
-        }
-        
-//        addTitleButton.isHidden = true
-        setupChildVcs()
-    }
 
+        setupChildVcs()
+        
+        addTitleButton.addTarget(self, action: #selector(AHGankViewController.addTitleButtonClick(_:)), for: .touchUpInside)
+    }
+    
+    func addTitleButtonClick(_ btn: UIButton) {
+        let VC = AHTurnChannelViewController()
+        self.present(VC, animated: true, completion: {
+            
+        })
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
@@ -56,13 +54,5 @@ class AHGankViewController: AHDisplayViewController {
         let vc6 = Text1ViewController()
         vc6.title = "前端"
         addChildViewController(vc6);
-
-//        let vc7 = Text1ViewController()
-//        vc7.title = "拓展资源"
-//        addChildViewController(vc7);
-//
-//        let vc8 = Text1ViewController()
-//        vc8.title = "前端"
-//        addChildViewController(vc8);
     }
 }

@@ -36,7 +36,7 @@ class AHDisplayViewController: BaseViewController {
     fileprivate var titleFont: UIFont = UIFont.systemFont(ofSize: 13)
     
     /// 标题滚动视图的颜色
-    fileprivate var titleScrollViewColor: UIColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.95)
+    fileprivate var titleScrollViewColor: UIColor = UIColor.white// UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.99)
     
     /// 顶部标题Normal状态下的颜色
     fileprivate var titleBtnNorColor: UIColor = UIColor.gray
@@ -88,7 +88,6 @@ class AHDisplayViewController: BaseViewController {
         titleScrollView.scrollsToTop = false
         titleScrollView.backgroundColor = self.titleScrollViewColor
         titleScrollView.showsHorizontalScrollIndicator = false
-        
         titleScrollView.frame = CGRect(x: 0, y: 0, width: self.contentView.Width, height: self.titleScrollViewH)
         self.contentView.addSubview(titleScrollView)
         return titleScrollView
@@ -97,11 +96,11 @@ class AHDisplayViewController: BaseViewController {
     /// 添加标题滚动视图中标题的按钮
     lazy var addTitleButton: UIButton = {
         let addTitleButton = UIButton()
+        addTitleButton.tag = 10
         addTitleButton.setImage(UIImage(named: "add_button_normal"), for: .normal)
         addTitleButton.setImage(UIImage(named: "add_button_normal"), for: .highlighted)
         addTitleButton.setImage(UIImage(named: "add_button_high"), for: .selected)
         addTitleButton.backgroundColor = UIColor(red: 0.95, green: 0.95, blue: 0.95, alpha: 0.9)
-        addTitleButton.addTarget(self, action: #selector(AHDisplayViewController.addTitleButtonClick(_:)), for: .touchUpInside)
         return addTitleButton
     }()
 
@@ -124,15 +123,6 @@ class AHDisplayViewController: BaseViewController {
         self.contentView.insertSubview(contentScrollView, belowSubview: self.titleScrollView)
         
         return contentScrollView
-    }()
-    
-    lazy var titleListView: AHTitleListView = {
-        let titleListView = AHTitleListView(frame: CGRect(x: 0, y: -(kScreen_H - kNavBarHeight), width: kScreen_W, height: kScreen_H - kNavBarHeight))
-        titleListView.backgroundColor = UIColor.orange
-        titleListView.closeClouse = { [unowned self] in
-            self.tabBarController?.tabBar.Y -= kBottomBarHeight
-        }
-        return titleListView
     }()
 
     /// 下标
@@ -179,8 +169,12 @@ class AHDisplayViewController: BaseViewController {
             isShow = true
         }
     }
+
+}
+
+// MARK: - port methods
+extension AHDisplayViewController {
     
-    // MARK: - port methods
     func setupContentViewFrame(_ setClosure: (_ contentView: inout UIView) -> Void) {
         setClosure(&self.contentView)
         contentViewW = contentView.Width
@@ -201,11 +195,10 @@ class AHDisplayViewController: BaseViewController {
     func setupCoverViewEffect(_ setClosure: (_ isShowCoverView: inout Bool, _ coverViewColor: inout UIColor, _ coverViewCornerRadius: inout CGFloat) -> Void) {
         setClosure(&isShowCoverView, &coverViewColor, &coverViewCornerRadius)
     }
-
 }
 
+// MARK: - private methods
 extension AHDisplayViewController {
-    // MARK: - private methods
     /** 计算标题滚动视图的总宽度, 和每个小标题的宽度 */
     fileprivate func setupTitleWidth() {
         let count = childViewControllers.count
@@ -413,8 +406,10 @@ extension AHDisplayViewController {
         coverView.Width += coverViewWidth;
         coverView.X += coverViewTransformX;
     }
-    
-    // MARK: - event response
+}
+
+// MARK: - event response
+extension AHDisplayViewController {
     /** 标题按钮点击 */
     func titleLabelClick(_ selbtn: UIButton) {
         isTitleClick = true
@@ -430,17 +425,6 @@ extension AHDisplayViewController {
         lastOffsetX = offsetX
         
         isTitleClick = false
-    }
-    
-    func addTitleButtonClick(_ btn: UIButton) {
-        self.view.addSubview(self.titleListView)
-        UIView.animate(withDuration: 0.5, animations: {
-            self.titleListView.Y = kNavBarHeight
-            self.tabBarController?.tabBar.Y += kBottomBarHeight
-            btn.isEnabled = false
-        }, completion: { (_) in
-            btn.isEnabled = true
-        })
     }
 }
 
@@ -493,7 +477,6 @@ extension AHDisplayViewController: UIScrollViewDelegate {
         lastOffsetX = offsetX
     }
 }
-
 
 // MARK: - UICollectionViewDataSource
 extension AHDisplayViewController: UICollectionViewDataSource, UICollectionViewDelegate {

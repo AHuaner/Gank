@@ -42,9 +42,12 @@ class Text1ViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let VC = UIViewController()
-        VC.view.backgroundColor = UIColor.white
+        let VC = AHTurnChannelViewController()
         navigationController?.pushViewController(VC, animated: true)
+    }
+    
+    deinit {
+        AHLog("---dealloc---\(type(of: self))")
     }
 }
 
