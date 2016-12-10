@@ -89,14 +89,12 @@ class AHDisplayViewController: BaseViewController {
         titleScrollView.backgroundColor = self.titleScrollViewColor
         titleScrollView.showsHorizontalScrollIndicator = false
         titleScrollView.frame = CGRect(x: 0, y: 0, width: self.contentView.Width, height: self.titleScrollViewH)
-        self.contentView.addSubview(titleScrollView)
         return titleScrollView
     }()
     
     /// 添加标题滚动视图中标题的按钮
     lazy var addTitleButton: UIButton = {
         let addTitleButton = UIButton()
-        addTitleButton.tag = 10
         addTitleButton.setImage(UIImage(named: "add_button_normal"), for: .normal)
         addTitleButton.setImage(UIImage(named: "add_button_normal"), for: .highlighted)
         addTitleButton.setImage(UIImage(named: "add_button_high"), for: .selected)
@@ -105,10 +103,11 @@ class AHDisplayViewController: BaseViewController {
     }()
 
     /// 内容滚动视图
-    fileprivate lazy var contentScrollView: UICollectionView = {
+    lazy var contentScrollView: UICollectionView = {
         let layout = AHFlowLayout()
         
         let contentScrollView = UICollectionView(frame: self.contentView.bounds, collectionViewLayout: layout)
+        
         // 设置内容滚动视图
         contentScrollView.isPagingEnabled = true;
         contentScrollView.showsHorizontalScrollIndicator = false;
@@ -120,7 +119,6 @@ class AHDisplayViewController: BaseViewController {
         contentScrollView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: ReusecellID)
         
         contentScrollView.backgroundColor = self.view.backgroundColor;
-        self.contentView.insertSubview(contentScrollView, belowSubview: self.titleScrollView)
         
         return contentScrollView
     }()
@@ -129,7 +127,7 @@ class AHDisplayViewController: BaseViewController {
     fileprivate lazy var underLine: UIView = {
         let underLine = UIView()
         underLine.backgroundColor = self.underLineColor
-        self.titleScrollView.addSubview(underLine)
+//        self.titleScrollView.addSubview(underLine)
         return underLine
     }()
     
@@ -137,7 +135,7 @@ class AHDisplayViewController: BaseViewController {
     fileprivate lazy var coverView: UIView = {
         let coverView = UIView()
         coverView.backgroundColor = self.coverViewColor
-        self.titleScrollView.insertSubview(coverView, at: 0)
+//        self.titleScrollView.insertSubview(coverView, at: 0)
         return coverView
     }()
     
@@ -200,7 +198,8 @@ extension AHDisplayViewController {
 // MARK: - private methods
 extension AHDisplayViewController {
     /** 计算标题滚动视图的总宽度, 和每个小标题的宽度 */
-    fileprivate func setupTitleWidth() {
+    func setupTitleWidth() {
+        titleWidths.removeAll()
         let count = childViewControllers.count
         var totalWidth: CGFloat = 0
         for childVc in childViewControllers {
@@ -228,7 +227,11 @@ extension AHDisplayViewController {
     }
     
     /** 设置标题滚动视图中的所有标题 */
-    fileprivate func setupAllTitle() {
+    func setupAllTitle() {
+        titleButtons.removeAll()
+        titleScrollView.subviews.forEach({ subview in
+            subview.removeFromSuperview()
+        })
         let count = childViewControllers.count
         var BtnX: CGFloat = 0.0
         let BtnY: CGFloat = 0.0
@@ -266,10 +269,14 @@ extension AHDisplayViewController {
         }
         
         titleScrollView.contentSize = CGSize(width: lastBtn.MaxX + titleMargin + (addTitleButton.isHidden ? 0 : addTitleButtonWidth), height: 0)
-        
         contentScrollView.contentSize = CGSize(width: contentViewW * CGFloat(count), height: 0)
         
+        contentView.addSubview(contentScrollView)
+        contentView.insertSubview(titleScrollView, aboveSubview: contentScrollView)
         contentView.insertSubview(addTitleButton, aboveSubview: titleScrollView)
+        
+        titleScrollView.insertSubview(coverView, at: 0)
+        titleScrollView.insertSubview(underLine, at: 0)
         
         addTitleButton.frame = CGRect(x: self.contentViewW - addTitleButtonWidth, y: 0, width: addTitleButtonWidth, height: self.titleScrollViewH)
     }
