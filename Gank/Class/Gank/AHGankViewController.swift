@@ -19,8 +19,19 @@ class AHGankViewController: AHDisplayViewController {
     }
     
     func addTitleButtonClick(_ btn: UIButton) {
-        let VC = AHTurnChannelViewController()
-        self.present(VC, animated: true, completion: {
+//        self.childViewControllers[0].removeFromParentViewController()
+        let turnVC = AHTurnChannelViewController()
+
+//        turnVC.turnChannelClouse = { [unowned self] in
+//            let vc7 = Text1ViewController()
+//            vc7.title = "新增"
+//            self.addChildViewController(vc7);
+//            self.setupTitleWidth()
+//            self.setupAllTitle()
+//            self.contentScrollView.reloadData()
+//        }
+        
+        self.present(turnVC, animated: true, completion: {
             
         })
     }

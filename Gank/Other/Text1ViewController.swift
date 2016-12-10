@@ -47,7 +47,7 @@ class Text1ViewController: UITableViewController {
     }
     
     deinit {
-        AHLog("---dealloc---\(type(of: self))")
+        AHLog("---dealloc---\(type(of: self))---\(self.title!)")
     }
 }
 
