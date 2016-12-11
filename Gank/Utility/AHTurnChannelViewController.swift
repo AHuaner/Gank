@@ -20,18 +20,28 @@ class AHTurnChannelViewController: BaseViewController {
         let btnH: CGFloat = 35.0
         let margin: CGFloat = 0.0
         let btnF = CGRect(x: kScreen_W - btnW - margin, y: 30, width: btnW, height: btnH)
-        closeBtn.setImage(UIImage(named: "add_button_high"), for: .normal)
+        closeBtn.setImage(UIImage(named: "close2_button"), for: .normal)
         closeBtn.frame = btnF
         closeBtn.addTarget(self, action: #selector(AHTurnChannelViewController.close), for: .touchUpInside)
         return closeBtn
     }()
     
     lazy var listView: AHListView = {
-        // 福利 | Android | iOS | 休息视频 | 拓展资源 | 前端
         let listView = AHListView(frame: CGRect(x: 0, y: 80, width: kScreen_W, height: 0))
         listView.addTags(titles: self.tagsTitleArray)
-        listView.backgroundColor = UIColorMainBG
+        listView.listViewMoveTagClouse = { [unowned self] title in
+            self.moreListView.addTag(tagTitle: title)
+        }
         return listView
+    }()
+    
+    lazy var moreListView: AHMoreListView = {
+        let moreListView = AHMoreListView(frame: CGRect(x: 0, y: self.listView.MaxY, width: kScreen_W, height: 0))
+        moreListView.addTags(titles: self.tagsTitleArray)
+        moreListView.listViewAddTagClouse = { [unowned self]  title in
+            self.listView.addTag(tagTitle: title)
+        }
+        return moreListView
     }()
     
     override func viewDidLoad() {
@@ -39,6 +49,9 @@ class AHTurnChannelViewController: BaseViewController {
         self.title = "频道"
         view.backgroundColor = UIColorMainBG
         view.addSubview(closeBtn)
+        // 先添加moreListView, 再添加listView
+        // 确保listView上的btn移动时, 不会被moreListView遮挡
+        view.addSubview(moreListView)
         view.addSubview(listView)
     }
 
@@ -56,12 +69,10 @@ class AHTurnChannelViewController: BaseViewController {
         })
     }
     
-//    func complete(btn: UIButton) {
-//        btn.isSelected = !btn.isSelected
-//        if btn.isSelected { // ListView进入编辑模式
-//            listView.startEditModel()
-//        } else { // ListView退出编辑模式
-//            listView.completeChange()
-//        }
-//    }
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        UIView.animate(withDuration: 0.25, animations: {
+           self.moreListView.Y = self.listView.MaxY
+        })
+    }
 }

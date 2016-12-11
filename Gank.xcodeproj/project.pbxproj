@@ -29,6 +29,8 @@
 		601CF5D91DF836B5002AF8D5 /* GankUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 601CF5D81DF836B5002AF8D5 /* GankUITests.swift */; };
 		601CF5E91DF8379A002AF8D5 /* AHMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 601CF5E81DF8379A002AF8D5 /* AHMainViewController.swift */; };
 		60396BEB1DF83C6A00A23DAA /* AHConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60396BEA1DF83C6A00A23DAA /* AHConfig.swift */; };
+		606B1E281DFD6DF800BD86E2 /* AHMoreListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 606B1E271DFD6DF800BD86E2 /* AHMoreListView.swift */; };
+		606B1E2A1DFD7DFD00BD86E2 /* close_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 606B1E291DFD7DFD00BD86E2 /* close_button@2x.png */; };
 		608EED141DF9864700D1984A /* adver.png in Resources */ = {isa = PBXBuildFile; fileRef = 608EED131DF9864700D1984A /* adver.png */; };
 		608EED161DF9898C00D1984A /* AHTimeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 608EED151DF9898C00D1984A /* AHTimeButton.swift */; };
 		60C7F8B61DFA66D30069E69A /* AHDisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C7F8B51DFA66D30069E69A /* AHDisplayViewController.swift */; };
@@ -40,7 +42,7 @@
 		60C7F8C21DFA6B4E0069E69A /* tabBar_bgwhiteColor@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60C7F8BD1DFA6B4E0069E69A /* tabBar_bgwhiteColor@2x.png */; };
 		60C7F8C61DFA6DD30069E69A /* Text1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C7F8C51DFA6DD30069E69A /* Text1ViewController.swift */; };
 		60C7F8CE1DFAC91A0069E69A /* add_button_normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60C7F8CD1DFAC91A0069E69A /* add_button_normal@2x.png */; };
-		60C7F8D01DFAD3FE0069E69A /* add_button_high@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60C7F8CF1DFAD3FE0069E69A /* add_button_high@2x.png */; };
+		60C7F8D01DFAD3FE0069E69A /* close2_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60C7F8CF1DFAD3FE0069E69A /* close2_button@2x.png */; };
 		60C7F8D41DFB0D2A0069E69A /* AHTurnChannelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C7F8D31DFB0D2A0069E69A /* AHTurnChannelViewController.swift */; };
 		60DDC86C1DF8FD88003F1464 /* loading1.png in Resources */ = {isa = PBXBuildFile; fileRef = 60DDC8671DF8FD88003F1464 /* loading1.png */; };
 		60DDC86D1DF8FD88003F1464 /* loading2.png in Resources */ = {isa = PBXBuildFile; fileRef = 60DDC8681DF8FD88003F1464 /* loading2.png */; };
@@ -95,6 +97,8 @@
 		601CF5DA1DF836B5002AF8D5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		601CF5E81DF8379A002AF8D5 /* AHMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHMainViewController.swift; sourceTree = "<group>"; };
 		60396BEA1DF83C6A00A23DAA /* AHConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHConfig.swift; sourceTree = "<group>"; };
+		606B1E271DFD6DF800BD86E2 /* AHMoreListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHMoreListView.swift; sourceTree = "<group>"; };
+		606B1E291DFD7DFD00BD86E2 /* close_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "close_button@2x.png"; sourceTree = "<group>"; };
 		608EED131DF9864700D1984A /* adver.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = adver.png; sourceTree = "<group>"; };
 		608EED151DF9898C00D1984A /* AHTimeButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHTimeButton.swift; sourceTree = "<group>"; };
 		60C7F8B51DFA66D30069E69A /* AHDisplayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHDisplayViewController.swift; sourceTree = "<group>"; };
@@ -107,7 +111,7 @@
 		60C7F8C51DFA6DD30069E69A /* Text1ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Text1ViewController.swift; sourceTree = "<group>"; };
 		60C7F8C71DFA9CB20069E69A /* Gank-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Gank-Bridging-Header.h"; sourceTree = "<group>"; };
 		60C7F8CD1DFAC91A0069E69A /* add_button_normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "add_button_normal@2x.png"; sourceTree = "<group>"; };
-		60C7F8CF1DFAD3FE0069E69A /* add_button_high@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "add_button_high@2x.png"; sourceTree = "<group>"; };
+		60C7F8CF1DFAD3FE0069E69A /* close2_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "close2_button@2x.png"; sourceTree = "<group>"; };
 		60C7F8D31DFB0D2A0069E69A /* AHTurnChannelViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHTurnChannelViewController.swift; sourceTree = "<group>"; };
 		60DDC8671DF8FD88003F1464 /* loading1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loading1.png; sourceTree = "<group>"; };
 		60DDC8681DF8FD88003F1464 /* loading2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loading2.png; sourceTree = "<group>"; };
@@ -286,8 +290,9 @@
 		60396BE81DF83C1E00A23DAA /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				606B1E291DFD7DFD00BD86E2 /* close_button@2x.png */,
 				60C7F8CD1DFAC91A0069E69A /* add_button_normal@2x.png */,
-				60C7F8CF1DFAD3FE0069E69A /* add_button_high@2x.png */,
+				60C7F8CF1DFAD3FE0069E69A /* close2_button@2x.png */,
 				60C7F8B91DFA6B4E0069E69A /* find_select@2x.png */,
 				60C7F8BA1DFA6B4E0069E69A /* find@2x.png */,
 				60C7F8BB1DFA6B4E0069E69A /* property_select@2x.png */,
@@ -313,6 +318,7 @@
 				60C7F8D31DFB0D2A0069E69A /* AHTurnChannelViewController.swift */,
 				60028DAE1DFC0CAA002F2AFE /* AHTagBtn.swift */,
 				60028DB01DFC1C86002F2AFE /* AHListView.swift */,
+				606B1E271DFD6DF800BD86E2 /* AHMoreListView.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -448,7 +454,7 @@
 				60C7F8C21DFA6B4E0069E69A /* tabBar_bgwhiteColor@2x.png in Resources */,
 				60C7F8C01DFA6B4E0069E69A /* property_select@2x.png in Resources */,
 				60C7F8C11DFA6B4E0069E69A /* property@2x.png in Resources */,
-				60C7F8D01DFAD3FE0069E69A /* add_button_high@2x.png in Resources */,
+				60C7F8D01DFAD3FE0069E69A /* close2_button@2x.png in Resources */,
 				60DDC86F1DF8FD88003F1464 /* loading4.png in Resources */,
 				60C7F8CE1DFAC91A0069E69A /* add_button_normal@2x.png in Resources */,
 				601731361DF96FC10069D4C4 /* AHTestViewController.xib in Resources */,
@@ -458,6 +464,7 @@
 				608EED141DF9864700D1984A /* adver.png in Resources */,
 				60DDC86D1DF8FD88003F1464 /* loading2.png in Resources */,
 				60C7F8BF1DFA6B4E0069E69A /* find@2x.png in Resources */,
+				606B1E2A1DFD7DFD00BD86E2 /* close_button@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -546,6 +553,7 @@
 				601CF5B91DF836B4002AF8D5 /* AppDelegate.swift in Sources */,
 				60C7F8B61DFA66D30069E69A /* AHDisplayViewController.swift in Sources */,
 				601CF5E91DF8379A002AF8D5 /* AHMainViewController.swift in Sources */,
+				606B1E281DFD6DF800BD86E2 /* AHMoreListView.swift in Sources */,
 				600D2B731DF8F33E00D57EA0 /* AHMineViewController.swift in Sources */,
 				600D2BA11DF8F74E00D57EA0 /* AHNetWorkManager.swift in Sources */,
 				600D2B751DF8F35C00D57EA0 /* AHGankViewController.swift in Sources */,

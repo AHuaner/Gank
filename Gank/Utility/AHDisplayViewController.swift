@@ -96,8 +96,6 @@ class AHDisplayViewController: BaseViewController {
     lazy var addTitleButton: UIButton = {
         let addTitleButton = UIButton()
         addTitleButton.setImage(UIImage(named: "add_button_normal"), for: .normal)
-        addTitleButton.setImage(UIImage(named: "add_button_normal"), for: .highlighted)
-        addTitleButton.setImage(UIImage(named: "add_button_high"), for: .selected)
         addTitleButton.backgroundColor = UIColor(red: 0.95, green: 0.95, blue: 0.95, alpha: 0.9)
         return addTitleButton
     }()

@@ -19,6 +19,8 @@ class AHListView: UIView {
     /// 编辑完成的回调
     var completeClouse: (([String]) -> Void)?
     
+    var listViewMoveTagClouse: ((String) -> Void)?
+    
     /// 存放所有的btn
     fileprivate lazy var tagArray: [AHTagBtn] = {
         let tagArray = [AHTagBtn]()
@@ -90,8 +92,11 @@ extension AHListView {
         let tagBtn = AHTagBtn()
         tagBtn.tag = tagArray.count
         tagBtn.setTitle(tagTitle, for: .normal)
-        tagBtn.addTarget(self, action: #selector(AHListView.deleteBtnAction(btn:)), for: .touchUpInside)
+        if isEditModel {
+            tagBtn.setImage(UIImage(named: "close2_button"), for: .normal)
+        }
         
+        tagBtn.addTarget(self, action: #selector(AHListView.deleteBtnAction(btn:)), for: .touchUpInside)
         let longPress = UILongPressGestureRecognizer(target: self, action: #selector(AHListView.longPressAction(longPress:)))
         tagBtn.addGestureRecognizer(longPress)
         let pan = UIPanGestureRecognizer(target: self, action: #selector(AHListView.panAction(pan:)))
@@ -157,9 +162,11 @@ extension AHListView {
         if pan.state == .began {
             oriCenter = tagBtn.center
             UIView.animate(withDuration: 0.25, animations: {
-                tagBtn.alpha = 0.9
+                tagBtn.alpha = 0.8
             })
-            // addSubview(tagBtn)
+            // 把当前的tagBtn置于view的最上层
+            // 不会被后面的tagBtn遮挡
+            addSubview(tagBtn)
         }
         
         tagBtn.center.x += transPoint.x
@@ -222,8 +229,14 @@ extension AHListView {
         if !isEditModel {
             return
         }
-        AHLog("删除---\(btn.titleLabel!.text!)")
+        guard let title = btn.titleLabel?.text else {
+            return
+        }
+        
         deleteTags(btn: btn)
+        if listViewMoveTagClouse != nil {
+            listViewMoveTagClouse!(title)
+        }
     }
     
     func completeAction(btn: UIButton) {
@@ -257,7 +270,7 @@ extension AHListView {
     fileprivate func startEditModel() {
         isEditModel = true
         for btn in tagArray {
-            btn.setImage(UIImage(named: "add_button_high"), for: .normal)
+            btn.setImage(UIImage(named: "close2_button"), for: .normal)
         }
         completeBtn.isSelected = true
         infoButton.isSelected = true
@@ -303,7 +316,7 @@ extension AHListView {
         let col = index % listCols
         let row = index / listCols
         let btnW = (Width - 5 * margin) / CGFloat(listCols)
-        let btnH = btnW * 0.5
+        let btnH = btnW * 0.45
         let btnX = margin + CGFloat(col) * (btnW + margin)
         let btnY = 30 + margin + CGFloat(row) * (btnH + margin)
         btn.frame = CGRect(x: btnX, y: btnY, width: btnW, height: btnH)
