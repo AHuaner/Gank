@@ -41,7 +41,6 @@ class AHTagBtn: UIButton {
         titleLabel?.font = FontSize(size: 13)
         titleLabel?.adjustsFontSizeToFitWidth = true
         imageView?.isHighlighted = true
-        setImage(UIImage(named: "add_button_high"), for: .normal)
     }
     
     func longPanAction() {

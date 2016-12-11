@@ -23,20 +23,38 @@ class AHTurnChannelViewController: BaseViewController {
         return closeBtn
     }()
     
+    lazy var completeBtn: UIButton = {
+        let completeBtn = UIButton()
+        let btnW: CGFloat = 40.0
+        let btnH: CGFloat = 35.0
+        let margin: CGFloat = 0.0
+        let btnF = CGRect(x: kScreen_W - btnW - margin - btnW - margin, y: 30, width: btnW, height: btnH)
+        completeBtn.setTitle("编辑", for: .normal)
+        completeBtn.setTitle("完成", for: .selected)
+        completeBtn.frame = btnF
+        completeBtn.addTarget(self, action: #selector(AHTurnChannelViewController.complete(btn:)), for: .touchUpInside)
+        return completeBtn
+    }()
+    
     lazy var listView: AHListView = {
         // 福利 | Android | iOS | 休息视频 | 拓展资源 | 前端
         let listView = AHListView(frame: CGRect(x: 0, y: 80, width: kScreen_W, height: 0))
         listView.addTags(titles: ["福利", "Android", "iOS", "休息视频", "拓展资源", "前端"])
         listView.backgroundColor = UIColor.red
+        
+        listView.startEditClouse = { [unowned self] in
+            self.completeBtn.isSelected = true
+        }
+        
         return listView
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "频道"
-        view.backgroundColor = UIColor.orange
+        view.backgroundColor = MainBGColor
         view.addSubview(closeBtn)
-        
+        view.addSubview(completeBtn)
         view.addSubview(listView)
     }
 
@@ -52,5 +70,14 @@ class AHTurnChannelViewController: BaseViewController {
         self.dismiss(animated: true, completion: {
             
         })
+    }
+    
+    func complete(btn: UIButton) {
+        btn.isSelected = !btn.isSelected
+        if btn.isSelected { // ListView进入编剧模式
+            listView.startEditModel()
+        } else { // ListView退出编剧模式
+            listView.completeChange()
+        }
     }
 }
