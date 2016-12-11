@@ -49,7 +49,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        let rootVC = AHTestViewController()
 //        let nav = UINavigationController(rootViewController: rootVC)
         window = UIWindow(frame: UIScreen.main.bounds)
-        window?.backgroundColor = MainBGColor
+        window?.backgroundColor = UIColorMainBG
         window?.rootViewController = rootVC
         window?.makeKeyAndVisible()
     }

@@ -10,7 +10,7 @@ import UIKit
 
 class AHTagBtn: UIButton {
     
-    let margin: CGFloat = 10
+    fileprivate let margin: CGFloat = 10
     
     override func layoutSubviews() {
         super.layoutSubviews()
@@ -19,7 +19,7 @@ class AHTagBtn: UIButton {
         let btnH = self.frame.size.height
         titleLabel?.frame = CGRect(x: margin, y: margin, width: btnW - 2 * margin, height: btnH - margin * 2)
         
-        imageView?.frame = CGRect(x: 2, y: 2, width: 12, height: 12)
+        imageView?.frame = CGRect(x: 2, y: 2, width: 10, height: 10)
     }
     
     override init(frame: CGRect) {
@@ -33,10 +33,12 @@ class AHTagBtn: UIButton {
     
     fileprivate func setup() {
         layer.cornerRadius = 5
-        backgroundColor = UIColor.white
+        layer.borderWidth = 1
+        layer.borderColor = RGBColor(230.0, g: 230.0, b: 230.0, alpha: 1).cgColor
+        backgroundColor = RGBColor(250.0, g: 250.0, b: 250.0, alpha: 1)
         adjustsImageWhenHighlighted = false
-        setTitleColor(UIColor.gray, for: .normal)
-        setTitleColor(UIColor.blue, for: .selected)
+        setTitleColor(UIColorTextGray, for: .normal)
+        setTitleColor(UIColorTextBlue, for: .selected)
         titleLabel?.textAlignment = .center
         titleLabel?.font = FontSize(size: 13)
         titleLabel?.adjustsFontSizeToFitWidth = true

@@ -16,10 +16,10 @@ let kScreen_Scale = UIScreen.main.scale
 
 let kWindow = UIApplication.shared.delegate!.window
 
-let kStatusBarHeight:CGFloat = 20.0
-let kTopBarHeight:CGFloat = 44.0
-let kNavBarHeight:CGFloat = 64.0
-let kBottomBarHeight:CGFloat = 49.0
+let kStatusBarHeight: CGFloat = 20.0
+let kTopBarHeight: CGFloat = 44.0
+let kNavBarHeight: CGFloat = 64.0
+let kBottomBarHeight: CGFloat = 49.0
 
 let iPhone4_Width = 320.0
 let iPhone4_Height = 480.0
@@ -30,7 +30,11 @@ let iPhone6_Height = 667.0
 let iPhone6Plus_Width = 414.0
 let iPhone6Plus_Height = 736.0
 
-let MainBGColor = RGBColor(240.0, g: 240.0, b: 240.0, alpha: 1.0)
+let UIColorMainBG = RGBColor(240.0, g: 240.0, b: 240.0, alpha: 1.0)
+
+let UIColorTextGray = RGBColor(153.0, g: 153.0, b: 153.0, alpha: 1.0)
+
+let UIColorTextBlue = RGBColor(43.0, g: 174.0, b: 249.0, alpha: 1.0)
 
 class AHConfig {
     //MARK: 通知通用字段

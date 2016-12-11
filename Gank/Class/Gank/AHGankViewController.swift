@@ -10,6 +10,8 @@ import UIKit
 
 class AHGankViewController: AHDisplayViewController {
     
+    fileprivate var childVCtitles: [String] = [String]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -21,6 +23,7 @@ class AHGankViewController: AHDisplayViewController {
     func addTitleButtonClick(_ btn: UIButton) {
 //        self.childViewControllers[0].removeFromParentViewController()
         let turnVC = AHTurnChannelViewController()
+        turnVC.tagsTitleArray = childVCtitles
 
 //        turnVC.turnChannelClouse = { [unowned self] in
 //            let vc7 = Text1ViewController()
@@ -45,25 +48,31 @@ class AHGankViewController: AHDisplayViewController {
         let vc1 = Text1ViewController()
         vc1.title = "福利"
         addChildViewController(vc1);
+        childVCtitles.append(vc1.title!)
         
         let vc2 = Text1ViewController()
         vc2.title = "Android"
         addChildViewController(vc2);
+        childVCtitles.append(vc2.title!)
 
         let vc3 = Text1ViewController()
         vc3.title = "iOS"
         addChildViewController(vc3);
+        childVCtitles.append(vc3.title!)
 
         let vc4 = Text1ViewController()
         vc4.title = "休息视频"
         addChildViewController(vc4);
+        childVCtitles.append(vc4.title!)
 
         let vc5 = Text1ViewController()
         vc5.title = "拓展资源"
         addChildViewController(vc5);
+        childVCtitles.append(vc5.title!)
 
         let vc6 = Text1ViewController()
         vc6.title = "前端"
         addChildViewController(vc6);
+        childVCtitles.append(vc6.title!)
     }
 }

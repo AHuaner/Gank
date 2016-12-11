@@ -22,7 +22,7 @@ class AHLaunchImageView: UIImageView {
     }
     
     fileprivate func setupUI() {
-        backgroundColor = MainBGColor
+        backgroundColor = UIColorMainBG
         image = UIImage(named: "adver.png")
         isUserInteractionEnabled = true
     }

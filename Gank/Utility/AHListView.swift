@@ -10,49 +10,87 @@ import UIKit
 
 class AHListView: UIView {
     
-    /// 存放所有的btn
-    lazy var tagArray: [AHTagBtn] = {
-        let tagArray = [AHTagBtn]()
-        return tagArray
-    }()
-    
     /// 存放所有的btn的标题
     lazy var tagTitleArray: [String] = {
         let tagTitleArray = [String]()
         return tagTitleArray
     }()
     
-    /// 一共有多少列
-    let listCols: Int = 4
-    
-    let margin: CGFloat = 15.0
-    
-    var moveFinalRect: CGRect = CGRect.zero
-    
-    var oriCenter: CGPoint = CGPoint.zero
-    
-    /// 编辑模式
-    var isEditModel: Bool = false
-    
-    /// 整体的高度
-    var ListViewH: CGFloat {
-        get {
-            return tagArray.count <= 0 ? 0.0 : ((tagArray.last?.MaxY)! + margin)
-        }
-    }
-    
-    /// 进入编辑模式的回调
-    var startEditClouse: (() -> Void)?
-    
     /// 编辑完成的回调
     var completeClouse: (([String]) -> Void)?
     
-    /// 添加便签
+    /// 存放所有的btn
+    fileprivate lazy var tagArray: [AHTagBtn] = {
+        let tagArray = [AHTagBtn]()
+        return tagArray
+    }()
+    
+    fileprivate lazy var infoButton: UIButton = {
+        let infoButton = UIButton()
+        infoButton.titleLabel?.textAlignment = .left
+        infoButton.setTitle("切换频道", for: .normal)
+        infoButton.setTitle("拖动排序", for: .selected)
+        infoButton.setTitleColor(UIColorTextGray, for: .normal)
+        infoButton.frame = CGRect(x: 5, y: 0, width: 60, height: 35)
+        infoButton.titleLabel?.font = FontSize(size: 13)
+        return infoButton
+    }()
+    
+    fileprivate lazy var completeBtn: UIButton = {
+        let completeBtn = UIButton()
+        completeBtn.titleLabel?.textAlignment = .right
+        completeBtn.setTitle("编辑", for: .normal)
+        completeBtn.setTitle("完成", for: .selected)
+        completeBtn.setTitleColor(UIColorTextGray, for: .normal)
+        completeBtn.setTitleColor(UIColorTextBlue, for: .selected)
+        completeBtn.frame = CGRect(x: kScreen_W - 40.0 - 5.0, y: 0, width: 40.0, height: 35)
+        completeBtn.titleLabel?.font = FontSize(size: 13)
+        completeBtn.addTarget(self, action: #selector(AHListView.completeAction(btn:)), for: .touchUpInside)
+        return completeBtn
+    }()
+    
+    /// 一共有多少列
+    fileprivate let listCols: Int = 4
+    
+    fileprivate let margin: CGFloat = 10.0
+    
+    fileprivate var moveFinalRect: CGRect = CGRect.zero
+    
+    fileprivate var oriCenter: CGPoint = CGPoint.zero
+    
+    /// 编辑模式
+    fileprivate var isEditModel: Bool = false
+    
+    /// 整体的高度
+    fileprivate var ListViewH: CGFloat {
+        get {
+            return (tagArray.count <= 0 ? 30.0 : ((tagArray.last?.MaxY)! + margin))
+        }
+    }
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setupUI()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    fileprivate func setupUI() {
+        addSubview(infoButton)
+        addSubview(completeBtn)
+    }
+}
+
+// MARK: - prot methods
+extension AHListView {
+    /// 添加标签
     func addTag(tagTitle: String) {
         let tagBtn = AHTagBtn()
         tagBtn.tag = tagArray.count
         tagBtn.setTitle(tagTitle, for: .normal)
-        tagBtn.addTarget(self, action: #selector(AHListView.deleteBtnEven(btn:)), for: .touchUpInside)
+        tagBtn.addTarget(self, action: #selector(AHListView.deleteBtnAction(btn:)), for: .touchUpInside)
         
         let longPress = UILongPressGestureRecognizer(target: self, action: #selector(AHListView.longPressAction(longPress:)))
         tagBtn.addGestureRecognizer(longPress)
@@ -70,7 +108,7 @@ class AHListView: UIView {
         })
     }
     
-    /// 删除便签
+    /// 删除标签
     func deleteTags(btn: AHTagBtn) {
         btn.removeFromSuperview()
         
@@ -89,45 +127,20 @@ class AHListView: UIView {
         })
     }
     
+    /// 添加多个标签
     func addTags(titles: [String]) {
         for title in titles {
             addTag(tagTitle: title)
         }
     }
-    
-    func completeChange() {
-        // 退出编辑模式
-        isEditModel = false
-        for btn in tagArray {
-            btn.setImage(UIImage(), for: .normal)
-        }
-    }
-    
+}
+
+// MARK: - event response
+extension AHListView {
     func longPressAction(longPress: UILongPressGestureRecognizer) {
         if longPress.state == .began {
             startEditModel()
         }
-    }
-    
-    // 开启编辑模式
-    func startEditModel() {
-        isEditModel = true
-        
-        if startEditClouse != nil {
-            startEditClouse!()
-        }
-        
-        for btn in tagArray {
-            btn.setImage(UIImage(named: "add_button_high"), for: .normal)
-        }
-    }
-    
-    func deleteBtnEven(btn: AHTagBtn) {
-        if !isEditModel {
-            return
-        }
-        AHLog("删除---\(btn.titleLabel!.text!)")
-        deleteTags(btn: btn)
     }
     
     func panAction(pan: UIPanGestureRecognizer) {
@@ -205,6 +218,51 @@ class AHListView: UIView {
         pan.setTranslation(CGPoint.zero, in: self)
     }
     
+    func deleteBtnAction(btn: AHTagBtn) {
+        if !isEditModel {
+            return
+        }
+        AHLog("删除---\(btn.titleLabel!.text!)")
+        deleteTags(btn: btn)
+    }
+    
+    func completeAction(btn: UIButton) {
+        btn.isSelected = !btn.isSelected
+        infoButton.isSelected = !infoButton.isSelected
+        if btn.isSelected { // 进入编辑模式
+            startEditModel()
+        } else { // 退出编辑模式
+            completeChange()
+        }
+    }
+
+}
+
+// MARK: - private methods
+extension AHListView {
+    // 编辑完成
+    fileprivate func completeChange() {
+        // 退出编辑模式
+        isEditModel = false
+        for btn in tagArray {
+            btn.setImage(UIImage(), for: .normal)
+            tagTitleArray.append(btn.titleLabel!.text!)
+        }
+        if completeClouse != nil {
+            completeClouse!(tagTitleArray)
+        }
+    }
+    
+    /// 开启编辑模式
+    fileprivate func startEditModel() {
+        isEditModel = true
+        for btn in tagArray {
+            btn.setImage(UIImage(named: "add_button_high"), for: .normal)
+        }
+        completeBtn.isSelected = true
+        infoButton.isSelected = true
+    }
+    
     fileprivate func getBtnCenterInButtons(curBtn: AHTagBtn) -> AHTagBtn? {
         for btn in tagArray {
             if curBtn == btn {
@@ -218,21 +276,21 @@ class AHListView: UIView {
     }
     
     // 跟新按钮的tag
-    func updateTag() {
+    fileprivate func updateTag() {
         for i in 0..<tagArray.count {
             let btn = tagArray[i]
             btn.tag = i
         }
     }
     
-    // 更新以后按钮
+    // 更新以后按钮frame
     fileprivate func updateLaterTagButtonFrame(laterIndex: Int) {
         for i in laterIndex..<tagArray.count {
             updateTagBtnFrame(btn: tagArray[i])
         }
     }
     
-    // 更新之前按钮
+    // 更新之前按钮frame
     fileprivate func updateBeforeTagButtonFrame(beforeIndex: Int) {
         for i in 0..<beforeIndex {
             updateTagBtnFrame(btn: tagArray[i])
@@ -244,10 +302,10 @@ class AHListView: UIView {
         let index = btn.tag
         let col = index % listCols
         let row = index / listCols
-        let btnW = Width / CGFloat(listCols + 1)
-        let btnH = btnW * 0.6
+        let btnW = (Width - 5 * margin) / CGFloat(listCols)
+        let btnH = btnW * 0.5
         let btnX = margin + CGFloat(col) * (btnW + margin)
-        let btnY = margin + CGFloat(row) * (btnH + margin)
+        let btnY = 30 + margin + CGFloat(row) * (btnH + margin)
         btn.frame = CGRect(x: btnX, y: btnY, width: btnW, height: btnH)
     }
 }
