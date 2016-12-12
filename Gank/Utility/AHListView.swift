@@ -263,7 +263,6 @@ extension AHListView {
                 }
             }
         }
-        tagArray.removeAll()
     }
     
     /// 开启编辑模式
