@@ -53,29 +53,42 @@ func AHLog<T>(_ message: T, fileName: String = #file, methodName: String = #func
     #endif
 }
 
-//class SwiftTimer {
-//    
-//    private let internalTimer: DispatchSourceTimer
-//    
-//    init(interval: DispatchTimeInterval, repeats: Bool = false, queue: DispatchQueue = .main , handler: () -> Void) {
-//        
-//        internalTimer = DispatchSource.makeTimerSource(queue: queue)
-//        internalTimer.setEventHandler(handler: handler)
-//        if repeats {
-//            internalTimer.scheduleRepeating(deadline: .now() + interval, interval: interval)
-//        } else {
-//            internalTimer.scheduleOneshot(deadline: .now() + interval)
-//        }
-//    }
-//    
-//    deinit {
-//        //事实上，不需要手动cancel. DispatchSourceTimer在销毁时也会自动cancel。
-//        internalTimer.cancel()
-//    }
-//    
-//    func rescheduleRepeating(interval: DispatchTimeInterval) {
-//        internalTimer.scheduleRepeating(deadline: .now() + interval, interval: interval)
-//    }
-//    
-//}
+//获取正确的删除索引
+func getRemoveIndex<T: Equatable>(value: T, array: [T]) -> [Int]{
+    
+    var indexArray = [Int]()
+    var correctArray = [Int]()
+    
+    
+    //获取指定值在数组中的索引
+    for (index,_) in array.enumerated() {
+        if array[index] == value {
+            indexArray.append(index)
+        }
+    }
+    
+    //计算正确的删除索引
+    for (index, originIndex) in indexArray.enumerated() {
+        //指定值索引减去索引数组的索引
+        let correctIndex = originIndex - index
+        
+        //添加到正确的索引数组中
+        correctArray.append(correctIndex)
+    }
+    
+    return correctArray
+}
+
+
+//从数组中删除指定元素
+func removeValueFromArray<T: Equatable>(value: T, array: inout [T]){
+    
+    let correctArray = getRemoveIndex(value: value, array: array)
+    
+    //从原数组中删除指定元素
+    for index in correctArray{
+        array.remove(at: index)
+    }
+    
+}
 

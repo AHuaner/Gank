@@ -16,9 +16,6 @@ class AHListView: UIView {
         return tagTitleArray
     }()
     
-    /// 编辑完成的回调
-    var completeClouse: (([String]) -> Void)?
-    
     var listViewMoveTagClouse: ((String) -> Void)?
     
     /// 存放所有的btn
@@ -255,6 +252,7 @@ extension AHListView {
     fileprivate func completeChange() {
         // 退出编辑模式
         isEditModel = false
+        tagTitleArray.removeAll()
         for btn in tagArray {
             btn.setImage(UIImage(), for: .normal)
             tagTitleArray.append(btn.titleLabel!.text!)
@@ -265,9 +263,7 @@ extension AHListView {
                 }
             }
         }
-        if completeClouse != nil {
-            completeClouse!(tagTitleArray)
-        }
+        tagArray.removeAll()
     }
     
     /// 开启编辑模式

@@ -19,6 +19,7 @@
 		600D2BA31DF8F7A900D57EA0 /* AHLaunchImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 600D2BA21DF8F7A900D57EA0 /* AHLaunchImageView.swift */; };
 		600D2BA51DF8F7CA00D57EA0 /* AHTestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 600D2BA41DF8F7CA00D57EA0 /* AHTestModel.swift */; };
 		600D2BC01DF8FA9200D57EA0 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 600D2BBF1DF8FA9200D57EA0 /* BaseViewController.swift */; };
+		601560921DFE820F00369E64 /* AHClassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 601560911DFE820F00369E64 /* AHClassViewController.swift */; };
 		601731321DF952D40069D4C4 /* AHLaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 601731311DF952D40069D4C4 /* AHLaunchViewController.swift */; };
 		601731351DF96FC10069D4C4 /* AHTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 601731331DF96FC10069D4C4 /* AHTestViewController.swift */; };
 		601731361DF96FC10069D4C4 /* AHTestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 601731341DF96FC10069D4C4 /* AHTestViewController.xib */; };
@@ -40,7 +41,6 @@
 		60C7F8C01DFA6B4E0069E69A /* property_select@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60C7F8BB1DFA6B4E0069E69A /* property_select@2x.png */; };
 		60C7F8C11DFA6B4E0069E69A /* property@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60C7F8BC1DFA6B4E0069E69A /* property@2x.png */; };
 		60C7F8C21DFA6B4E0069E69A /* tabBar_bgwhiteColor@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60C7F8BD1DFA6B4E0069E69A /* tabBar_bgwhiteColor@2x.png */; };
-		60C7F8C61DFA6DD30069E69A /* Text1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C7F8C51DFA6DD30069E69A /* Text1ViewController.swift */; };
 		60C7F8CE1DFAC91A0069E69A /* add_button_normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60C7F8CD1DFAC91A0069E69A /* add_button_normal@2x.png */; };
 		60C7F8D01DFAD3FE0069E69A /* close2_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60C7F8CF1DFAD3FE0069E69A /* close2_button@2x.png */; };
 		60C7F8D41DFB0D2A0069E69A /* AHTurnChannelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C7F8D31DFB0D2A0069E69A /* AHTurnChannelViewController.swift */; };
@@ -81,6 +81,7 @@
 		600D2BA21DF8F7A900D57EA0 /* AHLaunchImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHLaunchImageView.swift; sourceTree = "<group>"; };
 		600D2BA41DF8F7CA00D57EA0 /* AHTestModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHTestModel.swift; sourceTree = "<group>"; };
 		600D2BBF1DF8FA9200D57EA0 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		601560911DFE820F00369E64 /* AHClassViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHClassViewController.swift; sourceTree = "<group>"; };
 		601731311DF952D40069D4C4 /* AHLaunchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHLaunchViewController.swift; sourceTree = "<group>"; };
 		601731331DF96FC10069D4C4 /* AHTestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AHTestViewController.swift; path = ../AHTestViewController.swift; sourceTree = "<group>"; };
 		601731341DF96FC10069D4C4 /* AHTestViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AHTestViewController.xib; path = ../AHTestViewController.xib; sourceTree = "<group>"; };
@@ -108,7 +109,6 @@
 		60C7F8BB1DFA6B4E0069E69A /* property_select@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "property_select@2x.png"; sourceTree = "<group>"; };
 		60C7F8BC1DFA6B4E0069E69A /* property@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "property@2x.png"; sourceTree = "<group>"; };
 		60C7F8BD1DFA6B4E0069E69A /* tabBar_bgwhiteColor@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabBar_bgwhiteColor@2x.png"; sourceTree = "<group>"; };
-		60C7F8C51DFA6DD30069E69A /* Text1ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Text1ViewController.swift; sourceTree = "<group>"; };
 		60C7F8C71DFA9CB20069E69A /* Gank-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Gank-Bridging-Header.h"; sourceTree = "<group>"; };
 		60C7F8CD1DFAC91A0069E69A /* add_button_normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "add_button_normal@2x.png"; sourceTree = "<group>"; };
 		60C7F8CF1DFAD3FE0069E69A /* close2_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "close2_button@2x.png"; sourceTree = "<group>"; };
@@ -267,6 +267,7 @@
 			isa = PBXGroup;
 			children = (
 				600D2B741DF8F35C00D57EA0 /* AHGankViewController.swift */,
+				601560911DFE820F00369E64 /* AHClassViewController.swift */,
 			);
 			path = Gank;
 			sourceTree = "<group>";
@@ -326,7 +327,6 @@
 		608EED101DF985A000D1984A /* Other */ = {
 			isa = PBXGroup;
 			children = (
-				60C7F8C51DFA6DD30069E69A /* Text1ViewController.swift */,
 				601731331DF96FC10069D4C4 /* AHTestViewController.swift */,
 				601731341DF96FC10069D4C4 /* AHTestViewController.xib */,
 			);
@@ -541,8 +541,8 @@
 				608EED161DF9898C00D1984A /* AHTimeButton.swift in Sources */,
 				600D2B6E1DF8F1C200D57EA0 /* UIView+Extension.swift in Sources */,
 				60028DB11DFC1C86002F2AFE /* AHListView.swift in Sources */,
-				60C7F8C61DFA6DD30069E69A /* Text1ViewController.swift in Sources */,
 				600D2BA51DF8F7CA00D57EA0 /* AHTestModel.swift in Sources */,
+				601560921DFE820F00369E64 /* AHClassViewController.swift in Sources */,
 				601731381DF97C200069D4C4 /* TabBarController.swift in Sources */,
 				600D2BA31DF8F7A900D57EA0 /* AHLaunchImageView.swift in Sources */,
 				601731321DF952D40069D4C4 /* AHLaunchViewController.swift in Sources */,

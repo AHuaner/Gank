@@ -10,7 +10,7 @@ import UIKit
 
 class AHTurnChannelViewController: BaseViewController {
     
-    var turnChannelClouse: (() -> Void)?
+    var turnChannelClouse: (([String]) -> Void)?
     
     var tagsTitleArray: [String] = [String]()
     
@@ -33,8 +33,7 @@ class AHTurnChannelViewController: BaseViewController {
     
     lazy var listView: AHListView = {
         let listView = AHListView(frame: CGRect(x: 0, y: 80, width: kScreen_W, height: 0))
-        let titles = ["11", "22", "33", "44", "55", "66", "77", "88", "99", "10", "11", "12", "13", "14", "15", "11", "22", "33", "44", "55", "66", "77", "88", "99", "10", "11", "12", "13", "14", "15"]
-        listView.addTags(titles: titles)
+        listView.addTags(titles: self.tagsTitleArray)
         listView.listViewMoveTagClouse = { [unowned self] title in
             self.moreListView.addTag(tagTitle: title)
         }
@@ -43,8 +42,6 @@ class AHTurnChannelViewController: BaseViewController {
     
     lazy var moreListView: AHMoreListView = {
         let moreListView = AHMoreListView(frame: CGRect(x: 0, y: self.listView.MaxY, width: kScreen_W, height: 0))
-        let titles = ["11", "22", "33", "44", "55", "66", "77", "88", "99", "10", "11", "12", "13", "14", "15", "11", "22", "33", "44", "55", "66", "77", "88", "99", "10", "11", "12", "13", "14", "15"]
-        moreListView.addTags(titles: titles)
         moreListView.listViewAddTagClouse = { [unowned self]  title in
             self.listView.addTag(tagTitle: title)
         }
@@ -68,7 +65,7 @@ class AHTurnChannelViewController: BaseViewController {
     
     func close() {
         if turnChannelClouse != nil {
-            turnChannelClouse!()
+            turnChannelClouse!(listView.tagTitleArray)
         }
         
         self.dismiss(animated: true, completion: {

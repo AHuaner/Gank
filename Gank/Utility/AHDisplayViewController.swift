@@ -502,7 +502,7 @@ extension AHDisplayViewController: UICollectionViewDataSource, UICollectionViewD
             tableVc.tableView.contentInset.top = titleScrollViewH
             tableVc.tableView.contentInset.bottom = kBottomBarHeight
         }
-        contentScrollView.addSubview(willShowVc.view)
+        // contentScrollView.addSubview(willShowVc.view)
         willShowVc.view.frame = CGRect(x: 0, y: 0, width: contentView.Width, height: contentView.Height)
         cell.contentView.addSubview(willShowVc.view)
         

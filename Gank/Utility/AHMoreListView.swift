@@ -17,15 +17,18 @@ class AHMoreListView: UIView {
         return tagArray
     }()
     
-    fileprivate lazy var infoButton: UIButton = {
-        let infoButton = UIButton()
-        infoButton.titleLabel?.textAlignment = .left
-        infoButton.setTitle("点击添加更多频道", for: .normal)
-        infoButton.setTitleColor(UIColorTextGray, for: .normal)
-        infoButton.frame = CGRect(x: 5, y: 15, width: 0, height: 0)
-        infoButton.titleLabel?.font = FontSize(size: 13)
-        infoButton.sizeToFit()
-        return infoButton
+    fileprivate lazy var infoView: UIView = {
+        let infoView = UIView()
+        infoView.frame = CGRect(x: 0, y: 0, width: kScreen_W, height: 30)
+        let label = UILabel()
+        label.frame = CGRect(x: 10, y: 0, width: kScreen_W - 10, height: 30)
+        label.text = "点击添加更多频道"
+        label.textAlignment = .left
+        label.textColor = UIColorTextGray
+        label.font = FontSize(size: 13)
+        infoView.addSubview(label)
+        infoView.backgroundColor = RGBColor(220.0, g: 220.0, b: 220.0, alpha: 1)
+        return infoView
     }()
     
     /// 一共有多少列
@@ -36,7 +39,7 @@ class AHMoreListView: UIView {
     /// 整体的高度
     fileprivate var ListViewH: CGFloat {
         get {
-            return (tagArray.count <= 0 ? 40.0 : ((tagArray.last?.MaxY)! + margin))
+            return (tagArray.count <= 0 ? 30.0 : ((tagArray.last?.MaxY)! + margin))
         }
     }
     
@@ -50,7 +53,7 @@ class AHMoreListView: UIView {
     }
     
     fileprivate func setupUI() {
-        addSubview(infoButton)
+        addSubview(infoView)
     }
 }
 
@@ -58,6 +61,7 @@ class AHMoreListView: UIView {
 extension AHMoreListView {
     /// 添加标签
     func addTag(tagTitle: String) {
+        
         let tagBtn = AHTagBtn()
         tagBtn.tag = tagArray.count
         tagBtn.setTitle(tagTitle, for: .normal)
@@ -160,7 +164,7 @@ extension AHMoreListView {
         let btnW = (Width - 5 * margin) / CGFloat(listCols)
         let btnH = btnW * 0.45
         let btnX = margin + CGFloat(col) * (btnW + margin)
-        let btnY = 40 + margin + CGFloat(row) * (btnH + margin)
+        let btnY = 30 + margin + CGFloat(row) * (btnH + margin)
         btn.frame = CGRect(x: btnX, y: btnY, width: btnW, height: btnH)
     }
 }
