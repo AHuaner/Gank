@@ -22,7 +22,6 @@ class Text1ViewController: UITableViewController {
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-//        print(tableView.contentInset.top)
     }
     
     override func didReceiveMemoryWarning() {

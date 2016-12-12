@@ -26,9 +26,15 @@ class AHTurnChannelViewController: BaseViewController {
         return closeBtn
     }()
     
+    lazy var contentView: UIScrollView = {
+        let contentView = UIScrollView(frame: self.view.bounds)
+        return contentView
+    }()
+    
     lazy var listView: AHListView = {
         let listView = AHListView(frame: CGRect(x: 0, y: 80, width: kScreen_W, height: 0))
-        listView.addTags(titles: self.tagsTitleArray)
+        let titles = ["11", "22", "33", "44", "55", "66", "77", "88", "99", "10", "11", "12", "13", "14", "15", "11", "22", "33", "44", "55", "66", "77", "88", "99", "10", "11", "12", "13", "14", "15"]
+        listView.addTags(titles: titles)
         listView.listViewMoveTagClouse = { [unowned self] title in
             self.moreListView.addTag(tagTitle: title)
         }
@@ -37,7 +43,8 @@ class AHTurnChannelViewController: BaseViewController {
     
     lazy var moreListView: AHMoreListView = {
         let moreListView = AHMoreListView(frame: CGRect(x: 0, y: self.listView.MaxY, width: kScreen_W, height: 0))
-        moreListView.addTags(titles: self.tagsTitleArray)
+        let titles = ["11", "22", "33", "44", "55", "66", "77", "88", "99", "10", "11", "12", "13", "14", "15", "11", "22", "33", "44", "55", "66", "77", "88", "99", "10", "11", "12", "13", "14", "15"]
+        moreListView.addTags(titles: titles)
         moreListView.listViewAddTagClouse = { [unowned self]  title in
             self.listView.addTag(tagTitle: title)
         }
@@ -45,18 +52,17 @@ class AHTurnChannelViewController: BaseViewController {
     }()
     
     override func viewDidLoad() {
+        self.listView.addObserver(self, forKeyPath: "frame", options: .new, context: nil)
         super.viewDidLoad()
         self.title = "频道"
         view.backgroundColor = UIColorMainBG
-        view.addSubview(closeBtn)
+        contentView.contentSize = CGSize(width: kScreen_W, height: self.moreListView.Height + self.listView.Height + 80)
+        view.addSubview(contentView)
+        contentView.addSubview(closeBtn)
         // 先添加moreListView, 再添加listView
         // 确保listView上的btn移动时, 不会被moreListView遮挡
-        view.addSubview(moreListView)
-        view.addSubview(listView)
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
+        contentView.addSubview(moreListView)
+        contentView.addSubview(listView)
     }
     
     func close() {
@@ -69,10 +75,17 @@ class AHTurnChannelViewController: BaseViewController {
         })
     }
     
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        UIView.animate(withDuration: 0.25, animations: {
-           self.moreListView.Y = self.listView.MaxY
-        })
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        if keyPath == "frame" {
+            guard case let frame as CGRect = change?[NSKeyValueChangeKey.newKey] else {
+                return
+            }
+            self.moreListView.Y = frame.maxY
+            contentView.contentSize = CGSize(width: kScreen_W, height: self.moreListView.Height + self.listView.Height + 80)
+        }
+    }
+    
+    deinit {
+        self.listView.removeObserver(self, forKeyPath: "frame")
     }
 }

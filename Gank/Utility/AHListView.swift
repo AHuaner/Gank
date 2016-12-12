@@ -95,21 +95,24 @@ extension AHListView {
         if isEditModel {
             tagBtn.setImage(UIImage(named: "close2_button"), for: .normal)
         }
-        
+        tagBtn.alpha = 0
         tagBtn.addTarget(self, action: #selector(AHListView.deleteBtnAction(btn:)), for: .touchUpInside)
         let longPress = UILongPressGestureRecognizer(target: self, action: #selector(AHListView.longPressAction(longPress:)))
         tagBtn.addGestureRecognizer(longPress)
-        let pan = UIPanGestureRecognizer(target: self, action: #selector(AHListView.panAction(pan:)))
-        tagBtn.addGestureRecognizer(pan)
         
-        addSubview(tagBtn)
         tagArray.append(tagBtn)
         
+
         updateTagBtnFrame(btn: tagBtn)
         
         // 更新自己的frame
         UIView.animate(withDuration: 0.25, animations: {
             self.Height = self.ListViewH
+        }, completion: { (_) in // 动画完成以后再添加tagBtn
+            self.addSubview(tagBtn)
+            UIView.animate(withDuration: 0.15, animations: { 
+                tagBtn.alpha = 1.0
+            })
         })
     }
     
@@ -149,11 +152,6 @@ extension AHListView {
     }
     
     func panAction(pan: UIPanGestureRecognizer) {
-        // 非编辑模式不可拖拽
-        if !isEditModel {
-            return
-        }
-        
         // 获取偏移量
         let transPoint = pan.translation(in: self)
         
@@ -260,6 +258,12 @@ extension AHListView {
         for btn in tagArray {
             btn.setImage(UIImage(), for: .normal)
             tagTitleArray.append(btn.titleLabel!.text!)
+            // 移除每个tag的拖拽手势
+            if let pan = btn.gestureRecognizers?.last  {
+                if pan.isKind(of: UIPanGestureRecognizer.self) {
+                    btn.removeGestureRecognizer(pan)
+                }
+            }
         }
         if completeClouse != nil {
             completeClouse!(tagTitleArray)
@@ -271,6 +275,9 @@ extension AHListView {
         isEditModel = true
         for btn in tagArray {
             btn.setImage(UIImage(named: "close2_button"), for: .normal)
+            // 给每个tag添加拖拽手势
+            let pan = UIPanGestureRecognizer(target: self, action: #selector(AHListView.panAction(pan:)))
+            btn.addGestureRecognizer(pan)
         }
         completeBtn.isSelected = true
         infoButton.isSelected = true
