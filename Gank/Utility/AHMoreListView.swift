@@ -69,7 +69,10 @@ extension AHMoreListView {
         updateTagBtnFrame(btn: tagBtn)
         
         // 更新自己的frame
-        self.Height = self.ListViewH
+        UIView.animate(withDuration: 0.25, animations: {
+            self.Height = self.ListViewH
+        })
+        
     }
     
     /// 添加多个标签

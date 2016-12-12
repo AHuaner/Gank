@@ -53,6 +53,7 @@ class AHTurnChannelViewController: BaseViewController {
     
     override func viewDidLoad() {
         self.listView.addObserver(self, forKeyPath: "frame", options: .new, context: nil)
+        self.moreListView.addObserver(self, forKeyPath: "frame", options: .new, context: nil)
         super.viewDidLoad()
         self.title = "频道"
         view.backgroundColor = UIColorMainBG
@@ -77,15 +78,22 @@ class AHTurnChannelViewController: BaseViewController {
     
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         if keyPath == "frame" {
-            guard case let frame as CGRect = change?[NSKeyValueChangeKey.newKey] else {
-                return
+            let object = object as AnyObject
+            if object.isKind(of: AHListView.self) {
+                guard case let frame as CGRect = change?[NSKeyValueChangeKey.newKey] else {
+                    return
+                }
+                // 根据AHListView的frame变化更新moreListView的Y
+                self.moreListView.Y = frame.maxY
+            } else if object.isKind(of: AHMoreListView.self)  {
+                // 根据moreListView的frame变化更新contentSize.height
+                contentView.contentSize.height = self.moreListView.Height + self.listView.Height + 80
             }
-            self.moreListView.Y = frame.maxY
-            contentView.contentSize = CGSize(width: kScreen_W, height: self.moreListView.Height + self.listView.Height + 80)
         }
     }
     
     deinit {
         self.listView.removeObserver(self, forKeyPath: "frame")
+        self.moreListView.removeObserver(self, forKeyPath: "frame")
     }
 }

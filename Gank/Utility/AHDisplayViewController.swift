@@ -36,7 +36,7 @@ class AHDisplayViewController: BaseViewController {
     fileprivate var titleFont: UIFont = UIFont.systemFont(ofSize: 13)
     
     /// 标题滚动视图的颜色
-    fileprivate var titleScrollViewColor: UIColor = UIColor.white// UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.99)
+    fileprivate var titleScrollViewColor: UIColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.95)
     
     /// 顶部标题Normal状态下的颜色
     fileprivate var titleBtnNorColor: UIColor = UIColor.gray
