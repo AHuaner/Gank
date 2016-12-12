@@ -27,28 +27,38 @@ enum ClassType: String {
 
 class AHGankViewController: AHDisplayViewController {
     
-    fileprivate var childVCtitles: [String] = [String]()
+    /// 已显示的tags
+    fileprivate var showTagsArray: [String] = [String]()
+    
+    /// 未显示的tags
+    fileprivate var moreTagsArray: [String] = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let titles = ["干货", "福利", "Android", "iOS", "视频", "拓展资源", "前端"]
+        let titles = ["干货", "福利", "Android", "iOS", "视频", "前端"]
+        moreTagsArray = ["拓展资源"]
         setupChildVCs(titles: titles)
         addTitleButton.addTarget(self, action: #selector(AHGankViewController.addTitleButtonClick(_:)), for: .touchUpInside)
     }
     
     func addTitleButtonClick(_ btn: UIButton) {
         let turnVC = AHTurnChannelViewController()
-        turnVC.tagsTitleArray = childVCtitles
+        turnVC.showTagsArray = showTagsArray
+        turnVC.moreTagsArray = moreTagsArray
 
-        turnVC.turnChannelClouse = { [unowned self]  titleArray in
-            if titleArray.count <= 0 {
+        turnVC.turnChannelClouse = { [unowned self]  showTags, moreTags in
+            if showTags.count <= 0 {
                 return
             }
-            AHLog(titleArray)
+            
             for childVC in self.childViewControllers {
                 childVC.removeFromParentViewController()
             }
-            self.setupChildVCs(titles: titleArray)
+            
+            self.setupChildVCs(titles: showTags)
+            // 更新未显示的tags
+            self.moreTagsArray = moreTags
+            
             self.setupTitleWidth()
             self.setupAllTitle()
             self.contentScrollView.reloadData()
@@ -62,13 +72,14 @@ class AHGankViewController: AHDisplayViewController {
     }
     
     fileprivate func setupChildVCs(titles: [String]) {
-        childVCtitles.removeAll()
+        showTagsArray.removeAll()
         for title in titles {
             let classVC = AHClassViewController()
             classVC.title = title
             classVC.type = ClassType(rawValue: "\(ConfigDict[title]!)")
             addChildViewController(classVC);
-            childVCtitles.append(title)
+            // 更新以显示的tags
+            showTagsArray.append(title)
         }
     }
 }

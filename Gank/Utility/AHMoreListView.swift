@@ -17,6 +17,12 @@ class AHMoreListView: UIView {
         return tagArray
     }()
     
+    /// 存放MoreListView上所有的btn的标题
+    lazy var tagTitleArray: [String] = {
+        let tagTitleArray = [String]()
+        return tagTitleArray
+    }()
+    
     fileprivate lazy var infoView: UIView = {
         let infoView = UIView()
         infoView.frame = CGRect(x: 0, y: 0, width: kScreen_W, height: 30)
@@ -69,6 +75,7 @@ extension AHMoreListView {
         
         addSubview(tagBtn)
         tagArray.append(tagBtn)
+        tagTitleArray.append(tagBtn.titleLabel!.text!)
         
         updateTagBtnFrame(btn: tagBtn)
         
@@ -91,6 +98,8 @@ extension AHMoreListView {
         btn.removeFromSuperview()
         
         tagArray.remove(at: btn.tag)
+        
+        tagTitleArray.remove(at: btn.tag)
         
         updateTag()
         

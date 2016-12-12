@@ -10,9 +10,14 @@ import UIKit
 
 class AHTurnChannelViewController: BaseViewController {
     
-    var turnChannelClouse: (([String]) -> Void)?
+    ///
+    var turnChannelClouse: ((_ showTags: [String], _ moreTags: [String]) -> Void)?
     
-    var tagsTitleArray: [String] = [String]()
+    /// 已显示的tags
+    var showTagsArray: [String] = [String]()
+    
+    /// 未显示的tags
+    var moreTagsArray: [String] = [String]()
     
     lazy var closeBtn: UIButton = {
         let closeBtn = UIButton()
@@ -33,7 +38,7 @@ class AHTurnChannelViewController: BaseViewController {
     
     lazy var listView: AHListView = {
         let listView = AHListView(frame: CGRect(x: 0, y: 80, width: kScreen_W, height: 0))
-        listView.addTags(titles: self.tagsTitleArray)
+        listView.addTags(titles: self.showTagsArray)
         listView.listViewMoveTagClouse = { [unowned self] title in
             self.moreListView.addTag(tagTitle: title)
         }
@@ -42,6 +47,7 @@ class AHTurnChannelViewController: BaseViewController {
     
     lazy var moreListView: AHMoreListView = {
         let moreListView = AHMoreListView(frame: CGRect(x: 0, y: self.listView.MaxY, width: kScreen_W, height: 0))
+        moreListView.addTags(titles: self.moreTagsArray)
         moreListView.listViewAddTagClouse = { [unowned self]  title in
             self.listView.addTag(tagTitle: title)
         }
@@ -65,12 +71,10 @@ class AHTurnChannelViewController: BaseViewController {
     
     func close() {
         if turnChannelClouse != nil {
-            turnChannelClouse!(listView.tagTitleArray)
+            turnChannelClouse!(listView.tagTitleArray, moreListView.tagTitleArray)
         }
         
-        self.dismiss(animated: true, completion: {
-            
-        })
+        self.dismiss(animated: true, completion: {})
     }
     
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {

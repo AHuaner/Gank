@@ -46,5 +46,4 @@ class AHConfig {
     struct UserDefault {
         
     }
-
 }

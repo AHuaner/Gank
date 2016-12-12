@@ -20,6 +20,7 @@
 		600D2BA51DF8F7CA00D57EA0 /* AHTestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 600D2BA41DF8F7CA00D57EA0 /* AHTestModel.swift */; };
 		600D2BC01DF8FA9200D57EA0 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 600D2BBF1DF8FA9200D57EA0 /* BaseViewController.swift */; };
 		601560921DFE820F00369E64 /* AHClassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 601560911DFE820F00369E64 /* AHClassViewController.swift */; };
+		601560941DFEC46F00369E64 /* AHLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 601560931DFEC46F00369E64 /* AHLoadingView.swift */; };
 		601731321DF952D40069D4C4 /* AHLaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 601731311DF952D40069D4C4 /* AHLaunchViewController.swift */; };
 		601731351DF96FC10069D4C4 /* AHTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 601731331DF96FC10069D4C4 /* AHTestViewController.swift */; };
 		601731361DF96FC10069D4C4 /* AHTestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 601731341DF96FC10069D4C4 /* AHTestViewController.xib */; };
@@ -82,6 +83,7 @@
 		600D2BA41DF8F7CA00D57EA0 /* AHTestModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHTestModel.swift; sourceTree = "<group>"; };
 		600D2BBF1DF8FA9200D57EA0 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		601560911DFE820F00369E64 /* AHClassViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHClassViewController.swift; sourceTree = "<group>"; };
+		601560931DFEC46F00369E64 /* AHLoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHLoadingView.swift; sourceTree = "<group>"; };
 		601731311DF952D40069D4C4 /* AHLaunchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHLaunchViewController.swift; sourceTree = "<group>"; };
 		601731331DF96FC10069D4C4 /* AHTestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AHTestViewController.swift; path = ../AHTestViewController.swift; sourceTree = "<group>"; };
 		601731341DF96FC10069D4C4 /* AHTestViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AHTestViewController.xib; path = ../AHTestViewController.xib; sourceTree = "<group>"; };
@@ -320,6 +322,7 @@
 				60028DAE1DFC0CAA002F2AFE /* AHTagBtn.swift */,
 				60028DB01DFC1C86002F2AFE /* AHListView.swift */,
 				606B1E271DFD6DF800BD86E2 /* AHMoreListView.swift */,
+				601560931DFEC46F00369E64 /* AHLoadingView.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -546,6 +549,7 @@
 				601731381DF97C200069D4C4 /* TabBarController.swift in Sources */,
 				600D2BA31DF8F7A900D57EA0 /* AHLaunchImageView.swift in Sources */,
 				601731321DF952D40069D4C4 /* AHLaunchViewController.swift in Sources */,
+				601560941DFEC46F00369E64 /* AHLoadingView.swift in Sources */,
 				600D2B6C1DF8F1C200D57EA0 /* DispatchTime+Extension.swift in Sources */,
 				600D2BC01DF8FA9200D57EA0 /* BaseViewController.swift in Sources */,
 				60028DAF1DFC0CAA002F2AFE /* AHTagBtn.swift in Sources */,

@@ -10,7 +10,7 @@ import UIKit
 
 class AHListView: UIView {
     
-    /// 存放所有的btn的标题
+    /// 存放ListView上所有的btn的标题
     lazy var tagTitleArray: [String] = {
         let tagTitleArray = [String]()
         return tagTitleArray
@@ -98,7 +98,8 @@ extension AHListView {
         tagBtn.addGestureRecognizer(longPress)
         
         tagArray.append(tagBtn)
-        
+    
+        tagTitleArray.append(tagBtn.titleLabel!.text!)
 
         updateTagBtnFrame(btn: tagBtn)
         
@@ -118,6 +119,8 @@ extension AHListView {
         btn.removeFromSuperview()
         
         tagArray.remove(at: btn.tag)
+        
+        tagTitleArray.remove(at: btn.tag)
         
         updateTag()
         
@@ -224,6 +227,12 @@ extension AHListView {
         if !isEditModel {
             return
         }
+        
+        if tagArray.count <= 1 {
+            AHLog("最少保留一个频道")
+            return
+        }
+        
         guard let title = btn.titleLabel?.text else {
             return
         }
@@ -252,10 +261,10 @@ extension AHListView {
     fileprivate func completeChange() {
         // 退出编辑模式
         isEditModel = false
-        tagTitleArray.removeAll()
+        // tagTitleArray.removeAll()
         for btn in tagArray {
             btn.setImage(UIImage(), for: .normal)
-            tagTitleArray.append(btn.titleLabel!.text!)
+            // tagTitleArray.append(btn.titleLabel!.text!)
             // 移除每个tag的拖拽手势
             if let pan = btn.gestureRecognizers?.last  {
                 if pan.isKind(of: UIPanGestureRecognizer.self) {

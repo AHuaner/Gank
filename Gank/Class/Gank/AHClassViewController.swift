@@ -12,6 +12,13 @@ class AHClassViewController: BaseViewController {
     
     var type: ClassType!
     
+    var isLoad: Bool = false
+    
+    lazy var loadingView: AHLoadingView = {
+        let loadingView = AHLoadingView(frame: self.view.bounds)
+        return loadingView
+    }()
+    
     lazy var tableView: UITableView = {
         let tabelView = UITableView(frame: CGRect(x: 0, y: 0, width: kScreen_W, height: kScreen_H - kNavBarHeight), style: UITableViewStyle.plain)
         tabelView.backgroundColor = UIColorMainBG
@@ -22,22 +29,47 @@ class AHClassViewController: BaseViewController {
         return tabelView
     }()
     
+    init() {
+        super.init(nibName: nil, bundle: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(AHClassViewController.loadDate), name: NSNotification.Name(rawValue: "AHDisplayViewClickOrScrollDidFinshNote"), object: self)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupUI()
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
+    
+    func setupUI() {
         view.addSubview(tableView)
+        
+        view.addSubview(loadingView)
         
         tableView.backgroundColor = UIColor(red: CGFloat(arc4random() % 255 + 1) / 255.0, green: CGFloat(arc4random() % 255 + 1) / 255.0, blue: CGFloat(arc4random() % 255 + 1) / 255.0, alpha: 1)
         
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell1")
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        AHLog(type.rawValue)
+    func loadDate() {
+        if isLoad {
+            return
+        }
+        isLoad = true
+        DispatchQueue.main.asyncAfter(deadline: 1) {
+            AHLog("\(self.type.rawValue)---加载成功")
+            self.loadingView.removeFromSuperview()
+        }
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
 }
 

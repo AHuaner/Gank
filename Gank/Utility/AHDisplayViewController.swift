@@ -216,6 +216,7 @@ extension AHDisplayViewController {
         
         if RealtotalWidth > contentViewW {
             self.titleMargin = margin
+            self.titleScrollView.isScrollEnabled = true
             return
         }
         
@@ -296,10 +297,18 @@ extension AHDisplayViewController {
         
         // 移动标题滚动条
         perform(#selector(self.setupSelectedBtnToCenter(_:)), with: selbtn, afterDelay: 0.15)
+        
+        // 取出对应控制器发出通知
+        let vc = self.childViewControllers[selbtn.tag];
+        
+        if vc.isKind(of: AHClassViewController.self) {
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "AHDisplayViewClickOrScrollDidFinshNote"), object: vc)
+        }
+        
     }
     
     /** 设置标题居中 */
-    @objc fileprivate func setupSelectedBtnToCenter(_ selbtn: UIButton) {
+    func setupSelectedBtnToCenter(_ selbtn: UIButton) {
         if titleScrollView.isScrollEnabled == false {
             return
         }
@@ -497,12 +506,6 @@ extension AHDisplayViewController: UICollectionViewDataSource, UICollectionViewD
         })
         
         let willShowVc = childViewControllers[indexPath.item]
-        if willShowVc.isKind(of: UITableViewController.self) {
-            let tableVc = willShowVc as! UITableViewController
-            tableVc.tableView.contentInset.top = titleScrollViewH
-            tableVc.tableView.contentInset.bottom = kBottomBarHeight
-        }
-        // contentScrollView.addSubview(willShowVc.view)
         willShowVc.view.frame = CGRect(x: 0, y: 0, width: contentView.Width, height: contentView.Height)
         cell.contentView.addSubview(willShowVc.view)
         
