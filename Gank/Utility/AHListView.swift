@@ -189,6 +189,9 @@ extension AHListView {
                 tagArray.remove(at: tagBtn.tag)
                 tagArray.insert(tagBtn, at: index)
                 
+                tagTitleArray.remove(at: tagBtn.tag)
+                tagTitleArray.insert(tagBtn.titleLabel!.text!, at: index)
+                
                 // 更新tag
                 updateTag()
                 
