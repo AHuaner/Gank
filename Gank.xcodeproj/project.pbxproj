@@ -10,13 +10,13 @@
 		58B4672B96870D823E72869C /* Pods_Gank.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBF349F95A2C7F4277EE5517 /* Pods_Gank.framework */; };
 		60028DAF1DFC0CAA002F2AFE /* AHTagBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60028DAE1DFC0CAA002F2AFE /* AHTagBtn.swift */; };
 		60028DB11DFC1C86002F2AFE /* AHListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60028DB01DFC1C86002F2AFE /* AHListView.swift */; };
+		600906E91E0020A6002F0A73 /* AHClassModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 600906E81E0020A6002F0A73 /* AHClassModel.swift */; };
 		600D2B6C1DF8F1C200D57EA0 /* DispatchTime+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 600D2B691DF8F1C200D57EA0 /* DispatchTime+Extension.swift */; };
 		600D2B6D1DF8F1C200D57EA0 /* NSObject+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 600D2B6A1DF8F1C200D57EA0 /* NSObject+Extension.swift */; };
 		600D2B6E1DF8F1C200D57EA0 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 600D2B6B1DF8F1C200D57EA0 /* UIView+Extension.swift */; };
 		600D2B731DF8F33E00D57EA0 /* AHMineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 600D2B721DF8F33E00D57EA0 /* AHMineViewController.swift */; };
 		600D2B751DF8F35C00D57EA0 /* AHGankViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 600D2B741DF8F35C00D57EA0 /* AHGankViewController.swift */; };
 		600D2BA31DF8F7A900D57EA0 /* AHLaunchImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 600D2BA21DF8F7A900D57EA0 /* AHLaunchImageView.swift */; };
-		600D2BA51DF8F7CA00D57EA0 /* AHTestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 600D2BA41DF8F7CA00D57EA0 /* AHTestModel.swift */; };
 		600D2BC01DF8FA9200D57EA0 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 600D2BBF1DF8FA9200D57EA0 /* BaseViewController.swift */; };
 		601560921DFE820F00369E64 /* AHClassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 601560911DFE820F00369E64 /* AHClassViewController.swift */; };
 		601560941DFEC46F00369E64 /* AHLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 601560931DFEC46F00369E64 /* AHLoadingView.swift */; };
@@ -74,13 +74,13 @@
 		509DED76A424BF17851C5780 /* Pods-Gank.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gank.release.xcconfig"; path = "Pods/Target Support Files/Pods-Gank/Pods-Gank.release.xcconfig"; sourceTree = "<group>"; };
 		60028DAE1DFC0CAA002F2AFE /* AHTagBtn.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHTagBtn.swift; sourceTree = "<group>"; };
 		60028DB01DFC1C86002F2AFE /* AHListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHListView.swift; sourceTree = "<group>"; };
+		600906E81E0020A6002F0A73 /* AHClassModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHClassModel.swift; sourceTree = "<group>"; };
 		600D2B691DF8F1C200D57EA0 /* DispatchTime+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DispatchTime+Extension.swift"; sourceTree = "<group>"; };
 		600D2B6A1DF8F1C200D57EA0 /* NSObject+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSObject+Extension.swift"; sourceTree = "<group>"; };
 		600D2B6B1DF8F1C200D57EA0 /* UIView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		600D2B721DF8F33E00D57EA0 /* AHMineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHMineViewController.swift; sourceTree = "<group>"; };
 		600D2B741DF8F35C00D57EA0 /* AHGankViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHGankViewController.swift; sourceTree = "<group>"; };
 		600D2BA21DF8F7A900D57EA0 /* AHLaunchImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHLaunchImageView.swift; sourceTree = "<group>"; };
-		600D2BA41DF8F7CA00D57EA0 /* AHTestModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHTestModel.swift; sourceTree = "<group>"; };
 		600D2BBF1DF8FA9200D57EA0 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		601560911DFE820F00369E64 /* AHClassViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHClassViewController.swift; sourceTree = "<group>"; };
 		601560931DFEC46F00369E64 /* AHLoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHLoadingView.swift; sourceTree = "<group>"; };
@@ -288,7 +288,7 @@
 		60396BE71DF83C0F00A23DAA /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				600D2BA41DF8F7CA00D57EA0 /* AHTestModel.swift */,
+				600906E81E0020A6002F0A73 /* AHClassModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -406,7 +406,7 @@
 			attributes = {
 				CLASSPREFIX = AH;
 				LastSwiftUpdateCheck = 0810;
-				LastUpgradeCheck = 0810;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = CoderAhuan;
 				TargetAttributes = {
 					601CF5B41DF836B4002AF8D5 = {
@@ -547,7 +547,6 @@
 				608EED161DF9898C00D1984A /* AHTimeButton.swift in Sources */,
 				600D2B6E1DF8F1C200D57EA0 /* UIView+Extension.swift in Sources */,
 				60028DB11DFC1C86002F2AFE /* AHListView.swift in Sources */,
-				600D2BA51DF8F7CA00D57EA0 /* AHTestModel.swift in Sources */,
 				601560921DFE820F00369E64 /* AHClassViewController.swift in Sources */,
 				601731381DF97C200069D4C4 /* TabBarController.swift in Sources */,
 				600D2BA31DF8F7A900D57EA0 /* AHLaunchImageView.swift in Sources */,
@@ -558,6 +557,7 @@
 				60028DAF1DFC0CAA002F2AFE /* AHTagBtn.swift in Sources */,
 				6073DD141DFFC46700C99E9C /* AHNewWorkingAgent.swift in Sources */,
 				6073DD161DFFC49E00C99E9C /* AHNetWorking.swift in Sources */,
+				600906E91E0020A6002F0A73 /* AHClassModel.swift in Sources */,
 				601731351DF96FC10069D4C4 /* AHTestViewController.swift in Sources */,
 				601CF5B91DF836B4002AF8D5 /* AppDelegate.swift in Sources */,
 				60C7F8B61DFA66D30069E69A /* AHDisplayViewController.swift in Sources */,
@@ -712,7 +712,7 @@
 				"SWIFT_ACTIVE_COMPILATION_CONDITIONS[arch=*]" = "-D DEBUG";
 				SWIFT_OBJC_BRIDGING_HEADER = "Gank/Gank-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0.1;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -731,7 +731,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = CoderAhuan.Gank;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Gank/Gank-Bridging-Header.h";
-				SWIFT_VERSION = 3.0.1;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};

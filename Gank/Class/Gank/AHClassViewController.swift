@@ -19,6 +19,12 @@ class AHClassViewController: BaseViewController {
         return loadingView
     }()
     
+    var datasArray: [AHClassModel] = [AHClassModel]() {
+        didSet {
+            tableView.reloadData()
+        }
+    }
+    
     lazy var tableView: UITableView = {
         let tabelView = UITableView(frame: CGRect(x: 0, y: 0, width: kScreen_W, height: kScreen_H - kNavBarHeight), style: UITableViewStyle.plain)
         tabelView.backgroundColor = UIColorMainBG
@@ -69,9 +75,11 @@ class AHClassViewController: BaseViewController {
     
     fileprivate func sendRequest () {
         AHNewWorkingAgent.loadClassRequest(tpye: self.type, page: 1, success: { result in
-            AHLog(result)
             self.loadingView.removeFromSuperview()
-            
+            guard let datasArray = result as? [AHClassModel] else {
+                return
+            }
+            self.datasArray = datasArray
         }, failure: { error in
             AHLog(error)
         })
@@ -80,13 +88,13 @@ class AHClassViewController: BaseViewController {
 
 extension AHClassViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 20
+        return datasArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell1", for: indexPath)
-        
-        cell.textLabel?.text = "\(title!)---\(indexPath.row)"
+        let model = datasArray[indexPath.row]
+        cell.textLabel?.text = "\(title!)---\(model.desc!)"
         return cell
     }
 }

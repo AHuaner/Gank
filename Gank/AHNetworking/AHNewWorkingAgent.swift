@@ -16,21 +16,14 @@ class AHNewWorkingAgent: NSObject {
         let url = AHConfig.Http_ + "data/\(tpye.rawValue)/10/\(page)"
         
         let urlString = url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
-        AHLog(url)
         AHNetWorking.requestData(.get, URLString: urlString!, parameters: nil, success: { (result: Any) in
-            
-            guard let dict = result as? [AnyHashable: AnyObject] else {
-                return
+            let dict = JSON(result)
+            var datas = [AHClassModel]()
+            for i in 0..<dict["results"].count {
+                let model = AHClassModel(dict: dict["results"][i])
+                datas.append(model)
             }
-            
-//            guard let dicts = dict["results"] as? [Dictionary] else {
-//                return
-//            }
-            
-//            for dict in dict[] {
-//                // let model = JSON(data: dict)
-//            }
-            success(dict["results"]!)
+            success(datas)
         }, failure: { (error: Error) in
             failure(error)
         })
