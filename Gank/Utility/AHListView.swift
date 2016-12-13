@@ -27,11 +27,12 @@ class AHListView: UIView {
     fileprivate lazy var infoButton: UIButton = {
         let infoButton = UIButton()
         infoButton.titleLabel?.textAlignment = .left
-        infoButton.setTitle("切换频道", for: .normal)
-        infoButton.setTitle("拖动排序", for: .selected)
+        infoButton.setTitle("切换频道                 ", for: .normal)
+        infoButton.setTitle("拖动排序, 点击删除", for: .selected)
         infoButton.setTitleColor(UIColorTextGray, for: .normal)
-        infoButton.frame = CGRect(x: 5, y: 0, width: 60, height: 35)
+        infoButton.frame.origin = CGPoint(x: 10, y: 0)
         infoButton.titleLabel?.font = FontSize(size: 13)
+        infoButton.sizeToFit()
         return infoButton
     }()
     
@@ -264,10 +265,8 @@ extension AHListView {
     fileprivate func completeChange() {
         // 退出编辑模式
         isEditModel = false
-        // tagTitleArray.removeAll()
         for btn in tagArray {
             btn.setImage(UIImage(), for: .normal)
-            // tagTitleArray.append(btn.titleLabel!.text!)
             // 移除每个tag的拖拽手势
             if let pan = btn.gestureRecognizers?.last  {
                 if pan.isKind(of: UIPanGestureRecognizer.self) {

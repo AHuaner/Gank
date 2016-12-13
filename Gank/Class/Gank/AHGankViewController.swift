@@ -30,6 +30,9 @@ class AHGankViewController: AHDisplayViewController {
     /// 已显示的tags
     fileprivate var showTagsArray: [String] = [String]()
     
+    /// 上一次以显示的tags
+    fileprivate var lastShowTagsArray: [String] = [String]()
+    
     /// 未显示的tags
     fileprivate var moreTagsArray: [String] = [String]()
     
@@ -47,7 +50,7 @@ class AHGankViewController: AHDisplayViewController {
         turnVC.moreTagsArray = moreTagsArray
 
         turnVC.turnChannelClouse = { [unowned self]  showTags, moreTags in
-            if showTags.count <= 0 {
+            if self.lastShowTagsArray == showTags {
                 return
             }
             
@@ -56,6 +59,7 @@ class AHGankViewController: AHDisplayViewController {
             }
             
             self.setupChildVCs(titles: showTags)
+            AHLog(showTags)
             // 更新未显示的tags
             self.moreTagsArray = moreTags
             
@@ -81,5 +85,6 @@ class AHGankViewController: AHDisplayViewController {
             // 更新以显示的tags
             showTagsArray.append(title)
         }
+        lastShowTagsArray = showTagsArray
     }
 }
