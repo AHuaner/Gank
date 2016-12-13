@@ -58,18 +58,23 @@ class AHClassViewController: BaseViewController {
     }
     
     func loadDate() {
-        if isLoad {
-            return
-        }
+        if isLoad { return }
         isLoad = true
-        DispatchQueue.main.asyncAfter(deadline: 1) {
-            AHLog("\(self.type.rawValue)---加载成功")
-            self.loadingView.removeFromSuperview()
-        }
+        sendRequest()
     }
     
     deinit {
         NotificationCenter.default.removeObserver(self)
+    }
+    
+    fileprivate func sendRequest () {
+        AHNewWorkingAgent.loadClassRequest(tpye: self.type, page: 1, success: { result in
+            AHLog(result)
+            self.loadingView.removeFromSuperview()
+            
+        }, failure: { error in
+            AHLog(error)
+        })
     }
 }
 

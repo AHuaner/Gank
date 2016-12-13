@@ -7,7 +7,6 @@
 //
 
 import UIKit
-
 class AHListView: UIView {
     
     /// 存放ListView上所有的btn的标题
@@ -92,6 +91,8 @@ extension AHListView {
         tagBtn.setTitle(tagTitle, for: .normal)
         if isEditModel {
             tagBtn.setImage(UIImage(named: "close2_button"), for: .normal)
+            let pan = UIPanGestureRecognizer(target: self, action: #selector(AHListView.panAction(pan:)))
+            tagBtn.addGestureRecognizer(pan)
         }
         tagBtn.alpha = 0
         tagBtn.addTarget(self, action: #selector(AHListView.deleteBtnAction(btn:)), for: .touchUpInside)
@@ -229,11 +230,11 @@ extension AHListView {
     
     func deleteBtnAction(btn: AHTagBtn) {
         if !isEditModel {
+            AHLog("至少保留一个频道")
             return
         }
         
         if tagArray.count <= 1 {
-            AHLog("最少保留一个频道")
             return
         }
         
@@ -268,7 +269,7 @@ extension AHListView {
         for btn in tagArray {
             btn.setImage(UIImage(), for: .normal)
             // 移除每个tag的拖拽手势
-            if let pan = btn.gestureRecognizers?.last  {
+            for pan in btn.gestureRecognizers! {
                 if pan.isKind(of: UIPanGestureRecognizer.self) {
                     btn.removeGestureRecognizer(pan)
                 }

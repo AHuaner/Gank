@@ -37,12 +37,16 @@ let UIColorTextGray = RGBColor(153.0, g: 153.0, b: 153.0, alpha: 1.0)
 let UIColorTextBlue = RGBColor(43.0, g: 174.0, b: 249.0, alpha: 1.0)
 
 class AHConfig {
-    //MARK: 通知通用字段
+    
+    // MARK: 服务器地址
+    static let Http_ = "http://gank.io/api/"
+    
+    // MARK: 通知通用字段
     struct Notification {
         
     }
     
-    //MARK: UserDefault通用字段
+    // MARK: UserDefault通用字段
     struct UserDefault {
         
     }
