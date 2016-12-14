@@ -32,6 +32,8 @@ class AHClassModel: NSObject {
     
     var type: String?
     
+    var imageSize: CGSize = CGSize.zero
+    
     init(dict: JSON) {
         super.init()
         for (index, subJson) : (String, JSON) in dict {
