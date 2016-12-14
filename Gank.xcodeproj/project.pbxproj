@@ -29,6 +29,9 @@
 		601CF5CE1DF836B5002AF8D5 /* GankTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 601CF5CD1DF836B5002AF8D5 /* GankTests.swift */; };
 		601CF5D91DF836B5002AF8D5 /* GankUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 601CF5D81DF836B5002AF8D5 /* GankUITests.swift */; };
 		601CF5E91DF8379A002AF8D5 /* AHMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 601CF5E81DF8379A002AF8D5 /* AHMainViewController.swift */; };
+		602754BD1E00FCC400A2B757 /* AHClassCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602754BB1E00FCC400A2B757 /* AHClassCell.swift */; };
+		602754BE1E00FCC400A2B757 /* AHClassCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 602754BC1E00FCC400A2B757 /* AHClassCell.xib */; };
+		602754C11E01260700A2B757 /* FPSLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 602754C01E01260700A2B757 /* FPSLabel.m */; };
 		60396BEB1DF83C6A00A23DAA /* AHConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60396BEA1DF83C6A00A23DAA /* AHConfig.swift */; };
 		606B1E281DFD6DF800BD86E2 /* AHMoreListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 606B1E271DFD6DF800BD86E2 /* AHMoreListView.swift */; };
 		606B1E2A1DFD7DFD00BD86E2 /* close_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 606B1E291DFD7DFD00BD86E2 /* close_button@2x.png */; };
@@ -99,6 +102,10 @@
 		601CF5D81DF836B5002AF8D5 /* GankUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GankUITests.swift; sourceTree = "<group>"; };
 		601CF5DA1DF836B5002AF8D5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		601CF5E81DF8379A002AF8D5 /* AHMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHMainViewController.swift; sourceTree = "<group>"; };
+		602754BB1E00FCC400A2B757 /* AHClassCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHClassCell.swift; sourceTree = "<group>"; };
+		602754BC1E00FCC400A2B757 /* AHClassCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AHClassCell.xib; sourceTree = "<group>"; };
+		602754BF1E01260700A2B757 /* FPSLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FPSLabel.h; sourceTree = "<group>"; };
+		602754C01E01260700A2B757 /* FPSLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FPSLabel.m; sourceTree = "<group>"; };
 		60396BEA1DF83C6A00A23DAA /* AHConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHConfig.swift; sourceTree = "<group>"; };
 		606B1E271DFD6DF800BD86E2 /* AHMoreListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHMoreListView.swift; sourceTree = "<group>"; };
 		606B1E291DFD7DFD00BD86E2 /* close_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "close_button@2x.png"; sourceTree = "<group>"; };
@@ -273,6 +280,8 @@
 			children = (
 				600D2B741DF8F35C00D57EA0 /* AHGankViewController.swift */,
 				601560911DFE820F00369E64 /* AHClassViewController.swift */,
+				602754BB1E00FCC400A2B757 /* AHClassCell.swift */,
+				602754BC1E00FCC400A2B757 /* AHClassCell.xib */,
 			);
 			path = Gank;
 			sourceTree = "<group>";
@@ -318,6 +327,8 @@
 		60396BE91DF83C2300A23DAA /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				602754BF1E01260700A2B757 /* FPSLabel.h */,
+				602754C01E01260700A2B757 /* FPSLabel.m */,
 				60C7F8B51DFA66D30069E69A /* AHDisplayViewController.swift */,
 				600D2BA21DF8F7A900D57EA0 /* AHLaunchImageView.swift */,
 				608EED151DF9898C00D1984A /* AHTimeButton.swift */,
@@ -469,6 +480,7 @@
 				601CF5C01DF836B4002AF8D5 /* Assets.xcassets in Resources */,
 				608EED141DF9864700D1984A /* adver.png in Resources */,
 				60DDC86D1DF8FD88003F1464 /* loading2.png in Resources */,
+				602754BE1E00FCC400A2B757 /* AHClassCell.xib in Resources */,
 				60C7F8BF1DFA6B4E0069E69A /* find@2x.png in Resources */,
 				606B1E2A1DFD7DFD00BD86E2 /* close_button@2x.png in Resources */,
 			);
@@ -563,8 +575,10 @@
 				60C7F8B61DFA66D30069E69A /* AHDisplayViewController.swift in Sources */,
 				601CF5E91DF8379A002AF8D5 /* AHMainViewController.swift in Sources */,
 				606B1E281DFD6DF800BD86E2 /* AHMoreListView.swift in Sources */,
+				602754C11E01260700A2B757 /* FPSLabel.m in Sources */,
 				600D2B731DF8F33E00D57EA0 /* AHMineViewController.swift in Sources */,
 				600D2B751DF8F35C00D57EA0 /* AHGankViewController.swift in Sources */,
+				602754BD1E00FCC400A2B757 /* AHClassCell.swift in Sources */,
 				60C7F8D41DFB0D2A0069E69A /* AHTurnChannelViewController.swift in Sources */,
 				600D2B6D1DF8F1C200D57EA0 /* NSObject+Extension.swift in Sources */,
 			);

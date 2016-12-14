@@ -13,7 +13,7 @@ class AHNewWorkingAgent: NSObject {
     
     class func loadClassRequest(tpye: ClassType, page: Int, success: @escaping Success, failure: @escaping Failure) {
 
-        let url = AHConfig.Http_ + "data/\(tpye.rawValue)/10/\(page)"
+        let url = AHConfig.Http_ + "data/\(tpye.rawValue)/20/\(page)"
         let urlString = url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
         
         AHNetWorking.requestData(.get, URLString: urlString!, parameters: nil, success: { (result: Any) in
@@ -35,9 +35,10 @@ class AHNewWorkingAgent: NSObject {
                     let tast = session.dataTask(with: url!, completionHandler: { (data: Data?, _, error: Error?) in
                         if let data = data {
                             let json = JSON(data: data)
-                            let width = json["height"].object as! CGFloat
+                            let width = json["width"].object as! CGFloat
                             let height = json["height"].object as! CGFloat
-                            model.imageSize = CGSize(width: width, height: height)
+                            model.imageH = height
+                            model.imageW = width
                         }
                         // 当前线程离开组队列
                         group.leave()

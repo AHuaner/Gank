@@ -38,8 +38,8 @@ class AHGankViewController: AHDisplayViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let titles = ["干货", "福利", "Android", "iOS", "视频", "前端"]
-        moreTagsArray = ["拓展资源"]
+        let titles = ["干货", "Android", "iOS", "视频", "前端", "拓展资源"]
+        moreTagsArray = ["福利"]
         setupChildVCs(titles: titles)
         addTitleButton.addTarget(self, action: #selector(AHGankViewController.addTitleButtonClick(_:)), for: .touchUpInside)
     }

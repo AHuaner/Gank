@@ -7,7 +7,6 @@
 //
 
 import UIKit
-
 class AHClassViewController: BaseViewController {
     
     var type: ClassType!
@@ -54,13 +53,15 @@ class AHClassViewController: BaseViewController {
     }
     
     func setupUI() {
+        let fpsLabel = FPSLabel(frame: CGRect(x: 0, y: 20, width: 50, height: 30))
+        UIApplication.shared.keyWindow?.addSubview(fpsLabel)
         view.addSubview(tableView)
         
         view.addSubview(loadingView)
         
         tableView.backgroundColor = UIColor(red: CGFloat(arc4random() % 255 + 1) / 255.0, green: CGFloat(arc4random() % 255 + 1) / 255.0, blue: CGFloat(arc4random() % 255 + 1) / 255.0, alpha: 1)
         
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell1")
+//        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell1")
     }
     
     func loadDate() {
@@ -92,10 +93,14 @@ extension AHClassViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell1", for: indexPath)
-        let model = datasArray[indexPath.row]
-        cell.textLabel?.text = "\(title!)---\(model.desc!)"
+        let cell = AHClassCell.cellWithTableView(tableView)
+        cell.classModel = datasArray[indexPath.row]
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        let model = datasArray[indexPath.row]
+        return model.cellH
     }
 }
 
