@@ -38,7 +38,7 @@ class AHClassModel: NSObject {
     
     var type: String?
     
-    var imageFrame: CGRect = CGRect.zero
+    var imageContainFrame: CGRect = CGRect.zero
     var imageH: CGFloat = 0
     var imageW: CGFloat = 0
     
@@ -65,7 +65,7 @@ class AHClassModel: NSObject {
                     let showImageH: CGFloat = self.imageH * showImageW / self.imageW
                     let showImageY = descTextH! + 2 * cellMargin
                     let showImageX = cellMargin
-                    self.imageFrame = CGRect(x: showImageX, y: showImageY, width: showImageW, height: showImageH)
+                    self.imageContainFrame = CGRect(x: showImageX, y: showImageY, width: showImageW, height: showImageH)
                     
                     _cellH = _cellH! + showImageH + cellMargin
                 } else {
@@ -73,7 +73,7 @@ class AHClassModel: NSObject {
                     let showImageW: CGFloat = self.imageW * showImageH / self.imageH
                     let showImageY = descTextH! + 2 * cellMargin
                     let showImageX = cellMargin
-                    self.imageFrame = CGRect(x: showImageX, y: showImageY, width: showImageW, height: showImageH)
+                    self.imageContainFrame = CGRect(x: showImageX, y: showImageY, width: showImageW, height: showImageH)
                     
                     _cellH = _cellH! + showImageH + cellMargin
                 }
@@ -81,7 +81,16 @@ class AHClassModel: NSObject {
             
             // 有多张图片, colectionView的高度
             if self.imageType == AHImageType.moreImage {
+                let col: Int = 3
+                let row: Int = images!.count / col + ((images!.count % col > 0) ? 1 : 0)
+                let imageW: CGFloat = (maxSize.width - 2 * cellMargin) / CGFloat(col)
+                let containW: CGFloat = maxSize.width
+                let containH: CGFloat = CGFloat(row) * imageW
+                let containX: CGFloat = cellMargin
+                let containY = descTextH! + 2 * cellMargin
+                self.imageContainFrame = CGRect(x: containX, y: containY, width: containW, height: containH)
                 
+                _cellH = _cellH! + containH + cellMargin
             }
             
             // 底部时间的高度

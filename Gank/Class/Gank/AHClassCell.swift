@@ -23,7 +23,19 @@ class AHClassCell: UITableViewCell {
     lazy var morePicturesView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         let morePicturesView = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
-        morePicturesView.collectionViewLayout = UICollectionViewLayout()
+        morePicturesView.collectionViewLayout = layout
+        
+        let margin: CGFloat = 10
+        layout.minimumInteritemSpacing = margin
+        layout.minimumLineSpacing = margin
+        let width = (kScreen_W - margin * 4) / 3
+        layout.itemSize = CGSize(width: width, height: width)
+        layout.scrollDirection = .horizontal
+        
+        morePicturesView.dataSource = self
+        morePicturesView.delegate = self
+        morePicturesView.backgroundColor = UIColor.white
+        morePicturesView.register(UINib(nibName: AHImageCell.getClassName(), bundle: nil), forCellWithReuseIdentifier: "collectionID")
         self.contentView.addSubview(morePicturesView)
         return morePicturesView
     }()
@@ -36,18 +48,18 @@ class AHClassCell: UITableViewCell {
             if classModel.imageType == AHImageType.oneImage {
                 self.pictureView.isHidden = false
                 self.morePicturesView.isHidden = true
-                self.pictureView.frame = classModel.imageFrame
+                self.pictureView.frame = classModel.imageContainFrame
                 if let urlString = classModel.images?[0] {
-                    let small_url = urlString + "?imageView2/1/w/\(Int(classModel.imageFrame.width))/h/\(Int(classModel.imageFrame.height))"
+                    let small_url = urlString + "?imageView2/1/w/\(Int(classModel.imageContainFrame.width))/h/\(Int(classModel.imageContainFrame.height))/interlace/1"
                     self.pictureView.yy_imageURL = URL(string: small_url)
                 }
             }
             
             // 有多张图片
             if classModel.imageType == AHImageType.moreImage {
-                AHLog(classModel.images?.count)
                 self.pictureView.isHidden = true
                 self.morePicturesView.isHidden = false
+                self.morePicturesView.frame = classModel.imageContainFrame
             }
         }
     }
@@ -68,5 +80,24 @@ class AHClassCell: UITableViewCell {
             cell = self.viewFromNib() as! AHClassCell
         }
         return cell as! AHClassCell
+    }
+}
+
+extension AHClassCell: UICollectionViewDelegate, UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        guard let count = classModel.images?.count else {
+            return 0
+        }
+        if count == 1 {
+            return 0
+        } else {
+            return count
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionID", for: indexPath) as! AHImageCell
+        cell.urlString = classModel.images![indexPath.row]
+        return cell
     }
 }

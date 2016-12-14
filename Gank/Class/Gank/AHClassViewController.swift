@@ -60,8 +60,6 @@ class AHClassViewController: BaseViewController {
         view.addSubview(loadingView)
         
         tableView.backgroundColor = UIColor(red: CGFloat(arc4random() % 255 + 1) / 255.0, green: CGFloat(arc4random() % 255 + 1) / 255.0, blue: CGFloat(arc4random() % 255 + 1) / 255.0, alpha: 1)
-        
-//        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell1")
     }
     
     func loadDate() {
