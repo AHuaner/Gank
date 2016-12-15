@@ -61,7 +61,17 @@ class AHClassModel: NSObject {
             
             // 一张图片的高度
             if self.imageType == AHImageType.oneImage {
-                if self.imageW >= self.imageH {
+                // 早期的图片没有托管, 请求没有结果
+                // 所以就算有图片,请求获取的宽度和高度也都为0, 只好把高度定死
+                if self.imageW == 0 && self.imageH == 0 {
+                    let showImageW: CGFloat = maxSize.width * 0.62
+                    let showImageH: CGFloat = showImageW
+                    let showImageY = descTextH! + 2 * cellMargin
+                    let showImageX = cellMargin
+                    self.imageContainFrame = CGRect(x: showImageX, y: showImageY, width: showImageH, height: showImageW)
+                    
+                    _cellH = _cellH! + showImageH + cellMargin
+                } else if self.imageW >= self.imageH {
                     let showImageW: CGFloat = maxSize.width * 0.62
                     let showImageH: CGFloat = self.imageH * showImageW / self.imageW
                     let showImageY = descTextH! + 2 * cellMargin

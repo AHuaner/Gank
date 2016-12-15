@@ -19,6 +19,8 @@ class AHClassCell: UITableViewCell {
     lazy var pictureView: YYAnimatedImageView = {
         let pictureView = YYAnimatedImageView()
         self.contentView.addSubview(pictureView)
+        pictureView.contentMode = .scaleAspectFill
+        pictureView.clipsToBounds = true
         return pictureView
     }()
     
@@ -27,14 +29,16 @@ class AHClassCell: UITableViewCell {
         let morePicturesView = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
         morePicturesView.collectionViewLayout = layout
         
-        layout.minimumInteritemSpacing = cellMargin
-        layout.minimumLineSpacing = cellMargin
-        let itemWidth = (cellMaxWidth - cellMargin * 2) / 3
+        let collectMargin = cellMargin / 2
+        layout.minimumInteritemSpacing = collectMargin
+        layout.minimumLineSpacing = collectMargin
+        let itemWidth = (cellMaxWidth - collectMargin * 2) / 3
         layout.itemSize = CGSize(width: itemWidth, height: itemWidth)
         
         morePicturesView.dataSource = self
         morePicturesView.delegate = self
         morePicturesView.backgroundColor = UIColor.white
+        morePicturesView.isScrollEnabled = false
         morePicturesView.register(UINib(nibName: AHImageCell.getClassName(), bundle: nil), forCellWithReuseIdentifier: "collectionID")
         self.contentView.addSubview(morePicturesView)
         return morePicturesView
@@ -52,8 +56,12 @@ class AHClassCell: UITableViewCell {
                 self.pictureView.backgroundColor = RGBColor(240.0, g: 240.0, b: 240.0, alpha: 1.0)
                 self.pictureView.frame = classModel.imageContainFrame
                 if let urlString = classModel.images?[0] {
-                    let small_url = urlString + "?imageView2/1/w/\(Int(classModel.imageContainFrame.width) * 2)/h/\(Int(classModel.imageContainFrame.height) * 2)/interlace/1"
-                    self.pictureView.yy_imageURL = URL(string: small_url)
+                    if classModel.imageH == 0 && classModel.imageW == 0 {
+                        self.pictureView.yy_imageURL = URL(string: urlString)
+                    } else {
+                        let small_url = urlString + "?imageView2/1/w/\(Int(classModel.imageContainFrame.width) * 2)/h/\(Int(classModel.imageContainFrame.height) * 2)/interlace/1"
+                        self.pictureView.yy_imageURL = URL(string: small_url)
+                    }
                 }
             }
             

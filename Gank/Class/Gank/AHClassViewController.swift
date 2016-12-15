@@ -88,6 +88,7 @@ class AHClassViewController: BaseViewController {
             
             self.loadingView.removeFromSuperview()
             guard let datasArray = result as? [AHClassModel] else {
+                self.tableView.mj_header.endRefreshing()
                 return
             }
             self.datasArray = datasArray
@@ -99,7 +100,6 @@ class AHClassViewController: BaseViewController {
             if self.lastPage != currentPage { return }
             
             AHLog("\(self.title!)----下拉刷新失败-----\(error)")
-            SVProgressHUD.showError(withStatus: "加载失败")
             self.tableView.mj_header.endRefreshing()
         })
     }
@@ -116,8 +116,10 @@ class AHClassViewController: BaseViewController {
             if self.lastPage != currentPage { return }
             
             guard let datasArray = result as? [AHClassModel] else {
+                self.tableView.mj_footer.endRefreshing()
                 return
             }
+
             self.datasArray.append(contentsOf: datasArray)
             self.tableView.reloadData()
             self.currentPage = currentPage
