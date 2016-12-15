@@ -72,7 +72,7 @@ class AHClassViewController: BaseViewController {
     // 设置刷新控件
     fileprivate func setupRefresh() {
         let header = MJRefreshNormalHeader.init(refreshingTarget: self, refreshingAction: #selector(AHClassViewController.loadNewGank))
-//        header?.lastUpdatedTimeLabel.isHidden = true
+        header?.lastUpdatedTimeLabel.isHidden = true
         header?.isAutomaticallyChangeAlpha = true
         tableView.mj_header = header
         tableView.mj_footer = MJRefreshAutoNormalFooter.init(refreshingTarget: self, refreshingAction: #selector(AHClassViewController.loadMoreGank))
@@ -92,7 +92,7 @@ class AHClassViewController: BaseViewController {
             self.currentPage = 1
             self.tableView.mj_header.endRefreshing()
         }, failure: { (error) in
-            AHLog(error)
+            AHLog("\(self.title!)----下拉刷新失败-----\(error)")
             SVProgressHUD.showError(withStatus: "加载失败")
             self.tableView.mj_header.endRefreshing()
         })
@@ -113,6 +113,7 @@ class AHClassViewController: BaseViewController {
             self.currentPage = currentPage
             self.tableView.mj_footer.endRefreshing()
         }) { (error) in
+            AHLog("\(self.title!)----上拉加载失败-----\(error)")
             self.tableView.mj_footer.endRefreshing()
         }
     }

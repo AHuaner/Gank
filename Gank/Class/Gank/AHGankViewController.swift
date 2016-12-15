@@ -30,16 +30,28 @@ class AHGankViewController: AHDisplayViewController {
     /// 已显示的tags
     fileprivate var showTagsArray: [String] = [String]()
     
-    /// 上一次以显示的tags
-    fileprivate var lastShowTagsArray: [String] = [String]()
-    
     /// 未显示的tags
     fileprivate var moreTagsArray: [String] = [String]()
     
+    /// 上一次以显示的tags
+    fileprivate var lastShowTagsArray: [String] = [String]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        let titles = ["干货", "Android", "iOS", "视频", "前端", "拓展资源"]
+        // 模拟从服务器获取
+        var titles = ["干货", "Android", "iOS", "视频", "前端", "拓展资源"]
         moreTagsArray = ["福利"]
+        
+        // 从本地存取
+        let saveShowTagsArray = NSKeyedUnarchiver.unarchiveObject(withFile: "saveShowTagsArray".cachesDir()) as? [String]
+        if saveShowTagsArray != nil {
+            titles = saveShowTagsArray!
+        }
+        let saveMoreTagsArray = NSKeyedUnarchiver.unarchiveObject(withFile: "saveMoreTagsArray".cachesDir()) as? [String]
+        if saveMoreTagsArray != nil {
+            moreTagsArray = saveMoreTagsArray!
+        }
+        
         setupChildVCs(titles: titles)
         addTitleButton.addTarget(self, action: #selector(AHGankViewController.addTitleButtonClick(_:)), for: .touchUpInside)
     }
@@ -48,7 +60,7 @@ class AHGankViewController: AHDisplayViewController {
         let turnVC = AHTurnChannelViewController()
         turnVC.showTagsArray = showTagsArray
         turnVC.moreTagsArray = moreTagsArray
-
+        
         turnVC.turnChannelClouse = { [unowned self]  showTags, moreTags in
             if self.lastShowTagsArray == showTags {
                 return
@@ -62,6 +74,7 @@ class AHGankViewController: AHDisplayViewController {
             AHLog(showTags)
             // 更新未显示的tags
             self.moreTagsArray = moreTags
+            NSKeyedArchiver.archiveRootObject(moreTags, toFile: "saveMoreTagsArray".cachesDir())
             
             self.setupTitleWidth()
             self.setupAllTitle()
@@ -86,5 +99,6 @@ class AHGankViewController: AHDisplayViewController {
             showTagsArray.append(title)
         }
         lastShowTagsArray = showTagsArray
+        NSKeyedArchiver.archiveRootObject(showTagsArray, toFile: "saveShowTagsArray".cachesDir())
     }
 }
