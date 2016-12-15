@@ -33,26 +33,23 @@ class AHGankViewController: AHDisplayViewController {
     /// 未显示的tags
     fileprivate var moreTagsArray: [String] = [String]()
     
-    /// 上一次以显示的tags
-    fileprivate var lastShowTagsArray: [String] = [String]()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // 模拟从服务器获取
-        var titles = ["干货", "Android", "iOS", "视频", "前端", "拓展资源"]
+        // 模拟从服务器获取频道列表
+        showTagsArray = ["干货", "Android", "iOS", "视频", "前端", "拓展资源"]
         moreTagsArray = ["福利"]
         
-        // 从本地存取
+        // 从本地读取频道列表
         let saveShowTagsArray = NSKeyedUnarchiver.unarchiveObject(withFile: "saveShowTagsArray".cachesDir()) as? [String]
         if saveShowTagsArray != nil {
-            titles = saveShowTagsArray!
+            showTagsArray = saveShowTagsArray!
         }
         let saveMoreTagsArray = NSKeyedUnarchiver.unarchiveObject(withFile: "saveMoreTagsArray".cachesDir()) as? [String]
         if saveMoreTagsArray != nil {
             moreTagsArray = saveMoreTagsArray!
         }
         
-        setupChildVCs(titles: titles)
+        setupChildVCs(titles: showTagsArray)
         addTitleButton.addTarget(self, action: #selector(AHGankViewController.addTitleButtonClick(_:)), for: .touchUpInside)
     }
     
@@ -62,7 +59,7 @@ class AHGankViewController: AHDisplayViewController {
         turnVC.moreTagsArray = moreTagsArray
         
         turnVC.turnChannelClouse = { [unowned self]  showTags, moreTags in
-            if self.lastShowTagsArray == showTags {
+            if self.showTagsArray == showTags {
                 return
             }
             
@@ -98,7 +95,6 @@ class AHGankViewController: AHDisplayViewController {
             // 更新以显示的tags
             showTagsArray.append(title)
         }
-        lastShowTagsArray = showTagsArray
         NSKeyedArchiver.archiveRootObject(showTagsArray, toFile: "saveShowTagsArray".cachesDir())
     }
 }

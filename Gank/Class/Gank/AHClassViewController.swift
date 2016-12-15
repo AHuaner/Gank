@@ -36,15 +36,6 @@ class AHClassViewController: BaseViewController {
         return tabelView
     }()
     
-    init() {
-        super.init(nibName: nil, bundle: nil)
-//        NotificationCenter.default.addObserver(self, selector: #selector(AHClassViewController.loadDate), name: NSNotification.Name(rawValue: "AHDisplayViewClickOrScrollDidFinshNote"), object: self)
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -74,6 +65,9 @@ class AHClassViewController: BaseViewController {
         let header = MJRefreshNormalHeader.init(refreshingTarget: self, refreshingAction: #selector(AHClassViewController.loadNewGank))
         header?.lastUpdatedTimeLabel.isHidden = true
         header?.isAutomaticallyChangeAlpha = true
+        header?.setTitle("下拉刷新", for: .idle)
+        header?.setTitle("释放更新", for: .pulling)
+        header?.setTitle("干货加载中...", for: .refreshing)
         tableView.mj_header = header
         tableView.mj_footer = MJRefreshAutoNormalFooter.init(refreshingTarget: self, refreshingAction: #selector(AHClassViewController.loadMoreGank))
     }
@@ -125,9 +119,6 @@ class AHClassViewController: BaseViewController {
         AHLog("\(self.title!)-----第一次加载")
     }
     
-//    deinit {
-//        NotificationCenter.default.removeObserver(self)
-//    }
 }
 
 extension AHClassViewController: UITableViewDataSource {

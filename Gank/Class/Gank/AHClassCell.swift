@@ -48,6 +48,7 @@ class AHClassCell: UITableViewCell {
             if classModel.imageType == AHImageType.oneImage {
                 self.pictureView.isHidden = false
                 self.morePicturesView.isHidden = true
+                self.pictureView.backgroundColor = RGBColor(240.0, g: 240.0, b: 240.0, alpha: 1.0)
                 self.pictureView.frame = classModel.imageContainFrame
                 if let urlString = classModel.images?[0] {
                     let small_url = urlString + "?imageView2/1/w/\(Int(classModel.imageContainFrame.width) * 2)/h/\(Int(classModel.imageContainFrame.height) * 2)/interlace/1"

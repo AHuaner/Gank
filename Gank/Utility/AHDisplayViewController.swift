@@ -302,7 +302,6 @@ extension AHDisplayViewController {
         let vc = self.childViewControllers[selbtn.tag];
         
         if vc.isKind(of: AHClassViewController.self) {
-//            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "AHDisplayViewClickOrScrollDidFinshNote"), object: vc)
             let classVC = vc as! AHClassViewController
             DispatchQueue.main.asyncAfter(deadline: 0.5, execute: {
                 classVC.firstLoadDate()
