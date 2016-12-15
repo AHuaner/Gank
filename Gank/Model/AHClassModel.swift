@@ -8,7 +8,7 @@
 
 let _idKey = "_id"
 let descKey = "desc"
-let createdAtKey = "createdAt"
+let publishedAtKey = "publishedAt"
 let imagesKey = "images"
 let urlKey = "url"
 let typeKey = "type"
@@ -29,7 +29,7 @@ import SwiftyJSON
 class AHClassModel: NSObject {
     var id: String?
     
-    var createdAt: String?
+    var publishedAt: String?
     
     var desc: String?
     
@@ -108,8 +108,8 @@ class AHClassModel: NSObject {
                 self.id = subJson.string
             case descKey:
                 self.desc = subJson.string
-            case createdAtKey:
-                self.createdAt = subJson.string
+            case publishedAtKey:
+                self.publishedAt = subJson.string
             case urlKey:
                 self.url = subJson.string
             case typeKey:

@@ -44,6 +44,7 @@ class AHClassCell: UITableViewCell {
         didSet {
             self.contentLabel.text = classModel.desc
             self.userLabel.text = classModel.user
+            self.timeLabel.text = classModel.publishedAt
             // 只有一张图片
             if classModel.imageType == AHImageType.oneImage {
                 self.pictureView.isHidden = false

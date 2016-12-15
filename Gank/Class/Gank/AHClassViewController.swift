@@ -16,16 +16,19 @@ class AHClassViewController: BaseViewController {
     
     var isFirstLoad: Bool = false
     
-    var currentPage: Int = 1
+    fileprivate var currentPage: Int = 1
     
-    lazy var loadingView: AHLoadingView = {
+    // 最后一次请求的页码, 防止重复加载
+    fileprivate var lastPage: Int?
+    
+    fileprivate lazy var loadingView: AHLoadingView = {
         let loadingView = AHLoadingView(frame: self.view.bounds)
         return loadingView
     }()
     
-    var datasArray: [AHClassModel] = [AHClassModel]()
+    fileprivate var datasArray: [AHClassModel] = [AHClassModel]()
     
-    lazy var tableView: UITableView = {
+    fileprivate lazy var tableView: UITableView = {
         let tabelView = UITableView(frame: CGRect(x: 0, y: 0, width: kScreen_W, height: kScreen_H - kNavBarHeight), style: UITableViewStyle.plain)
         tabelView.backgroundColor = UIColorMainBG
         tabelView.delegate = self
@@ -76,16 +79,25 @@ class AHClassViewController: BaseViewController {
     func loadNewGank() {
         // 结束上拉刷新
         self.tableView.mj_footer.endRefreshing()
-        AHNewWorkingAgent.loadClassRequest(tpye: self.type, page: self.currentPage, success: { (result) in
+        // 当前加载的页码
+        let currentPage: Int = 1
+        // 更新最后一次请求的页码
+        self.lastPage = currentPage
+        AHNewWorkingAgent.loadClassRequest(tpye: self.type, page: currentPage, success: { (result) in
+            if self.lastPage != currentPage { return }
+            
             self.loadingView.removeFromSuperview()
             guard let datasArray = result as? [AHClassModel] else {
                 return
             }
             self.datasArray = datasArray
             self.tableView.reloadData()
-            self.currentPage = 1
+            self.currentPage = currentPage
             self.tableView.mj_header.endRefreshing()
+            
         }, failure: { (error) in
+            if self.lastPage != currentPage { return }
+            
             AHLog("\(self.title!)----下拉刷新失败-----\(error)")
             SVProgressHUD.showError(withStatus: "加载失败")
             self.tableView.mj_header.endRefreshing()
@@ -96,9 +108,13 @@ class AHClassViewController: BaseViewController {
     func loadMoreGank() {
         // 结束下拉刷新
         self.tableView.mj_header.endRefreshing()
+        // 当前加载的页码
         let currentPage = self.currentPage + 1
-        
+        // 更新最后一次请求的页码
+        self.lastPage = currentPage
         AHNewWorkingAgent.loadClassRequest(tpye: self.type, page: currentPage, success: { (result) in
+            if self.lastPage != currentPage { return }
+            
             guard let datasArray = result as? [AHClassModel] else {
                 return
             }
@@ -106,7 +122,10 @@ class AHClassViewController: BaseViewController {
             self.tableView.reloadData()
             self.currentPage = currentPage
             self.tableView.mj_footer.endRefreshing()
+            
         }) { (error) in
+            if self.lastPage != currentPage { return }
+            
             AHLog("\(self.title!)----上拉加载失败-----\(error)")
             self.tableView.mj_footer.endRefreshing()
         }
