@@ -25,12 +25,10 @@ class AHClassCell: UITableViewCell {
         let morePicturesView = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
         morePicturesView.collectionViewLayout = layout
         
-        let margin: CGFloat = 10
-        layout.minimumInteritemSpacing = margin
-        layout.minimumLineSpacing = margin
-        let width = (kScreen_W - margin * 4) / 3
-        layout.itemSize = CGSize(width: width, height: width)
-        layout.scrollDirection = .horizontal
+        layout.minimumInteritemSpacing = cellMargin
+        layout.minimumLineSpacing = cellMargin
+        let itemWidth = (cellMaxWidth - cellMargin * 2) / 3
+        layout.itemSize = CGSize(width: itemWidth, height: itemWidth)
         
         morePicturesView.dataSource = self
         morePicturesView.delegate = self

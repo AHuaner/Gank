@@ -21,6 +21,5 @@ class AHImageCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
     }
 }

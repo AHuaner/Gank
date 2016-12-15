@@ -19,6 +19,9 @@ enum AHImageType {
 }
 
 let timeLableH: CGFloat = 20
+let separatorLineH: CGFloat = 8
+let cellMargin: CGFloat = 10
+let cellMaxWidth: CGFloat = kScreen_W - 2 * cellMargin
 
 import UIKit
 import SwiftyJSON
@@ -42,8 +45,6 @@ class AHClassModel: NSObject {
     var imageH: CGFloat = 0
     var imageW: CGFloat = 0
     
-    var cellMargin: CGFloat = 10
-    
     // 默认是没有图片
     var imageType: AHImageType = AHImageType.noImage
     
@@ -51,7 +52,7 @@ class AHClassModel: NSObject {
     // cell的整体高度
     var cellH: CGFloat {
         if _cellH == nil {
-            let maxSize = CGSize(width: kScreen_W - 2 * cellMargin, height: CGFloat(MAXFLOAT))
+            let maxSize = CGSize(width: cellMaxWidth, height: CGFloat(MAXFLOAT))
             
             // 文字的高度
             let descTextH = desc?.boundingRect(with: maxSize, options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSFontAttributeName : UIFont.systemFont(ofSize: 13)], context: nil).size.height
@@ -94,7 +95,7 @@ class AHClassModel: NSObject {
             }
             
             // 底部时间的高度
-            _cellH = _cellH! + timeLableH
+            _cellH = _cellH! + timeLableH + separatorLineH
         }
         return _cellH!
     }

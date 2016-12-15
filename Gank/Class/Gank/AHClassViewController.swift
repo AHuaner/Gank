@@ -7,22 +7,23 @@
 //
 
 import UIKit
+import MJRefresh
+import SVProgressHUD
+
 class AHClassViewController: BaseViewController {
     
     var type: ClassType!
     
     var isLoad: Bool = false
     
+    var currentPage: Int = 1
+    
     lazy var loadingView: AHLoadingView = {
         let loadingView = AHLoadingView(frame: self.view.bounds)
         return loadingView
     }()
     
-    var datasArray: [AHClassModel] = [AHClassModel]() {
-        didSet {
-            tableView.reloadData()
-        }
-    }
+    var datasArray: [AHClassModel] = [AHClassModel]()
     
     lazy var tableView: UITableView = {
         let tabelView = UITableView(frame: CGRect(x: 0, y: 0, width: kScreen_W, height: kScreen_H - kNavBarHeight), style: UITableViewStyle.plain)
@@ -31,6 +32,7 @@ class AHClassViewController: BaseViewController {
         tabelView.dataSource = self
         tabelView.contentInset.top = 35
         tabelView.contentInset.bottom = kBottomBarHeight
+        tabelView.separatorStyle = .none
         return tabelView
     }()
     
@@ -45,43 +47,61 @@ class AHClassViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         setupUI()
+        
+        setupRefresh()
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
-    func setupUI() {
+    fileprivate func setupUI() {
+        // 添加fps测试
         let fpsLabel = FPSLabel(frame: CGRect(x: 0, y: 20, width: 50, height: 30))
         UIApplication.shared.keyWindow?.addSubview(fpsLabel)
+        
         view.addSubview(tableView)
         
-        view.addSubview(loadingView)
+        tableView.backgroundColor = UIColorMainBG
         
-        tableView.backgroundColor = UIColor(red: CGFloat(arc4random() % 255 + 1) / 255.0, green: CGFloat(arc4random() % 255 + 1) / 255.0, blue: CGFloat(arc4random() % 255 + 1) / 255.0, alpha: 1)
+        tableView.addSubview(loadingView)
     }
     
-    func loadDate() {
-        if isLoad { return }
-        isLoad = true
-        sendRequest()
+    // 设置刷新控件
+    fileprivate func setupRefresh() {
+        let header = MJRefreshNormalHeader.init(refreshingTarget: self, refreshingAction: #selector(AHClassViewController.loadNewTopic))
+        header?.lastUpdatedTimeLabel.isHidden = true
+        header?.isAutomaticallyChangeAlpha = true
+        tableView.mj_header = header
     }
     
-    deinit {
-        NotificationCenter.default.removeObserver(self)
-    }
-    
-    fileprivate func sendRequest () {
-        AHNewWorkingAgent.loadClassRequest(tpye: self.type, page: 1, success: { result in
+    func loadNewTopic() {
+        AHNewWorkingAgent.loadClassRequest(tpye: self.type, page: self.currentPage, success: { result in
             self.loadingView.removeFromSuperview()
             guard let datasArray = result as? [AHClassModel] else {
                 return
             }
             self.datasArray = datasArray
+            self.tableView.reloadData()
+            self.tableView.mj_header.endRefreshing()
+            self.currentPage = 1
         }, failure: { error in
             AHLog(error)
+            SVProgressHUD.showError(withStatus: "加载失败")
+            self.tableView.mj_header.endRefreshing()
         })
+    }
+    
+    func loadDate() {
+        if isLoad { return }
+        isLoad = true
+        loadNewTopic()
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
 }
 

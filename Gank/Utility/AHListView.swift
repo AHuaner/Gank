@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import SVProgressHUD
+
 class AHListView: UIView {
     
     /// 存放ListView上所有的btn的标题
@@ -230,11 +232,12 @@ extension AHListView {
     
     func deleteBtnAction(btn: AHTagBtn) {
         if !isEditModel {
-            AHLog("至少保留一个频道")
             return
         }
         
         if tagArray.count <= 1 {
+            AHLog("至少保留一个频道")
+            SVProgressHUD.showError(withStatus: "至少保留一个频道")
             return
         }
         
