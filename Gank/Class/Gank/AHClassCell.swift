@@ -12,6 +12,8 @@ class AHClassCell: UITableViewCell {
     
     @IBOutlet weak var timeLabel: UILabel!
     
+    @IBOutlet weak var userLabel: UILabel!
+    
     @IBOutlet weak var contentLabel: UILabel!
     
     lazy var pictureView: YYAnimatedImageView = {
@@ -41,14 +43,14 @@ class AHClassCell: UITableViewCell {
     var classModel: AHClassModel! {
         didSet {
             self.contentLabel.text = classModel.desc
-            
+            self.userLabel.text = classModel.user
             // 只有一张图片
             if classModel.imageType == AHImageType.oneImage {
                 self.pictureView.isHidden = false
                 self.morePicturesView.isHidden = true
                 self.pictureView.frame = classModel.imageContainFrame
                 if let urlString = classModel.images?[0] {
-                    let small_url = urlString + "?imageView2/1/w/\(Int(classModel.imageContainFrame.width))/h/\(Int(classModel.imageContainFrame.height))/interlace/1"
+                    let small_url = urlString + "?imageView2/1/w/\(Int(classModel.imageContainFrame.width) * 2)/h/\(Int(classModel.imageContainFrame.height) * 2)/interlace/1"
                     self.pictureView.yy_imageURL = URL(string: small_url)
                 }
             }
@@ -64,7 +66,6 @@ class AHClassCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

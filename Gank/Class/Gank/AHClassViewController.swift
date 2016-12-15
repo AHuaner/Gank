@@ -14,7 +14,7 @@ class AHClassViewController: BaseViewController {
     
     var type: ClassType!
     
-    var isLoad: Bool = false
+    var isFirstLoad: Bool = false
     
     var currentPage: Int = 1
     
@@ -38,7 +38,7 @@ class AHClassViewController: BaseViewController {
     
     init() {
         super.init(nibName: nil, bundle: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(AHClassViewController.loadDate), name: NSNotification.Name(rawValue: "AHDisplayViewClickOrScrollDidFinshNote"), object: self)
+//        NotificationCenter.default.addObserver(self, selector: #selector(AHClassViewController.loadDate), name: NSNotification.Name(rawValue: "AHDisplayViewClickOrScrollDidFinshNote"), object: self)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -71,42 +71,67 @@ class AHClassViewController: BaseViewController {
     
     // 设置刷新控件
     fileprivate func setupRefresh() {
-        let header = MJRefreshNormalHeader.init(refreshingTarget: self, refreshingAction: #selector(AHClassViewController.loadNewTopic))
-        header?.lastUpdatedTimeLabel.isHidden = true
+        let header = MJRefreshNormalHeader.init(refreshingTarget: self, refreshingAction: #selector(AHClassViewController.loadNewGank))
+//        header?.lastUpdatedTimeLabel.isHidden = true
         header?.isAutomaticallyChangeAlpha = true
         tableView.mj_header = header
+        tableView.mj_footer = MJRefreshAutoNormalFooter.init(refreshingTarget: self, refreshingAction: #selector(AHClassViewController.loadMoreGank))
     }
     
-    func loadNewTopic() {
-        AHNewWorkingAgent.loadClassRequest(tpye: self.type, page: self.currentPage, success: { result in
+    // 下拉刷新
+    func loadNewGank() {
+        // 结束上拉刷新
+        self.tableView.mj_footer.endRefreshing()
+        AHNewWorkingAgent.loadClassRequest(tpye: self.type, page: self.currentPage, success: { (result) in
             self.loadingView.removeFromSuperview()
             guard let datasArray = result as? [AHClassModel] else {
                 return
             }
             self.datasArray = datasArray
             self.tableView.reloadData()
-            self.tableView.mj_header.endRefreshing()
             self.currentPage = 1
-        }, failure: { error in
+            self.tableView.mj_header.endRefreshing()
+        }, failure: { (error) in
             AHLog(error)
             SVProgressHUD.showError(withStatus: "加载失败")
             self.tableView.mj_header.endRefreshing()
         })
     }
     
-    func loadDate() {
-        if isLoad { return }
-        isLoad = true
-        loadNewTopic()
+    // 上拉加载更多数据
+    func loadMoreGank() {
+        // 结束下拉刷新
+        self.tableView.mj_header.endRefreshing()
+        let currentPage = self.currentPage + 1
+        
+        AHNewWorkingAgent.loadClassRequest(tpye: self.type, page: currentPage, success: { (result) in
+            guard let datasArray = result as? [AHClassModel] else {
+                return
+            }
+            self.datasArray.append(contentsOf: datasArray)
+            self.tableView.reloadData()
+            self.currentPage = currentPage
+            self.tableView.mj_footer.endRefreshing()
+        }) { (error) in
+            self.tableView.mj_footer.endRefreshing()
+        }
     }
     
-    deinit {
-        NotificationCenter.default.removeObserver(self)
+    func firstLoadDate() {
+        if isFirstLoad { return }
+        self.isFirstLoad = true
+        self.tableView.mj_header.beginRefreshing()
+        AHLog("\(self.title!)-----第一次加载")
     }
+    
+//    deinit {
+//        NotificationCenter.default.removeObserver(self)
+//    }
 }
 
 extension AHClassViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        tableView.mj_footer.isHidden = (datasArray.count == 0);
         return datasArray.count
     }
     
