@@ -44,7 +44,6 @@ class AHClassModel: NSObject {
     var imageContainFrame: CGRect = CGRect.zero
     var imageH: CGFloat = 0
     var imageW: CGFloat = 0
-    
     // 默认是没有图片
     var imageType: AHImageType = AHImageType.noImage
     

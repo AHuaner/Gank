@@ -12,7 +12,7 @@ import SVProgressHUD
 
 class AHClassViewController: BaseViewController {
     
-    var type: ClassType!
+    var type: String!
     
     var isFirstLoad: Bool = false
     

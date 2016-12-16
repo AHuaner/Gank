@@ -11,9 +11,9 @@ import SwiftyJSON
 
 class AHNewWorkingAgent: NSObject {
     
-    class func loadClassRequest(tpye: ClassType, page: Int, success: @escaping Success, failure: @escaping Failure) {
+    class func loadClassRequest(tpye: String, page: Int, success: @escaping Success, failure: @escaping Failure) {
 
-        let url = AHConfig.Http_ + "data/\(tpye.rawValue)/20/\(page)"
+        let url = AHConfig.Http_ + "data/\(tpye)/20/\(page)"
         let urlString = url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
         
         AHNetWorking.requestData(.get, URLString: urlString!, parameters: nil, success: { (result: Any) in

@@ -16,32 +16,19 @@ class AHClassCell: UITableViewCell {
     
     @IBOutlet weak var contentLabel: UILabel!
     
-    lazy var pictureView: YYAnimatedImageView = {
-        let pictureView = YYAnimatedImageView()
-        self.contentView.addSubview(pictureView)
-        pictureView.contentMode = .scaleAspectFill
-        pictureView.clipsToBounds = true
-        return pictureView
-    }()
+    var pictureViewClickClouse: (() -> Void)?
     
-    lazy var morePicturesView: UICollectionView = {
+    lazy var pictureView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
-        let morePicturesView = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
-        morePicturesView.collectionViewLayout = layout
+        let pictureView = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
         
-        let collectMargin = cellMargin / 2
-        layout.minimumInteritemSpacing = collectMargin
-        layout.minimumLineSpacing = collectMargin
-        let itemWidth = (cellMaxWidth - collectMargin * 2) / 3
-        layout.itemSize = CGSize(width: itemWidth, height: itemWidth)
-        
-        morePicturesView.dataSource = self
-        morePicturesView.delegate = self
-        morePicturesView.backgroundColor = UIColor.white
-        morePicturesView.isScrollEnabled = false
-        morePicturesView.register(UINib(nibName: AHImageCell.getClassName(), bundle: nil), forCellWithReuseIdentifier: "collectionID")
-        self.contentView.addSubview(morePicturesView)
-        return morePicturesView
+        pictureView.dataSource = self
+        pictureView.delegate = self
+        pictureView.backgroundColor = UIColor.white
+        pictureView.isScrollEnabled = false
+        pictureView.register(UINib(nibName: AHImageCell.getClassName(), bundle: nil), forCellWithReuseIdentifier: "collectionID")
+        self.contentView.addSubview(pictureView)
+        return pictureView
     }()
     
     var classModel: AHClassModel! {
@@ -49,27 +36,31 @@ class AHClassCell: UITableViewCell {
             self.contentLabel.text = classModel.desc
             self.userLabel.text = classModel.user
             self.timeLabel.text = classModel.publishedAt
+            self.pictureView.frame = classModel.imageContainFrame
+            self.pictureView.isHidden = true
+            
             // 只有一张图片
             if classModel.imageType == AHImageType.oneImage {
                 self.pictureView.isHidden = false
-                self.morePicturesView.isHidden = true
-                self.pictureView.backgroundColor = RGBColor(240.0, g: 240.0, b: 240.0, alpha: 1.0)
-                self.pictureView.frame = classModel.imageContainFrame
-                if let urlString = classModel.images?[0] {
-                    if classModel.imageH == 0 && classModel.imageW == 0 {
-                        self.pictureView.yy_imageURL = URL(string: urlString)
-                    } else {
-                        let small_url = urlString + "?imageView2/1/w/\(Int(classModel.imageContainFrame.width) * 2)/h/\(Int(classModel.imageContainFrame.height) * 2)/interlace/1"
-                        self.pictureView.yy_imageURL = URL(string: small_url)
-                    }
-                }
+
+                let layout = UICollectionViewFlowLayout()
+                layout.itemSize = CGSize(width: classModel.imageContainFrame.width, height: classModel.imageContainFrame.height)
+                layout.minimumLineSpacing = 0
+                layout.minimumInteritemSpacing = 0
+                self.pictureView.setCollectionViewLayout(layout, animated: false)
             }
             
             // 有多张图片
             if classModel.imageType == AHImageType.moreImage {
-                self.pictureView.isHidden = true
-                self.morePicturesView.isHidden = false
-                self.morePicturesView.frame = classModel.imageContainFrame
+                self.pictureView.isHidden = false
+                
+                let layout = UICollectionViewFlowLayout()
+                let collectMargin = cellMargin / 2
+                layout.minimumInteritemSpacing = collectMargin
+                layout.minimumLineSpacing = collectMargin
+                let itemWidth = (cellMaxWidth - collectMargin * 2) / 3
+                layout.itemSize = CGSize(width: itemWidth, height: itemWidth)
+                self.pictureView.setCollectionViewLayout(layout, animated: false)
             }
         }
     }
@@ -83,7 +74,6 @@ class AHClassCell: UITableViewCell {
     }
     
     static func cellWithTableView(_ tableview: UITableView) -> AHClassCell {
-        
         var cell = tableview.dequeueReusableCell(withIdentifier: "AHClassCell")
         if cell == nil {
             cell = self.viewFromNib() as! AHClassCell
@@ -97,16 +87,20 @@ extension AHClassCell: UICollectionViewDelegate, UICollectionViewDataSource {
         guard let count = classModel.images?.count else {
             return 0
         }
-        if count == 1 {
-            return 0
-        } else {
-            return count
-        }
+        return count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionID", for: indexPath) as! AHImageCell
-        cell.urlString = classModel.images![indexPath.row]
+        cell.index = indexPath.item
+        cell.classModel = classModel
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        AHLog("cell点击")
+        if pictureViewClickClouse != nil {
+            pictureViewClickClouse!()
+        }
     }
 }

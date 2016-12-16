@@ -15,15 +15,6 @@ let ConfigDict: [AnyHashable: Any] = ["福利" : "福利",
                                 "拓展资源" : "拓展资源",
                                 "前端" : "前端",
                                 "干货" : "all"]
-enum ClassType: String {
-    case welfare = "福利"
-    case Android = "Android"
-    case iOS = "iOS"
-    case video = "休息视频"
-    case resource = "拓展资源"
-    case fontEnd = "前端"
-    case gank = "all"
-}
 
 class AHGankViewController: AHDisplayViewController {
     
@@ -90,7 +81,7 @@ class AHGankViewController: AHDisplayViewController {
         for title in titles {
             let classVC = AHClassViewController()
             classVC.title = title
-            classVC.type = ClassType(rawValue: "\(ConfigDict[title]!)")
+            classVC.type = ConfigDict[title] as! String
             addChildViewController(classVC);
             // 更新以显示的tags
             showTagsArray.append(title)
