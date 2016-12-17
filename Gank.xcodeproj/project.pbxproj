@@ -36,6 +36,7 @@
 		602754C11E01260700A2B757 /* FPSLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 602754C01E01260700A2B757 /* FPSLabel.m */; };
 		60396BEB1DF83C6A00A23DAA /* AHConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60396BEA1DF83C6A00A23DAA /* AHConfig.swift */; };
 		605E07F41E026D0E00225BA3 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 605E07F31E026D0E00225BA3 /* String+Extension.swift */; };
+		6069380F1E04E86900918949 /* AHBrowserImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6069380E1E04E86900918949 /* AHBrowserImageView.swift */; };
 		606B1E281DFD6DF800BD86E2 /* AHMoreListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 606B1E271DFD6DF800BD86E2 /* AHMoreListView.swift */; };
 		606B1E2A1DFD7DFD00BD86E2 /* close_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 606B1E291DFD7DFD00BD86E2 /* close_button@2x.png */; };
 		6073DD141DFFC46700C99E9C /* AHNewWorkingAgent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6073DD131DFFC46700C99E9C /* AHNewWorkingAgent.swift */; };
@@ -57,6 +58,7 @@
 		60DDC86E1DF8FD88003F1464 /* loading3.png in Resources */ = {isa = PBXBuildFile; fileRef = 60DDC8691DF8FD88003F1464 /* loading3.png */; };
 		60DDC86F1DF8FD88003F1464 /* loading4.png in Resources */ = {isa = PBXBuildFile; fileRef = 60DDC86A1DF8FD88003F1464 /* loading4.png */; };
 		60DDC8701DF8FD88003F1464 /* loading5.png in Resources */ = {isa = PBXBuildFile; fileRef = 60DDC86B1DF8FD88003F1464 /* loading5.png */; };
+		60F0EE821E041AB800D8ECA0 /* AHPhotoBrowser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F0EE811E041AB800D8ECA0 /* AHPhotoBrowser.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -113,6 +115,7 @@
 		602754C01E01260700A2B757 /* FPSLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FPSLabel.m; sourceTree = "<group>"; };
 		60396BEA1DF83C6A00A23DAA /* AHConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHConfig.swift; sourceTree = "<group>"; };
 		605E07F31E026D0E00225BA3 /* String+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		6069380E1E04E86900918949 /* AHBrowserImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHBrowserImageView.swift; sourceTree = "<group>"; };
 		606B1E271DFD6DF800BD86E2 /* AHMoreListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHMoreListView.swift; sourceTree = "<group>"; };
 		606B1E291DFD7DFD00BD86E2 /* close_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "close_button@2x.png"; sourceTree = "<group>"; };
 		6073DD131DFFC46700C99E9C /* AHNewWorkingAgent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHNewWorkingAgent.swift; sourceTree = "<group>"; };
@@ -135,6 +138,7 @@
 		60DDC8691DF8FD88003F1464 /* loading3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loading3.png; sourceTree = "<group>"; };
 		60DDC86A1DF8FD88003F1464 /* loading4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loading4.png; sourceTree = "<group>"; };
 		60DDC86B1DF8FD88003F1464 /* loading5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loading5.png; sourceTree = "<group>"; };
+		60F0EE811E041AB800D8ECA0 /* AHPhotoBrowser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHPhotoBrowser.swift; sourceTree = "<group>"; };
 		92E140CCC03B446F1E0E29B6 /* Pods-Gank.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gank.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Gank/Pods-Gank.debug.xcconfig"; sourceTree = "<group>"; };
 		BBF349F95A2C7F4277EE5517 /* Pods_Gank.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Gank.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -264,6 +268,19 @@
 			path = GankUITests;
 			sourceTree = "<group>";
 		};
+		6032438C1E038F0000484FC1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				602754BB1E00FCC400A2B757 /* AHClassCell.swift */,
+				602754BC1E00FCC400A2B757 /* AHClassCell.xib */,
+				60144E9F1E01632C00AC31D1 /* AHImageCell.swift */,
+				60144EA01E01632C00AC31D1 /* AHImageCell.xib */,
+				60F0EE811E041AB800D8ECA0 /* AHPhotoBrowser.swift */,
+				6069380E1E04E86900918949 /* AHBrowserImageView.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
 		60396BE11DF83BCF00A23DAA /* AHNetworking */ = {
 			isa = PBXGroup;
 			children = (
@@ -285,12 +302,9 @@
 		60396BE41DF83BE900A23DAA /* Gank */ = {
 			isa = PBXGroup;
 			children = (
+				6032438C1E038F0000484FC1 /* View */,
 				600D2B741DF8F35C00D57EA0 /* AHGankViewController.swift */,
 				601560911DFE820F00369E64 /* AHClassViewController.swift */,
-				602754BB1E00FCC400A2B757 /* AHClassCell.swift */,
-				602754BC1E00FCC400A2B757 /* AHClassCell.xib */,
-				60144E9F1E01632C00AC31D1 /* AHImageCell.swift */,
-				60144EA01E01632C00AC31D1 /* AHImageCell.xib */,
 			);
 			path = Gank;
 			sourceTree = "<group>";
@@ -565,6 +579,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6069380F1E04E86900918949 /* AHBrowserImageView.swift in Sources */,
 				60396BEB1DF83C6A00A23DAA /* AHConfig.swift in Sources */,
 				608EED161DF9898C00D1984A /* AHTimeButton.swift in Sources */,
 				600D2B6E1DF8F1C200D57EA0 /* UIView+Extension.swift in Sources */,
@@ -588,6 +603,7 @@
 				601CF5E91DF8379A002AF8D5 /* AHMainViewController.swift in Sources */,
 				606B1E281DFD6DF800BD86E2 /* AHMoreListView.swift in Sources */,
 				602754C11E01260700A2B757 /* FPSLabel.m in Sources */,
+				60F0EE821E041AB800D8ECA0 /* AHPhotoBrowser.swift in Sources */,
 				600D2B731DF8F33E00D57EA0 /* AHMineViewController.swift in Sources */,
 				600D2B751DF8F35C00D57EA0 /* AHGankViewController.swift in Sources */,
 				602754BD1E00FCC400A2B757 /* AHClassCell.swift in Sources */,

@@ -16,7 +16,7 @@ class AHClassCell: UITableViewCell {
     
     @IBOutlet weak var contentLabel: UILabel!
     
-    var pictureViewClickClouse: (() -> Void)?
+    var pictureViewClickClouse: ((_ index: IndexPath) -> Void)?
     
     lazy var pictureView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -98,9 +98,25 @@ extension AHClassCell: UICollectionViewDelegate, UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        AHLog("cell点击")
-        if pictureViewClickClouse != nil {
-            pictureViewClickClouse!()
+        
+        let browser = AHPhotoBrowser()
+        browser.currentImageIndex = indexPath.item
+        browser.imageCount = classModel.images?.count
+        browser.sourceImagesContainerView = collectionView
+        
+        browser.placeholderImageForIndexClouse = { (index) in
+            let newIndexPath = IndexPath(item: index, section: 0)
+            let cell = collectionView.cellForItem(at: newIndexPath) as! AHImageCell
+            let placeholderImage = cell.imageView.image
+            return placeholderImage!
         }
+        
+        browser.highQualityImageURLForIndexClouse = { [unowned self] (index) in
+            let urlString = self.classModel.images?[index]
+            let url = URL(string: urlString!)
+            return url!
+        }
+
+        browser.show()
     }
 }
