@@ -10,7 +10,11 @@ import UIKit
 
 class AHBrowserImageView: YYAnimatedImageView {
     
-    var totalScale: CGFloat?
+    var totalScale: CGFloat = 1.0
+    
+    var isScale: Bool {
+        return self.totalScale != 1.0
+    }
     
     lazy var zoomingImageView: YYAnimatedImageView = {
         let zoomingImageView = YYAnimatedImageView(image: self.image)
@@ -42,10 +46,8 @@ class AHBrowserImageView: YYAnimatedImageView {
         super.init(frame: frame)
         self.isUserInteractionEnabled = true
         self.contentMode = .scaleAspectFit
-        totalScale = 1.0
         
         let pinch = UIPinchGestureRecognizer(target: self, action: #selector(AHBrowserImageView.zoomImage(pinch:)))
-        pinch.delegate = self
         addGestureRecognizer(pinch)
     }
     
@@ -64,23 +66,22 @@ class AHBrowserImageView: YYAnimatedImageView {
         addSubview(zoomingScroolView)
         
         let scale = pinch.scale
-        let temp = totalScale! + (scale - 1)
-        setTotalScale(temp)
+        let temp = self.totalScale + (scale - 1.0)
+        
+        zoomWithScale(temp)
         pinch.scale = 1.0
     }
     
-    fileprivate func setTotalScale(_ totalScale: CGFloat) {
+    fileprivate func zoomWithScale(_ totalScale: CGFloat) {
+        
         // 最大缩放2倍,最小0.5倍
-        if self.totalScale! < 0.5 && totalScale < self.totalScale! || self.totalScale! > 2.0 && totalScale > self.totalScale! { return }
-        zoomWithScale(totalScale)
-    }
-    
-    fileprivate func zoomWithScale(_ scale: CGFloat) {
-        self.totalScale = scale
+        if (self.totalScale < 0.5 && totalScale < self.totalScale) || (self.totalScale > 2.0 && totalScale > self.totalScale) { return }
         
-        zoomingImageView.transform = CGAffineTransform(scaleX: scale, y: scale)
+        self.totalScale = totalScale
+//        AHLog(self.totalScale)
+        zoomingImageView.transform = CGAffineTransform(scaleX: totalScale, y: totalScale)
         
-        if scale > 1 {
+        if totalScale > 1 {
             let contentW = zoomingImageView.Width
             let contentH = max(zoomingImageView.Height, self.Height)
             
@@ -96,8 +97,9 @@ class AHBrowserImageView: YYAnimatedImageView {
             zoomingImageView.center = zoomingScroolView.center
         }
     }
-}
-
-extension AHBrowserImageView: UIGestureRecognizerDelegate {
     
+    func eliminateScale() {
+        zoomingScroolView.removeFromSuperview()
+        totalScale = 1.0
+    }
 }

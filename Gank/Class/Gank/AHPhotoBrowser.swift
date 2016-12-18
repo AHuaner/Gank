@@ -9,7 +9,7 @@
 import UIKit
 
 let AHPhotoBrowserImageViewMargin: CGFloat = 5
-let AHPhotoBrowserShowImageDuration: CGFloat = 0.3
+let AHPhotoBrowserShowImageDuration: CGFloat = 0.5
 
 class AHPhotoBrowser: UIView {
     var currentImageIndex: Int!
@@ -141,7 +141,6 @@ class AHPhotoBrowser: UIView {
         tempImageView.frame = rect
         tempImageView.contentMode = scrollView.subviews[currentImageIndex].contentMode
         scrollView.isHidden = true
-        
         UIView.animate(withDuration: TimeInterval(AHPhotoBrowserShowImageDuration), animations: {
             tempImageView.center = self.center
             tempImageView.bounds = CGRect(x: 0, y: 0, width: targetTemp.width, height: targetTemp.height)
@@ -181,11 +180,19 @@ class AHPhotoBrowser: UIView {
 extension AHPhotoBrowser: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let index = Int((scrollView.contentOffset.x + scrollView.bounds.size.width * 0.5) / scrollView.bounds.size.width)
-        
-        let mrgin: CGFloat = 150
+//        AHLog(index)
+        // 缩放的图片在拖动一定距离后清除缩放
+        let margin: CGFloat = 120
         let x: CGFloat = scrollView.contentOffset.x
         if (x - CGFloat(index) * self.Width) > margin || (x - CGFloat(index) * self.Width) < -margin {
             let imageView = scrollView.subviews[index] as! AHBrowserImageView
+            if imageView.isScale {
+                UIView.animate(withDuration: 0.3, animations: {
+                    imageView.transform = CGAffineTransform.identity
+                }, completion: { (_) in
+                    imageView.eliminateScale()
+                })
+            }
         }
         
         setupImageOfImageViewForIndex(index: index)
