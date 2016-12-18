@@ -9,17 +9,19 @@
 import UIKit
 
 let AHPhotoBrowserImageViewMargin: CGFloat = 5
+let AHPhotoBrowserShowImageDuration: CGFloat = 0.3
 
 class AHPhotoBrowser: UIView {
     var currentImageIndex: Int!
     var imageCount: Int!
     var sourceImagesContainerView: UIView!
     
-    var placeholderImageForIndexClouse: ((_ index: Int) -> UIImage)?
+    var placeholderImageForIndexClouse: ((_ index: Int) -> UIImage?)?
     
-    var highQualityImageURLForIndexClouse: ((_ index: Int) -> URL)?
+    var highQualityImageURLForIndexClouse: ((_ index: Int) -> URL?)?
     
     fileprivate var isShowedFistView: Bool = false
+    fileprivate var isWillDisappear: Bool = false
     
     lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
@@ -29,10 +31,8 @@ class AHPhotoBrowser: UIView {
         scrollView.isPagingEnabled = true
         
         for i in 0..<self.imageCount {
-            let imageView = AHBrowserImageView()
+            let imageView = AHBrowserImageView(frame: CGRect.zero)
             imageView.tag = i
-            imageView.isUserInteractionEnabled = true
-            imageView.contentMode = .scaleAspectFit
             let tap = UITapGestureRecognizer(target: self, action: #selector(AHPhotoBrowser.phonoClick(tap:)))
             imageView.addGestureRecognizer(tap)
             scrollView.addSubview(imageView)
@@ -42,6 +42,7 @@ class AHPhotoBrowser: UIView {
     
     func phonoClick(tap: UITapGestureRecognizer) {
         scrollView.isHidden = true
+        isWillDisappear = true
         let currentImageView = tap.view as! AHBrowserImageView
         let currentIndex = currentImageView.tag
         
@@ -55,17 +56,20 @@ class AHPhotoBrowser: UIView {
         tempView.clipsToBounds = true
         tempView.image = currentImageView.image
         
-        var h = (self.Width / (currentImageView.image?.size.width)!) * (currentImageView.image?.size.height)!
+        var h: CGFloat
         
-        if currentImageView.image == nil {
+        if currentImageView.image != nil {
+            h = (self.Width / (currentImageView.image?.size.width)!) * (currentImageView.image?.size.height)!
+        } else {
             h = self.Height
         }
+        
         tempView.bounds = CGRect(x: 0, y: 0, width: self.Width, height: h)
         tempView.center = self.center
         
         addSubview(tempView)
         
-        UIView.animate(withDuration: 0.5, animations: {
+        UIView.animate(withDuration: TimeInterval(AHPhotoBrowserShowImageDuration), animations: {
             tempView.frame = targetTemp
             self.backgroundColor = UIColor.clear
         }) { (_) in
@@ -73,10 +77,15 @@ class AHPhotoBrowser: UIView {
         }
     }
     
+    // 当前的view添加到父控制上, 或者从父控制器上移除时, 都会调用这个方法
     override func didMoveToSuperview() {
         super.didMoveToSuperview()
-        addSubview(scrollView)
-        setupImageOfImageViewForIndex(index: currentImageIndex)
+        
+        // 当前的view添加到父控制器上执行
+        if !isWillDisappear {
+            addSubview(scrollView)
+            setupImageOfImageViewForIndex(index: currentImageIndex)
+        }
     }
     
     override init(frame: CGRect) {
@@ -133,7 +142,7 @@ class AHPhotoBrowser: UIView {
         tempImageView.contentMode = scrollView.subviews[currentImageIndex].contentMode
         scrollView.isHidden = true
         
-        UIView.animate(withDuration: 0.5, animations: {
+        UIView.animate(withDuration: TimeInterval(AHPhotoBrowserShowImageDuration), animations: {
             tempImageView.center = self.center
             tempImageView.bounds = CGRect(x: 0, y: 0, width: targetTemp.width, height: targetTemp.height)
         }) { (_) in
@@ -162,7 +171,7 @@ class AHPhotoBrowser: UIView {
         let imageView = scrollView.subviews[index] as! AHBrowserImageView
         currentImageIndex = index
         if highQualityImageURLForIndex(index: index) != nil {
-            imageView.yy_imageURL = highQualityImageURLForIndex(index: index)!
+            imageView.yy_setImage(with: highQualityImageURLForIndex(index: index), placeholder: placeholderImageForIndex(index: index))
         } else {
             imageView.image = placeholderImageForIndex(index: index)
         }
@@ -170,5 +179,15 @@ class AHPhotoBrowser: UIView {
 }
 
 extension AHPhotoBrowser: UIScrollViewDelegate {
-    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let index = Int((scrollView.contentOffset.x + scrollView.bounds.size.width * 0.5) / scrollView.bounds.size.width)
+        
+        let mrgin: CGFloat = 150
+        let x: CGFloat = scrollView.contentOffset.x
+        if (x - CGFloat(index) * self.Width) > margin || (x - CGFloat(index) * self.Width) < -margin {
+            let imageView = scrollView.subviews[index] as! AHBrowserImageView
+        }
+        
+        setupImageOfImageViewForIndex(index: index)
+    }
 }

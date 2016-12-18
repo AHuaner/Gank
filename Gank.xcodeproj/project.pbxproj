@@ -37,6 +37,7 @@
 		60396BEB1DF83C6A00A23DAA /* AHConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60396BEA1DF83C6A00A23DAA /* AHConfig.swift */; };
 		605E07F41E026D0E00225BA3 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 605E07F31E026D0E00225BA3 /* String+Extension.swift */; };
 		6069380F1E04E86900918949 /* AHBrowserImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6069380E1E04E86900918949 /* AHBrowserImageView.swift */; };
+		606938111E05303700918949 /* AHWaitingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 606938101E05303700918949 /* AHWaitingView.swift */; };
 		606B1E281DFD6DF800BD86E2 /* AHMoreListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 606B1E271DFD6DF800BD86E2 /* AHMoreListView.swift */; };
 		606B1E2A1DFD7DFD00BD86E2 /* close_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 606B1E291DFD7DFD00BD86E2 /* close_button@2x.png */; };
 		6073DD141DFFC46700C99E9C /* AHNewWorkingAgent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6073DD131DFFC46700C99E9C /* AHNewWorkingAgent.swift */; };
@@ -116,6 +117,7 @@
 		60396BEA1DF83C6A00A23DAA /* AHConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHConfig.swift; sourceTree = "<group>"; };
 		605E07F31E026D0E00225BA3 /* String+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		6069380E1E04E86900918949 /* AHBrowserImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHBrowserImageView.swift; sourceTree = "<group>"; };
+		606938101E05303700918949 /* AHWaitingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHWaitingView.swift; sourceTree = "<group>"; };
 		606B1E271DFD6DF800BD86E2 /* AHMoreListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHMoreListView.swift; sourceTree = "<group>"; };
 		606B1E291DFD7DFD00BD86E2 /* close_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "close_button@2x.png"; sourceTree = "<group>"; };
 		6073DD131DFFC46700C99E9C /* AHNewWorkingAgent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHNewWorkingAgent.swift; sourceTree = "<group>"; };
@@ -277,6 +279,7 @@
 				60144EA01E01632C00AC31D1 /* AHImageCell.xib */,
 				60F0EE811E041AB800D8ECA0 /* AHPhotoBrowser.swift */,
 				6069380E1E04E86900918949 /* AHBrowserImageView.swift */,
+				606938101E05303700918949 /* AHWaitingView.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -592,6 +595,7 @@
 				601560941DFEC46F00369E64 /* AHLoadingView.swift in Sources */,
 				600D2B6C1DF8F1C200D57EA0 /* DispatchTime+Extension.swift in Sources */,
 				600D2BC01DF8FA9200D57EA0 /* BaseViewController.swift in Sources */,
+				606938111E05303700918949 /* AHWaitingView.swift in Sources */,
 				60028DAF1DFC0CAA002F2AFE /* AHTagBtn.swift in Sources */,
 				6073DD141DFFC46700C99E9C /* AHNewWorkingAgent.swift in Sources */,
 				6073DD161DFFC49E00C99E9C /* AHNetWorking.swift in Sources */,
