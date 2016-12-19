@@ -98,6 +98,10 @@ class AHPhotoBrowser: UIView {
             self.indexLabel.alpha = 0.01
         }) { (_) in
             self.removeFromSuperview()
+            
+            let sourceViewContain: UICollectionView = self.sourceImagesContainerView as! UICollectionView
+            let indexPath = IndexPath(item: self.currentImageIndex, section: 0)
+            sourceViewContain.reloadItems(at: [indexPath])
         }
     }
     

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import YYWebImage
 
 class AHImageCell: UICollectionViewCell {
     
@@ -21,9 +22,17 @@ class AHImageCell: UICollectionViewCell {
                 if count == 1 {
                     // 可以得到图片的高度宽度, 根据宽高比缩放图片
                     if classModel.imageW != 0 && classModel.imageH != 0 {
-                        let small_url = urlString + "?imageView2/1/w/\(Int(classModel.imageContainFrame.width) * 2)/h/\(Int(classModel.imageContainFrame.height) * 2)/interlace/1"
-                        imageView.yy_imageURL = URL(string: small_url)
-                    
+                        // 先从缓存中查找对应的高清图
+                        let url = URL(string: urlString)
+                        let cacheKey = YYWebImageManager.shared().cacheKey(for: url!)
+                        let image = YYWebImageManager.shared().cache?.getImageForKey(cacheKey)
+                        
+                        if image != nil { // 缓存中有高清图, 直接加载
+                            imageView.image = image
+                        } else { // 缓存中没有的话, 请求
+                            let small_url = urlString + "?imageView2/1/w/\(Int(classModel.imageContainFrame.width))/h/\(Int(classModel.imageContainFrame.height))/interlace/1"
+                            imageView.yy_imageURL = URL(string: small_url)
+                        }
                     //
                     } else {
                         imageView.yy_imageURL = URL(string: urlString)

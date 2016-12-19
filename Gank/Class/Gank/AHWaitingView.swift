@@ -45,7 +45,7 @@ class AHWaitingView: UIView {
         
         let centenX = rect.size.width * 0.5
         let centenY = rect.size.height * 0.5
-        RGBColor(255, g: 255, b: 255, alpha: 0.6).set()
+        RGBColor(255, g: 255, b: 255, alpha: 0.8).set()
         
         if self.tpye == AHWaitingViewType.AHDWaitingViewTypePie {
             
@@ -66,7 +66,7 @@ class AHWaitingView: UIView {
             ctx.addEllipse(in: CGRect(x: x, y: y, width: w, height: h))
             ctx.fillPath()
             
-            RGBColor(255, g: 255, b: 255, alpha: 0.6).set()
+            RGBColor(255, g: 255, b: 255, alpha: 0.8).set()
             ctx.move(to: CGPoint(x: centenX, y: centenY))
             ctx.addLine(to: CGPoint(x: centenX, y: 0))
             

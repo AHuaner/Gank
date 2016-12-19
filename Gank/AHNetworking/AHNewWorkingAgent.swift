@@ -23,15 +23,17 @@ class AHNewWorkingAgent: NSObject {
             let dict = JSON(result)
             var datas = [AHClassModel]()
     
+            let urlconfig = URLSessionConfiguration.default
+            urlconfig.timeoutIntervalForRequest = 2
+            urlconfig.timeoutIntervalForResource = 2
+            
             for i in 0..<dict["results"].count {
                 let model = AHClassModel(dict: dict["results"][i])
                 
                 if let images = model.images, model.images?.count == 1 {
                     let urlString = images[0] + "?imageInfo"
                     let url = URL(string: urlString)
-                    let urlconfig = URLSessionConfiguration.default
-                    urlconfig.timeoutIntervalForRequest = 2
-                    urlconfig.timeoutIntervalForResource = 2
+                    
                     let session = URLSession(configuration: urlconfig)
                     // 当前线程加入组队列
                     group.enter()
@@ -48,24 +50,9 @@ class AHNewWorkingAgent: NSObject {
                     // 当前线程离开组队列
                     group.leave()
                 })
-                tast.resume()
-//                     当前线程加入组队列
-//                    group.enter()
-//                    let session = URLSession.shared
-//                    let tast = session.dataTask(with: url!, completionHandler: { (data: Data?, _, error: Error?) in
-//                        if let data = data {
-//                            let json = JSON(data: data)
-//                            if let width = json["width"].object as? CGFloat {
-//                                model.imageW = width
-//                            }
-//                            if let height = json["height"].object as? CGFloat {
-//                                model.imageH = height
-//                            }
-//                        }
-//                        // 当前线程离开组队列
-//                        group.leave()
-//                    })
-//                    tast.resume()
+                    tast.resume()
+                    // 防止内存泄漏
+                    session.finishTasksAndInvalidate()
                 }
                 datas.append(model)
             }

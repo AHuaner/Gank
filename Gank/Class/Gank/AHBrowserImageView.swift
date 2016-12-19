@@ -69,17 +69,17 @@ class AHBrowserImageView: YYAnimatedImageView {
     
     func setImage(url: URL?, placeholderImage: UIImage?) {
         waitingView.isHidden = false
-        weak var imageViewWeak: AHBrowserImageView? = self
+        weak var weakSelf = self
         
         self.yy_setImage(with: url, placeholder: placeholderImage, options: .setImageWithFadeAnimation, manager: nil, progress: { (receivedSize: Int, expectedSize: Int) in
-            imageViewWeak?.waitingView.progresses = CGFloat(receivedSize) / CGFloat(expectedSize)
+            weakSelf?.waitingView.progresses = CGFloat(receivedSize) / CGFloat(expectedSize)
         }, transform: nil) { (image, url, _, _, error) in
-            self.waitingView.isHidden = true
-            
+            weakSelf?.waitingView.isHidden = true
+            weakSelf?.image = image
             if error != nil {
                 let label = UILabel()
                 label.bounds = CGRect(x: 0, y: 0, width: 160, height: 30)
-                label.center = CGPoint(x: imageViewWeak!.Width * 0.5, y: imageViewWeak!.Height * 0.5)
+                label.center = CGPoint(x: weakSelf!.Width * 0.5, y: weakSelf!.Height * 0.5)
                 label.text = "图片加载失败"
                 label.font = FontSize(size: 16)
                 label.textColor = UIColor.white
@@ -87,7 +87,7 @@ class AHBrowserImageView: YYAnimatedImageView {
                 label.layer.cornerRadius = 5
                 label.clipsToBounds = true
                 label.textAlignment = .center
-                imageViewWeak?.addSubview(label)
+                weakSelf?.addSubview(label)
             }
         }
     }
