@@ -68,7 +68,10 @@ class AHPhotoBrowser: UIView {
         
         let sourceViewContain: UICollectionView = sourceImagesContainerView as! UICollectionView
         let indexPath = IndexPath(item: currentIndex, section: 0)
-        let sourceView = sourceViewContain.cellForItem(at: indexPath) as! AHImageCell
+        guard let sourceView = sourceViewContain.cellForItem(at: indexPath) as? AHImageCell else {
+            return
+        }
+        
         let targetTemp = sourceImagesContainerView.convert(sourceView.frame, to: self)
         
         let tempView = UIImageView()
@@ -155,7 +158,6 @@ class AHPhotoBrowser: UIView {
         indexLabel.center = CGPoint(x: self.Width * 0.5, y: 35)
     }
     
-    
     func show() {
         let window = UIApplication.shared.keyWindow!
         self.frame = window.bounds
@@ -205,11 +207,13 @@ class AHPhotoBrowser: UIView {
     fileprivate func setupImageOfImageViewForIndex(index: Int) {
         let imageView = scrollView.subviews[index] as! AHBrowserImageView
         currentImageIndex = index
+        if imageView.isLoadedImage { return }
         if highQualityImageURLForIndex(index: index) != nil {
-            imageView.yy_setImage(with: highQualityImageURLForIndex(index: index), placeholder: placeholderImageForIndex(index: index))
+            imageView.setImage(url: highQualityImageURLForIndex(index: index), placeholderImage: placeholderImageForIndex(index: index))
         } else {
             imageView.image = placeholderImageForIndex(index: index)
         }
+        imageView.isLoadedImage = true
     }
 }
 

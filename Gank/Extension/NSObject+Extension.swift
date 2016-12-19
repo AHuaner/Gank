@@ -53,6 +53,12 @@ func AHLog<T>(_ message: T, fileName: String = #file, methodName: String = #func
     #endif
 }
 
+extension CGFloat {
+    func format(f: Int) -> String {
+        return NSString(format:"%.\(f)f" as NSString, self) as String
+    }
+}
+
 //获取正确的删除索引
 func getRemoveIndex<T: Equatable>(value: T, array: [T]) -> [Int]{
     

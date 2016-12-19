@@ -16,6 +16,8 @@ class AHBrowserImageView: YYAnimatedImageView {
         return self.totalScale != 1.0
     }
     
+    var isLoadedImage: Bool = false
+    
     lazy var zoomingImageView: YYAnimatedImageView = {
         let zoomingImageView = YYAnimatedImageView(image: self.image)
         zoomingImageView.contentMode = .scaleAspectFit
@@ -37,8 +39,9 @@ class AHBrowserImageView: YYAnimatedImageView {
     }()
     
     lazy var waitingView: AHWaitingView = {
-        let waitingView = AHWaitingView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
-        waitingView.tpye = AHWaitingViewType.AHDWaitingViewTypeLoop
+        let waitingView = AHWaitingView(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
+        waitingView.tpye = AHWaitingViewType.AHDWaitingViewTypePie
+        waitingView.isHidden = true
         return waitingView
     }()
     
@@ -49,6 +52,8 @@ class AHBrowserImageView: YYAnimatedImageView {
         
         let pinch = UIPinchGestureRecognizer(target: self, action: #selector(AHBrowserImageView.zoomImage(pinch:)))
         addGestureRecognizer(pinch)
+        
+        addSubview(waitingView)
     }
     
     
@@ -56,8 +61,35 @@ class AHBrowserImageView: YYAnimatedImageView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    
     override func layoutSubviews() {
         super.layoutSubviews()
+        waitingView.center = self.center
+    }
+    
+    func setImage(url: URL?, placeholderImage: UIImage?) {
+        waitingView.isHidden = false
+        weak var imageViewWeak: AHBrowserImageView? = self
+        
+        self.yy_setImage(with: url, placeholder: placeholderImage, options: .setImageWithFadeAnimation, manager: nil, progress: { (receivedSize: Int, expectedSize: Int) in
+            imageViewWeak?.waitingView.progresses = CGFloat(receivedSize) / CGFloat(expectedSize)
+        }, transform: nil) { (image, url, _, _, error) in
+            self.waitingView.isHidden = true
+            
+            if error != nil {
+                let label = UILabel()
+                label.bounds = CGRect(x: 0, y: 0, width: 160, height: 30)
+                label.center = CGPoint(x: imageViewWeak!.Width * 0.5, y: imageViewWeak!.Height * 0.5)
+                label.text = "图片加载失败"
+                label.font = FontSize(size: 16)
+                label.textColor = UIColor.white
+                label.backgroundColor = RGBColor(0, g: 0, b: 0, alpha: 0.8)
+                label.layer.cornerRadius = 5
+                label.clipsToBounds = true
+                label.textAlignment = .center
+                imageViewWeak?.addSubview(label)
+            }
+        }
     }
     
     func zoomImage(pinch: UIPinchGestureRecognizer) {
