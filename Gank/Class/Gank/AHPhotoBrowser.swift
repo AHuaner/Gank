@@ -9,7 +9,7 @@
 import UIKit
 
 let AHPhotoBrowserImageViewMargin: CGFloat = 5
-let AHPhotoBrowserShowImageDuration: CGFloat = 0.5
+let AHPhotoBrowserShowImageDuration: CGFloat = 0.3
 
 class AHPhotoBrowser: UIView {
     var currentImageIndex: Int!
@@ -17,11 +17,24 @@ class AHPhotoBrowser: UIView {
     var sourceImagesContainerView: UIView!
     
     var placeholderImageForIndexClouse: ((_ index: Int) -> UIImage?)?
-    
     var highQualityImageURLForIndexClouse: ((_ index: Int) -> URL?)?
     
     fileprivate var isShowedFistView: Bool = false
     fileprivate var isWillDisappear: Bool = false
+    
+    lazy var indexLabel: UILabel = {
+        let indexLabel = UILabel()
+        indexLabel.textAlignment = .center
+        indexLabel.textColor = UIColor.white
+        indexLabel.font = FontSize(size: 20)
+        indexLabel.backgroundColor = UIColor.clear
+        indexLabel.frame = CGRect(x: 0, y: 0, width: 120, height: 30)
+        indexLabel.isHidden = true
+        if self.imageCount > 1 {
+            indexLabel.text = "1/\(self.imageCount!)"
+        }
+        return indexLabel
+    }()
     
     lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
@@ -29,18 +42,25 @@ class AHPhotoBrowser: UIView {
         scrollView.showsVerticalScrollIndicator = false
         scrollView.showsHorizontalScrollIndicator = false
         scrollView.isPagingEnabled = true
-        
+        scrollView.isHidden = true
         for i in 0..<self.imageCount {
             let imageView = AHBrowserImageView(frame: CGRect.zero)
             imageView.tag = i
-            let tap = UITapGestureRecognizer(target: self, action: #selector(AHPhotoBrowser.phonoClick(tap:)))
-            imageView.addGestureRecognizer(tap)
+            
+            let singleTap = UITapGestureRecognizer(target: self, action: #selector(AHPhotoBrowser.phonoClickAction(tap:)))
+            imageView.addGestureRecognizer(singleTap)
+            
+            let doubleTap = UITapGestureRecognizer(target: self, action: #selector(AHPhotoBrowser.doubleTapAction(tap:)))
+            doubleTap.numberOfTapsRequired = 2
+            imageView.addGestureRecognizer(doubleTap)
+            singleTap.require(toFail: doubleTap)
+            
             scrollView.addSubview(imageView)
         }
         return scrollView
     }()
     
-    func phonoClick(tap: UITapGestureRecognizer) {
+    func phonoClickAction(tap: UITapGestureRecognizer) {
         scrollView.isHidden = true
         isWillDisappear = true
         let currentImageView = tap.view as! AHBrowserImageView
@@ -72,9 +92,21 @@ class AHPhotoBrowser: UIView {
         UIView.animate(withDuration: TimeInterval(AHPhotoBrowserShowImageDuration), animations: {
             tempView.frame = targetTemp
             self.backgroundColor = UIColor.clear
+            self.indexLabel.alpha = 0.01
         }) { (_) in
             self.removeFromSuperview()
         }
+    }
+    
+    func doubleTapAction(tap: UITapGestureRecognizer) {
+        let imageView = tap.view as! AHBrowserImageView
+        let scale: CGFloat
+        if imageView.isScale {
+            scale = 1.0
+        } else {
+            scale = 2.0
+        }
+        imageView.doubleTapToZoomWithScale(scale)
     }
     
     // 当前的view添加到父控制上, 或者从父控制器上移除时, 都会调用这个方法
@@ -84,6 +116,7 @@ class AHPhotoBrowser: UIView {
         // 当前的view添加到父控制器上执行
         if !isWillDisappear {
             addSubview(scrollView)
+            addSubview(indexLabel)
             setupImageOfImageViewForIndex(index: currentImageIndex)
         }
     }
@@ -118,6 +151,8 @@ class AHPhotoBrowser: UIView {
         if !isShowedFistView {
             showFirstImage()
         }
+        
+        indexLabel.center = CGPoint(x: self.Width * 0.5, y: 35)
     }
     
     
@@ -140,7 +175,7 @@ class AHPhotoBrowser: UIView {
         let targetTemp = scrollView.subviews[currentImageIndex].bounds
         tempImageView.frame = rect
         tempImageView.contentMode = scrollView.subviews[currentImageIndex].contentMode
-        scrollView.isHidden = true
+        
         UIView.animate(withDuration: TimeInterval(AHPhotoBrowserShowImageDuration), animations: {
             tempImageView.center = self.center
             tempImageView.bounds = CGRect(x: 0, y: 0, width: targetTemp.width, height: targetTemp.height)
@@ -148,6 +183,7 @@ class AHPhotoBrowser: UIView {
             self.isShowedFistView = true
             tempImageView.removeFromSuperview()
             self.scrollView.isHidden = false
+            self.indexLabel.isHidden = false
         }
     }
     
@@ -180,7 +216,7 @@ class AHPhotoBrowser: UIView {
 extension AHPhotoBrowser: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let index = Int((scrollView.contentOffset.x + scrollView.bounds.size.width * 0.5) / scrollView.bounds.size.width)
-//        AHLog(index)
+
         // 缩放的图片在拖动一定距离后清除缩放
         let margin: CGFloat = 120
         let x: CGFloat = scrollView.contentOffset.x
@@ -194,7 +230,9 @@ extension AHPhotoBrowser: UIScrollViewDelegate {
                 })
             }
         }
-        
+        if !isWillDisappear {
+            indexLabel.text = "\(index + 1)/\(self.imageCount!)"
+        }
         setupImageOfImageViewForIndex(index: index)
     }
 }

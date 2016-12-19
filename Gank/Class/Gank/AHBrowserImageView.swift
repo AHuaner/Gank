@@ -78,7 +78,6 @@ class AHBrowserImageView: YYAnimatedImageView {
         if (self.totalScale < 0.5 && totalScale < self.totalScale) || (self.totalScale > 2.0 && totalScale > self.totalScale) { return }
         
         self.totalScale = totalScale
-//        AHLog(self.totalScale)
         zoomingImageView.transform = CGAffineTransform(scaleX: totalScale, y: totalScale)
         
         if totalScale > 1 {
@@ -95,6 +94,20 @@ class AHBrowserImageView: YYAnimatedImageView {
             zoomingScroolView.contentSize = zoomingScroolView.frame.size
             zoomingScroolView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0)
             zoomingImageView.center = zoomingScroolView.center
+        }
+    }
+    
+    func doubleTapToZoomWithScale(_ scale: CGFloat) {
+        if self.image == nil { return }
+        zoomingScroolView.addSubview(zoomingImageView)
+        addSubview(zoomingScroolView)
+
+        UIView.animate(withDuration: 0.5, animations: { 
+            self.zoomWithScale(scale)
+        }) { (_) in
+            if scale == 1 {
+                self.zoomingScroolView.removeFromSuperview()
+            }
         }
     }
     
