@@ -70,7 +70,7 @@ class AHWaitingView: UIView {
             ctx.move(to: CGPoint(x: centenX, y: centenY))
             ctx.addLine(to: CGPoint(x: centenX, y: 0))
             
-            let to = CGFloat(-M_PI) * 0.5 + progresses * CGFloat(M_PI) * 2.0 + 0.001 // 初始值
+            let to = CGFloat(-M_PI) * 0.5 + progresses * CGFloat(M_PI) * 2.0 + 0.05 // 初始值
             ctx.addArc(center: CGPoint(x: centenX, y: centenY), radius: radius - 2, startAngle: CGFloat(-M_PI) * 0.5, endAngle: to, clockwise: false)
             ctx.closePath()
             ctx.fillPath()

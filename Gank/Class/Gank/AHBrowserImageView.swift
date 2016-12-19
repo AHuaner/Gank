@@ -75,7 +75,7 @@ class AHBrowserImageView: YYAnimatedImageView {
             weakSelf?.waitingView.progresses = CGFloat(receivedSize) / CGFloat(expectedSize)
         }, transform: nil) { (image, url, _, _, error) in
             weakSelf?.waitingView.isHidden = true
-            weakSelf?.image = image
+            
             if error != nil {
                 let label = UILabel()
                 label.bounds = CGRect(x: 0, y: 0, width: 160, height: 30)
@@ -88,12 +88,16 @@ class AHBrowserImageView: YYAnimatedImageView {
                 label.clipsToBounds = true
                 label.textAlignment = .center
                 weakSelf?.addSubview(label)
+            } else {
+                weakSelf?.image = image
+                weakSelf?.isLoadedImage = true
             }
         }
     }
     
     func zoomImage(pinch: UIPinchGestureRecognizer) {
         if self.image == nil { return }
+        if !self.isLoadedImage { return }
         zoomingScroolView.addSubview(zoomingImageView)
         addSubview(zoomingScroolView)
         

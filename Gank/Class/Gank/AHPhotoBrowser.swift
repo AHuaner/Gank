@@ -69,6 +69,8 @@ class AHPhotoBrowser: UIView {
         let sourceViewContain: UICollectionView = sourceImagesContainerView as! UICollectionView
         let indexPath = IndexPath(item: currentIndex, section: 0)
         guard let sourceView = sourceViewContain.cellForItem(at: indexPath) as? AHImageCell else {
+            AHLog("崩溃")
+            self.removeFromSuperview()
             return
         }
         
@@ -95,7 +97,7 @@ class AHPhotoBrowser: UIView {
         UIView.animate(withDuration: TimeInterval(AHPhotoBrowserShowImageDuration), animations: {
             tempView.frame = targetTemp
             self.backgroundColor = UIColor.clear
-            self.indexLabel.alpha = 0.01
+            self.indexLabel.alpha = 0.001
         }) { (_) in
             self.removeFromSuperview()
             
@@ -217,7 +219,6 @@ class AHPhotoBrowser: UIView {
         } else {
             imageView.image = placeholderImageForIndex(index: index)
         }
-        imageView.isLoadedImage = true
     }
 }
 
