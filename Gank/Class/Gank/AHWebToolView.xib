@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="AHWebToolView" customModule="Gank" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="340" height="60"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kEN-gu-5af">
+                    <rect key="frame" x="0.0" y="0.0" width="85" height="60"/>
+                    <state key="normal" image="toolBar_back.png"/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QlL-iw-bXI">
+                    <rect key="frame" x="85" y="0.0" width="85" height="60"/>
+                    <state key="normal" image="toolBar_forward.png"/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="seQ-f3-vjy">
+                    <rect key="frame" x="255" y="0.0" width="85" height="60"/>
+                    <state key="normal" image="toolBar_like.png"/>
+                    <state key="selected" image="toolBar_like_select.png"/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k1X-Af-9Am">
+                    <rect key="frame" x="170" y="0.0" width="85" height="60"/>
+                    <state key="normal" image="toolBar_reload.png"/>
+                </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2rJ-BT-nVT">
+                    <rect key="frame" x="0.0" y="0.0" width="340" height="1"/>
+                    <color key="backgroundColor" red="0.91764705882352937" green="0.91764705882352937" blue="0.91764705882352937" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="QAn-JR-AsN"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="kEN-gu-5af" secondAttribute="bottom" id="0uC-dK-fIC"/>
+                <constraint firstItem="QlL-iw-bXI" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="1ZT-lZ-mrW"/>
+                <constraint firstItem="k1X-Af-9Am" firstAttribute="leading" secondItem="QlL-iw-bXI" secondAttribute="trailing" id="2ap-H1-dmy"/>
+                <constraint firstItem="kEN-gu-5af" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="BUg-Gv-HWv"/>
+                <constraint firstItem="seQ-f3-vjy" firstAttribute="width" secondItem="kEN-gu-5af" secondAttribute="width" id="E1Y-vn-rI1"/>
+                <constraint firstAttribute="trailing" secondItem="2rJ-BT-nVT" secondAttribute="trailing" id="HcV-o8-klg"/>
+                <constraint firstAttribute="bottom" secondItem="seQ-f3-vjy" secondAttribute="bottom" id="KG3-Ui-H68"/>
+                <constraint firstItem="QlL-iw-bXI" firstAttribute="width" secondItem="kEN-gu-5af" secondAttribute="width" id="Q2h-zc-sbA"/>
+                <constraint firstItem="2rJ-BT-nVT" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="T3y-HE-3dB"/>
+                <constraint firstItem="k1X-Af-9Am" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Va9-e1-Qz1"/>
+                <constraint firstItem="k1X-Af-9Am" firstAttribute="width" secondItem="kEN-gu-5af" secondAttribute="width" id="Z3S-TC-ySp"/>
+                <constraint firstAttribute="bottom" secondItem="QlL-iw-bXI" secondAttribute="bottom" id="aDL-5T-nqN"/>
+                <constraint firstAttribute="bottom" secondItem="k1X-Af-9Am" secondAttribute="bottom" id="mU4-1P-PIP"/>
+                <constraint firstItem="2rJ-BT-nVT" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="nKP-cM-bxi"/>
+                <constraint firstItem="seQ-f3-vjy" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="uZg-Ur-HxJ"/>
+                <constraint firstItem="QlL-iw-bXI" firstAttribute="leading" secondItem="kEN-gu-5af" secondAttribute="trailing" id="vjT-5D-HXQ"/>
+                <constraint firstItem="seQ-f3-vjy" firstAttribute="leading" secondItem="k1X-Af-9Am" secondAttribute="trailing" id="w6z-5G-7X4"/>
+                <constraint firstAttribute="trailing" secondItem="seQ-f3-vjy" secondAttribute="trailing" id="wms-cr-VEN"/>
+                <constraint firstItem="kEN-gu-5af" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="ycG-la-UED"/>
+                <constraint firstItem="k1X-Af-9Am" firstAttribute="leading" secondItem="QlL-iw-bXI" secondAttribute="trailing" id="yht-ok-tq7"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="backBtn" destination="kEN-gu-5af" id="Cxa-Hc-rmG"/>
+                <outlet property="forwardBtn" destination="QlL-iw-bXI" id="HnT-gZ-oJo"/>
+                <outlet property="likeBtn" destination="seQ-f3-vjy" id="psL-tT-TJq"/>
+                <outlet property="reloadBtn" destination="k1X-Af-9Am" id="5Xz-tM-W1x"/>
+            </connections>
+            <point key="canvasLocation" x="-116" y="33"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="toolBar_back.png" width="24" height="24"/>
+        <image name="toolBar_forward.png" width="24" height="24"/>
+        <image name="toolBar_like.png" width="32" height="32"/>
+        <image name="toolBar_like_select.png" width="32" height="32"/>
+        <image name="toolBar_reload.png" width="24" height="24"/>
+    </resources>
+</document>

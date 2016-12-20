@@ -6,13 +6,46 @@
 //  Copyright © 2016年 CoderAhuan. All rights reserved.
 //
 
+
+fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+    switch (lhs, rhs) {
+    case let (l?, r?):
+        return l < r
+    case (nil, _?):
+        return true
+    default:
+        return false
+    }
+}
+
+fileprivate func > <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+    switch (lhs, rhs) {
+    case let (l?, r?):
+        return l > r
+    default:
+        return rhs < lhs
+    }
+}
+
 import UIKit
 
-class BaseViewController: UIViewController {
-
+class BaseViewController: UIViewController, UIGestureRecognizerDelegate {
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColorMainBG
+        
+        setupNav()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if self.navigationController?.viewControllers.count == 1 {
+            self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
+        }
+        else {
+            self.navigationController?.interactivePopGestureRecognizer?.isEnabled = true
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -21,5 +54,25 @@ class BaseViewController: UIViewController {
     
     deinit {
         AHLog("---dealloc---\(type(of: self))")
+    }
+    
+    fileprivate func setupNav() {
+        if navigationController?.viewControllers.count > 1 {
+            navigationController?.interactivePopGestureRecognizer?.delegate = self
+            
+            let oriImage = UIImage(named: "nav_back")?.withRenderingMode(UIImageRenderingMode.alwaysOriginal)
+            navigationItem.leftBarButtonItem = UIBarButtonItem(image: oriImage, style: UIBarButtonItemStyle.plain, target: self, action: #selector(BaseViewController.back))
+        }
+        
+        self.navigationController?.navigationBar.barTintColor = RGBColor(70, g: 150, b: 255, alpha: 1)
+        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.white,
+                                                                        NSFontAttributeName : UIFont.systemFont(ofSize: 17)]
+    }
+    
+    func back() {
+        guard let navigationController = self.navigationController else {
+            return
+        }
+        navigationController.popViewController(animated: true)
     }
 }

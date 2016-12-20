@@ -51,5 +51,4 @@ class TabBarController: UITabBarController {
         tabBar.selectionIndicatorImage = UIImage()
         tabBar.backgroundImage = UIImage(named: "tabBar_bgwhiteColor")
     }
-
 }

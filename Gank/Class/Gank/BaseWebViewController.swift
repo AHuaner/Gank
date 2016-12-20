@@ -1,5 +1,5 @@
 //
-//  AHWebView.swift
+//  BaseWebViewController.swift
 //  Gank
 //
 //  Created by AHuaner on 2016/12/20.
@@ -9,11 +9,9 @@
 import UIKit
 import WebKit
 
-class AHWebViewController: BaseViewController {
+class BaseWebViewController: BaseViewController {
     
     var urlString: String?
-    
-    var contentOffsetY: CGFloat = -kNavBarHeight
     
     lazy var webView: WKWebView = {
         let webView = WKWebView(frame: CGRect(x: 0, y: 0, width: kScreen_W, height: kScreen_H))
@@ -21,27 +19,50 @@ class AHWebViewController: BaseViewController {
         webView.isMultipleTouchEnabled = true
         webView.autoresizesSubviews = true
         webView.scrollView.alwaysBounceVertical = true
-        webView.scrollView.delegate = self
         webView.addObserver(self, forKeyPath: "estimatedProgress", options: .new, context: nil)
         return webView
     }()
     
+    lazy var progressView: UIProgressView = {
+        let progressView = UIProgressView(progressViewStyle: .default)
+        progressView.progressTintColor = UIColorTextBlue
+        progressView.trackTintColor = UIColor.white
+        progressView.frame = CGRect(x: 0, y: kNavBarHeight, width: kScreen_W, height: 2)
+        progressView.alpha = 0.0
+        return progressView
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.addSubview(webView)
+        
+        setupUI()
         
         loadWithURLString(urlString)
     }
     
+    fileprivate func setupUI() {
+        view.addSubview(webView)
+        view.addSubview(progressView)
+    }
+    
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         if keyPath == "estimatedProgress" {
+            progressView.alpha = 1.0
+            let animated = CGFloat(webView.estimatedProgress) > CGFloat(self.progressView.progress)
+            progressView.setProgress(Float(webView.estimatedProgress), animated: animated)
             
+            if webView.estimatedProgress >= 1.0 {
+                UIView.animate(withDuration: 0.5, animations: { 
+                    self.progressView.alpha = 0.0
+                }, completion: { (_) in
+                    self.progressView.setProgress(0.0, animated: false)
+                })
+            }
         }
     }
     
     deinit {
         webView.removeObserver(self, forKeyPath: "estimatedProgress")
-        webView.scrollView.delegate = nil
     }
     
     func loadWithURLString(_ urlString: String?) {
@@ -53,21 +74,7 @@ class AHWebViewController: BaseViewController {
     }
 }
 
-extension AHWebViewController: WKNavigationDelegate {
-    
+extension BaseWebViewController: WKNavigationDelegate {
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) { }
 }
 
-extension AHWebViewController: UIScrollViewDelegate {
-    
-    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
-        contentOffsetY = scrollView.contentOffset.y
-    }
-    
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        if scrollView.contentOffset.y > contentOffsetY { // 向上拖拽
-            self.navigationController?.setNavigationBarHidden(true, animated: true)
-        } else { // 向下拖拽
-            self.navigationController?.setNavigationBarHidden(false, animated: true)
-        }
-    }
-}

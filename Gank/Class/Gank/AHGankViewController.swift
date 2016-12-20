@@ -29,6 +29,22 @@ class AHGankViewController: AHDisplayViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // 设置标题滚动框样式
+        setupTitleEffect { (titleScrollViewColor, titleBtnNorColor, titleBtnSelColor, titleFont, titleScrollViewH) in
+            titleBtnNorColor = UIColorTextGray
+            titleBtnSelColor = UIColorMainBlue
+            titleFont = FontSize(size: 14)
+        }
+        
+        // 设置下滑指示线样式
+        setupUnderLineEffect { (isShowUnderLine, underLineColor, underLineH) in
+            underLineColor = UIColorMainBlue
+        }
+        
+        // 设置导航栏颜色
+        UIApplication.shared.statusBarStyle = .lightContent
+        
         // 模拟从服务器获取频道列表
         showTagsArray = ["干货", "Android", "iOS", "视频", "前端", "拓展资源"]
         moreTagsArray = ["福利"]
@@ -44,6 +60,7 @@ class AHGankViewController: AHDisplayViewController {
         }
         
         setupChildVCs(titles: showTagsArray)
+        
         addTitleButton.addTarget(self, action: #selector(AHGankViewController.addTitleButtonClick(_:)), for: .touchUpInside)
         
         NotificationCenter.default.addObserver(self, selector: #selector(AHGankViewController.changeStatusBar), name: NSNotification.Name(rawValue: "changeStatusBarNotifica"), object: nil)

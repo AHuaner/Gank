@@ -53,7 +53,7 @@ class AHClassViewController: BaseViewController {
     
     fileprivate func setupUI() {
         // 添加fps测试
-        let fpsLabel = FPSLabel(frame: CGRect(x: 0, y: 20, width: 50, height: 30))
+        let fpsLabel = FPSLabel(frame: CGRect(x: kScreen_W - 50, y: 20, width: 50, height: 30))
         UIApplication.shared.keyWindow?.addSubview(fpsLabel)
         
         view.addSubview(tableView)
@@ -162,8 +162,9 @@ extension AHClassViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let model = datasArray[indexPath.row]
         
-        let webView = AHWebViewController()
+        let webView = AHClassWebViewController()
         webView.urlString = model.url
+        webView.classModel = model
         webView.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(webView, animated: true)
     }

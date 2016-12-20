@@ -125,7 +125,6 @@ class AHDisplayViewController: BaseViewController {
     fileprivate lazy var underLine: UIView = {
         let underLine = UIView()
         underLine.backgroundColor = self.underLineColor
-//        self.titleScrollView.addSubview(underLine)
         return underLine
     }()
     
@@ -133,7 +132,6 @@ class AHDisplayViewController: BaseViewController {
     fileprivate lazy var coverView: UIView = {
         let coverView = UIView()
         coverView.backgroundColor = self.coverViewColor
-//        self.titleScrollView.insertSubview(coverView, at: 0)
         return coverView
     }()
     
