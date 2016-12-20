@@ -142,7 +142,7 @@ class AHClassViewController: BaseViewController {
     
 }
 
-extension AHClassViewController: UITableViewDataSource {
+extension AHClassViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         tableView.mj_footer.isHidden = (datasArray.count == 0);
         return datasArray.count
@@ -158,9 +158,15 @@ extension AHClassViewController: UITableViewDataSource {
         let model = datasArray[indexPath.row]
         return model.cellH
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let model = datasArray[indexPath.row]
+        
+        let webView = AHWebViewController()
+        webView.urlString = model.url
+        webView.hidesBottomBarWhenPushed = true
+        self.navigationController?.pushViewController(webView, animated: true)
+    }
 }
 
-extension AHClassViewController: UITableViewDelegate {
-    
-}
 

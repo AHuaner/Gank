@@ -24,6 +24,9 @@ class AHGankViewController: AHDisplayViewController {
     /// 未显示的tags
     fileprivate var moreTagsArray: [String] = [String]()
     
+    /// 控制状态栏的显示和隐藏
+    fileprivate var isStatusBarHidden: Bool = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // 模拟从服务器获取频道列表
@@ -42,6 +45,8 @@ class AHGankViewController: AHDisplayViewController {
         
         setupChildVCs(titles: showTagsArray)
         addTitleButton.addTarget(self, action: #selector(AHGankViewController.addTitleButtonClick(_:)), for: .touchUpInside)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(AHGankViewController.changeStatusBar), name: NSNotification.Name(rawValue: "changeStatusBarNotifica"), object: nil)
     }
     
     func addTitleButtonClick(_ btn: UIButton) {
@@ -74,6 +79,19 @@ class AHGankViewController: AHDisplayViewController {
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    override var prefersStatusBarHidden: Bool {
+        return isStatusBarHidden
+    }
+    
+    func changeStatusBar() {
+        isStatusBarHidden = !isStatusBarHidden
+        self.setNeedsStatusBarAppearanceUpdate()
     }
     
     fileprivate func setupChildVCs(titles: [String]) {

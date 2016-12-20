@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		58B4672B96870D823E72869C /* Pods_Gank.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBF349F95A2C7F4277EE5517 /* Pods_Gank.framework */; };
+		60002F8D1E08D597000E37C2 /* AHWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60002F8C1E08D597000E37C2 /* AHWebView.swift */; };
 		60028DAF1DFC0CAA002F2AFE /* AHTagBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60028DAE1DFC0CAA002F2AFE /* AHTagBtn.swift */; };
 		60028DB11DFC1C86002F2AFE /* AHListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60028DB01DFC1C86002F2AFE /* AHListView.swift */; };
 		600906E91E0020A6002F0A73 /* AHClassModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 600906E81E0020A6002F0A73 /* AHClassModel.swift */; };
@@ -81,6 +82,7 @@
 
 /* Begin PBXFileReference section */
 		509DED76A424BF17851C5780 /* Pods-Gank.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gank.release.xcconfig"; path = "Pods/Target Support Files/Pods-Gank/Pods-Gank.release.xcconfig"; sourceTree = "<group>"; };
+		60002F8C1E08D597000E37C2 /* AHWebView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHWebView.swift; sourceTree = "<group>"; };
 		60028DAE1DFC0CAA002F2AFE /* AHTagBtn.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHTagBtn.swift; sourceTree = "<group>"; };
 		60028DB01DFC1C86002F2AFE /* AHListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHListView.swift; sourceTree = "<group>"; };
 		600906E81E0020A6002F0A73 /* AHClassModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHClassModel.swift; sourceTree = "<group>"; };
@@ -308,6 +310,7 @@
 				6032438C1E038F0000484FC1 /* View */,
 				600D2B741DF8F35C00D57EA0 /* AHGankViewController.swift */,
 				601560911DFE820F00369E64 /* AHClassViewController.swift */,
+				60002F8C1E08D597000E37C2 /* AHWebView.swift */,
 			);
 			path = Gank;
 			sourceTree = "<group>";
@@ -594,6 +597,7 @@
 				605E07F41E026D0E00225BA3 /* String+Extension.swift in Sources */,
 				601560941DFEC46F00369E64 /* AHLoadingView.swift in Sources */,
 				600D2B6C1DF8F1C200D57EA0 /* DispatchTime+Extension.swift in Sources */,
+				60002F8D1E08D597000E37C2 /* AHWebView.swift in Sources */,
 				600D2BC01DF8FA9200D57EA0 /* BaseViewController.swift in Sources */,
 				606938111E05303700918949 /* AHWaitingView.swift in Sources */,
 				60028DAF1DFC0CAA002F2AFE /* AHTagBtn.swift in Sources */,

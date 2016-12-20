@@ -61,8 +61,12 @@ class AHPhotoBrowser: UIView {
     }()
     
     func phonoClickAction(tap: UITapGestureRecognizer) {
+        // 显示状态栏
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "changeStatusBarNotifica"), object: nil)
+        
         scrollView.isHidden = true
         isWillDisappear = true
+        
         let currentImageView = tap.view as! AHBrowserImageView
         let currentIndex = currentImageView.tag
         
@@ -188,8 +192,9 @@ class AHPhotoBrowser: UIView {
             tempImageView.center = self.center
             tempImageView.bounds = CGRect(x: 0, y: 0, width: targetTemp.width, height: targetTemp.height)
         }) { (_) in
-            self.isShowedFistView = true
             tempImageView.removeFromSuperview()
+            
+            self.isShowedFistView = true
             self.scrollView.isHidden = false
             self.indexLabel.isHidden = false
         }
