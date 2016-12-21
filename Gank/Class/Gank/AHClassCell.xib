@@ -10,15 +10,15 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="156" id="KGk-i7-Jjw" customClass="AHClassCell" customModule="Gank" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="325" height="156"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="163" id="KGk-i7-Jjw" customClass="AHClassCell" customModule="Gank" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="325" height="163"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="325" height="155"/>
+                <rect key="frame" x="0.0" y="0.0" width="325" height="162"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="who" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xys-od-QQ5">
-                        <rect key="frame" x="289.5" y="127" width="25.5" height="15"/>
+                        <rect key="frame" x="289.5" y="134.5" width="25.5" height="15"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="15" id="jek-GP-GQD"/>
                         </constraints>
@@ -27,20 +27,20 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="saC-um-tfw">
-                        <rect key="frame" x="10" y="10" width="305" height="31.5"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <rect key="frame" x="10" y="10" width="305" height="33.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dO2-Ef-f76" userLabel="line">
-                        <rect key="frame" x="0.0" y="147" width="325" height="8"/>
+                        <rect key="frame" x="0.0" y="154.5" width="325" height="8"/>
                         <color key="backgroundColor" red="0.92156862745098034" green="0.92156862745098034" blue="0.92156862745098034" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="8" id="SDP-OD-eHt"/>
                         </constraints>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20161215" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mG0-Us-8au">
-                        <rect key="frame" x="10" y="127" width="58" height="15"/>
+                        <rect key="frame" x="10" y="134.5" width="58" height="15"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="15" id="83N-zU-t4E"/>
                         </constraints>
@@ -67,7 +67,7 @@
                 <outlet property="timeLabel" destination="mG0-Us-8au" id="xQk-5o-Xvs"/>
                 <outlet property="userLabel" destination="xys-od-QQ5" id="dNl-Az-nFe"/>
             </connections>
-            <point key="canvasLocation" x="-599.5" y="-357"/>
+            <point key="canvasLocation" x="-771" y="-354"/>
         </tableViewCell>
     </objects>
 </document>

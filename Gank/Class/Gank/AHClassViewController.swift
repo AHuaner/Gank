@@ -151,6 +151,13 @@ extension AHClassViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = AHClassCell.cellWithTableView(tableView)
         cell.classModel = datasArray[indexPath.row]
+        cell.indexPath = indexPath
+        
+        cell.moreButtonClickedClouse = { [unowned self] (indexPath: IndexPath) in
+            let model = self.datasArray[indexPath.row]
+            model.isOpen = !model.isOpen
+            self.tableView.reloadRows(at: [indexPath], with: .fade)
+        }
         return cell
     }
     

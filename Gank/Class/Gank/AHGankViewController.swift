@@ -24,9 +24,6 @@ class AHGankViewController: AHDisplayViewController {
     /// 未显示的tags
     fileprivate var moreTagsArray: [String] = [String]()
     
-    /// 控制状态栏的显示和隐藏
-    fileprivate var isStatusBarHidden: Bool = false
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -102,12 +99,9 @@ class AHGankViewController: AHDisplayViewController {
         NotificationCenter.default.removeObserver(self)
     }
     
-    override var prefersStatusBarHidden: Bool {
-        return isStatusBarHidden
-    }
-    
+    // 显示\隐藏导航栏
     func changeStatusBar() {
-        isStatusBarHidden = !isStatusBarHidden
+        UIApplication.shared.isStatusBarHidden = !UIApplication.shared.isStatusBarHidden
         self.setNeedsStatusBarAppearanceUpdate()
     }
     

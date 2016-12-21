@@ -16,7 +16,9 @@ class AHClassCell: UITableViewCell {
     
     @IBOutlet weak var contentLabel: UILabel!
     
-    var pictureViewClickClouse: ((_ index: IndexPath) -> Void)?
+    var indexPath: IndexPath!
+    
+    var moreButtonClickedClouse: ((_ indexPath: IndexPath) -> Void)?
     
     lazy var pictureView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -31,13 +33,41 @@ class AHClassCell: UITableViewCell {
         return pictureView
     }()
     
+    lazy var moreBrn: UIButton = {
+        let moreBrn = UIButton()
+        moreBrn.setTitle("全文", for: .normal)
+        moreBrn.setTitle("收起", for: .selected)
+        moreBrn.titleLabel?.font = FontSize(size: 15)
+        moreBrn.titleLabel?.textAlignment = .left
+        moreBrn.setTitleColor(UIColorMainBlue, for: .normal)
+        self.contentView.addSubview(moreBrn)
+        moreBrn.addTarget(self, action: #selector(AHClassCell.moreBtnClicked), for: .touchUpInside)
+        return moreBrn
+    }()
+    
     var classModel: AHClassModel! {
         didSet {
             self.contentLabel.text = classModel.desc
+            self.contentLabel.numberOfLines = 0
+            
             self.userLabel.text = classModel.user
             self.timeLabel.text = classModel.publishedAt
+            
             self.pictureView.frame = classModel.imageContainFrame
             self.pictureView.isHidden = true
+            
+            self.moreBrn.frame = classModel.moreBtnFrame
+//            self.moreBrn.isHidden = true
+            
+            self.moreBrn.isHidden = !classModel.isShouldShowMoreButton
+            
+            if classModel.isOpen {
+                self.contentLabel.numberOfLines = 0
+                self.moreBrn.setTitle("收起", for: .normal)
+            } else {
+                self.contentLabel.numberOfLines = 3
+                self.moreBrn.setTitle("全文", for: .normal)
+            }
             
             // 只有一张图片
             if classModel.imageType == AHImageType.oneImage {
@@ -62,6 +92,14 @@ class AHClassCell: UITableViewCell {
                 layout.itemSize = CGSize(width: itemWidth, height: itemWidth)
                 self.pictureView.setCollectionViewLayout(layout, animated: false)
             }
+        }
+    }
+    
+    func moreBtnClicked () {
+        self.classModel._cellH = nil
+    
+        if moreButtonClickedClouse != nil {
+            moreButtonClickedClouse!(self.indexPath)
         }
     }
     

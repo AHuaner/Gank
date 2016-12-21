@@ -44,19 +44,49 @@ class AHClassModel: NSObject {
     var imageContainFrame: CGRect = CGRect.zero
     var imageH: CGFloat = 0
     var imageW: CGFloat = 0
+    
     // 默认是没有图片
     var imageType: AHImageType = AHImageType.noImage
     
-    fileprivate var _cellH: CGFloat?
+    var isShouldShowMoreButton: Bool = false
+    
+    var moreBtnFrame: CGRect = CGRect.zero
+    
+    var isOpen: Bool = false
+    
+    var _cellH: CGFloat?
     // cell的整体高度
     var cellH: CGFloat {
         if _cellH == nil {
             let maxSize = CGSize(width: cellMaxWidth, height: CGFloat(MAXFLOAT))
             
+            var contentTextH: CGFloat = 0.0
             // 文字的高度
-            let descTextH = desc?.boundingRect(with: maxSize, options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSFontAttributeName : UIFont.systemFont(ofSize: 13)], context: nil).size.height
+            let descTextH = desc?.boundingRect(with: maxSize, options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSFontAttributeName : UIFont.systemFont(ofSize: 14)], context: nil).size.height
             
-            _cellH = cellMargin + descTextH! + cellMargin
+            contentTextH = descTextH!
+            
+            // 文字大于三行
+            if descTextH! > UIFont.systemFont(ofSize: 14).lineHeight * 3 {
+                contentTextH = UIFont.systemFont(ofSize: 14).lineHeight * 3
+                isShouldShowMoreButton = true
+            }
+            
+            if isOpen {
+                contentTextH = descTextH!
+            }
+            
+            _cellH = cellMargin * 2 + contentTextH
+            
+            if isShouldShowMoreButton {
+                let moreBtnX = cellMargin * 0.5
+                let moreBtnY = _cellH! - cellMargin
+                let moreBtnW: CGFloat = 40.0
+                let moreBtnH: CGFloat = 20.0
+                self.moreBtnFrame = CGRect(x: moreBtnX, y: moreBtnY, width: moreBtnW, height: moreBtnH)
+                
+                _cellH = _cellH! + moreBtnH
+            }
             
             // 一张图片的高度
             if self.imageType == AHImageType.oneImage {
@@ -65,7 +95,7 @@ class AHClassModel: NSObject {
                 if self.imageW == 0 && self.imageH == 0 {
                     let showImageW: CGFloat = maxSize.width * 0.62
                     let showImageH: CGFloat = showImageW
-                    let showImageY = descTextH! + 2 * cellMargin
+                    let showImageY = _cellH!
                     let showImageX = cellMargin
                     self.imageContainFrame = CGRect(x: showImageX, y: showImageY, width: showImageH, height: showImageW)
                     
@@ -73,7 +103,7 @@ class AHClassModel: NSObject {
                 } else if self.imageW >= self.imageH {
                     let showImageW: CGFloat = maxSize.width * 0.62
                     let showImageH: CGFloat = self.imageH * showImageW / self.imageW
-                    let showImageY = descTextH! + 2 * cellMargin
+                    let showImageY = _cellH!
                     let showImageX = cellMargin
                     self.imageContainFrame = CGRect(x: showImageX, y: showImageY, width: showImageW, height: showImageH)
                     
@@ -81,7 +111,7 @@ class AHClassModel: NSObject {
                 } else {
                     let showImageH: CGFloat = maxSize.width * 0.62
                     let showImageW: CGFloat = self.imageW * showImageH / self.imageH
-                    let showImageY = descTextH! + 2 * cellMargin
+                    let showImageY = _cellH!
                     let showImageX = cellMargin
                     self.imageContainFrame = CGRect(x: showImageX, y: showImageY, width: showImageW, height: showImageH)
                     
@@ -97,7 +127,7 @@ class AHClassModel: NSObject {
                 let containW: CGFloat = maxSize.width
                 let containH: CGFloat = CGFloat(row) * imageW
                 let containX: CGFloat = cellMargin
-                let containY = descTextH! + 2 * cellMargin
+                let containY = _cellH!
                 self.imageContainFrame = CGRect(x: containX, y: containY, width: containW, height: containH)
                 
                 _cellH = _cellH! + containH + cellMargin

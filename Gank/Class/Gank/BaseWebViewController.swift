@@ -58,6 +58,8 @@ class BaseWebViewController: BaseViewController {
                     self.progressView.setProgress(0.0, animated: false)
                 })
             }
+        } else {
+            super.observeValue(forKeyPath: keyPath, of: object, change: change, context: context)
         }
     }
     

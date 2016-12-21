@@ -90,6 +90,8 @@ class AHTurnChannelViewController: BaseViewController {
                 // 根据moreListView的frame变化更新contentSize.height
                 contentView.contentSize.height = self.moreListView.Height + self.listView.Height + 80
             }
+        } else {
+            super.observeValue(forKeyPath: keyPath, of: object, change: change, context: context)
         }
     }
     

@@ -296,6 +296,8 @@
 		6032438C1E038F0000484FC1 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				6045F3771E0919FB002B0FB6 /* AHWebToolView.swift */,
+				6045F3791E091A06002B0FB6 /* AHWebToolView.xib */,
 				602754BB1E00FCC400A2B757 /* AHClassCell.swift */,
 				602754BC1E00FCC400A2B757 /* AHClassCell.xib */,
 				60144E9F1E01632C00AC31D1 /* AHImageCell.swift */,
@@ -332,8 +334,6 @@
 				600D2B741DF8F35C00D57EA0 /* AHGankViewController.swift */,
 				601560911DFE820F00369E64 /* AHClassViewController.swift */,
 				6045F37B1E092148002B0FB6 /* AHClassWebViewController.swift */,
-				6045F3771E0919FB002B0FB6 /* AHWebToolView.swift */,
-				6045F3791E091A06002B0FB6 /* AHWebToolView.xib */,
 			);
 			path = Gank;
 			sourceTree = "<group>";
