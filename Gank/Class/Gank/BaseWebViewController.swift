@@ -77,6 +77,6 @@ class BaseWebViewController: BaseViewController {
 }
 
 extension BaseWebViewController: WKNavigationDelegate {
-    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) { }
+    func webView(_ webView: WKWebView, didCommit navigation: WKNavigation!) { }
 }
 

@@ -59,6 +59,14 @@ extension CGFloat {
     }
 }
 
+extension Date {
+    func toString() -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy MM dd"
+        return dateFormatter.string(from: self)
+    }
+}
+
 //获取正确的删除索引
 func getRemoveIndex<T: Equatable>(value: T, array: [T]) -> [Int]{
     

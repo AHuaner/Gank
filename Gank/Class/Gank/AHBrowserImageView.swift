@@ -110,8 +110,8 @@ class AHBrowserImageView: YYAnimatedImageView {
     
     fileprivate func zoomWithScale(_ totalScale: CGFloat) {
         
-        // 最大缩放2倍,最小0.5倍
-        if (self.totalScale < 0.5 && totalScale < self.totalScale) || (self.totalScale > 2.0 && totalScale > self.totalScale) { return }
+        // 最大缩放2.5倍,最小0.6倍
+        if (self.totalScale < 0.6 && totalScale < self.totalScale) || (self.totalScale > 2.5 && totalScale > self.totalScale) { return }
         
         self.totalScale = totalScale
         zoomingImageView.transform = CGAffineTransform(scaleX: totalScale, y: totalScale)

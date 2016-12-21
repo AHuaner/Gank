@@ -47,7 +47,6 @@ class AHClassWebViewController: BaseWebViewController {
         self.title = "详细内容"
         webView.scrollView.delegate = self
         view.addSubview(toolView)
-        toolView.transform = CGAffineTransform(translationX: 0, y: kBottomBarHeight)
     }
 
     func setToolViewHidden(_ hidden: Bool) {
@@ -78,8 +77,8 @@ class AHClassWebViewController: BaseWebViewController {
         AHLog("喜欢")
     }
     
-    override func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-        super.webView(webView, didFinish: navigation)
+    override func webView(_ webView: WKWebView, didCommit navigation: WKNavigation!) {
+        super.webView(webView, didCommit: navigation)
         toolView.backBtn.isEnabled = webView.canGoBack
         toolView.forwardBtn.isEnabled = webView.canGoForward
     }

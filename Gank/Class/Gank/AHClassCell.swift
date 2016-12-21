@@ -10,10 +10,8 @@ import UIKit
 
 class AHClassCell: UITableViewCell {
     
-    @IBOutlet weak var timeLabel: UILabel!
-    
-    @IBOutlet weak var userLabel: UILabel!
-    
+    @IBOutlet weak var timeBtn: UIButton!
+    @IBOutlet weak var editorBtn: UIButton!
     @IBOutlet weak var contentLabel: UILabel!
     
     var indexPath: IndexPath!
@@ -50,17 +48,18 @@ class AHClassCell: UITableViewCell {
             self.contentLabel.text = classModel.desc
             self.contentLabel.numberOfLines = 0
             
-            self.userLabel.text = classModel.user
-            self.timeLabel.text = classModel.publishedAt
+            self.editorBtn.setTitle(classModel.user, for: .normal)
+            self.editorBtn.isHidden = (classModel.user == nil) ? true : false
+            
+            self.timeBtn.setTitle(classModel.publishedAt, for: .normal)
             
             self.pictureView.frame = classModel.imageContainFrame
             self.pictureView.isHidden = true
             
             self.moreBrn.frame = classModel.moreBtnFrame
-//            self.moreBrn.isHidden = true
-            
             self.moreBrn.isHidden = !classModel.isShouldShowMoreButton
             
+            // cell是否展开
             if classModel.isOpen {
                 self.contentLabel.numberOfLines = 0
                 self.moreBrn.setTitle("收起", for: .normal)
@@ -105,6 +104,8 @@ class AHClassCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        timeBtn.titleEdgeInsets = UIEdgeInsets(top: 0, left: 3, bottom: 0, right: 0)
+        editorBtn.titleEdgeInsets = UIEdgeInsets(top: 0, left: 3, bottom: 0, right: 0)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

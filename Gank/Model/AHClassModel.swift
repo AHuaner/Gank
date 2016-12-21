@@ -18,7 +18,7 @@ enum AHImageType {
     case noImage, oneImage, moreImage
 }
 
-let timeLableH: CGFloat = 20
+let bottomViewH: CGFloat = 20
 let separatorLineH: CGFloat = 8
 let cellMargin: CGFloat = 10
 let cellMaxWidth: CGFloat = kScreen_W - 2 * cellMargin
@@ -58,13 +58,14 @@ class AHClassModel: NSObject {
     // cell的整体高度
     var cellH: CGFloat {
         if _cellH == nil {
-            let maxSize = CGSize(width: cellMaxWidth, height: CGFloat(MAXFLOAT))
             
-            var contentTextH: CGFloat = 0.0
+            _cellH = separatorLineH
+            
             // 文字的高度
+            let maxSize = CGSize(width: cellMaxWidth, height: CGFloat(MAXFLOAT))
             let descTextH = desc?.boundingRect(with: maxSize, options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSFontAttributeName : UIFont.systemFont(ofSize: 14)], context: nil).size.height
             
-            contentTextH = descTextH!
+            var contentTextH: CGFloat = descTextH!
             
             // 文字大于三行
             if descTextH! > UIFont.systemFont(ofSize: 14).lineHeight * 3 {
@@ -76,7 +77,7 @@ class AHClassModel: NSObject {
                 contentTextH = descTextH!
             }
             
-            _cellH = cellMargin * 2 + contentTextH
+            _cellH = _cellH! + cellMargin * 2 + contentTextH
             
             if isShouldShowMoreButton {
                 let moreBtnX = cellMargin * 0.5
@@ -134,7 +135,7 @@ class AHClassModel: NSObject {
             }
             
             // 底部时间的高度
-            _cellH = _cellH! + timeLableH + separatorLineH
+            _cellH = _cellH! + bottomViewH
         }
         return _cellH!
     }
@@ -168,5 +169,9 @@ class AHClassModel: NSObject {
                 self.imageType = AHImageType.moreImage
             }
         }
+        
+        // 时间处理
+        let time = self.publishedAt! as NSString
+        self.publishedAt = time.substring(to: 10) as String
     }
 }

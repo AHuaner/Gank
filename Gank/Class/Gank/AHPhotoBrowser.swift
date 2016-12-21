@@ -36,6 +36,24 @@ class AHPhotoBrowser: UIView {
         return indexLabel
     }()
     
+    lazy var saveButton: UIButton = {
+        let saveButton = UIButton()
+        saveButton.setTitle("保存", for: .normal)
+        saveButton.setTitleColor(UIColor.white, for: .normal)
+        saveButton.backgroundColor = RGBColor(0, g: 0, b: 0, alpha: 0.9)
+        saveButton.layer.cornerRadius = 5
+        saveButton.clipsToBounds = true
+        saveButton.addTarget(self, action: #selector(AHPhotoBrowser.saveImage), for: .touchUpInside)
+        return saveButton
+    }()
+    
+    lazy var indicatorView: UIActivityIndicatorView = {
+        let indicatorView = UIActivityIndicatorView()
+        indicatorView.activityIndicatorViewStyle = .whiteLarge
+        indicatorView.center = self.center
+        return indicatorView
+    }()
+    
     lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.delegate = self
@@ -59,6 +77,42 @@ class AHPhotoBrowser: UIView {
         }
         return scrollView
     }()
+    
+    func saveImage() {
+        let index = Int(scrollView.contentOffset.x / scrollView.Width)
+        let currentImageView = scrollView.subviews[index] as! AHBrowserImageView
+        guard let image = currentImageView.image else {
+            return
+        }
+        UIImageWriteToSavedPhotosAlbum(image, self, #selector(savedOK(image:didFinishSavingWithError:contextInfo:)), nil)
+        
+        UIApplication.shared.keyWindow?.addSubview(indicatorView)
+        indicatorView.startAnimating()
+    }
+    
+    func savedOK(image: UIImage, didFinishSavingWithError error: NSError?, contextInfo: AnyObject) {
+        indicatorView.removeFromSuperview()
+        let label = UILabel()
+        label.textColor = UIColor.white
+        label.backgroundColor = RGBColor(0.1, g: 0.1, b: 0.1, alpha: 0.9)
+        label.layer.cornerRadius = 5
+        label.clipsToBounds = true
+        label.bounds = CGRect(x: 0, y: 0, width: 150, height: 150)
+        label.center = self.center
+        label.textAlignment = .center
+        label.font = FontSize(size: 17)
+        UIApplication.shared.keyWindow?.addSubview(label)
+        UIApplication.shared.keyWindow?.bringSubview(toFront: label)
+        
+        if error != nil {
+            label.text = " >_< 保存失败 "
+        } else {
+            label.text = " ^_^ 保存成功 "
+        }
+        DispatchQueue.main.asyncAfter(deadline: 1.0) { 
+            label.removeFromSuperview()
+        }
+    }
     
     func phonoClickAction(tap: UITapGestureRecognizer) {
         // 显示状态栏
@@ -98,6 +152,8 @@ class AHPhotoBrowser: UIView {
         
         addSubview(tempView)
         
+        saveButton.isHidden = true
+        
         UIView.animate(withDuration: TimeInterval(AHPhotoBrowserShowImageDuration), animations: {
             tempView.frame = targetTemp
             self.backgroundColor = UIColor.clear
@@ -130,13 +186,14 @@ class AHPhotoBrowser: UIView {
         if !isWillDisappear {
             addSubview(scrollView)
             addSubview(indexLabel)
+            addSubview(saveButton)
             setupImageOfImageViewForIndex(index: currentImageIndex)
         }
     }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.backgroundColor = RGBColor(0, g: 0, b: 0, alpha: 0.95)
+        self.backgroundColor = RGBColor(0, g: 0, b: 0, alpha: 1)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -166,6 +223,7 @@ class AHPhotoBrowser: UIView {
         }
         
         indexLabel.center = CGPoint(x: self.Width * 0.5, y: 35)
+        saveButton.frame = CGRect(x: 30, y: self.Height - 70, width: 50, height: 25)
     }
     
     func show() {
