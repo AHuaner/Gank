@@ -145,19 +145,25 @@ extension AHClassCell: UICollectionViewDelegate, UICollectionViewDataSource {
         browser.imageCount = classModel.images?.count
         browser.sourceImagesContainerView = collectionView
         
-        browser.placeholderImageForIndexClouse = { (index) in
+        browser.placeholderImageForIndexClouse = { [unowned self] (index) in
+            if (index < 0 || index >= self.classModel.images!.count) { AHLog("崩溃"); return nil }
+            
             let newIndexPath = IndexPath(item: index, section: 0)
-            let cell = collectionView.cellForItem(at: newIndexPath) as! AHImageCell
+            guard let cell = collectionView.cellForItem(at: newIndexPath) as? AHImageCell else {
+                return nil
+            }
             let placeholderImage = cell.imageView.image
             return placeholderImage
         }
         
         browser.highQualityImageURLForIndexClouse = { [unowned self] (index) in
+            if (index < 0 || index >= self.classModel.images!.count) { AHLog("崩溃"); return nil }
+            
             let urlString = self.classModel.images?[index]
             let url = URL(string: urlString!)
             return url
         }
-
+        
         browser.show()
     }
 }

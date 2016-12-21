@@ -39,7 +39,17 @@ class AHImageCell: UICollectionViewCell {
                     }
                 // 有多张图片
                 } else if count > 1 {
-                    imageView.yy_imageURL = URL(string: urlString)
+                    // 先从缓存中查找对应的高清图
+                    let url = URL(string: urlString)
+                    let cacheKey = YYWebImageManager.shared().cacheKey(for: url!)
+                    let image = YYWebImageManager.shared().cache?.getImageForKey(cacheKey)
+                    
+                    if image != nil { // 缓存中有高清图, 直接加载
+                        imageView.image = image
+                    } else {
+                        let small_url = urlString + "?imageView2/0/w/\(Int(cellMaxWidth))"
+                        imageView.yy_imageURL = URL(string: small_url)
+                    }
                 }
             }
         }

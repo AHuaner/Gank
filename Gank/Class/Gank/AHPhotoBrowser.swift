@@ -275,13 +275,16 @@ class AHPhotoBrowser: UIView {
     // 加载图片
     fileprivate func setupImageOfImageViewForIndex(index: Int) {
         let imageView = scrollView.subviews[index] as! AHBrowserImageView
-        currentImageIndex = index
         if imageView.isLoadedImage { return }
+        
+        imageView.image = placeholderImageForIndex(index: index)
+        currentImageIndex = index
         if highQualityImageURLForIndex(index: index) != nil {
             imageView.setImage(url: highQualityImageURLForIndex(index: index), placeholderImage: placeholderImageForIndex(index: index))
-        } else {
-            imageView.image = placeholderImageForIndex(index: index)
         }
+        
+        // 不要再回调里面设置
+        imageView.isLoadedImage = true
     }
 }
 
