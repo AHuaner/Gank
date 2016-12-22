@@ -17,6 +17,11 @@
 		600BA1421E0B7E58002E4D94 /* tabbar_home_highlighted@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 600BA1401E0B7E58002E4D94 /* tabbar_home_highlighted@2x.png */; };
 		600BA1431E0B7E58002E4D94 /* tabbar_home@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 600BA1411E0B7E58002E4D94 /* tabbar_home@2x.png */; };
 		600BA1451E0B9478002E4D94 /* AHHomeGankModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 600BA1441E0B9478002E4D94 /* AHHomeGankModel.swift */; };
+		600BA1481E0BB745002E4D94 /* AHHeaderSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 600BA1471E0BB745002E4D94 /* AHHeaderSectionView.swift */; };
+		600BA14A1E0BB753002E4D94 /* AHHeaderSectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 600BA1491E0BB753002E4D94 /* AHHeaderSectionView.xib */; };
+		600BA14C1E0BBA72002E4D94 /* AHHomeHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 600BA14B1E0BBA72002E4D94 /* AHHomeHeaderView.swift */; };
+		600BA14E1E0BBA88002E4D94 /* AHHomeHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 600BA14D1E0BBA88002E4D94 /* AHHomeHeaderView.xib */; };
+		600BA1501E0BC469002E4D94 /* AHNavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 600BA14F1E0BC469002E4D94 /* AHNavBar.swift */; };
 		600D2B6C1DF8F1C200D57EA0 /* DispatchTime+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 600D2B691DF8F1C200D57EA0 /* DispatchTime+Extension.swift */; };
 		600D2B6D1DF8F1C200D57EA0 /* NSObject+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 600D2B6A1DF8F1C200D57EA0 /* NSObject+Extension.swift */; };
 		600D2B6E1DF8F1C200D57EA0 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 600D2B6B1DF8F1C200D57EA0 /* UIView+Extension.swift */; };
@@ -108,6 +113,11 @@
 		600BA1401E0B7E58002E4D94 /* tabbar_home_highlighted@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_home_highlighted@2x.png"; sourceTree = "<group>"; };
 		600BA1411E0B7E58002E4D94 /* tabbar_home@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_home@2x.png"; sourceTree = "<group>"; };
 		600BA1441E0B9478002E4D94 /* AHHomeGankModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHHomeGankModel.swift; sourceTree = "<group>"; };
+		600BA1471E0BB745002E4D94 /* AHHeaderSectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHHeaderSectionView.swift; sourceTree = "<group>"; };
+		600BA1491E0BB753002E4D94 /* AHHeaderSectionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AHHeaderSectionView.xib; sourceTree = "<group>"; };
+		600BA14B1E0BBA72002E4D94 /* AHHomeHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHHomeHeaderView.swift; sourceTree = "<group>"; };
+		600BA14D1E0BBA88002E4D94 /* AHHomeHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AHHomeHeaderView.xib; sourceTree = "<group>"; };
+		600BA14F1E0BC469002E4D94 /* AHNavBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AHNavBar.swift; path = ../../../Utility/AHNavBar.swift; sourceTree = "<group>"; };
 		600D2B691DF8F1C200D57EA0 /* DispatchTime+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DispatchTime+Extension.swift"; sourceTree = "<group>"; };
 		600D2B6A1DF8F1C200D57EA0 /* NSObject+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSObject+Extension.swift"; sourceTree = "<group>"; };
 		600D2B6B1DF8F1C200D57EA0 /* UIView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
@@ -227,9 +237,22 @@
 		600BA13B1E0B7A4B002E4D94 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				600BA1461E0BB69A002E4D94 /* View */,
 				600BA13C1E0B7A67002E4D94 /* AHHomeViewController.swift */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		600BA1461E0BB69A002E4D94 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				600BA14F1E0BC469002E4D94 /* AHNavBar.swift */,
+				600BA14B1E0BBA72002E4D94 /* AHHomeHeaderView.swift */,
+				600BA14D1E0BBA88002E4D94 /* AHHomeHeaderView.xib */,
+				600BA1471E0BB745002E4D94 /* AHHeaderSectionView.swift */,
+				600BA1491E0BB753002E4D94 /* AHHeaderSectionView.xib */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		600D2B681DF8F1C200D57EA0 /* Extension */ = {
@@ -563,12 +586,14 @@
 				60C7F8C01DFA6B4E0069E69A /* property_select@2x.png in Resources */,
 				60C7F8C11DFA6B4E0069E69A /* property@2x.png in Resources */,
 				6045F37A1E091A06002B0FB6 /* AHWebToolView.xib in Resources */,
+				600BA14A1E0BB753002E4D94 /* AHHeaderSectionView.xib in Resources */,
 				60C7F8D01DFAD3FE0069E69A /* close2_button@2x.png in Resources */,
 				6074E3F11E0A6CF0006BCC8D /* icon_editor@2x.png in Resources */,
 				60DDC86F1DF8FD88003F1464 /* loading4.png in Resources */,
 				600BA1421E0B7E58002E4D94 /* tabbar_home_highlighted@2x.png in Resources */,
 				60C7F8CE1DFAC91A0069E69A /* add_button_normal@2x.png in Resources */,
 				601731361DF96FC10069D4C4 /* AHTestViewController.xib in Resources */,
+				600BA14E1E0BBA88002E4D94 /* AHHomeHeaderView.xib in Resources */,
 				6045F3931E093624002B0FB6 /* toolBar_like_select@2x.png in Resources */,
 				6045F3861E09344C002B0FB6 /* nav_ list@2x.png in Resources */,
 				6074E3EC1E0A5F03006BCC8D /* icon_time@2x.png in Resources */,
@@ -668,6 +693,8 @@
 				601731321DF952D40069D4C4 /* AHLaunchViewController.swift in Sources */,
 				605E07F41E026D0E00225BA3 /* String+Extension.swift in Sources */,
 				601560941DFEC46F00369E64 /* AHLoadingView.swift in Sources */,
+				600BA1501E0BC469002E4D94 /* AHNavBar.swift in Sources */,
+				600BA1481E0BB745002E4D94 /* AHHeaderSectionView.swift in Sources */,
 				600D2B6C1DF8F1C200D57EA0 /* DispatchTime+Extension.swift in Sources */,
 				60002F8D1E08D597000E37C2 /* BaseWebViewController.swift in Sources */,
 				600D2BC01DF8FA9200D57EA0 /* BaseViewController.swift in Sources */,
@@ -679,6 +706,7 @@
 				600906E91E0020A6002F0A73 /* AHClassModel.swift in Sources */,
 				60144EA11E01632C00AC31D1 /* AHImageCell.swift in Sources */,
 				600BA13D1E0B7A67002E4D94 /* AHHomeViewController.swift in Sources */,
+				600BA14C1E0BBA72002E4D94 /* AHHomeHeaderView.swift in Sources */,
 				601731351DF96FC10069D4C4 /* AHTestViewController.swift in Sources */,
 				601CF5B91DF836B4002AF8D5 /* AppDelegate.swift in Sources */,
 				6045F37C1E092148002B0FB6 /* AHClassWebViewController.swift in Sources */,

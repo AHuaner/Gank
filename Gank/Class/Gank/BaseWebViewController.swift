@@ -68,11 +68,10 @@ class BaseWebViewController: BaseViewController {
     }
     
     func loadWithURLString(_ urlString: String?) {
-        guard let urlString = urlString else {
-            return
-        }
-        let url = URL(string: urlString)
-        self.webView.load(URLRequest(url: url!))
+        guard let urlString = urlString else { return }
+        guard let url = URL(string: urlString) else { return }
+        
+        self.webView.load(URLRequest(url: url))
     }
 }
 

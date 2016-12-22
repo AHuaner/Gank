@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="AHHomeHeaderView" customModule="Gank" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="333" height="256"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="frH-BH-afR">
+                    <rect key="frame" x="0.0" y="0.0" width="333" height="256"/>
+                </imageView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j85-we-R8H">
+                    <rect key="frame" x="0.0" y="216" width="333" height="40"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2016/12/22" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="laQ-al-Vqx">
+                            <rect key="frame" x="236.5" y="0.0" width="86.5" height="40"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.79706228595890416" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="Doe-Ky-Xup"/>
+                        <constraint firstItem="laQ-al-Vqx" firstAttribute="top" secondItem="j85-we-R8H" secondAttribute="top" id="Kyg-tQ-F3J"/>
+                        <constraint firstAttribute="trailing" secondItem="laQ-al-Vqx" secondAttribute="trailing" constant="10" id="N5R-vj-IQ8"/>
+                        <constraint firstAttribute="bottom" secondItem="laQ-al-Vqx" secondAttribute="bottom" id="zhp-Zc-mli"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="frH-BH-afR" secondAttribute="trailing" id="91T-fS-7hu"/>
+                <constraint firstAttribute="bottom" secondItem="frH-BH-afR" secondAttribute="bottom" id="HiQ-hF-6fu"/>
+                <constraint firstAttribute="bottom" secondItem="j85-we-R8H" secondAttribute="bottom" id="aFf-SA-jH1"/>
+                <constraint firstItem="frH-BH-afR" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="aeQ-sm-mTI"/>
+                <constraint firstItem="j85-we-R8H" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="dsy-NM-yY5"/>
+                <constraint firstItem="frH-BH-afR" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="mlM-lL-33u"/>
+                <constraint firstAttribute="trailing" secondItem="j85-we-R8H" secondAttribute="trailing" id="v1f-3N-7bG"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="-118.5" y="-56"/>
+        </view>
+    </objects>
+</document>

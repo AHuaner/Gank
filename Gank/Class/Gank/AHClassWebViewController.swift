@@ -16,6 +16,7 @@ class AHClassWebViewController: BaseWebViewController {
     fileprivate var newContentOffsetY: CGFloat = 0.0
     
     var classModel: AHClassModel?
+    var homeGankModel: AHHomeGankModel?
     
     lazy var toolView: AHWebToolView = {
         let toolView = AHWebToolView.webToolView()

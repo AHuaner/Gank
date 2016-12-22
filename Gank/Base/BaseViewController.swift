@@ -48,6 +48,11 @@ class BaseViewController: UIViewController, UIGestureRecognizerDelegate {
         }
     }
 
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        self.navigationController?.interactivePopGestureRecognizer?.delegate = self
+    }
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
@@ -64,9 +69,9 @@ class BaseViewController: UIViewController, UIGestureRecognizerDelegate {
             navigationItem.leftBarButtonItem = UIBarButtonItem(image: oriImage, style: UIBarButtonItemStyle.plain, target: self, action: #selector(BaseViewController.back))
         }
         
-        self.navigationController?.navigationBar.barTintColor = RGBColor(70, g: 150, b: 255, alpha: 1)
-        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.white,
-                                                                        NSFontAttributeName : UIFont.systemFont(ofSize: 17)]
+        self.navigationController?.navigationBar.barTintColor = UIColorMainBlue
+        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white,
+                                                                NSFontAttributeName : UIFont.systemFont(ofSize: 17)]
     }
     
     func back() {
