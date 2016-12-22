@@ -10,6 +10,12 @@ import UIKit
 
 class TabBarController: UITabBarController {
     
+    lazy var homeVC: UINavigationController = {
+        let homeVC = AHHomeViewController()
+        let nav = self.setupNav(viewController: homeVC, title: "最新干货", barItemTitle: "首页", image: "tabbar_home", selectedImage: "tabbar_home_highlighted")
+        return nav
+    }()
+    
     lazy var gankVC: UINavigationController = {
         let gankVC = AHGankViewController()
         let nav = self.setupNav(viewController: gankVC, title: "干货", barItemTitle: "干货", image: "find", selectedImage: "find_select")
@@ -46,7 +52,7 @@ class TabBarController: UITabBarController {
     }
     
     fileprivate func setupTabBar() {
-        viewControllers = [gankVC, mineVC]
+        viewControllers = [homeVC, gankVC, mineVC]
         tabBar.shadowImage = UIImage()
         tabBar.selectionIndicatorImage = UIImage()
         tabBar.backgroundImage = UIImage(named: "tabBar_bgwhiteColor")

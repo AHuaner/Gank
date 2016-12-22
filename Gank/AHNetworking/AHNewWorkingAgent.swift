@@ -66,4 +66,29 @@ class AHNewWorkingAgent: NSObject {
             failure(error)
         })
     }
+    
+    class func loadHomeRequest(date: String, success: @escaping Success, failure: @escaping Failure) {
+        let url = AHConfig.Http_ + "day/\(date)"
+        let urlString = url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+        
+        AHNetWorking.requestData(.get, URLString: urlString!, success: { (result: Any) in
+            let dict = JSON(result)
+            var datas = [AHHomeGroupModel]()
+            
+            if dict["category"].count == 0 {
+                success(datas)
+                return
+            }
+            
+            for i in 0..<dict["category"].count {
+                let groupTitle = dict["category"][i].stringValue
+                let groupModel = AHHomeGroupModel(dict: dict["results"], key: groupTitle)
+                datas.append(groupModel)
+            }
+            
+            success(datas)
+        }) { (error: Error) in
+            failure(error)
+        }
+    }
 }

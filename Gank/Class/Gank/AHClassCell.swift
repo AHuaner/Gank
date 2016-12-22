@@ -145,7 +145,7 @@ extension AHClassCell: UICollectionViewDelegate, UICollectionViewDataSource {
         browser.imageCount = classModel.images?.count
         browser.sourceImagesContainerView = collectionView
         
-        browser.placeholderImageForIndexClouse = { [unowned self] (index) in
+        browser.placeholderImageForIndexClouse = { [unowned self] (index: Int) in
             if (index < 0 || index >= self.classModel.images!.count) { AHLog("崩溃"); return nil }
             
             let newIndexPath = IndexPath(item: index, section: 0)
@@ -156,7 +156,7 @@ extension AHClassCell: UICollectionViewDelegate, UICollectionViewDataSource {
             return placeholderImage
         }
         
-        browser.highQualityImageURLForIndexClouse = { [unowned self] (index) in
+        browser.highQualityImageURLForIndexClouse = { [unowned self] (index: Int) in
             if (index < 0 || index >= self.classModel.images!.count) { AHLog("崩溃"); return nil }
             
             let urlString = self.classModel.images?[index]
