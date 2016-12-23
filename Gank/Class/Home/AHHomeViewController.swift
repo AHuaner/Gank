@@ -93,6 +93,7 @@ class AHHomeViewController: BaseViewController {
                         return
                     }
                     self.datasArray = datasArray
+                    self.tableView.reloadData()
                 }) { (error: Error) in
                     AHLog(error)
                 }
