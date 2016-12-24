@@ -22,6 +22,7 @@ let bottomViewH: CGFloat = 20
 let separatorLineH: CGFloat = 8
 let cellMargin: CGFloat = 10
 let cellMaxWidth: CGFloat = kScreen_W - 2 * cellMargin
+let collectMargin: CGFloat = 5
 
 import UIKit
 import SwiftyJSON
@@ -122,15 +123,30 @@ class AHClassModel: NSObject {
             
             // 有多张图片, colectionView的高度
             if self.imageType == AHImageType.moreImage {
+                let count = images!.count
                 let col: Int = 3
-                let row: Int = images!.count / col + ((images!.count % col > 0) ? 1 : 0)
-                let imageW: CGFloat = (maxSize.width - 2 * cellMargin) / CGFloat(col)
-                let containW: CGFloat = maxSize.width
-                let containH: CGFloat = CGFloat(row) * imageW
-                let containX: CGFloat = cellMargin
-                let containY = _cellH!
-                self.imageContainFrame = CGRect(x: containX, y: containY, width: containW, height: containH)
+                var imageW: CGFloat = 0
+                var containW: CGFloat = 0
+                var containH: CGFloat = 0
+                var containX: CGFloat = 0
+                var containY: CGFloat = 0
                 
+                if count == 4 {
+                    imageW = (maxSize.width - 2 * collectMargin) / CGFloat(col)
+                    containW = imageW * 2 + collectMargin
+                    containH = containW
+                    containX = cellMargin
+                    containY = _cellH!
+                    self.imageContainFrame = CGRect(x: containX, y: containY, width: containW, height: containH)
+                } else {
+                    let row: Int = count / col + ((count % col > 0) ? 1 : 0)
+                    imageW = (maxSize.width - 2 * collectMargin) / CGFloat(col)
+                    containW = (count >= 3) ? maxSize.width : (imageW * 2 + collectMargin)
+                    containH = CGFloat(row) * imageW + CGFloat(row - 1) * collectMargin
+                    containX = cellMargin
+                    containY = _cellH!
+                    self.imageContainFrame = CGRect(x: containX, y: containY, width: containW, height: containH)
+                }
                 _cellH = _cellH! + containH + cellMargin
             }
             

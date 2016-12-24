@@ -12,7 +12,7 @@ import SwiftyJSON
 
 
 class AHHomeGankModel: NSObject {
-    fileprivate var separatorLineH: CGFloat = 6
+    fileprivate var separatorLineH: CGFloat = 1
     
     fileprivate var editorLabelH: CGFloat = 15
     
@@ -39,7 +39,7 @@ class AHHomeGankModel: NSObject {
     var cellH: CGFloat {
         if _cellH == nil {
             
-            _cellH = separatorLineH + editorLabelH
+            _cellH = separatorLineH + editorLabelH + 5
             
             // 文字的高度
             let maxSize = CGSize(width: cellMaxWidth, height: CGFloat(MAXFLOAT))

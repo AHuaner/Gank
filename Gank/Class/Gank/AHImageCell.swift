@@ -59,5 +59,6 @@ class AHImageCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        self.backgroundColor = UIColorMainBG
     }
 }

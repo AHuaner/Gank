@@ -84,7 +84,6 @@ class AHClassCell: UITableViewCell {
                 self.pictureView.isHidden = false
                 
                 let layout = UICollectionViewFlowLayout()
-                let collectMargin = cellMargin / 2
                 layout.minimumInteritemSpacing = collectMargin
                 layout.minimumLineSpacing = collectMargin
                 let itemWidth = (cellMaxWidth - collectMargin * 2) / 3
