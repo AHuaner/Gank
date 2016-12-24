@@ -12,6 +12,12 @@ class AHHomeViewController: BaseViewController {
 
     fileprivate var datasArray: [AHHomeGroupModel] = [AHHomeGroupModel]()
     
+    lazy var headerView: AHHomeHeaderView = {
+        let headerView = AHHomeHeaderView.headerView()
+        headerView.frame = CGRect(x: 0, y: 0, width: kScreen_W, height: kScreen_H * 0.55)
+        return headerView
+    }()
+    
     fileprivate lazy var tableView: UITableView = {
         let tabelView = UITableView(frame: CGRect(x: 0, y: 0, width: kScreen_W, height: kScreen_H), style: UITableViewStyle.grouped)
         tabelView.backgroundColor = UIColorMainBG
@@ -20,9 +26,7 @@ class AHHomeViewController: BaseViewController {
         tabelView.contentInset.bottom = kBottomBarHeight
         tabelView.separatorStyle = .none
         tabelView.register(UITableViewCell.self, forCellReuseIdentifier: "homecell")
-        let headerView = AHHomeHeaderView.headerView()
-        headerView.frame = CGRect(x: 0, y: 0, width: kScreen_W, height: kScreen_H * 0.5)
-        tabelView.tableHeaderView = headerView
+        tabelView.tableHeaderView = self.headerView
         return tabelView
     }()
     
@@ -83,6 +87,8 @@ class AHHomeViewController: BaseViewController {
     }
     
     fileprivate func sendRequest() {
+        if datasArray.count != 0 { return }
+        
         AHNewWorkingAgent.loadHomeRequest(date: curDateString, success: { (result: Any) in
             guard let datasArray = result as? [AHHomeGroupModel] else { return }
             
@@ -93,6 +99,7 @@ class AHHomeViewController: BaseViewController {
                         return
                     }
                     self.datasArray = datasArray
+                    self.setupHeaderView(date: self.yesDateString)
                     self.tableView.reloadData()
                 }) { (error: Error) in
                     AHLog(error)
@@ -100,37 +107,67 @@ class AHHomeViewController: BaseViewController {
             }
             
             self.datasArray = datasArray
+            self.setupHeaderView(date: self.curDateString)
             self.tableView.reloadData()
         }) { (error: Error) in
             AHLog(error)
+        }
+    }
+    
+    fileprivate func setupHeaderView(date: String) {
+        for data in datasArray {
+            if data.groupTitle == "福利" {
+                let urlString = data.ganks.first?.url
+                headerView.imageView.yy_imageURL = URL(string: urlString!)
+                headerView.timeLabel.text = date
+            }
         }
     }
 }
 
 extension AHHomeViewController: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
+        for data in datasArray {
+            if data.groupTitle == "福利" {
+                return datasArray.count - 1
+            }
+        }
         return datasArray.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if datasArray[section].groupTitle == "福利" {
+            return 0
+        }
         return datasArray[section].ganks.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "homecell", for: indexPath)
-        let gankModel = datasArray[indexPath.section].ganks[indexPath.row]
-        cell.textLabel?.text = gankModel.desc!
+        let cell = AHHomeCell.cellWithTableView(tableView)
+        cell.gankModel = datasArray[indexPath.section].ganks[indexPath.row]
+        cell.indexPath = indexPath
+        
+        cell.moreButtonClickedClouse = { [unowned self] (indexPath: IndexPath) in
+            let model = self.datasArray[indexPath.section].ganks[indexPath.row]
+            model.isOpen = !model.isOpen
+            self.tableView.reloadRows(at: [indexPath], with: .fade)
+        }
         return cell
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        let model = datasArray[indexPath.section].ganks[indexPath.row]
+        return model.cellH
+    }
+    
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let headerSection = UIView(frame: CGRect(x: 0, y: 0, width: kScreen_W, height: 30))
-        headerSection.backgroundColor = UIColorMainBG
+        let headerSection = AHHeaderSectionView.headerSectionView()
+        headerSection.groupModel = datasArray[section]
         return headerSection
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 40
+        return 30
     }
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
@@ -151,7 +188,7 @@ extension AHHomeViewController: UITableViewDelegate, UITableViewDataSource {
 extension AHHomeViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if scrollView.contentOffset.y > 0 {
-            let alpha = scrollView.contentOffset.y / (kScreen_H * 0.5 - 64.0)
+            let alpha = scrollView.contentOffset.y / (kScreen_H * 0.55 - 64.0)
             navBar.alpha = alpha
         } else {
             navBar.alpha = 0.001

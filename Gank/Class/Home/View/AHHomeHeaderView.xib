@@ -10,26 +10,26 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="AHHomeHeaderView" customModule="Gank" customModuleProvider="target">
+        <view clipsSubviews="YES" contentMode="scaleToFill" id="iN0-l3-epB" customClass="AHHomeHeaderView" customModule="Gank" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="333" height="256"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="frH-BH-afR">
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="frH-BH-afR">
                     <rect key="frame" x="0.0" y="0.0" width="333" height="256"/>
                 </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j85-we-R8H">
-                    <rect key="frame" x="0.0" y="216" width="333" height="40"/>
+                    <rect key="frame" x="0.0" y="226" width="333" height="30"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2016/12/22" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="laQ-al-Vqx">
-                            <rect key="frame" x="236.5" y="0.0" width="86.5" height="40"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <rect key="frame" x="245.5" y="0.0" width="77.5" height="30"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
-                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.79706228595890416" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.59867294520547953" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="40" id="Doe-Ky-Xup"/>
+                        <constraint firstAttribute="height" constant="30" id="Doe-Ky-Xup"/>
                         <constraint firstItem="laQ-al-Vqx" firstAttribute="top" secondItem="j85-we-R8H" secondAttribute="top" id="Kyg-tQ-F3J"/>
                         <constraint firstAttribute="trailing" secondItem="laQ-al-Vqx" secondAttribute="trailing" constant="10" id="N5R-vj-IQ8"/>
                         <constraint firstAttribute="bottom" secondItem="laQ-al-Vqx" secondAttribute="bottom" id="zhp-Zc-mli"/>
@@ -48,7 +48,11 @@
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="-118.5" y="-56"/>
+            <connections>
+                <outlet property="imageView" destination="frH-BH-afR" id="suA-sR-UTK"/>
+                <outlet property="timeLabel" destination="laQ-al-Vqx" id="BnL-ef-qOf"/>
+            </connections>
+            <point key="canvasLocation" x="-30" y="-50"/>
         </view>
     </objects>
 </document>

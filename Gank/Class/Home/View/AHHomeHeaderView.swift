@@ -9,6 +9,11 @@
 import UIKit
 
 class AHHomeHeaderView: UIView {
+    
+    @IBOutlet weak var timeLabel: UILabel!
+
+    @IBOutlet weak var imageView: UIImageView!
+    
     class func headerView() -> AHHomeHeaderView {
         return AHHomeHeaderView.viewFromNib() as! AHHomeHeaderView
     }

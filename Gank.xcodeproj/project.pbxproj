@@ -29,6 +29,8 @@
 		600D2B751DF8F35C00D57EA0 /* AHGankViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 600D2B741DF8F35C00D57EA0 /* AHGankViewController.swift */; };
 		600D2BA31DF8F7A900D57EA0 /* AHLaunchImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 600D2BA21DF8F7A900D57EA0 /* AHLaunchImageView.swift */; };
 		600D2BC01DF8FA9200D57EA0 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 600D2BBF1DF8FA9200D57EA0 /* BaseViewController.swift */; };
+		600DD41A1E0D1ABC00ACFC00 /* AHHomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 600DD4181E0D1ABC00ACFC00 /* AHHomeCell.swift */; };
+		600DD41B1E0D1ABC00ACFC00 /* AHHomeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 600DD4191E0D1ABC00ACFC00 /* AHHomeCell.xib */; };
 		60144EA11E01632C00AC31D1 /* AHImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60144E9F1E01632C00AC31D1 /* AHImageCell.swift */; };
 		60144EA21E01632C00AC31D1 /* AHImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60144EA01E01632C00AC31D1 /* AHImageCell.xib */; };
 		601560921DFE820F00369E64 /* AHClassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 601560911DFE820F00369E64 /* AHClassViewController.swift */; };
@@ -125,6 +127,8 @@
 		600D2B741DF8F35C00D57EA0 /* AHGankViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHGankViewController.swift; sourceTree = "<group>"; };
 		600D2BA21DF8F7A900D57EA0 /* AHLaunchImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHLaunchImageView.swift; sourceTree = "<group>"; };
 		600D2BBF1DF8FA9200D57EA0 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		600DD4181E0D1ABC00ACFC00 /* AHHomeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHHomeCell.swift; sourceTree = "<group>"; };
+		600DD4191E0D1ABC00ACFC00 /* AHHomeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AHHomeCell.xib; sourceTree = "<group>"; };
 		60144E9F1E01632C00AC31D1 /* AHImageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHImageCell.swift; sourceTree = "<group>"; };
 		60144EA01E01632C00AC31D1 /* AHImageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AHImageCell.xib; sourceTree = "<group>"; };
 		601560911DFE820F00369E64 /* AHClassViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHClassViewController.swift; sourceTree = "<group>"; };
@@ -251,6 +255,8 @@
 				600BA14D1E0BBA88002E4D94 /* AHHomeHeaderView.xib */,
 				600BA1471E0BB745002E4D94 /* AHHeaderSectionView.swift */,
 				600BA1491E0BB753002E4D94 /* AHHeaderSectionView.xib */,
+				600DD4181E0D1ABC00ACFC00 /* AHHomeCell.swift */,
+				600DD4191E0D1ABC00ACFC00 /* AHHomeCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -607,6 +613,7 @@
 				602754BE1E00FCC400A2B757 /* AHClassCell.xib in Resources */,
 				600BA1431E0B7E58002E4D94 /* tabbar_home@2x.png in Resources */,
 				6045F38C1E093529002B0FB6 /* toolBar_back@2x.png in Resources */,
+				600DD41B1E0D1ABC00ACFC00 /* AHHomeCell.xib in Resources */,
 				60C7F8BF1DFA6B4E0069E69A /* find@2x.png in Resources */,
 				606B1E2A1DFD7DFD00BD86E2 /* close_button@2x.png in Resources */,
 			);
@@ -720,6 +727,7 @@
 				600D2B751DF8F35C00D57EA0 /* AHGankViewController.swift in Sources */,
 				602754BD1E00FCC400A2B757 /* AHClassCell.swift in Sources */,
 				60C7F8D41DFB0D2A0069E69A /* AHTurnChannelViewController.swift in Sources */,
+				600DD41A1E0D1ABC00ACFC00 /* AHHomeCell.swift in Sources */,
 				600D2B6D1DF8F1C200D57EA0 /* NSObject+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

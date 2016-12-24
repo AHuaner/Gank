@@ -9,7 +9,13 @@
 import UIKit
 import SwiftyJSON
 
+
+
 class AHHomeGankModel: NSObject {
+    fileprivate var separatorLineH: CGFloat = 6
+    
+    fileprivate var editorLabelH: CGFloat = 15
+    
     var id: String?
     
     var publishedAt: String?
@@ -21,6 +27,52 @@ class AHHomeGankModel: NSObject {
     var user: String?
     
     var type: String?
+    
+    var isShouldShowMoreButton: Bool = false
+    
+    var moreBtnFrame: CGRect = CGRect.zero
+    
+    var isOpen: Bool = false
+    
+    var _cellH: CGFloat?
+    // cell的整体高度
+    var cellH: CGFloat {
+        if _cellH == nil {
+            
+            _cellH = separatorLineH + editorLabelH
+            
+            // 文字的高度
+            let maxSize = CGSize(width: cellMaxWidth, height: CGFloat(MAXFLOAT))
+            let descTextH = desc?.boundingRect(with: maxSize, options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSFontAttributeName : UIFont.systemFont(ofSize: 14)], context: nil).size.height
+            
+            var contentTextH: CGFloat = descTextH!
+            
+            // 文字大于四行
+            if descTextH! > UIFont.systemFont(ofSize: 14).lineHeight * 4 {
+                contentTextH = UIFont.systemFont(ofSize: 14).lineHeight * 4
+                isShouldShowMoreButton = true
+            }
+            
+            if isOpen {
+                contentTextH = descTextH!
+            }
+            
+            _cellH = _cellH! + 5 + contentTextH
+            
+            if isShouldShowMoreButton {
+                let moreBtnX = cellMargin * 0.5
+                let moreBtnY = _cellH!
+                let moreBtnW: CGFloat = 40.0
+                let moreBtnH: CGFloat = 20.0
+                self.moreBtnFrame = CGRect(x: moreBtnX, y: moreBtnY, width: moreBtnW, height: moreBtnH)
+                
+                _cellH = _cellH! + moreBtnH
+            }
+            
+            _cellH = _cellH! + cellMargin
+        }
+        return _cellH!
+    }
     
     init(dict: JSON) {
         super.init()
@@ -41,9 +93,5 @@ class AHHomeGankModel: NSObject {
             default: break
             }
         }
-        
-        // 时间处理
-//        let time = self.publishedAt! as NSString
-//        self.publishedAt = time.substring(to: 10) as String
     }
 }
