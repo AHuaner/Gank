@@ -115,30 +115,28 @@ class AHHomeViewController: BaseViewController {
     }
     
     fileprivate func setupHeaderView(date: String) {
+        
+        var newData = [AHHomeGroupModel]()
+        
         for data in datasArray {
             if data.groupTitle == "福利" {
                 let urlString = data.ganks.first?.url
                 headerView.imageView.yy_imageURL = URL(string: urlString!)
                 headerView.timeLabel.text = date
+                continue
             }
+            newData.append(data)
         }
+        datasArray = newData
     }
 }
 
 extension AHHomeViewController: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        for data in datasArray {
-            if data.groupTitle == "福利" {
-                return datasArray.count - 1
-            }
-        }
         return datasArray.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if datasArray[section].groupTitle == "福利" {
-            return 0
-        }
         return datasArray[section].ganks.count
     }
     

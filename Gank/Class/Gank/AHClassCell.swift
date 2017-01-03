@@ -18,9 +18,13 @@ class AHClassCell: UITableViewCell {
     
     var moreButtonClickedClouse: ((_ indexPath: IndexPath) -> Void)?
     
-    lazy var pictureView: UICollectionView = {
+    lazy var layout: UICollectionViewFlowLayout = {
         let layout = UICollectionViewFlowLayout()
-        let pictureView = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
+        return layout
+    }()
+    
+    lazy var pictureView: UICollectionView = {
+        let pictureView = UICollectionView(frame: CGRect.zero, collectionViewLayout: self.layout)
         
         pictureView.dataSource = self
         pictureView.delegate = self
@@ -53,9 +57,6 @@ class AHClassCell: UITableViewCell {
             
             self.timeBtn.setTitle(classModel.publishedAt, for: .normal)
             
-            self.pictureView.frame = classModel.imageContainFrame
-            self.pictureView.isHidden = true
-            
             self.moreBrn.frame = classModel.moreBtnFrame
             self.moreBrn.isHidden = !classModel.isShouldShowMoreButton
             
@@ -68,27 +69,34 @@ class AHClassCell: UITableViewCell {
                 self.moreBrn.setTitle("全文", for: .normal)
             }
             
-            // 只有一张图片
-            if classModel.imageType == AHImageType.oneImage {
-                self.pictureView.isHidden = false
-
-                let layout = UICollectionViewFlowLayout()
-                layout.itemSize = CGSize(width: classModel.imageContainFrame.width, height: classModel.imageContainFrame.height)
-                layout.minimumLineSpacing = 0
-                layout.minimumInteritemSpacing = 0
-                self.pictureView.setCollectionViewLayout(layout, animated: false)
+            self.pictureView.isHidden = true
+            
+            if classModel.imageType == AHImageType.noImage {
+                return
             }
             
-            // 有多张图片
-            if classModel.imageType == AHImageType.moreImage {
-                self.pictureView.isHidden = false
+            // 只有一张图片
+            if classModel.imageType == AHImageType.oneImage {
                 
-                let layout = UICollectionViewFlowLayout()
+                layout.minimumLineSpacing = 0
+                layout.minimumInteritemSpacing = 0
+                layout.itemSize = CGSize(width: classModel.imageContainFrame.width, height: classModel.imageContainFrame.height)
+                
+                self.pictureView.isHidden = false
+                self.pictureView.setCollectionViewLayout(layout, animated: false)
+                self.pictureView.frame = classModel.imageContainFrame
+                self.pictureView.reloadData()
+            } else if classModel.imageType == AHImageType.moreImage { // 多张图片
+                
                 layout.minimumInteritemSpacing = collectMargin
                 layout.minimumLineSpacing = collectMargin
                 let itemWidth = (cellMaxWidth - collectMargin * 2) / 3
                 layout.itemSize = CGSize(width: itemWidth, height: itemWidth)
+                
+                self.pictureView.isHidden = false
                 self.pictureView.setCollectionViewLayout(layout, animated: false)
+                self.pictureView.frame = classModel.imageContainFrame
+                self.pictureView.reloadData()
             }
         }
     }
@@ -145,8 +153,6 @@ extension AHClassCell: UICollectionViewDelegate, UICollectionViewDataSource {
         browser.sourceImagesContainerView = collectionView
         
         browser.placeholderImageForIndexClouse = { (index: Int) in
-            if (index < 0 || index >= self.classModel.images!.count) { AHLog("崩溃"); return nil }
-            
             let newIndexPath = IndexPath(item: index, section: 0)
             guard let cell = collectionView.cellForItem(at: newIndexPath) as? AHImageCell else {
                 return nil
@@ -156,8 +162,6 @@ extension AHClassCell: UICollectionViewDelegate, UICollectionViewDataSource {
         }
         
         browser.highQualityImageURLForIndexClouse = { (index: Int) in
-            if (index < 0 || index >= self.classModel.images!.count) { AHLog("崩溃"); return nil }
-            
             let urlString = self.classModel.images?[index]
             let url = URL(string: urlString!)
             return url

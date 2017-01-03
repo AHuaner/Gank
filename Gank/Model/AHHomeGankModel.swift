@@ -48,8 +48,8 @@ class AHHomeGankModel: NSObject {
             var contentTextH: CGFloat = descTextH!
             
             // 文字大于四行
-            if descTextH! > UIFont.systemFont(ofSize: 14).lineHeight * 4 {
-                contentTextH = UIFont.systemFont(ofSize: 14).lineHeight * 4
+            if descTextH! > UIFont.systemFont(ofSize: 14).lineHeight * 3 {
+                contentTextH = UIFont.systemFont(ofSize: 14).lineHeight * 3
                 isShouldShowMoreButton = true
             }
             
