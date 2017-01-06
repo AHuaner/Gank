@@ -21,7 +21,8 @@ enum AHImageType {
 let bottomViewH: CGFloat = 20
 let separatorLineH: CGFloat = 8
 let cellMargin: CGFloat = 10
-let cellMaxWidth: CGFloat = kScreen_W - 2 * cellMargin
+let cellMarginWidth: CGFloat = 20
+let cellMaxWidth: CGFloat = kScreen_W - 2 * cellMarginWidth
 let collectMargin: CGFloat = 5
 
 import UIKit
@@ -81,7 +82,7 @@ class AHClassModel: NSObject {
             _cellH = _cellH! + cellMargin * 2 + contentTextH
             
             if isShouldShowMoreButton {
-                let moreBtnX = cellMargin * 0.5
+                let moreBtnX = cellMarginWidth - 5
                 let moreBtnY = _cellH! - cellMargin
                 let moreBtnW: CGFloat = 40.0
                 let moreBtnH: CGFloat = 20.0
@@ -98,7 +99,7 @@ class AHClassModel: NSObject {
                     let showImageW: CGFloat = maxSize.width * 0.62
                     let showImageH: CGFloat = showImageW
                     let showImageY = _cellH!
-                    let showImageX = cellMargin
+                    let showImageX = cellMarginWidth
                     self.imageContainFrame = CGRect(x: showImageX, y: showImageY, width: showImageH, height: showImageW)
                     
                     _cellH = _cellH! + showImageH + cellMargin
@@ -106,7 +107,7 @@ class AHClassModel: NSObject {
                     let showImageW: CGFloat = maxSize.width * 0.62
                     let showImageH: CGFloat = self.imageH * showImageW / self.imageW
                     let showImageY = _cellH!
-                    let showImageX = cellMargin
+                    let showImageX = cellMarginWidth
                     self.imageContainFrame = CGRect(x: showImageX, y: showImageY, width: showImageW, height: showImageH)
                     
                     _cellH = _cellH! + showImageH + cellMargin
@@ -114,7 +115,7 @@ class AHClassModel: NSObject {
                     let showImageH: CGFloat = maxSize.width * 0.62
                     let showImageW: CGFloat = self.imageW * showImageH / self.imageH
                     let showImageY = _cellH!
-                    let showImageX = cellMargin
+                    let showImageX = cellMarginWidth
                     self.imageContainFrame = CGRect(x: showImageX, y: showImageY, width: showImageW, height: showImageH)
                     
                     _cellH = _cellH! + showImageH + cellMargin
@@ -135,7 +136,7 @@ class AHClassModel: NSObject {
                     imageW = (maxSize.width - 2 * collectMargin) / CGFloat(col)
                     containW = imageW * 2 + collectMargin
                     containH = containW
-                    containX = cellMargin
+                    containX = cellMarginWidth
                     containY = _cellH!
                     self.imageContainFrame = CGRect(x: containX, y: containY, width: containW, height: containH)
                 } else {
@@ -143,7 +144,7 @@ class AHClassModel: NSObject {
                     imageW = (maxSize.width - 2 * collectMargin) / CGFloat(col)
                     containW = (count >= 3) ? maxSize.width : (imageW * 2 + collectMargin)
                     containH = CGFloat(row) * imageW + CGFloat(row - 1) * collectMargin
-                    containX = cellMargin
+                    containX = cellMarginWidth
                     containY = _cellH!
                     self.imageContainFrame = CGRect(x: containX, y: containY, width: containW, height: containH)
                 }

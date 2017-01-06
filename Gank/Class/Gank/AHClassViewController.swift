@@ -54,9 +54,7 @@ class AHClassViewController: BaseViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        if (self.navigationController?.delegate?.isEqual(self))! {
-            self.navigationController?.delegate = nil
-        }
+        self.navigationController?.delegate = nil
     }
     
     override func didReceiveMemoryWarning() {
