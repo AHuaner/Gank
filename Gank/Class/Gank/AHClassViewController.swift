@@ -47,6 +47,18 @@ class AHClassViewController: BaseViewController {
         setupRefresh()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.navigationController?.delegate = self
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        if (self.navigationController?.delegate?.isEqual(self))! {
+            self.navigationController?.delegate = nil
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
@@ -168,13 +180,29 @@ extension AHClassViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        let model = datasArray[indexPath.row]
         
+        // 获取cell的frame, 坐标转换
+        let cell = tableView.cellForRow(at: indexPath)!
+        let rect = self.navigationController!.view.convert(cell.frame, from: cell.superview)
+        
+        if let gankVC = self.navigationController?.topViewController as? AHGankViewController {
+            gankVC.popRect = rect
+        }
+        
+        self.tabBarController?.tabBar.isHidden = true;
+        
+        let model = datasArray[indexPath.row]
         let webView = AHClassWebViewController()
         webView.urlString = model.url
         webView.classModel = model
         webView.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(webView, animated: true)
+    }
+}
+
+extension AHClassViewController: UINavigationControllerDelegate {
+    func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return AHPushTransition()
     }
 }
 

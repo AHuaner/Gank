@@ -24,6 +24,8 @@ class AHGankViewController: AHDisplayViewController {
     /// 未显示的tags
     fileprivate var moreTagsArray: [String] = [String]()
     
+    var popRect: CGRect = CGRect.zero
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

@@ -8,6 +8,7 @@ target 'Gank' do
   pod 'SDWebImage'
   pod 'MJRefresh'
   pod 'YYWebImage'
+  pod 'FMDB'
 end
 
 post_install do |installer|
