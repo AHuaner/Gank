@@ -15,6 +15,10 @@ class AHClassWebViewController: BaseWebViewController {
     fileprivate var oldContentOffsetY: CGFloat = 0.0
     fileprivate var newContentOffsetY: CGFloat = 0.0
     
+    var currentCompleted: CGFloat = 0.0
+    
+    var animatedTransition: Bool = false
+    
     var classModel: AHClassModel?
     var homeGankModel: AHHomeGankModel?
     
@@ -35,6 +39,19 @@ class AHClassWebViewController: BaseWebViewController {
         
         setupUI()
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        if !animatedTransition { return }
+        self.navigationController?.delegate = self
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        if !animatedTransition { return }
+        self.navigationController?.delegate = nil
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -47,7 +64,8 @@ class AHClassWebViewController: BaseWebViewController {
     fileprivate func setupUI() {
         self.title = "详细内容"
         webView.scrollView.delegate = self
-        view.addSubview(toolView)
+        view.autoresizesSubviews = false
+        // view.addSubview(toolView)
     }
 
     func setToolViewHidden(_ hidden: Bool) {
@@ -97,9 +115,32 @@ extension AHClassWebViewController: UIScrollViewDelegate {
         } else if newContentOffsetY < oldContentOffsetY && oldContentOffsetY < contentOffsetY {
             setToolViewHidden(false)
         }
+        
+        if !animatedTransition { return }
+        
+        let begainY = scrollView.contentSize.height - scrollView.Height
+        let offsetY = min(0, begainY - scrollView.contentOffset.y)
+        view.Y = offsetY
+        
+        // 拖拽比例
+        self.currentCompleted = min(max(0, fabs(offsetY) / 200), 1);
     }
     
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         oldContentOffsetY = scrollView.contentOffset.y
+        
+        if !animatedTransition { return }
+        
+        if currentCompleted > 0.35 {
+            if let navigationController = self.navigationController {
+                navigationController.popViewController(animated: true)
+            }
+        }
+    }
+}
+
+extension AHClassWebViewController: UINavigationControllerDelegate {
+    func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return AHPopTranstion()
     }
 }

@@ -19,31 +19,30 @@ extension AHPushTransition: UIViewControllerAnimatedTransitioning {
     
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
 
-        let contentView = transitionContext.containerView
+        let containerView = transitionContext.containerView
         // fromVC is AHGankViewController
         let fromVC = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.from) as! AHGankViewController
-        
         let tempView = UIView(frame: fromVC.popRect)
         tempView.backgroundColor = RGBColor(234, g: 234, b: 234, alpha: 1)
         
         let toVC = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to) as! AHClassWebViewController
         
         let snapShotView = fromVC.navigationController?.view.snapshotView(afterScreenUpdates: false)
-        snapShotView?.frame = contentView.frame
+        snapShotView?.frame = containerView.frame
         
-        let maskView = UIView(frame: contentView.frame)
+        let maskView = UIView(frame: containerView.frame)
         maskView.backgroundColor = UIColor.black.withAlphaComponent(0.7)
         
         fromVC.view.alpha = 0
         toVC.view.frame = transitionContext.finalFrame(for: toVC)
         toVC.view.alpha = 0
-        contentView.addSubview(toVC.view)
-        contentView.addSubview(snapShotView!)
-        contentView.addSubview(maskView)
-        contentView.addSubview(tempView)
+        containerView.addSubview(toVC.view)
+        containerView.addSubview(snapShotView!)
+        containerView.addSubview(maskView)
+        containerView.addSubview(tempView)
         
         // 计算缩放比例
-        let tempViewYScale = max(2.5 * tempView.frame.minY / tempView.Height, 2.5 * (contentView.Height - tempView.frame.minY) / tempView.Height)
+        let tempViewYScale = max(2.5 * tempView.frame.minY / tempView.Height, 2.5 * (containerView.Height - tempView.frame.minY) / tempView.Height)
         
         UIView.animate(withDuration: 0.2, animations: {
             snapShotView?.transform = CGAffineTransform(scaleX: 0.9, y: 0.9);
