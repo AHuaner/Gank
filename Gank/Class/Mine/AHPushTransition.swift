@@ -20,12 +20,11 @@ extension AHPushTransition: UIViewControllerAnimatedTransitioning {
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
 
         let containerView = transitionContext.containerView
-        // fromVC is AHGankViewController
         let fromVC = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.from) as! AHGankViewController
+        let toVC = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to)!
+        
         let tempView = UIView(frame: fromVC.popRect)
         tempView.backgroundColor = RGBColor(234, g: 234, b: 234, alpha: 1)
-        
-        let toVC = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to) as! AHClassWebViewController
         
         guard let snapShotView = fromVC.tabBarController?.view.snapshotView(afterScreenUpdates: false) else { return }
         snapShotView.frame = containerView.frame
@@ -36,7 +35,6 @@ extension AHPushTransition: UIViewControllerAnimatedTransitioning {
         maskView.tag = 4444
     
         fromVC.view.alpha = 0
-        toVC.view.frame = transitionContext.finalFrame(for: toVC)
         toVC.view.alpha = 0
         
         containerView.addSubview(toVC.view)
@@ -60,9 +58,9 @@ extension AHPushTransition: UIViewControllerAnimatedTransitioning {
                 toVC.view.alpha = 1.0
                 fromVC.view.alpha = 1.0
                 
-                toVC.navigationController!.view.superview?.insertSubview(snapShotView, at: 0)
+                toVC.navigationController?.view.superview?.insertSubview(snapShotView, at: 0)
                 toVC.navigationController?.view.superview?.insertSubview(maskView, aboveSubview: snapShotView)
-                
+                toVC.navigationController?.delegate = nil
                 //告诉系统动画结束
                 transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
             })

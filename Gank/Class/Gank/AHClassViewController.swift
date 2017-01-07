@@ -47,16 +47,6 @@ class AHClassViewController: BaseViewController {
         setupRefresh()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        self.navigationController?.delegate = self
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        self.navigationController?.delegate = nil
-    }
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
@@ -191,9 +181,10 @@ extension AHClassViewController: UITableViewDataSource, UITableViewDelegate {
         
         let model = datasArray[indexPath.row]
         let webView = AHClassWebViewController()
-        webView.animatedTransition = true
         webView.urlString = model.url
         webView.classModel = model
+        
+        self.navigationController?.delegate = self
         self.navigationController?.pushViewController(webView, animated: true)
     }
 }

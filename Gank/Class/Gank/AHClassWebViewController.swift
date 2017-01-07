@@ -14,14 +14,12 @@ class AHClassWebViewController: BaseWebViewController {
     fileprivate var contentOffsetY: CGFloat = 0.0
     fileprivate var oldContentOffsetY: CGFloat = 0.0
     fileprivate var newContentOffsetY: CGFloat = 0.0
+    fileprivate var isDismissAnimation: Bool = true
     
     var currentCompleted: CGFloat = 0.0
     
-    var animatedTransition: Bool = false
-    
     var classModel: AHClassModel?
-    var homeGankModel: AHHomeGankModel?
-    
+        
     lazy var toolView: AHWebToolView = {
         let toolView = AHWebToolView.webToolView()
         toolView.frame = CGRect(x: 0, y: kScreen_H - kBottomBarHeight, width: kScreen_W, height: kBottomBarHeight)
@@ -42,14 +40,13 @@ class AHClassWebViewController: BaseWebViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
-        if !animatedTransition { return }
+
         self.navigationController?.delegate = self
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        if !animatedTransition { return }
+        
         self.navigationController?.delegate = nil
     }
 
@@ -63,8 +60,8 @@ class AHClassWebViewController: BaseWebViewController {
     
     fileprivate func setupUI() {
         self.title = "详细内容"
+        self.navigationController?.delegate = self
         webView.scrollView.delegate = self
-        view.autoresizesSubviews = false
         // view.addSubview(toolView)
     }
 
@@ -109,6 +106,10 @@ extension AHClassWebViewController: UIScrollViewDelegate {
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        // scrollView还在加载的时候系统会自动调用scrollViewDidScroll
+        // 我们要的是scrollView加载好以后再执行下面的代码
+        if scrollView.contentSize == CGSize.zero { return }
+        
         newContentOffsetY = scrollView.contentOffset.y
         if newContentOffsetY > oldContentOffsetY && oldContentOffsetY > contentOffsetY {
             setToolViewHidden(true)
@@ -116,12 +117,11 @@ extension AHClassWebViewController: UIScrollViewDelegate {
             setToolViewHidden(false)
         }
         
-        if !animatedTransition { return }
         
         let begainY = scrollView.contentSize.height - scrollView.Height
         let offsetY = min(0, begainY - scrollView.contentOffset.y)
-        view.Y = offsetY
         
+        view.Y = offsetY
         // 拖拽比例
         self.currentCompleted = min(max(0, fabs(offsetY) / 200), 1);
     }
@@ -129,10 +129,9 @@ extension AHClassWebViewController: UIScrollViewDelegate {
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         oldContentOffsetY = scrollView.contentOffset.y
         
-        if !animatedTransition { return }
-        
         if currentCompleted > 0.35 {
             if let navigationController = self.navigationController {
+                isDismissAnimation = false
                 navigationController.popViewController(animated: true)
             }
         }
@@ -141,6 +140,11 @@ extension AHClassWebViewController: UIScrollViewDelegate {
 
 extension AHClassWebViewController: UINavigationControllerDelegate {
     func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        return AHPopTranstion()
+        
+        if isDismissAnimation {
+            return AHClosePopTranstion()
+        } else {
+            return AHPopTranstion()
+        }
     }
 }
