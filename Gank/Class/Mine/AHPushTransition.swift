@@ -14,7 +14,7 @@ class AHPushTransition: NSObject {
 
 extension AHPushTransition: UIViewControllerAnimatedTransitioning {
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
-        return 0.8
+        return 0.6
     }
     
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
@@ -27,17 +27,20 @@ extension AHPushTransition: UIViewControllerAnimatedTransitioning {
         
         let toVC = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to) as! AHClassWebViewController
         
-        let snapShotView = fromVC.navigationController?.view.snapshotView(afterScreenUpdates: false)
-        snapShotView?.frame = containerView.frame
+        guard let snapShotView = fromVC.tabBarController?.view.snapshotView(afterScreenUpdates: false) else { return }
+        snapShotView.frame = containerView.frame
+        snapShotView.tag = 3333
         
         let maskView = UIView(frame: containerView.frame)
         maskView.backgroundColor = UIColor.black.withAlphaComponent(0.7)
-        
+        maskView.tag = 4444
+    
         fromVC.view.alpha = 0
         toVC.view.frame = transitionContext.finalFrame(for: toVC)
         toVC.view.alpha = 0
+        
         containerView.addSubview(toVC.view)
-        containerView.addSubview(snapShotView!)
+        containerView.addSubview(snapShotView)
         containerView.addSubview(maskView)
         containerView.addSubview(tempView)
         
@@ -45,17 +48,20 @@ extension AHPushTransition: UIViewControllerAnimatedTransitioning {
         let tempViewYScale = max(2.5 * tempView.frame.minY / tempView.Height, 2.5 * (containerView.Height - tempView.frame.minY) / tempView.Height)
         
         UIView.animate(withDuration: 0.2, animations: {
-            snapShotView?.transform = CGAffineTransform(scaleX: 0.9, y: 0.9);
+            snapShotView.transform = CGAffineTransform(scaleX: 0.9, y: 0.9);
         }) { (finished) in
             UIView.animate(withDuration: self.transitionDuration(using: transitionContext) - 0.2, animations: { 
                 tempView.transform = CGAffineTransform(scaleX: 1, y: tempViewYScale);
             }, completion: { (finished) in
                 tempView.removeFromSuperview()
-                snapShotView?.removeFromSuperview()
+                snapShotView.removeFromSuperview()
                 maskView.removeFromSuperview()
                 
                 toVC.view.alpha = 1.0
                 fromVC.view.alpha = 1.0
+                
+                toVC.navigationController!.view.superview?.insertSubview(snapShotView, at: 0)
+                toVC.navigationController?.view.superview?.insertSubview(maskView, aboveSubview: snapShotView)
                 
                 //告诉系统动画结束
                 transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
