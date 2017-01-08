@@ -43,6 +43,10 @@ class BaseWebViewController: BaseViewController {
     fileprivate func setupUI() {
         view.addSubview(webView)
         view.addSubview(progressView)
+        
+        popClosure = { [unowned self] in
+            self.didBackButtonClick()
+        }
     }
     
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
@@ -72,6 +76,39 @@ class BaseWebViewController: BaseViewController {
         guard let url = URL(string: urlString) else { return }
         
         self.webView.load(URLRequest(url: url))
+    }
+    
+    func didBackButtonClick() {
+        if self.webView.canGoBack {
+            self.webView.goBack()
+            setupLeftBarButtonItems(shouldShow: true)
+        } else {
+            webViewPop()
+            setupLeftBarButtonItems(shouldShow: false)
+        }
+    }
+    
+    func setupLeftBarButtonItems(shouldShow: Bool) {
+        if shouldShow {
+            let backImage = UIImage(named: "nav_back")?.withRenderingMode(UIImageRenderingMode.alwaysOriginal)
+            let backBtn = UIButton(frame: CGRect(x: 0, y: 0, width: 22, height: 22))
+            backBtn.setImage(backImage, for: .normal)
+            backBtn.addTarget(self, action: #selector(BaseWebViewController.didBackButtonClick), for: .touchUpInside)
+            let backItem = UIBarButtonItem(customView: backBtn)
+            
+            let closeImage = UIImage(named: "icon_close_second")?.withRenderingMode(UIImageRenderingMode.alwaysOriginal)
+            let closeBtn = UIButton(frame: CGRect(x: 0, y: 0, width: 22, height: 22))
+            closeBtn.setImage(closeImage, for: .normal)
+            closeBtn.addTarget(self, action: #selector(BaseWebViewController.webViewPop), for: .touchUpInside)
+            let closeItem = UIBarButtonItem(customView: closeBtn)
+            
+            navigationItem.leftBarButtonItems = [backItem, closeItem]
+        }
+    }
+    
+    func webViewPop() {
+        guard let navigationController = self.navigationController else { return }
+        navigationController.popViewController(animated: true)
     }
 }
 

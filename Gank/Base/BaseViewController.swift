@@ -31,6 +31,8 @@ import UIKit
 
 class BaseViewController: UIViewController, UIGestureRecognizerDelegate {
     
+    var popClosure: (() -> Void)?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColorMainBG
@@ -75,9 +77,8 @@ class BaseViewController: UIViewController, UIGestureRecognizerDelegate {
     }
     
     func back() {
-        guard let navigationController = self.navigationController else {
-            return
+        if popClosure != nil {
+            popClosure!()
         }
-        navigationController.popViewController(animated: true)
     }
 }

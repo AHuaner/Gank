@@ -74,6 +74,7 @@
 		60939DBA1E220AA8003B3F13 /* AHTurnVCTransitionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60939DB91E220AA8003B3F13 /* AHTurnVCTransitionManager.swift */; };
 		60939DBC1E220BC0003B3F13 /* AHPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60939DBB1E220BC0003B3F13 /* AHPresentationController.swift */; };
 		60939DBE1E221E19003B3F13 /* add_button_normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60939DBD1E221E19003B3F13 /* add_button_normal@2x.png */; };
+		60939DC01E223F03003B3F13 /* icon_close_second@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60939DBF1E223F03003B3F13 /* icon_close_second@2x.png */; };
 		60A19DE91E20A5E0007D24D2 /* AHPopTranstion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A19DE81E20A5E0007D24D2 /* AHPopTranstion.swift */; };
 		60A19DEB1E211EAB007D24D2 /* AHClosePopTranstion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A19DEA1E211EAB007D24D2 /* AHClosePopTranstion.swift */; };
 		60A19DED1E213A98007D24D2 /* AHHomeWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A19DEC1E213A98007D24D2 /* AHHomeWebViewController.swift */; };
@@ -187,6 +188,7 @@
 		60939DB91E220AA8003B3F13 /* AHTurnVCTransitionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHTurnVCTransitionManager.swift; sourceTree = "<group>"; };
 		60939DBB1E220BC0003B3F13 /* AHPresentationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHPresentationController.swift; sourceTree = "<group>"; };
 		60939DBD1E221E19003B3F13 /* add_button_normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "add_button_normal@2x.png"; sourceTree = "<group>"; };
+		60939DBF1E223F03003B3F13 /* icon_close_second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_close_second@2x.png"; sourceTree = "<group>"; };
 		60A19DE81E20A5E0007D24D2 /* AHPopTranstion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AHPopTranstion.swift; path = ../../Class/Mine/AHPopTranstion.swift; sourceTree = "<group>"; };
 		60A19DEA1E211EAB007D24D2 /* AHClosePopTranstion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AHClosePopTranstion.swift; path = ../../Class/Mine/AHClosePopTranstion.swift; sourceTree = "<group>"; };
 		60A19DEC1E213A98007D24D2 /* AHHomeWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHHomeWebViewController.swift; sourceTree = "<group>"; };
@@ -428,6 +430,7 @@
 		60396BE81DF83C1E00A23DAA /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				60939DBF1E223F03003B3F13 /* icon_close_second@2x.png */,
 				60939DB71E220409003B3F13 /* icon_more@2x.png */,
 				6074E3F01E0A6CF0006BCC8D /* icon_editor@2x.png */,
 				6074E3EA1E0A5F03006BCC8D /* icon_time@2x.png */,
@@ -627,6 +630,7 @@
 				600BA14A1E0BB753002E4D94 /* AHHeaderSectionView.xib in Resources */,
 				60C7F8D01DFAD3FE0069E69A /* close2_button@2x.png in Resources */,
 				6074E3F11E0A6CF0006BCC8D /* icon_editor@2x.png in Resources */,
+				60939DC01E223F03003B3F13 /* icon_close_second@2x.png in Resources */,
 				60DDC86F1DF8FD88003F1464 /* loading4.png in Resources */,
 				600BA1421E0B7E58002E4D94 /* tabbar_home_highlighted@2x.png in Resources */,
 				601731361DF96FC10069D4C4 /* AHTestViewController.xib in Resources */,
