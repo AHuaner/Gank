@@ -24,6 +24,18 @@ class AHGankViewController: AHDisplayViewController {
     /// 未显示的tags
     fileprivate var moreTagsArray: [String] = [String]()
     
+    // 转场代理
+    fileprivate lazy var turnVCTransitionManager: AHTurnVCTransitionManager = {
+        let manager = AHTurnVCTransitionManager()
+        
+        let y: CGFloat = 64
+        let x: CGFloat = 0
+        let width: CGFloat = kScreen_W
+        let height: CGFloat = kScreen_H - y
+        manager.presentFrame = CGRect(x: x, y: y, width: width, height: height)
+        return manager
+    }()
+    
     var popRect: CGRect = CGRect.zero
     
     override func viewDidLoad() {
@@ -90,7 +102,10 @@ class AHGankViewController: AHDisplayViewController {
             self.contentScrollView.reloadData()
         }
         
-        self.present(turnVC, animated: true, completion: {})
+        // 自定义转场动画
+        turnVC.transitioningDelegate = turnVCTransitionManager
+        turnVC.modalPresentationStyle = UIModalPresentationStyle.custom
+        present(turnVC, animated: true, completion: nil)
     }
     
     override func didReceiveMemoryWarning() {
@@ -119,4 +134,8 @@ class AHGankViewController: AHDisplayViewController {
         }
         NSKeyedArchiver.archiveRootObject(showTagsArray, toFile: "saveShowTagsArray".cachesDir())
     }
+}
+
+extension AHGankViewController: UIViewControllerTransitioningDelegate {
+    
 }

@@ -14,7 +14,7 @@ class AHHomeWebViewController: BaseWebViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.title = "详细内容"
     }
 
     override func didReceiveMemoryWarning() {

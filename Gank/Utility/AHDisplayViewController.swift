@@ -63,7 +63,7 @@ class AHDisplayViewController: BaseViewController {
     fileprivate var coverViewCornerRadius: CGFloat = 0.0
     
     /// 添加标题按钮的宽度
-    fileprivate var addTitleButtonWidth: CGFloat = 40.0
+    fileprivate var addTitleButtonWidth: CGFloat = 35.0
     
     /// contentView是否加载
     fileprivate var isShow: Bool = false

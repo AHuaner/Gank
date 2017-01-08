@@ -40,14 +40,12 @@ class AHClassWebViewController: BaseWebViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-
-        self.navigationController?.delegate = self
+         self.navigationController?.delegate = self
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        
-        self.navigationController?.delegate = nil
+         self.navigationController?.delegate = nil
     }
 
     override func didReceiveMemoryWarning() {
@@ -60,11 +58,16 @@ class AHClassWebViewController: BaseWebViewController {
     
     fileprivate func setupUI() {
         self.title = "详细内容"
-        self.navigationController?.delegate = self
         webView.scrollView.delegate = self
+        let oriImage = UIImage(named: "icon_more")?.withRenderingMode(UIImageRenderingMode.alwaysOriginal)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: oriImage, style: .plain, target: self, action: #selector(AHClassWebViewController.moreClick))
         // view.addSubview(toolView)
     }
-
+    
+    func moreClick() {
+        
+    }
+    
     func setToolViewHidden(_ hidden: Bool) {
         if hidden { //隐藏
             UIView.animate(withDuration: 0.5, animations: {
@@ -140,11 +143,15 @@ extension AHClassWebViewController: UIScrollViewDelegate {
 
 extension AHClassWebViewController: UINavigationControllerDelegate {
     func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        
-        if isDismissAnimation {
-            return AHClosePopTranstion()
-        } else {
-            return AHPopTranstion()
+        switch operation {
+        case .pop:
+            if isDismissAnimation {
+                return AHClosePopTranstion()
+            } else {
+                return AHPopTranstion()
+            }
+        default:
+            return nil
         }
     }
 }
