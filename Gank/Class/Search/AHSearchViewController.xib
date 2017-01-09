@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AHSearchViewController" customModule="Gank" customModuleProvider="target">
+            <connections>
+                <outlet property="closeBtn" destination="S4g-at-rML" id="iH6-6j-HDT"/>
+                <outlet property="searchTextField" destination="Aoy-FE-9yS" id="1qh-A0-Daw"/>
+                <outlet property="view" destination="iN0-l3-epB" id="CuA-dX-6qw"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iRQ-W4-cRb" userLabel="topView">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OcA-uf-MOk" userLabel="searchView">
+                            <rect key="frame" x="10" y="27" width="305" height="30"/>
+                            <subviews>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_search.png" translatesAutoresizingMaskIntoConstraints="NO" id="861-G7-Whw">
+                                    <rect key="frame" x="10" y="3" width="24" height="24"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="24" id="Sd1-LM-M3K"/>
+                                        <constraint firstAttribute="height" constant="24" id="VQW-aF-Fbt"/>
+                                    </constraints>
+                                </imageView>
+                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Aoy-FE-9yS">
+                                    <rect key="frame" x="39" y="0.0" width="266" height="30"/>
+                                    <nil key="textColor"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                </textField>
+                            </subviews>
+                            <color key="backgroundColor" red="0.92156862750000001" green="0.92156862750000001" blue="0.92156862750000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstItem="Aoy-FE-9yS" firstAttribute="top" secondItem="OcA-uf-MOk" secondAttribute="top" id="1Ra-Nv-aOs"/>
+                                <constraint firstAttribute="trailing" secondItem="Aoy-FE-9yS" secondAttribute="trailing" id="4FH-GU-AhW"/>
+                                <constraint firstAttribute="height" constant="30" id="7mx-hN-tSh"/>
+                                <constraint firstItem="Aoy-FE-9yS" firstAttribute="leading" secondItem="861-G7-Whw" secondAttribute="trailing" constant="5" id="DN6-kh-EkJ"/>
+                                <constraint firstItem="861-G7-Whw" firstAttribute="leading" secondItem="OcA-uf-MOk" secondAttribute="leading" constant="10" id="U8g-ty-pG8"/>
+                                <constraint firstAttribute="bottom" secondItem="Aoy-FE-9yS" secondAttribute="bottom" id="XWi-4s-m6T"/>
+                                <constraint firstItem="861-G7-Whw" firstAttribute="centerY" secondItem="OcA-uf-MOk" secondAttribute="centerY" id="sEf-Ig-Dgf"/>
+                            </constraints>
+                        </view>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S4g-at-rML" userLabel="closeBtn">
+                            <rect key="frame" x="315" y="27" width="60" height="30"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <state key="normal" title="取消">
+                                <color key="titleColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstItem="OcA-uf-MOk" firstAttribute="top" secondItem="iRQ-W4-cRb" secondAttribute="top" constant="27" id="2Ac-sV-eTB"/>
+                        <constraint firstItem="S4g-at-rML" firstAttribute="top" secondItem="Aoy-FE-9yS" secondAttribute="top" id="3bO-GQ-P1a"/>
+                        <constraint firstAttribute="height" constant="64" id="6Un-A0-cJS"/>
+                        <constraint firstItem="OcA-uf-MOk" firstAttribute="leading" secondItem="iRQ-W4-cRb" secondAttribute="leading" constant="10" id="Gc9-d8-tr2"/>
+                        <constraint firstAttribute="trailing" secondItem="S4g-at-rML" secondAttribute="trailing" id="fAt-sU-bvK"/>
+                        <constraint firstAttribute="trailing" secondItem="OcA-uf-MOk" secondAttribute="trailing" constant="60" id="l08-HI-4vc"/>
+                        <constraint firstItem="S4g-at-rML" firstAttribute="bottom" secondItem="Aoy-FE-9yS" secondAttribute="bottom" id="op6-XM-Jg1"/>
+                        <constraint firstItem="S4g-at-rML" firstAttribute="leading" secondItem="OcA-uf-MOk" secondAttribute="trailing" id="qou-Op-nn6"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="iRQ-W4-cRb" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="2M3-3d-pdp"/>
+                <constraint firstItem="iRQ-W4-cRb" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="DOU-pg-bFa"/>
+                <constraint firstAttribute="trailing" secondItem="iRQ-W4-cRb" secondAttribute="trailing" id="Gm7-2e-sFP"/>
+            </constraints>
+            <point key="canvasLocation" x="-147.5" y="14.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="icon_search.png" width="24" height="24"/>
+    </resources>
+</document>

@@ -67,6 +67,11 @@ class BaseViewController: UIViewController, UIGestureRecognizerDelegate {
         if navigationController?.viewControllers.count > 1 {
             navigationController?.interactivePopGestureRecognizer?.delegate = self
             
+            popClosure = { [unowned self] in
+                guard let navigationController = self.navigationController else { return }
+                navigationController.popViewController(animated: true)
+            }
+            
             let oriImage = UIImage(named: "nav_back")?.withRenderingMode(UIImageRenderingMode.alwaysOriginal)
             navigationItem.leftBarButtonItem = UIBarButtonItem(image: oriImage, style: UIBarButtonItemStyle.plain, target: self, action: #selector(BaseViewController.back))
         }

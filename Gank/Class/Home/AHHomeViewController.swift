@@ -32,8 +32,8 @@ class AHHomeViewController: BaseViewController {
     
     lazy var navBar: AHNavBar = {
         let navBar = AHNavBar(frame: CGRect(x: 0, y: 0, width: kScreen_W, height: 64))
-        navBar.title = "最新干货"
         navBar.alpha = 0.001
+        navBar.searchView.locationVC = self
         return navBar
     }()
     

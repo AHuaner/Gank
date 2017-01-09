@@ -27,6 +27,12 @@ class AHNavBar: UIView {
         return titleLabel
     }()
     
+    lazy var searchView: AHSearchView = {
+        let searchView = AHSearchView.searchView()
+        searchView.frame = CGRect(x: 10, y: 27, width: self.frame.width - 20, height: 30)
+        return searchView
+    }()
+    
     lazy var lineView: UIView = {
         let lineView = UIView(frame: CGRect(x: 0, y: 64, width: kScreen_W, height: 0.5))
         lineView.backgroundColor = UIColorLine
@@ -36,7 +42,8 @@ class AHNavBar: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = UIColorMainBlue
-        addSubview(titleLabel)
+        addSubview(searchView)
+        // addSubview(titleLabel)
         addSubview(lineView)
     }
     

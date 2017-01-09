@@ -56,9 +56,9 @@ class AHClassWebViewController: BaseWebViewController {
     fileprivate func setupUI() {
         self.title = "详细内容"
         webView.scrollView.delegate = self
+        
         let oriImage = UIImage(named: "icon_more")?.withRenderingMode(UIImageRenderingMode.alwaysOriginal)
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: oriImage, style: .plain, target: self, action: #selector(AHClassWebViewController.moreClick))
-        // view.addSubview(toolView)
     }
     
     func moreClick() {

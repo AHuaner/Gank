@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		58B4672B96870D823E72869C /* Pods_Gank.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBF349F95A2C7F4277EE5517 /* Pods_Gank.framework */; };
-		60002F8D1E08D597000E37C2 /* BaseWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60002F8C1E08D597000E37C2 /* BaseWebViewController.swift */; };
 		60028DAF1DFC0CAA002F2AFE /* AHTagBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60028DAE1DFC0CAA002F2AFE /* AHTagBtn.swift */; };
 		60028DB11DFC1C86002F2AFE /* AHListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60028DB01DFC1C86002F2AFE /* AHListView.swift */; };
 		600906E91E0020A6002F0A73 /* AHClassModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 600906E81E0020A6002F0A73 /* AHClassModel.swift */; };
@@ -36,18 +35,18 @@
 		601560921DFE820F00369E64 /* AHClassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 601560911DFE820F00369E64 /* AHClassViewController.swift */; };
 		601560941DFEC46F00369E64 /* AHLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 601560931DFEC46F00369E64 /* AHLoadingView.swift */; };
 		601731321DF952D40069D4C4 /* AHLaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 601731311DF952D40069D4C4 /* AHLaunchViewController.swift */; };
-		601731351DF96FC10069D4C4 /* AHTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 601731331DF96FC10069D4C4 /* AHTestViewController.swift */; };
-		601731361DF96FC10069D4C4 /* AHTestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 601731341DF96FC10069D4C4 /* AHTestViewController.xib */; };
 		601731381DF97C200069D4C4 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 601731371DF97C200069D4C4 /* TabBarController.swift */; };
 		601CF5B91DF836B4002AF8D5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 601CF5B81DF836B4002AF8D5 /* AppDelegate.swift */; };
 		601CF5C01DF836B4002AF8D5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 601CF5BF1DF836B4002AF8D5 /* Assets.xcassets */; };
 		601CF5CE1DF836B5002AF8D5 /* GankTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 601CF5CD1DF836B5002AF8D5 /* GankTests.swift */; };
 		601CF5D91DF836B5002AF8D5 /* GankUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 601CF5D81DF836B5002AF8D5 /* GankUITests.swift */; };
 		601CF5E91DF8379A002AF8D5 /* AHMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 601CF5E81DF8379A002AF8D5 /* AHMainViewController.swift */; };
-		6026ABCB1E1F77BD000E785E /* AHPushTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6026ABCA1E1F77BD000E785E /* AHPushTransition.swift */; };
 		602754BD1E00FCC400A2B757 /* AHClassCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602754BB1E00FCC400A2B757 /* AHClassCell.swift */; };
 		602754BE1E00FCC400A2B757 /* AHClassCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 602754BC1E00FCC400A2B757 /* AHClassCell.xib */; };
 		602754C11E01260700A2B757 /* FPSLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 602754C01E01260700A2B757 /* FPSLabel.m */; };
+		6036A86C1E23762200ACDE90 /* BaseWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6036A86B1E23762200ACDE90 /* BaseWebViewController.swift */; };
+		6036A8731E2376A600ACDE90 /* AHSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6036A8721E2376A600ACDE90 /* AHSearchViewController.swift */; };
+		6036A8751E2377DB00ACDE90 /* AHSearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6036A8741E2377DB00ACDE90 /* AHSearchViewController.xib */; };
 		60396BEB1DF83C6A00A23DAA /* AHConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60396BEA1DF83C6A00A23DAA /* AHConfig.swift */; };
 		6045F3781E0919FB002B0FB6 /* AHWebToolView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6045F3771E0919FB002B0FB6 /* AHWebToolView.swift */; };
 		6045F37A1E091A06002B0FB6 /* AHWebToolView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6045F3791E091A06002B0FB6 /* AHWebToolView.xib */; };
@@ -68,6 +67,9 @@
 		6073DD161DFFC49E00C99E9C /* AHNetWorking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6073DD151DFFC49E00C99E9C /* AHNetWorking.swift */; };
 		6074E3EC1E0A5F03006BCC8D /* icon_time@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6074E3EA1E0A5F03006BCC8D /* icon_time@2x.png */; };
 		6074E3F11E0A6CF0006BCC8D /* icon_editor@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6074E3F01E0A6CF0006BCC8D /* icon_editor@2x.png */; };
+		6084E1731E2364C200E8AC15 /* AHSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6084E1721E2364C200E8AC15 /* AHSearchView.swift */; };
+		6084E1751E2364D000E8AC15 /* AHSearchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6084E1741E2364D000E8AC15 /* AHSearchView.xib */; };
+		6084E1771E23660000E8AC15 /* icon_search@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6084E1761E23660000E8AC15 /* icon_search@2x.png */; };
 		608EED141DF9864700D1984A /* adver.png in Resources */ = {isa = PBXBuildFile; fileRef = 608EED131DF9864700D1984A /* adver.png */; };
 		608EED161DF9898C00D1984A /* AHTimeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 608EED151DF9898C00D1984A /* AHTimeButton.swift */; };
 		60939DB81E220409003B3F13 /* icon_more@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60939DB71E220409003B3F13 /* icon_more@2x.png */; };
@@ -75,8 +77,6 @@
 		60939DBC1E220BC0003B3F13 /* AHPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60939DBB1E220BC0003B3F13 /* AHPresentationController.swift */; };
 		60939DBE1E221E19003B3F13 /* add_button_normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60939DBD1E221E19003B3F13 /* add_button_normal@2x.png */; };
 		60939DC01E223F03003B3F13 /* icon_close_second@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60939DBF1E223F03003B3F13 /* icon_close_second@2x.png */; };
-		60A19DE91E20A5E0007D24D2 /* AHPopTranstion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A19DE81E20A5E0007D24D2 /* AHPopTranstion.swift */; };
-		60A19DEB1E211EAB007D24D2 /* AHClosePopTranstion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A19DEA1E211EAB007D24D2 /* AHClosePopTranstion.swift */; };
 		60A19DED1E213A98007D24D2 /* AHHomeWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A19DEC1E213A98007D24D2 /* AHHomeWebViewController.swift */; };
 		60C7F8B61DFA66D30069E69A /* AHDisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C7F8B51DFA66D30069E69A /* AHDisplayViewController.swift */; };
 		60C7F8B81DFA6B390069E69A /* back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60C7F8B71DFA6B390069E69A /* back@2x.png */; };
@@ -92,6 +92,9 @@
 		60DDC86E1DF8FD88003F1464 /* loading3.png in Resources */ = {isa = PBXBuildFile; fileRef = 60DDC8691DF8FD88003F1464 /* loading3.png */; };
 		60DDC86F1DF8FD88003F1464 /* loading4.png in Resources */ = {isa = PBXBuildFile; fileRef = 60DDC86A1DF8FD88003F1464 /* loading4.png */; };
 		60DDC8701DF8FD88003F1464 /* loading5.png in Resources */ = {isa = PBXBuildFile; fileRef = 60DDC86B1DF8FD88003F1464 /* loading5.png */; };
+		60EB31581E2374D900E93715 /* AHClosePopTranstion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60EB31561E2374D900E93715 /* AHClosePopTranstion.swift */; };
+		60EB31591E2374D900E93715 /* AHPopTranstion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60EB31571E2374D900E93715 /* AHPopTranstion.swift */; };
+		60EB315B1E2374E100E93715 /* AHPushTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60EB315A1E2374E100E93715 /* AHPushTransition.swift */; };
 		60F0EE821E041AB800D8ECA0 /* AHPhotoBrowser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F0EE811E041AB800D8ECA0 /* AHPhotoBrowser.swift */; };
 /* End PBXBuildFile section */
 
@@ -114,7 +117,6 @@
 
 /* Begin PBXFileReference section */
 		509DED76A424BF17851C5780 /* Pods-Gank.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gank.release.xcconfig"; path = "Pods/Target Support Files/Pods-Gank/Pods-Gank.release.xcconfig"; sourceTree = "<group>"; };
-		60002F8C1E08D597000E37C2 /* BaseWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseWebViewController.swift; path = ../Class/Gank/BaseWebViewController.swift; sourceTree = "<group>"; };
 		60028DAE1DFC0CAA002F2AFE /* AHTagBtn.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHTagBtn.swift; sourceTree = "<group>"; };
 		60028DB01DFC1C86002F2AFE /* AHListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHListView.swift; sourceTree = "<group>"; };
 		600906E81E0020A6002F0A73 /* AHClassModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHClassModel.swift; sourceTree = "<group>"; };
@@ -142,8 +144,6 @@
 		601560911DFE820F00369E64 /* AHClassViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHClassViewController.swift; sourceTree = "<group>"; };
 		601560931DFEC46F00369E64 /* AHLoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHLoadingView.swift; sourceTree = "<group>"; };
 		601731311DF952D40069D4C4 /* AHLaunchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHLaunchViewController.swift; sourceTree = "<group>"; };
-		601731331DF96FC10069D4C4 /* AHTestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AHTestViewController.swift; path = ../AHTestViewController.swift; sourceTree = "<group>"; };
-		601731341DF96FC10069D4C4 /* AHTestViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AHTestViewController.xib; path = ../AHTestViewController.xib; sourceTree = "<group>"; };
 		601731371DF97C200069D4C4 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		601CF5B51DF836B4002AF8D5 /* Gank.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gank.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		601CF5B81DF836B4002AF8D5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -157,11 +157,13 @@
 		601CF5DA1DF836B5002AF8D5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		601CF5E81DF8379A002AF8D5 /* AHMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHMainViewController.swift; sourceTree = "<group>"; };
 		602388AD1E1E8DEB00121DE3 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
-		6026ABCA1E1F77BD000E785E /* AHPushTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AHPushTransition.swift; path = ../../Class/Mine/AHPushTransition.swift; sourceTree = "<group>"; };
 		602754BB1E00FCC400A2B757 /* AHClassCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHClassCell.swift; sourceTree = "<group>"; };
 		602754BC1E00FCC400A2B757 /* AHClassCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AHClassCell.xib; sourceTree = "<group>"; };
 		602754BF1E01260700A2B757 /* FPSLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FPSLabel.h; sourceTree = "<group>"; };
 		602754C01E01260700A2B757 /* FPSLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FPSLabel.m; sourceTree = "<group>"; };
+		6036A86B1E23762200ACDE90 /* BaseWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseWebViewController.swift; sourceTree = "<group>"; };
+		6036A8721E2376A600ACDE90 /* AHSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHSearchViewController.swift; sourceTree = "<group>"; };
+		6036A8741E2377DB00ACDE90 /* AHSearchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AHSearchViewController.xib; sourceTree = "<group>"; };
 		60396BEA1DF83C6A00A23DAA /* AHConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHConfig.swift; sourceTree = "<group>"; };
 		6045F3771E0919FB002B0FB6 /* AHWebToolView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHWebToolView.swift; sourceTree = "<group>"; };
 		6045F3791E091A06002B0FB6 /* AHWebToolView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AHWebToolView.xib; sourceTree = "<group>"; };
@@ -182,6 +184,9 @@
 		6073DD151DFFC49E00C99E9C /* AHNetWorking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHNetWorking.swift; sourceTree = "<group>"; };
 		6074E3EA1E0A5F03006BCC8D /* icon_time@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_time@2x.png"; sourceTree = "<group>"; };
 		6074E3F01E0A6CF0006BCC8D /* icon_editor@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_editor@2x.png"; sourceTree = "<group>"; };
+		6084E1721E2364C200E8AC15 /* AHSearchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHSearchView.swift; sourceTree = "<group>"; };
+		6084E1741E2364D000E8AC15 /* AHSearchView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AHSearchView.xib; sourceTree = "<group>"; };
+		6084E1761E23660000E8AC15 /* icon_search@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_search@2x.png"; sourceTree = "<group>"; };
 		608EED131DF9864700D1984A /* adver.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = adver.png; sourceTree = "<group>"; };
 		608EED151DF9898C00D1984A /* AHTimeButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHTimeButton.swift; sourceTree = "<group>"; };
 		60939DB71E220409003B3F13 /* icon_more@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_more@2x.png"; sourceTree = "<group>"; };
@@ -189,8 +194,6 @@
 		60939DBB1E220BC0003B3F13 /* AHPresentationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHPresentationController.swift; sourceTree = "<group>"; };
 		60939DBD1E221E19003B3F13 /* add_button_normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "add_button_normal@2x.png"; sourceTree = "<group>"; };
 		60939DBF1E223F03003B3F13 /* icon_close_second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_close_second@2x.png"; sourceTree = "<group>"; };
-		60A19DE81E20A5E0007D24D2 /* AHPopTranstion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AHPopTranstion.swift; path = ../../Class/Mine/AHPopTranstion.swift; sourceTree = "<group>"; };
-		60A19DEA1E211EAB007D24D2 /* AHClosePopTranstion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AHClosePopTranstion.swift; path = ../../Class/Mine/AHClosePopTranstion.swift; sourceTree = "<group>"; };
 		60A19DEC1E213A98007D24D2 /* AHHomeWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHHomeWebViewController.swift; sourceTree = "<group>"; };
 		60C7F8B51DFA66D30069E69A /* AHDisplayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHDisplayViewController.swift; sourceTree = "<group>"; };
 		60C7F8B71DFA6B390069E69A /* back@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back@2x.png"; sourceTree = "<group>"; };
@@ -207,6 +210,9 @@
 		60DDC8691DF8FD88003F1464 /* loading3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loading3.png; sourceTree = "<group>"; };
 		60DDC86A1DF8FD88003F1464 /* loading4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loading4.png; sourceTree = "<group>"; };
 		60DDC86B1DF8FD88003F1464 /* loading5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loading5.png; sourceTree = "<group>"; };
+		60EB31561E2374D900E93715 /* AHClosePopTranstion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHClosePopTranstion.swift; sourceTree = "<group>"; };
+		60EB31571E2374D900E93715 /* AHPopTranstion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHPopTranstion.swift; sourceTree = "<group>"; };
+		60EB315A1E2374E100E93715 /* AHPushTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHPushTransition.swift; sourceTree = "<group>"; };
 		60F0EE811E041AB800D8ECA0 /* AHPhotoBrowser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHPhotoBrowser.swift; sourceTree = "<group>"; };
 		92E140CCC03B446F1E0E29B6 /* Pods-Gank.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gank.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Gank/Pods-Gank.debug.xcconfig"; sourceTree = "<group>"; };
 		BBF349F95A2C7F4277EE5517 /* Pods_Gank.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Gank.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -276,6 +282,8 @@
 				600BA1491E0BB753002E4D94 /* AHHeaderSectionView.xib */,
 				600DD4181E0D1ABC00ACFC00 /* AHHomeCell.swift */,
 				600DD4191E0D1ABC00ACFC00 /* AHHomeCell.xib */,
+				6084E1721E2364C200E8AC15 /* AHSearchView.swift */,
+				6084E1741E2364D000E8AC15 /* AHSearchView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -294,7 +302,7 @@
 		600D2BA61DF8F80100D57EA0 /* Base */ = {
 			isa = PBXGroup;
 			children = (
-				60002F8C1E08D597000E37C2 /* BaseWebViewController.swift */,
+				6036A86B1E23762200ACDE90 /* BaseWebViewController.swift */,
 				600D2BBF1DF8FA9200D57EA0 /* BaseViewController.swift */,
 				601731371DF97C200069D4C4 /* TabBarController.swift */,
 				601731311DF952D40069D4C4 /* AHLaunchViewController.swift */,
@@ -379,6 +387,15 @@
 			name = View;
 			sourceTree = "<group>";
 		};
+		6036A86F1E23767600ACDE90 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				6036A8721E2376A600ACDE90 /* AHSearchViewController.swift */,
+				6036A8741E2377DB00ACDE90 /* AHSearchViewController.xib */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
 		60396BE11DF83BCF00A23DAA /* AHNetworking */ = {
 			isa = PBXGroup;
 			children = (
@@ -391,6 +408,7 @@
 		60396BE31DF83BE900A23DAA /* Class */ = {
 			isa = PBXGroup;
 			children = (
+				6036A86F1E23767600ACDE90 /* Search */,
 				600BA13B1E0B7A4B002E4D94 /* Home */,
 				60396BE41DF83BE900A23DAA /* Gank */,
 				60396BE51DF83BE900A23DAA /* Mine */,
@@ -430,6 +448,7 @@
 		60396BE81DF83C1E00A23DAA /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				6084E1761E23660000E8AC15 /* icon_search@2x.png */,
 				60939DBF1E223F03003B3F13 /* icon_close_second@2x.png */,
 				60939DB71E220409003B3F13 /* icon_more@2x.png */,
 				6074E3F01E0A6CF0006BCC8D /* icon_editor@2x.png */,
@@ -483,8 +502,6 @@
 		608EED101DF985A000D1984A /* Other */ = {
 			isa = PBXGroup;
 			children = (
-				601731331DF96FC10069D4C4 /* AHTestViewController.swift */,
-				601731341DF96FC10069D4C4 /* AHTestViewController.xib */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -492,9 +509,9 @@
 		60939DB61E21EA27003B3F13 /* Transtion */ = {
 			isa = PBXGroup;
 			children = (
-				6026ABCA1E1F77BD000E785E /* AHPushTransition.swift */,
-				60A19DE81E20A5E0007D24D2 /* AHPopTranstion.swift */,
-				60A19DEA1E211EAB007D24D2 /* AHClosePopTranstion.swift */,
+				60EB315A1E2374E100E93715 /* AHPushTransition.swift */,
+				60EB31561E2374D900E93715 /* AHClosePopTranstion.swift */,
+				60EB31571E2374D900E93715 /* AHPopTranstion.swift */,
 				60939DB91E220AA8003B3F13 /* AHTurnVCTransitionManager.swift */,
 				60939DBB1E220BC0003B3F13 /* AHPresentationController.swift */,
 			);
@@ -623,6 +640,7 @@
 				60DDC8701DF8FD88003F1464 /* loading5.png in Resources */,
 				6045F3941E093624002B0FB6 /* toolBar_like@2x.png in Resources */,
 				60C7F8C21DFA6B4E0069E69A /* tabBar_bgwhiteColor@2x.png in Resources */,
+				6036A8751E2377DB00ACDE90 /* AHSearchViewController.xib in Resources */,
 				6045F3801E09316C002B0FB6 /* nav_back@2x.png in Resources */,
 				60C7F8C01DFA6B4E0069E69A /* property_select@2x.png in Resources */,
 				60C7F8C11DFA6B4E0069E69A /* property@2x.png in Resources */,
@@ -633,9 +651,9 @@
 				60939DC01E223F03003B3F13 /* icon_close_second@2x.png in Resources */,
 				60DDC86F1DF8FD88003F1464 /* loading4.png in Resources */,
 				600BA1421E0B7E58002E4D94 /* tabbar_home_highlighted@2x.png in Resources */,
-				601731361DF96FC10069D4C4 /* AHTestViewController.xib in Resources */,
 				600BA14E1E0BBA88002E4D94 /* AHHomeHeaderView.xib in Resources */,
 				6045F3931E093624002B0FB6 /* toolBar_like_select@2x.png in Resources */,
+				6084E1751E2364D000E8AC15 /* AHSearchView.xib in Resources */,
 				6045F3861E09344C002B0FB6 /* nav_ list@2x.png in Resources */,
 				6074E3EC1E0A5F03006BCC8D /* icon_time@2x.png in Resources */,
 				60C7F8BE1DFA6B4E0069E69A /* find_select@2x.png in Resources */,
@@ -650,6 +668,7 @@
 				6045F38C1E093529002B0FB6 /* toolBar_back@2x.png in Resources */,
 				600DD41B1E0D1ABC00ACFC00 /* AHHomeCell.xib in Resources */,
 				60939DBE1E221E19003B3F13 /* add_button_normal@2x.png in Resources */,
+				6084E1771E23660000E8AC15 /* icon_search@2x.png in Resources */,
 				60C7F8BF1DFA6B4E0069E69A /* find@2x.png in Resources */,
 				606B1E2A1DFD7DFD00BD86E2 /* close_button@2x.png in Resources */,
 			);
@@ -729,19 +748,21 @@
 				608EED161DF9898C00D1984A /* AHTimeButton.swift in Sources */,
 				600D2B6E1DF8F1C200D57EA0 /* UIView+Extension.swift in Sources */,
 				60A19DED1E213A98007D24D2 /* AHHomeWebViewController.swift in Sources */,
+				6036A8731E2376A600ACDE90 /* AHSearchViewController.swift in Sources */,
 				600BA1451E0B9478002E4D94 /* AHHomeGankModel.swift in Sources */,
 				60028DB11DFC1C86002F2AFE /* AHListView.swift in Sources */,
+				6084E1731E2364C200E8AC15 /* AHSearchView.swift in Sources */,
 				601560921DFE820F00369E64 /* AHClassViewController.swift in Sources */,
 				601731381DF97C200069D4C4 /* TabBarController.swift in Sources */,
+				60EB31591E2374D900E93715 /* AHPopTranstion.swift in Sources */,
 				600D2BA31DF8F7A900D57EA0 /* AHLaunchImageView.swift in Sources */,
 				601731321DF952D40069D4C4 /* AHLaunchViewController.swift in Sources */,
 				605E07F41E026D0E00225BA3 /* String+Extension.swift in Sources */,
 				601560941DFEC46F00369E64 /* AHLoadingView.swift in Sources */,
+				60EB31581E2374D900E93715 /* AHClosePopTranstion.swift in Sources */,
 				600BA1501E0BC469002E4D94 /* AHNavBar.swift in Sources */,
-				6026ABCB1E1F77BD000E785E /* AHPushTransition.swift in Sources */,
 				600BA1481E0BB745002E4D94 /* AHHeaderSectionView.swift in Sources */,
 				600D2B6C1DF8F1C200D57EA0 /* DispatchTime+Extension.swift in Sources */,
-				60002F8D1E08D597000E37C2 /* BaseWebViewController.swift in Sources */,
 				600D2BC01DF8FA9200D57EA0 /* BaseViewController.swift in Sources */,
 				6045F3781E0919FB002B0FB6 /* AHWebToolView.swift in Sources */,
 				606938111E05303700918949 /* AHWaitingView.swift in Sources */,
@@ -753,16 +774,15 @@
 				60144EA11E01632C00AC31D1 /* AHImageCell.swift in Sources */,
 				600BA13D1E0B7A67002E4D94 /* AHHomeViewController.swift in Sources */,
 				600BA14C1E0BBA72002E4D94 /* AHHomeHeaderView.swift in Sources */,
-				60A19DE91E20A5E0007D24D2 /* AHPopTranstion.swift in Sources */,
-				601731351DF96FC10069D4C4 /* AHTestViewController.swift in Sources */,
 				601CF5B91DF836B4002AF8D5 /* AppDelegate.swift in Sources */,
 				6045F37C1E092148002B0FB6 /* AHClassWebViewController.swift in Sources */,
 				60939DBC1E220BC0003B3F13 /* AHPresentationController.swift in Sources */,
 				600BA13F1E0B7AC8002E4D94 /* AHHomeGroupModel.swift in Sources */,
-				60A19DEB1E211EAB007D24D2 /* AHClosePopTranstion.swift in Sources */,
 				60C7F8B61DFA66D30069E69A /* AHDisplayViewController.swift in Sources */,
+				60EB315B1E2374E100E93715 /* AHPushTransition.swift in Sources */,
 				601CF5E91DF8379A002AF8D5 /* AHMainViewController.swift in Sources */,
 				606B1E281DFD6DF800BD86E2 /* AHMoreListView.swift in Sources */,
+				6036A86C1E23762200ACDE90 /* BaseWebViewController.swift in Sources */,
 				602754C11E01260700A2B757 /* FPSLabel.m in Sources */,
 				60F0EE821E041AB800D8ECA0 /* AHPhotoBrowser.swift in Sources */,
 				600D2B731DF8F33E00D57EA0 /* AHMineViewController.swift in Sources */,

@@ -15,11 +15,9 @@ class BaseWebViewController: BaseViewController {
     
     lazy var webView: WKWebView = {
         let webView = WKWebView(frame: CGRect(x: 0, y: 0, width: kScreen_W, height: kScreen_H))
-        webView.navigationDelegate = self
         webView.isMultipleTouchEnabled = true
         webView.autoresizesSubviews = true
         webView.scrollView.alwaysBounceVertical = true
-        webView.addObserver(self, forKeyPath: "estimatedProgress", options: .new, context: nil)
         return webView
     }()
     
@@ -44,6 +42,8 @@ class BaseWebViewController: BaseViewController {
         view.addSubview(webView)
         view.addSubview(progressView)
         
+        webView.addObserver(self, forKeyPath: "estimatedProgress", options: .new, context: nil)
+        webView.navigationDelegate = self
         popClosure = { [unowned self] in
             self.didBackButtonClick()
         }
@@ -69,6 +69,7 @@ class BaseWebViewController: BaseViewController {
     
     deinit {
         webView.removeObserver(self, forKeyPath: "estimatedProgress")
+        webView.navigationDelegate = nil
     }
     
     func loadWithURLString(_ urlString: String?) {
