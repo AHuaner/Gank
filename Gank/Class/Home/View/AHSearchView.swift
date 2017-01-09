@@ -25,17 +25,17 @@ class AHSearchView: UIView {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        layer.cornerRadius = 3
         let tap = UITapGestureRecognizer(target: self, action: #selector(AHSearchView.showSearchVC))
         self.addGestureRecognizer(tap)
     }
     
     func showSearchVC() {
         let searchVC = AHSearchViewController()
+        let nav = UINavigationController(rootViewController: searchVC)
         
         // 自定义转场动画
-        searchVC.transitioningDelegate = transitionManager
-        searchVC.modalPresentationStyle = UIModalPresentationStyle.custom
-        locationVC?.present(searchVC, animated: true, completion: nil)
+        nav.transitioningDelegate = transitionManager
+        nav.modalPresentationStyle = UIModalPresentationStyle.custom
+        locationVC?.present(nav, animated: true, completion: nil)
     }
 }

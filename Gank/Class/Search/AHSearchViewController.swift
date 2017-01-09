@@ -18,6 +18,18 @@ class AHSearchViewController: BaseViewController {
         setupUI()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        if (self.navigationController?.viewControllers.count)! > 1 {
+            self.navigationController?.setNavigationBarHidden(false, animated: animated)
+        }
+    }
+    
     fileprivate func setupUI() {
         closeBtn.addTarget(self, action: #selector(AHSearchViewController.popViewController), for: .touchUpInside)
     }

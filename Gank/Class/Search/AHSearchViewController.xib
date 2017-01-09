@@ -26,15 +26,18 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OcA-uf-MOk" userLabel="searchView">
                             <rect key="frame" x="10" y="27" width="305" height="30"/>
                             <subviews>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_search.png" translatesAutoresizingMaskIntoConstraints="NO" id="861-G7-Whw">
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_search.png" translatesAutoresizingMaskIntoConstraints="NO" id="861-G7-Whw" userLabel="icon">
                                     <rect key="frame" x="10" y="3" width="24" height="24"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="24" id="Sd1-LM-M3K"/>
                                         <constraint firstAttribute="height" constant="24" id="VQW-aF-Fbt"/>
                                     </constraints>
                                 </imageView>
-                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Aoy-FE-9yS">
-                                    <rect key="frame" x="39" y="0.0" width="266" height="30"/>
+                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="搜索更多干货" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="Aoy-FE-9yS">
+                                    <rect key="frame" x="39" y="0.0" width="261" height="30"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="30" id="DQN-L9-dHS"/>
+                                    </constraints>
                                     <nil key="textColor"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <textInputTraits key="textInputTraits"/>
@@ -42,14 +45,18 @@
                             </subviews>
                             <color key="backgroundColor" red="0.92156862750000001" green="0.92156862750000001" blue="0.92156862750000001" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
-                                <constraint firstItem="Aoy-FE-9yS" firstAttribute="top" secondItem="OcA-uf-MOk" secondAttribute="top" id="1Ra-Nv-aOs"/>
-                                <constraint firstAttribute="trailing" secondItem="Aoy-FE-9yS" secondAttribute="trailing" id="4FH-GU-AhW"/>
                                 <constraint firstAttribute="height" constant="30" id="7mx-hN-tSh"/>
-                                <constraint firstItem="Aoy-FE-9yS" firstAttribute="leading" secondItem="861-G7-Whw" secondAttribute="trailing" constant="5" id="DN6-kh-EkJ"/>
+                                <constraint firstAttribute="trailing" secondItem="Aoy-FE-9yS" secondAttribute="trailing" constant="5" id="JYQ-6G-cCo"/>
+                                <constraint firstItem="Aoy-FE-9yS" firstAttribute="leading" secondItem="861-G7-Whw" secondAttribute="trailing" constant="5" id="NzA-ma-Cvx"/>
                                 <constraint firstItem="861-G7-Whw" firstAttribute="leading" secondItem="OcA-uf-MOk" secondAttribute="leading" constant="10" id="U8g-ty-pG8"/>
-                                <constraint firstAttribute="bottom" secondItem="Aoy-FE-9yS" secondAttribute="bottom" id="XWi-4s-m6T"/>
+                                <constraint firstItem="Aoy-FE-9yS" firstAttribute="centerY" secondItem="861-G7-Whw" secondAttribute="centerY" id="Y5p-MY-GVh"/>
                                 <constraint firstItem="861-G7-Whw" firstAttribute="centerY" secondItem="OcA-uf-MOk" secondAttribute="centerY" id="sEf-Ig-Dgf"/>
                             </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                    <integer key="value" value="3"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
                         </view>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S4g-at-rML" userLabel="closeBtn">
                             <rect key="frame" x="315" y="27" width="60" height="30"/>
@@ -62,13 +69,13 @@
                     <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstItem="OcA-uf-MOk" firstAttribute="top" secondItem="iRQ-W4-cRb" secondAttribute="top" constant="27" id="2Ac-sV-eTB"/>
-                        <constraint firstItem="S4g-at-rML" firstAttribute="top" secondItem="Aoy-FE-9yS" secondAttribute="top" id="3bO-GQ-P1a"/>
                         <constraint firstAttribute="height" constant="64" id="6Un-A0-cJS"/>
                         <constraint firstItem="OcA-uf-MOk" firstAttribute="leading" secondItem="iRQ-W4-cRb" secondAttribute="leading" constant="10" id="Gc9-d8-tr2"/>
-                        <constraint firstAttribute="trailing" secondItem="S4g-at-rML" secondAttribute="trailing" id="fAt-sU-bvK"/>
+                        <constraint firstItem="S4g-at-rML" firstAttribute="leading" secondItem="OcA-uf-MOk" secondAttribute="trailing" id="NQr-Tc-jH2"/>
+                        <constraint firstAttribute="trailing" secondItem="S4g-at-rML" secondAttribute="trailing" id="UEn-rq-i87"/>
+                        <constraint firstItem="S4g-at-rML" firstAttribute="top" secondItem="OcA-uf-MOk" secondAttribute="top" id="adQ-BF-6p8"/>
+                        <constraint firstItem="S4g-at-rML" firstAttribute="bottom" secondItem="OcA-uf-MOk" secondAttribute="bottom" id="arY-oE-6SK"/>
                         <constraint firstAttribute="trailing" secondItem="OcA-uf-MOk" secondAttribute="trailing" constant="60" id="l08-HI-4vc"/>
-                        <constraint firstItem="S4g-at-rML" firstAttribute="bottom" secondItem="Aoy-FE-9yS" secondAttribute="bottom" id="op6-XM-Jg1"/>
-                        <constraint firstItem="S4g-at-rML" firstAttribute="leading" secondItem="OcA-uf-MOk" secondAttribute="trailing" id="qou-Op-nn6"/>
                     </constraints>
                 </view>
             </subviews>
