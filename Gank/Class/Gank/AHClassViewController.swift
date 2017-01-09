@@ -183,7 +183,6 @@ extension AHClassViewController: UITableViewDataSource, UITableViewDelegate {
         let webView = AHClassWebViewController()
         webView.urlString = model.url
         webView.classModel = model
-        // webView.hidesBottomBarWhenPushed = true
         
         self.navigationController?.delegate = self
         self.navigationController?.pushViewController(webView, animated: true)

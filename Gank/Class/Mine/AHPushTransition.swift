@@ -31,7 +31,7 @@ extension AHPushTransition: UIViewControllerAnimatedTransitioning {
         snapShotView.tag = 3333
         
         let maskView = UIView(frame: containerView.frame)
-        maskView.backgroundColor = UIColor.black.withAlphaComponent(0.7)
+        maskView.backgroundColor = UIColor.black.withAlphaComponent(0.6)
         maskView.tag = 4444
     
         fromVC.view.alpha = 0

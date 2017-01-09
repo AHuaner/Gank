@@ -16,21 +16,11 @@ class AHClassWebViewController: BaseWebViewController {
     fileprivate var newContentOffsetY: CGFloat = 0.0
     fileprivate var isDismissAnimation: Bool = true
     
+    fileprivate var isCustomTranstion: Bool = false
+    
     var currentCompleted: CGFloat = 0.0
     
     var classModel: AHClassModel?
-        
-    lazy var toolView: AHWebToolView = {
-        let toolView = AHWebToolView.webToolView()
-        toolView.frame = CGRect(x: 0, y: kScreen_H - kBottomBarHeight, width: kScreen_W, height: kBottomBarHeight)
-        toolView.backBtn.addTarget(self, action: #selector(AHClassWebViewController.backAciton), for: .touchUpInside)
-        toolView.forwardBtn.addTarget(self, action: #selector(AHClassWebViewController.forwardAction), for: .touchUpInside)
-        toolView.reloadBtn.addTarget(self, action:#selector(AHClassWebViewController.reloadAction), for: .touchUpInside)
-        toolView.likeBtn.addTarget(self, action: #selector(AHClassWebViewController.likeAction), for: .touchUpInside)
-        toolView.backBtn.isEnabled = false
-        toolView.forwardBtn.isEnabled = false
-        return toolView
-    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,12 +30,19 @@ class AHClassWebViewController: BaseWebViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-         self.navigationController?.delegate = self
+        self.navigationController?.delegate = self
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-         self.navigationController?.delegate = nil
+        self.navigationController?.delegate = nil
+        
+        if isCustomTranstion { return }
+        tabBarController?.tabBar.isHidden = false
+        let snapView = navigationController?.view.superview?.viewWithTag(3333)
+        let maskView = navigationController?.view.superview?.viewWithTag(4444)
+        snapView?.removeFromSuperview()
+        maskView?.removeFromSuperview()
     }
 
     override func didReceiveMemoryWarning() {
@@ -68,18 +65,6 @@ class AHClassWebViewController: BaseWebViewController {
         
     }
     
-    func setToolViewHidden(_ hidden: Bool) {
-        if hidden { //隐藏
-            UIView.animate(withDuration: 0.5, animations: {
-                self.toolView.transform = CGAffineTransform(translationX: 0, y: kBottomBarHeight)
-            })
-        } else { // 显示
-            UIView.animate(withDuration: 0.5, animations: {
-                self.toolView.transform = CGAffineTransform.identity
-            })
-        }
-    }
-    
     func backAciton() {
         webView.goBack()
     }
@@ -95,12 +80,6 @@ class AHClassWebViewController: BaseWebViewController {
     func likeAction() {
         AHLog("喜欢")
     }
-    
-    override func webView(_ webView: WKWebView, didCommit navigation: WKNavigation!) {
-        super.webView(webView, didCommit: navigation)
-        toolView.backBtn.isEnabled = webView.canGoBack
-        toolView.forwardBtn.isEnabled = webView.canGoForward
-    }
 }
 
 extension AHClassWebViewController: UIScrollViewDelegate {
@@ -115,9 +94,9 @@ extension AHClassWebViewController: UIScrollViewDelegate {
         
         newContentOffsetY = scrollView.contentOffset.y
         if newContentOffsetY > oldContentOffsetY && oldContentOffsetY > contentOffsetY {
-            setToolViewHidden(true)
+            // setToolViewHidden(true)
         } else if newContentOffsetY < oldContentOffsetY && oldContentOffsetY < contentOffsetY {
-            setToolViewHidden(false)
+            // setToolViewHidden(false)
         }
         
         
@@ -145,6 +124,8 @@ extension AHClassWebViewController: UINavigationControllerDelegate {
     func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         switch operation {
         case .pop:
+            isCustomTranstion = true
+            
             if isDismissAnimation {
                 return AHClosePopTranstion()
             } else {

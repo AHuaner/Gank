@@ -44,9 +44,4 @@ class AHTagBtn: UIButton {
         titleLabel?.adjustsFontSizeToFitWidth = true
         imageView?.isHighlighted = true
     }
-    
-    func longPanAction() {
-        
-    }
-    
 }

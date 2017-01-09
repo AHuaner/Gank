@@ -14,7 +14,9 @@ let ConfigDict: [AnyHashable: Any] = ["福利" : "福利",
                                 "视频" : "休息视频",
                                 "拓展资源" : "拓展资源",
                                 "前端" : "前端",
-                                "干货" : "all"]
+                                "干货" : "all",
+                                "推荐" : "瞎推荐",
+                                "App" : "App"]
 
 class AHGankViewController: AHDisplayViewController {
     
@@ -24,7 +26,7 @@ class AHGankViewController: AHDisplayViewController {
     /// 未显示的tags
     fileprivate var moreTagsArray: [String] = [String]()
     
-    // 转场代理
+    /// 转场代理
     fileprivate lazy var turnVCTransitionManager: AHTurnVCTransitionManager = {
         let manager = AHTurnVCTransitionManager()
         
@@ -57,14 +59,15 @@ class AHGankViewController: AHDisplayViewController {
         UIApplication.shared.statusBarStyle = .lightContent
         
         // 模拟从服务器获取频道列表
-        showTagsArray = ["干货", "Android", "iOS", "视频", "前端", "拓展资源"]
-        moreTagsArray = ["福利"]
+        showTagsArray = ["干货", "推荐", "iOS", "前端", "Android", "拓展资源"]
+        moreTagsArray = ["福利", "视频", "App"]
         
         // 从本地读取频道列表
         let saveShowTagsArray = NSKeyedUnarchiver.unarchiveObject(withFile: "saveShowTagsArray".cachesDir()) as? [String]
         if saveShowTagsArray != nil {
             showTagsArray = saveShowTagsArray!
         }
+        
         let saveMoreTagsArray = NSKeyedUnarchiver.unarchiveObject(withFile: "saveMoreTagsArray".cachesDir()) as? [String]
         if saveMoreTagsArray != nil {
             moreTagsArray = saveMoreTagsArray!
@@ -134,8 +137,4 @@ class AHGankViewController: AHDisplayViewController {
         }
         NSKeyedArchiver.archiveRootObject(showTagsArray, toFile: "saveShowTagsArray".cachesDir())
     }
-}
-
-extension AHGankViewController: UIViewControllerTransitioningDelegate {
-    
 }

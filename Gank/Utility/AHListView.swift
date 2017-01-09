@@ -333,7 +333,7 @@ extension AHListView {
         let col = index % listCols
         let row = index / listCols
         let btnW = (Width - 5 * margin) / CGFloat(listCols)
-        let btnH = btnW * 0.45
+        let btnH = btnW * 0.55
         let btnX = margin + CGFloat(col) * (btnW + margin)
         let btnY = 30 + margin + CGFloat(row) * (btnH + margin)
         btn.frame = CGRect(x: btnX, y: btnY, width: btnW, height: btnH)
