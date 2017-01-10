@@ -41,6 +41,7 @@
 		601CF5CE1DF836B5002AF8D5 /* GankTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 601CF5CD1DF836B5002AF8D5 /* GankTests.swift */; };
 		601CF5D91DF836B5002AF8D5 /* GankUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 601CF5D81DF836B5002AF8D5 /* GankUITests.swift */; };
 		601CF5E91DF8379A002AF8D5 /* AHMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 601CF5E81DF8379A002AF8D5 /* AHMainViewController.swift */; };
+		6020138D1E24FBD8009C0184 /* AHSearchGankModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6020138C1E24FBD7009C0184 /* AHSearchGankModel.swift */; };
 		602754BD1E00FCC400A2B757 /* AHClassCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602754BB1E00FCC400A2B757 /* AHClassCell.swift */; };
 		602754BE1E00FCC400A2B757 /* AHClassCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 602754BC1E00FCC400A2B757 /* AHClassCell.xib */; };
 		602754C11E01260700A2B757 /* FPSLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 602754C01E01260700A2B757 /* FPSLabel.m */; };
@@ -156,6 +157,7 @@
 		601CF5D81DF836B5002AF8D5 /* GankUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GankUITests.swift; sourceTree = "<group>"; };
 		601CF5DA1DF836B5002AF8D5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		601CF5E81DF8379A002AF8D5 /* AHMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHMainViewController.swift; sourceTree = "<group>"; };
+		6020138C1E24FBD7009C0184 /* AHSearchGankModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHSearchGankModel.swift; sourceTree = "<group>"; };
 		602388AD1E1E8DEB00121DE3 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		602754BB1E00FCC400A2B757 /* AHClassCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHClassCell.swift; sourceTree = "<group>"; };
 		602754BC1E00FCC400A2B757 /* AHClassCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AHClassCell.xib; sourceTree = "<group>"; };
@@ -441,6 +443,7 @@
 				600906E81E0020A6002F0A73 /* AHClassModel.swift */,
 				600BA1441E0B9478002E4D94 /* AHHomeGankModel.swift */,
 				600BA13E1E0B7AC8002E4D94 /* AHHomeGroupModel.swift */,
+				6020138C1E24FBD7009C0184 /* AHSearchGankModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -765,6 +768,7 @@
 				600D2B6C1DF8F1C200D57EA0 /* DispatchTime+Extension.swift in Sources */,
 				600D2BC01DF8FA9200D57EA0 /* BaseViewController.swift in Sources */,
 				6045F3781E0919FB002B0FB6 /* AHWebToolView.swift in Sources */,
+				6020138D1E24FBD8009C0184 /* AHSearchGankModel.swift in Sources */,
 				606938111E05303700918949 /* AHWaitingView.swift in Sources */,
 				60939DBA1E220AA8003B3F13 /* AHTurnVCTransitionManager.swift in Sources */,
 				60028DAF1DFC0CAA002F2AFE /* AHTagBtn.swift in Sources */,

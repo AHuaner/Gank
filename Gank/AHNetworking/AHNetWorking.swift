@@ -18,6 +18,10 @@ enum MethodType {
 }
 
 class AHNetWorking {
+    
+}
+
+extension AHNetWorking {
     class func requestData(_ type: MethodType, URLString: String, parameters: [String : Any]? = nil, success: @escaping Success, failure: @escaping Failure) {
         
         let method = type == .get ? HTTPMethod.get : HTTPMethod.post
@@ -32,6 +36,13 @@ class AHNetWorking {
             case .failure(let error):
                 failure(error)
             }
+        }
+    }
+    
+    class func cancelAllRequest() {
+        Alamofire.SessionManager().session.getAllTasks { (tasks) -> Void in
+            AHLog("---")
+            tasks.forEach({ $0.cancel() })
         }
     }
 }

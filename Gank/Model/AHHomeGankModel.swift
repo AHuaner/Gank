@@ -9,8 +9,6 @@
 import UIKit
 import SwiftyJSON
 
-
-
 class AHHomeGankModel: NSObject {
     fileprivate var separatorLineH: CGFloat = 1
     
