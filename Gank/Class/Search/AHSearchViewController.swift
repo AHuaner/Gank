@@ -41,8 +41,10 @@ class AHSearchViewController: BaseViewController {
         searchTextField.addTarget(self, action: #selector(AHSearchViewController.textDidChange(searchTextField:)), for: .editingChanged)
         closeBtn.addTarget(self, action: #selector(AHSearchViewController.popViewController), for: .touchUpInside)
         
+        self.view.backgroundColor = UIColor.yellow
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.isHidden = true
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "AHSearchCell")
         tableView.tableFooterView = UIView()
     }
@@ -55,10 +57,11 @@ class AHSearchViewController: BaseViewController {
     func textDidChange(searchTextField: UITextField) {
         guard let text = searchTextField.text else { return }
         if text.unicodeScalars.count > 0 {
-            AHLog(text)
             loadRequest(WithText: text)
         } else {
+            self.lastText = ""
             self.datasArray = [AHSearchGankModel]()
+            self.tableView.isHidden = true
             self.tableView.reloadData()
         }
     }
@@ -69,6 +72,8 @@ class AHSearchViewController: BaseViewController {
         AHNewWorkingAgent.loadSearchRequest(text: WithText, page: 1, success: { (result: Any) in
             if self.lastText != WithText { return }
             guard let datasArray = result as? [AHSearchGankModel] else { return }
+            self.tableView.isHidden = false
+            
             self.datasArray = datasArray
             self.tableView.reloadData()
         }) { (error: Error) in
