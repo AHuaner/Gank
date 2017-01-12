@@ -18,6 +18,8 @@ class AHSearchListView: UIView {
     
     var getTitleArrayClouse: (([String]) -> Void)?
     
+    var searchGankWithTitleClouse: ((String) -> Void)?
+    
     /// 存放所有的btn
     fileprivate lazy var tagArray: [AHSeatchTagBtn] = {
         let tagArray = [AHSeatchTagBtn]()
@@ -90,6 +92,8 @@ extension AHSearchListView {
         let longPress = UILongPressGestureRecognizer(target: self, action: #selector(AHListView.longPressAction(longPress:)))
         tagBtn.addGestureRecognizer(longPress)
         
+        tagBtn.addTarget(self, action: #selector(AHSearchListView.tagBtnClick(btn:)), for: .touchUpInside)
+    
         tagArray.append(tagBtn)
         
         tagTitleArray.append(tagBtn.titleLabel!.text!)
@@ -153,9 +157,25 @@ extension AHSearchListView {
         }
     }
     
-    func deleteBtnAction(btn: AHSeatchTagBtn) {
-        deleteTags(btn: btn)
+    func tagBtnClick(btn: AHSeatchTagBtn) {
+        guard let image =  btn.imageView?.image else {
+            if searchGankWithTitleClouse != nil {
+                searchGankWithTitleClouse!(btn.titleLabel!.text!)
+            }
+            return
+        }
         
+        if image.size == CGSize.zero  {
+            if searchGankWithTitleClouse != nil {
+                searchGankWithTitleClouse!(btn.titleLabel!.text!)
+            }
+        } else {
+            deleteTagBtn(btn: btn)
+        }
+    }
+    
+    func deleteTagBtn(btn: AHSeatchTagBtn) {
+        deleteTags(btn: btn)
         if getTitleArrayClouse != nil {
             getTitleArrayClouse!(tagTitleArray)
         }
@@ -169,10 +189,8 @@ extension AHSearchListView {
     fileprivate func startEditModel(index: Int) {
         for btn in self.tagArray {
             if btn.tag == index {
-                btn.addTarget(self, action: #selector(AHListView.deleteBtnAction(btn:)), for: .touchUpInside)
                 btn.setImage(UIImage(named: "close_button"), for: .normal)
             } else {
-                btn.removeTarget(self, action: #selector(AHListView.deleteBtnAction(btn:)), for: .touchUpInside)
                 btn.setImage(UIImage(), for: .normal)
             }
         }

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SVProgressHUD
 
 class AHSearchViewController: BaseViewController {
 
@@ -30,6 +31,13 @@ class AHSearchViewController: BaseViewController {
             NSKeyedArchiver.archiveRootObject(self.recentSearchTitles, toFile: "saveRecentSearchTitles".cachesDir())
             AHLog(self.recentSearchTitles)
         }
+        
+        recentSearchView.searchGankWithTitleClouse = { [unowned self] (text) in
+            self.view.endEditing(true)
+            self.searchTextField.text = text
+            self.loadRequest(WithText: text)
+        }
+        
         return recentSearchView
     }()
     
@@ -93,22 +101,23 @@ class AHSearchViewController: BaseViewController {
     
     func loadRequest(WithText: String) {
         self.lastText = WithText
-        
+        SVProgressHUD.show(withStatus: "正在加载中")
         AHNewWorkingAgent.loadSearchRequest(text: WithText, page: 1, success: { (result: Any) in
             if self.lastText != WithText { return }
+            SVProgressHUD.dismiss()
             AHLog("成功----\(WithText)")
             guard let datasArray = result as? [AHSearchGankModel] else { return }
             self.tableView.isHidden = false
             self.contentView.isHidden = true
             
-            self.recentSearchTitlesAddTitle(text: WithText)
+            // self.recentSearchTitlesAddTitle(text: WithText)
             
             self.datasArray = datasArray
             self.tableView.reloadData()
         }) { (error: Error) in
             if self.lastText != WithText { return }
             
-            self.recentSearchTitlesAddTitle(text: self.searchTextField.text!)
+            // self.recentSearchTitlesAddTitle(text: self.searchTextField.text!)
             AHLog(error)
         }
     }
@@ -166,6 +175,7 @@ extension AHSearchViewController: UITextFieldDelegate {
         guard let text = textField.text else { return true }
         if text.unicodeScalars.count > 0 {
             loadRequest(WithText: text)
+            self.recentSearchTitlesAddTitle(text: text)
             self.view.endEditing(true)
         }
         return true
