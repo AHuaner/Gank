@@ -135,7 +135,7 @@ class AHSearchViewController: BaseViewController {
             if title == text { return }
         }
         self.recentSearchTitles.insert(text, at: 0)
-        self.recentSearchView.addTags(titles: self.recentSearchTitles)
+        self.recentSearchView.addTag(tagTitle: text)
         NSKeyedArchiver.archiveRootObject(self.recentSearchTitles, toFile: "saveRecentSearchTitles".cachesDir())
     }
     

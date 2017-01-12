@@ -94,9 +94,11 @@ extension AHSearchListView {
         
         tagBtn.addTarget(self, action: #selector(AHSearchListView.tagBtnClick(btn:)), for: .touchUpInside)
     
-        tagArray.append(tagBtn)
+        tagArray.insert(tagBtn, at: 0)
         
-        tagTitleArray.append(tagBtn.titleLabel!.text!)
+        tagTitleArray.insert(tagBtn.titleLabel!.text!, at: 0)
+        
+        updateTag()
         
         updateTagBtnFrame(btn: tagBtn)
         
@@ -133,14 +135,9 @@ extension AHSearchListView {
     
     /// 添加多个标签
     func addTags(titles: [String]) {
-        for btn in tagArray {
-            btn.removeFromSuperview()
-        }
-        tagTitleArray.removeAll()
-        tagArray.removeAll()
-        
-        for title in titles {
-            addTag(tagTitle: title)
+        // 倒序插入
+        for i in 0..<titles.count {
+            addTag(tagTitle: titles[titles.count - i - 1])
         }
     }
 }
@@ -218,27 +215,29 @@ extension AHSearchListView {
     // 更新以后按钮frame
     fileprivate func updateLaterTagButtonFrame(laterIndex: Int) {
         for i in laterIndex..<tagArray.count {
-            updateTagBtnFrame(btn: tagArray[i])
-        }
-    }
-    
-    // 更新之前按钮frame
-    fileprivate func updateBeforeTagButtonFrame(beforeIndex: Int) {
-        for i in 0..<beforeIndex {
-            updateTagBtnFrame(btn: tagArray[i])
+            var preBtn: AHSeatchTagBtn? = nil
+            if i - 1 >= 0 {
+                preBtn = tagArray[i - 1]
+            }
+            setupTagButtonCurrentFrame(curBtn: tagArray[i], preBtn: preBtn)
         }
     }
     
     // 更新对应的frame
     fileprivate func updateTagBtnFrame(btn: AHSeatchTagBtn) {
-        let preIndex = btn.tag - 1
-        var preBtn: AHSeatchTagBtn? = nil
+        let btnX: CGFloat = margin
+        let btnY: CGFloat = margin + topMargin
+        let text = btn.titleLabel!.text! as NSString
+        let titleW = text.size(attributes: [NSFontAttributeName : FontSize(size: 12)]).width
+        let titleH = text.size(attributes: [NSFontAttributeName : FontSize(size: 12)]).height
         
-        if preIndex >= 0 {
-            preBtn = self.tagArray[preIndex]
-        }
+        let btnW = titleW + 2 * 8
+        let btnH = titleH + 2 * 8
         
-        setupTagButtonCurrentFrame(curBtn: btn, preBtn: preBtn)
+        btn.frame = CGRect(x: btnX, y: btnY, width: btnW, height: btnH)
+        
+        // 跟新后面按钮的frame
+        updateLaterTagButtonFrame(laterIndex: btn.tag)
     }
     
     func setupTagButtonCurrentFrame(curBtn: AHSeatchTagBtn, preBtn: AHSeatchTagBtn?) {
