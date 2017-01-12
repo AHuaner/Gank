@@ -19,6 +19,13 @@ class AHSearchViewController: BaseViewController {
     // 最后一次请求的内容, 防止重复加载
     fileprivate var lastText: String!
     
+    lazy var recentSearchView: AHSearchListView = {
+        let recentSearchView = AHSearchListView(frame: CGRect(x: 0, y: kNavBarHeight, width: kScreen_W, height: 0))
+        recentSearchView.addTags(titles: ["111111", "11", "1231", "1231231223", "asdfasdfasdfa", "11"]) // ["1231", "1231231223", "asdfasdfasdfa", "11"]
+        return recentSearchView
+    }()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
@@ -37,16 +44,21 @@ class AHSearchViewController: BaseViewController {
         }
     }
     
+    
     fileprivate func setupUI() {
         searchTextField.addTarget(self, action: #selector(AHSearchViewController.textDidChange(searchTextField:)), for: .editingChanged)
         closeBtn.addTarget(self, action: #selector(AHSearchViewController.popViewController), for: .touchUpInside)
         
-        self.view.backgroundColor = UIColor.yellow
+        self.view.backgroundColor = UIColor.white
         tableView.delegate = self
         tableView.dataSource = self
         tableView.isHidden = true
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "AHSearchCell")
         tableView.tableFooterView = UIView()
+        
+        self.view.addSubview(recentSearchView)
+        
+        recentSearchView.cleanBtn.addTarget(self, action: #selector(AHSearchViewController.cleanBtnAction), for: .touchUpInside)
     }
     
     func popViewController() {
@@ -80,7 +92,11 @@ class AHSearchViewController: BaseViewController {
             
         }
     }
-
+    
+    func cleanBtnAction() {
+        AHLog("清除")
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }

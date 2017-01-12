@@ -20,6 +20,5 @@ class AHHomeHeaderView: UIView {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
     }
 }
