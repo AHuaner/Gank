@@ -19,13 +19,27 @@ class AHSearchViewController: BaseViewController {
     // 最后一次请求的内容, 防止重复加载
     fileprivate var lastText: String!
     
+    fileprivate var recentSearchTitles = [String]()
+    
     lazy var recentSearchView: AHSearchListView = {
-        let recentSearchView = AHSearchListView(frame: CGRect(x: 0, y: kNavBarHeight, width: kScreen_W, height: 0))
-        recentSearchView.addTags(titles: ["111111", "11", "1231", "1231231223", "asdfasdfasdfa", "11"]) // ["1231", "1231231223", "asdfasdfasdfa", "11"]
+        let recentSearchView = AHSearchListView(frame: CGRect(x: 0, y: 0, width: kScreen_W, height: 0))
+        recentSearchView.addTags(titles: self.recentSearchTitles)
+        
+        recentSearchView.getTitleArrayClouse = { [unowned self] (titles) in
+            self.recentSearchTitles = titles
+            NSKeyedArchiver.archiveRootObject(self.recentSearchTitles, toFile: "saveRecentSearchTitles".cachesDir())
+            AHLog(self.recentSearchTitles)
+        }
         return recentSearchView
     }()
     
-    
+    lazy var contentView: UIScrollView = {
+        let contentView = UIScrollView(frame: CGRect(x: 0, y: kNavBarHeight, width: kScreen_W, height: kScreen_H - kNavBarHeight))
+        let tap = UITapGestureRecognizer(target: self, action: #selector(AHSearchViewController.viewEndEditing))
+        contentView.addGestureRecognizer(tap)
+        return contentView
+    }()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
@@ -46,36 +60,35 @@ class AHSearchViewController: BaseViewController {
     
     
     fileprivate func setupUI() {
-        searchTextField.addTarget(self, action: #selector(AHSearchViewController.textDidChange(searchTextField:)), for: .editingChanged)
-        closeBtn.addTarget(self, action: #selector(AHSearchViewController.popViewController), for: .touchUpInside)
+        // 获取历史搜索
+        let saveRecentSearchTitles = NSKeyedUnarchiver.unarchiveObject(withFile: "saveRecentSearchTitles".cachesDir()) as? [String]
+        if saveRecentSearchTitles != nil {
+            recentSearchTitles = saveRecentSearchTitles!
+        }
         
-        self.view.backgroundColor = UIColor.white
+        closeBtn.addTarget(self, action: #selector(AHSearchViewController.popViewController), for: .touchUpInside)
+        self.recentSearchView.addObserver(self, forKeyPath: "frame", options: .new, context: nil)
+        
+        searchTextField.delegate = self
+        view.backgroundColor = UIColor.white
         tableView.delegate = self
         tableView.dataSource = self
         tableView.isHidden = true
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "AHSearchCell")
         tableView.tableFooterView = UIView()
         
-        self.view.addSubview(recentSearchView)
+        contentView.contentSize = CGSize(width: kScreen_W, height: self.recentSearchView.Height)
+        view.addSubview(contentView)
+        contentView.addSubview(recentSearchView)
         
         recentSearchView.cleanBtn.addTarget(self, action: #selector(AHSearchViewController.cleanBtnAction), for: .touchUpInside)
     }
     
     func popViewController() {
+        self.lastText = ""
+        
         view.endEditing(true)
         self.dismiss(animated: true, completion: nil)
-    }
-    
-    func textDidChange(searchTextField: UITextField) {
-        guard let text = searchTextField.text else { return }
-        if text.unicodeScalars.count > 0 {
-            loadRequest(WithText: text)
-        } else {
-            self.lastText = ""
-            self.datasArray = [AHSearchGankModel]()
-            self.tableView.isHidden = true
-            self.tableView.reloadData()
-        }
     }
     
     func loadRequest(WithText: String) {
@@ -83,13 +96,20 @@ class AHSearchViewController: BaseViewController {
         
         AHNewWorkingAgent.loadSearchRequest(text: WithText, page: 1, success: { (result: Any) in
             if self.lastText != WithText { return }
+            AHLog("成功----\(WithText)")
             guard let datasArray = result as? [AHSearchGankModel] else { return }
             self.tableView.isHidden = false
+            self.contentView.isHidden = true
+            
+            self.recentSearchTitlesAddTitle(text: WithText)
             
             self.datasArray = datasArray
             self.tableView.reloadData()
         }) { (error: Error) in
+            if self.lastText != WithText { return }
             
+            self.recentSearchTitlesAddTitle(text: self.searchTextField.text!)
+            AHLog(error)
         }
     }
     
@@ -97,8 +117,34 @@ class AHSearchViewController: BaseViewController {
         AHLog("清除")
     }
     
+    func viewEndEditing() {
+        self.view.endEditing(true)
+    }
+    
+    func recentSearchTitlesAddTitle(text: String) {
+        for title in recentSearchTitles {
+            if title == text { return }
+        }
+        self.recentSearchTitles.insert(text, at: 0)
+        self.recentSearchView.addTags(titles: self.recentSearchTitles)
+        NSKeyedArchiver.archiveRootObject(self.recentSearchTitles, toFile: "saveRecentSearchTitles".cachesDir())
+    }
+    
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        if keyPath == "frame" {
+            guard case let frame as CGRect = change?[NSKeyValueChangeKey.newKey] else { return }
+            contentView.contentSize.height = frame.maxY
+        } else {
+            super.observeValue(forKeyPath: keyPath, of: object, change: change, context: context)
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    deinit {
+        self.recentSearchView.removeObserver(self, forKeyPath: "frame")
     }
 }
 
@@ -112,5 +158,21 @@ extension AHSearchViewController: UITableViewDelegate, UITableViewDataSource {
         let model = datasArray[indexPath.row]
         cell.textLabel?.text = model.desc!
         return cell
+    }
+}
+
+extension AHSearchViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        guard let text = textField.text else { return true }
+        if text.unicodeScalars.count > 0 {
+            loadRequest(WithText: text)
+            self.view.endEditing(true)
+        }
+        return true
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        self.tableView.isHidden = true
+        self.contentView.isHidden = false
     }
 }

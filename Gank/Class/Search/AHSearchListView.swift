@@ -16,7 +16,7 @@ class AHSearchListView: UIView {
         return tagTitleArray
     }()
     
-    var listViewMoveTagClouse: ((String) -> Void)?
+    var getTitleArrayClouse: (([String]) -> Void)?
     
     /// 存放所有的btn
     fileprivate lazy var tagArray: [AHSeatchTagBtn] = {
@@ -71,6 +71,7 @@ class AHSearchListView: UIView {
     }
     
     fileprivate func setupUI() {
+        self.isHidden = true
         self.addSubview(infoLabel)
         self.addSubview(cleanBtn)
     }
@@ -80,6 +81,8 @@ class AHSearchListView: UIView {
 extension AHSearchListView {
     /// 添加标签
     func addTag(tagTitle: String) {
+        self.isHidden = false
+        
         let tagBtn = AHSeatchTagBtn()
         tagBtn.tag = tagArray.count
         tagBtn.setTitle(tagTitle, for: .normal)
@@ -126,6 +129,12 @@ extension AHSearchListView {
     
     /// 添加多个标签
     func addTags(titles: [String]) {
+        for btn in tagArray {
+            btn.removeFromSuperview()
+        }
+        tagTitleArray.removeAll()
+        tagArray.removeAll()
+        
         for title in titles {
             addTag(tagTitle: title)
         }
@@ -145,15 +154,12 @@ extension AHSearchListView {
     }
     
     func deleteBtnAction(btn: AHSeatchTagBtn) {
-        guard let title = btn.titleLabel?.text else { return }
-        
         deleteTags(btn: btn)
         
-        if listViewMoveTagClouse != nil {
-            listViewMoveTagClouse!(title)
+        if getTitleArrayClouse != nil {
+            getTitleArrayClouse!(tagTitleArray)
         }
     }
-
 }
 
 // MARK: - private methods

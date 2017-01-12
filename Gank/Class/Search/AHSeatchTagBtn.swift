@@ -17,7 +17,7 @@ class AHSeatchTagBtn: UIButton {
         let btnH = self.frame.size.height
         titleLabel?.frame = CGRect(x: margin, y: margin, width: btnW - 2 * margin, height: btnH - margin * 2)
         
-        imageView?.frame = CGRect(x: -5, y: -5, width: 10, height: 10)
+        imageView?.frame = CGRect(x: -3, y: -3, width: 10, height: 10)
     }
     
     override init(frame: CGRect) {
