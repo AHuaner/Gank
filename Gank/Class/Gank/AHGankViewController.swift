@@ -46,13 +46,13 @@ class AHGankViewController: AHDisplayViewController {
         // 设置标题滚动框样式
         setupTitleEffect { (titleScrollViewColor, titleBtnNorColor, titleBtnSelColor, titleFont, titleScrollViewH) in
             titleBtnNorColor = UIColorTextGray
-            titleBtnSelColor = UIColorMainBlue
+            titleBtnSelColor = UIColorTextBlue
             titleFont = FontSize(size: 14)
         }
         
         // 设置下滑指示线样式
         setupUnderLineEffect { (isShowUnderLine, underLineColor, underLineH) in
-            underLineColor = UIColorMainBlue
+            underLineColor = UIColorTextBlue
         }
         
         // 设置导航栏颜色

@@ -14,7 +14,7 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="30"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_search.png" translatesAutoresizingMaskIntoConstraints="NO" id="hOE-dD-4pI">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_search_blue.png" translatesAutoresizingMaskIntoConstraints="NO" id="hOE-dD-4pI">
                     <rect key="frame" x="10" y="3" width="24" height="24"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="24" id="QaE-JE-aoS"/>
@@ -22,18 +22,18 @@
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="搜索更多干货" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dBj-7b-vRZ">
-                    <rect key="frame" x="44" y="7" width="86" height="17"/>
+                    <rect key="frame" x="39" y="7" width="86" height="17"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="textColor" red="0.83921568627450982" green="0.9137254901960784" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
-            <color key="backgroundColor" red="0.45490196078431372" green="0.71372549019607845" blue="0.82352941176470584" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" red="0.19607843137254902" green="0.55294117647058827" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="dBj-7b-vRZ" firstAttribute="centerY" secondItem="hOE-dD-4pI" secondAttribute="centerY" id="0YS-ZA-eTz"/>
                 <constraint firstItem="hOE-dD-4pI" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="3X3-3E-75i"/>
                 <constraint firstItem="hOE-dD-4pI" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="SJG-b1-Pon"/>
-                <constraint firstItem="dBj-7b-vRZ" firstAttribute="leading" secondItem="hOE-dD-4pI" secondAttribute="trailing" constant="10" id="r8d-X6-kn8"/>
+                <constraint firstItem="dBj-7b-vRZ" firstAttribute="leading" secondItem="hOE-dD-4pI" secondAttribute="trailing" constant="5" id="r8d-X6-kn8"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
@@ -46,6 +46,6 @@
         </view>
     </objects>
     <resources>
-        <image name="icon_search.png" width="24" height="24"/>
+        <image name="icon_search_blue.png" width="24" height="24"/>
     </resources>
 </document>

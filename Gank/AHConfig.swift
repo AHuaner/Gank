@@ -32,8 +32,8 @@ let iPhone6Plus_Height = 736.0
 
 let UIColorMainBG = RGBColor(240.0, g: 240.0, b: 240.0, alpha: 1.0)
 let UIColorTextGray = RGBColor(153.0, g: 153.0, b: 153.0, alpha: 1.0)
-let UIColorTextBlue = RGBColor(21.0, g: 126.0, b: 251.0, alpha: 1.0)
-let UIColorMainBlue = RGBColor(93.0, g: 160.0, b: 245.0, alpha: 1.0)
+let UIColorTextBlue = RGBColor(40, g: 154, b: 236, alpha: 1.0)
+let UIColorMainBlue = RGBColor(30, g: 130, b: 210, alpha: 1.0)
 let UIColorLine = RGBColor(217.0, g: 217.0, b: 217.0, alpha: 1.0)
 
 class AHConfig {

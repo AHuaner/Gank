@@ -21,7 +21,7 @@ class AHHeaderSectionView: UIView {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        titleLabel.textColor = UIColorMainBlue
+        titleLabel.textColor = UIColorTextBlue
         backgroundColor = UIColorMainBG
     }
     

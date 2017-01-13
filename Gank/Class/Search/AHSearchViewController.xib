@@ -27,7 +27,7 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OcA-uf-MOk" userLabel="searchView">
                             <rect key="frame" x="10" y="27" width="305" height="30"/>
                             <subviews>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_search.png" translatesAutoresizingMaskIntoConstraints="NO" id="861-G7-Whw" userLabel="icon">
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_search_ gray.png" translatesAutoresizingMaskIntoConstraints="NO" id="861-G7-Whw" userLabel="icon">
                                     <rect key="frame" x="10" y="3" width="24" height="24"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="24" id="Sd1-LM-M3K"/>
@@ -44,7 +44,7 @@
                                     <textInputTraits key="textInputTraits" returnKeyType="search"/>
                                 </textField>
                             </subviews>
-                            <color key="backgroundColor" red="0.92156862750000001" green="0.92156862750000001" blue="0.92156862750000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="backgroundColor" red="0.95294117647058818" green="0.95294117647058818" blue="0.95294117647058818" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="30" id="7mx-hN-tSh"/>
                                 <constraint firstAttribute="trailing" secondItem="Aoy-FE-9yS" secondAttribute="trailing" constant="5" id="JYQ-6G-cCo"/>
@@ -63,19 +63,29 @@
                             <rect key="frame" x="315" y="27" width="60" height="30"/>
                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                             <state key="normal" title="取消">
-                                <color key="titleColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleColor" red="0.15686274510000001" green="0.60392156860000001" blue="0.92549019610000005" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
                         </button>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aA7-il-IYS">
+                            <rect key="frame" x="0.0" y="63" width="375" height="1"/>
+                            <color key="backgroundColor" red="0.8666666666666667" green="0.8666666666666667" blue="0.8666666666666667" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="0.5" id="1U9-iM-F9H"/>
+                            </constraints>
+                        </view>
                     </subviews>
-                    <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
+                        <constraint firstAttribute="trailing" secondItem="aA7-il-IYS" secondAttribute="trailing" id="1RZ-Y3-dnI"/>
                         <constraint firstItem="OcA-uf-MOk" firstAttribute="top" secondItem="iRQ-W4-cRb" secondAttribute="top" constant="27" id="2Ac-sV-eTB"/>
                         <constraint firstAttribute="height" constant="64" id="6Un-A0-cJS"/>
                         <constraint firstItem="OcA-uf-MOk" firstAttribute="leading" secondItem="iRQ-W4-cRb" secondAttribute="leading" constant="10" id="Gc9-d8-tr2"/>
                         <constraint firstItem="S4g-at-rML" firstAttribute="leading" secondItem="OcA-uf-MOk" secondAttribute="trailing" id="NQr-Tc-jH2"/>
+                        <constraint firstItem="aA7-il-IYS" firstAttribute="leading" secondItem="iRQ-W4-cRb" secondAttribute="leading" id="RgO-6s-733"/>
                         <constraint firstAttribute="trailing" secondItem="S4g-at-rML" secondAttribute="trailing" id="UEn-rq-i87"/>
                         <constraint firstItem="S4g-at-rML" firstAttribute="top" secondItem="OcA-uf-MOk" secondAttribute="top" id="adQ-BF-6p8"/>
                         <constraint firstItem="S4g-at-rML" firstAttribute="bottom" secondItem="OcA-uf-MOk" secondAttribute="bottom" id="arY-oE-6SK"/>
+                        <constraint firstAttribute="bottom" secondItem="aA7-il-IYS" secondAttribute="bottom" id="ci2-b4-gkD"/>
                         <constraint firstAttribute="trailing" secondItem="OcA-uf-MOk" secondAttribute="trailing" constant="60" id="l08-HI-4vc"/>
                     </constraints>
                 </view>
@@ -94,10 +104,10 @@
                 <constraint firstAttribute="trailing" secondItem="iRQ-W4-cRb" secondAttribute="trailing" id="Gm7-2e-sFP"/>
                 <constraint firstAttribute="trailing" secondItem="4X7-z9-4GI" secondAttribute="trailing" id="Quy-tJ-BM8"/>
             </constraints>
-            <point key="canvasLocation" x="-168" y="-75"/>
+            <point key="canvasLocation" x="-168.5" y="-75.5"/>
         </view>
     </objects>
     <resources>
-        <image name="icon_search.png" width="24" height="24"/>
+        <image name="icon_search_ gray.png" width="24" height="24"/>
     </resources>
 </document>

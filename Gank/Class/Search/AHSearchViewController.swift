@@ -55,12 +55,14 @@ class AHSearchViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        UIApplication.shared.statusBarStyle = .default
         self.navigationController?.setNavigationBarHidden(true, animated: animated)
         searchTextField.becomeFirstResponder()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        UIApplication.shared.statusBarStyle = .lightContent
         if (self.navigationController?.viewControllers.count)! > 1 {
             self.navigationController?.setNavigationBarHidden(false, animated: animated)
         }
