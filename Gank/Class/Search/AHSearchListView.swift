@@ -18,7 +18,7 @@ class AHSearchListView: UIView {
     
     var getTitleArrayClouse: (([String]) -> Void)?
     
-    var searchGankWithTitleClouse: ((String) -> Void)?
+    var searchGankWithTitleClouse: ((String, [String]) -> Void)?
     
     /// 存放所有的btn
     fileprivate lazy var tagArray: [AHSeatchTagBtn] = {
@@ -100,7 +100,8 @@ extension AHSearchListView {
         
         updateTag()
         
-        updateTagBtnFrame(btn: tagBtn)
+        // 更新所有按钮的frame
+        updateAllTagButtonsFrame(laterIndex: tagBtn.tag)
         
         // 更新自己的frame
         self.Height = self.ListViewH
@@ -117,10 +118,8 @@ extension AHSearchListView {
         
         updateTag()
         
-        // 跟新后面按钮的frame
-        UIView.animate(withDuration: 0.25, animations: {
-            self.updateLaterTagButtonFrame(laterIndex: btn.tag)
-        })
+        // 更新所有按钮的frame
+        updateAllTagButtonsFrame(laterIndex: btn.tag)
         
         // 更新自己的frame
         UIView.animate(withDuration: 0.25, animations: {
@@ -140,6 +139,13 @@ extension AHSearchListView {
             addTag(tagTitle: titles[titles.count - i - 1])
         }
     }
+    
+    /// 删除所有便签
+    func removeAllTags() {
+        tagArray.removeAll()
+        tagTitleArray.removeAll()
+        self.isHidden = true
+    }
 }
 
 // MARK: - event response
@@ -157,14 +163,18 @@ extension AHSearchListView {
     func tagBtnClick(btn: AHSeatchTagBtn) {
         guard let image =  btn.imageView?.image else {
             if searchGankWithTitleClouse != nil {
-                searchGankWithTitleClouse!(btn.titleLabel!.text!)
+                deleteTags(btn: btn)
+                addTag(tagTitle: btn.titleLabel!.text!)
+                searchGankWithTitleClouse!(btn.titleLabel!.text!, tagTitleArray)
             }
             return
         }
         
         if image.size == CGSize.zero  {
             if searchGankWithTitleClouse != nil {
-                searchGankWithTitleClouse!(btn.titleLabel!.text!)
+                deleteTags(btn: btn)
+                addTag(tagTitle: btn.titleLabel!.text!)
+                searchGankWithTitleClouse!(btn.titleLabel!.text!, tagTitleArray)
             }
         } else {
             deleteTagBtn(btn: btn)
@@ -181,7 +191,6 @@ extension AHSearchListView {
 
 // MARK: - private methods
 extension AHSearchListView {
-    
     /// 开启编辑模式
     fileprivate func startEditModel(index: Int) {
         for btn in self.tagArray {
@@ -213,7 +222,7 @@ extension AHSearchListView {
     }
     
     // 更新以后按钮frame
-    fileprivate func updateLaterTagButtonFrame(laterIndex: Int) {
+    fileprivate func updateAllTagButtonsFrame(laterIndex: Int) {
         for i in laterIndex..<tagArray.count {
             var preBtn: AHSeatchTagBtn? = nil
             if i - 1 >= 0 {
@@ -221,23 +230,6 @@ extension AHSearchListView {
             }
             setupTagButtonCurrentFrame(curBtn: tagArray[i], preBtn: preBtn)
         }
-    }
-    
-    // 更新对应的frame
-    fileprivate func updateTagBtnFrame(btn: AHSeatchTagBtn) {
-        let btnX: CGFloat = margin
-        let btnY: CGFloat = margin + topMargin
-        let text = btn.titleLabel!.text! as NSString
-        let titleW = text.size(attributes: [NSFontAttributeName : FontSize(size: 12)]).width
-        let titleH = text.size(attributes: [NSFontAttributeName : FontSize(size: 12)]).height
-        
-        let btnW = titleW + 2 * 8
-        let btnH = titleH + 2 * 8
-        
-        btn.frame = CGRect(x: btnX, y: btnY, width: btnW, height: btnH)
-        
-        // 跟新后面按钮的frame
-        updateLaterTagButtonFrame(laterIndex: btn.tag)
     }
     
     func setupTagButtonCurrentFrame(curBtn: AHSeatchTagBtn, preBtn: AHSeatchTagBtn?) {
@@ -258,14 +250,19 @@ extension AHSearchListView {
         let titleW = text.size(attributes: [NSFontAttributeName : FontSize(size: 12)]).width
         let titleH = text.size(attributes: [NSFontAttributeName : FontSize(size: 12)]).height
         
-        btnW = titleW + 2 * 8
-        btnH = titleH + 2 * 8
+        btnH = titleH + 2 * curBtn.margin
+        btnW = (titleW + 2 * curBtn.margin) > (kScreen_W - 2 * margin) ? (kScreen_W - 2 * margin) : (titleW + 2 * curBtn.margin)
         
         let rightWidth = self.Width - btnX
         
         if rightWidth - margin < btnW {
-            btnX = margin
-            btnY = preBtn!.frame.maxY + margin
+            if let preBtn = preBtn {
+                btnX = margin
+                btnY = preBtn.frame.maxY + margin
+            } else {
+                btnX = margin
+                btnY = margin + topMargin
+            }
         }
         curBtn.frame = CGRect(x: btnX, y: btnY, width: btnW, height: btnH)
     }

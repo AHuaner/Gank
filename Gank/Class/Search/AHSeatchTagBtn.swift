@@ -9,7 +9,7 @@
 import UIKit
 
 class AHSeatchTagBtn: UIButton {
-    fileprivate let margin: CGFloat = 8
+    let margin: CGFloat = 8
     
     override func layoutSubviews() {
         super.layoutSubviews()
@@ -34,7 +34,6 @@ class AHSeatchTagBtn: UIButton {
         backgroundColor = RGBColor(246, g: 246, b: 246, alpha: 1)
         adjustsImageWhenHighlighted = false
         setTitleColor(UIColor.black, for: .normal)
-        setTitleColor(UIColor.black, for: .selected)
         titleLabel?.textAlignment = .center
         titleLabel?.font = FontSize(size: 12)
         imageView?.isHighlighted = true

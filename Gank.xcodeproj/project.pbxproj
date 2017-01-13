@@ -70,6 +70,8 @@
 		606B1E2A1DFD7DFD00BD86E2 /* close_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 606B1E291DFD7DFD00BD86E2 /* close_button@2x.png */; };
 		607042DE1E286F2C00462731 /* icon_search_blue@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 607042DD1E286F2C00462731 /* icon_search_blue@2x.png */; };
 		607042E01E2870B700462731 /* icon_search_ gray@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 607042DF1E2870B700462731 /* icon_search_ gray@2x.png */; };
+		607042E21E28C69700462731 /* ToolKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607042E11E28C69700462731 /* ToolKit.swift */; };
+		607042E41E28CB5400462731 /* NSObject+alertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607042E31E28CB5400462731 /* NSObject+alertController.swift */; };
 		6073DD141DFFC46700C99E9C /* AHNewWorkingAgent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6073DD131DFFC46700C99E9C /* AHNewWorkingAgent.swift */; };
 		6073DD161DFFC49E00C99E9C /* AHNetWorking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6073DD151DFFC49E00C99E9C /* AHNetWorking.swift */; };
 		6074E3EC1E0A5F03006BCC8D /* icon_time@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6074E3EA1E0A5F03006BCC8D /* icon_time@2x.png */; };
@@ -193,6 +195,8 @@
 		606B1E291DFD7DFD00BD86E2 /* close_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "close_button@2x.png"; sourceTree = "<group>"; };
 		607042DD1E286F2C00462731 /* icon_search_blue@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon_search_blue@2x.png"; path = "../../../Downloads/icon_search_blue@2x.png"; sourceTree = "<group>"; };
 		607042DF1E2870B700462731 /* icon_search_ gray@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_search_ gray@2x.png"; sourceTree = "<group>"; };
+		607042E11E28C69700462731 /* ToolKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ToolKit.swift; path = Transtion/ToolKit.swift; sourceTree = "<group>"; };
+		607042E31E28CB5400462731 /* NSObject+alertController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSObject+alertController.swift"; sourceTree = "<group>"; };
 		6073DD131DFFC46700C99E9C /* AHNewWorkingAgent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHNewWorkingAgent.swift; sourceTree = "<group>"; };
 		6073DD151DFFC49E00C99E9C /* AHNetWorking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHNetWorking.swift; sourceTree = "<group>"; };
 		6074E3EA1E0A5F03006BCC8D /* icon_time@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_time@2x.png"; sourceTree = "<group>"; };
@@ -506,6 +510,8 @@
 				60939DB61E21EA27003B3F13 /* Transtion */,
 				602754BF1E01260700A2B757 /* FPSLabel.h */,
 				602754C01E01260700A2B757 /* FPSLabel.m */,
+				607042E11E28C69700462731 /* ToolKit.swift */,
+				607042E31E28CB5400462731 /* NSObject+alertController.swift */,
 				60C7F8B51DFA66D30069E69A /* AHDisplayViewController.swift */,
 				600D2BA21DF8F7A900D57EA0 /* AHLaunchImageView.swift */,
 				608EED151DF9898C00D1984A /* AHTimeButton.swift */,
@@ -798,6 +804,7 @@
 				600D2BC01DF8FA9200D57EA0 /* BaseViewController.swift in Sources */,
 				6045F3781E0919FB002B0FB6 /* AHWebToolView.swift in Sources */,
 				6020138D1E24FBD8009C0184 /* AHSearchGankModel.swift in Sources */,
+				607042E21E28C69700462731 /* ToolKit.swift in Sources */,
 				606938111E05303700918949 /* AHWaitingView.swift in Sources */,
 				60939DBA1E220AA8003B3F13 /* AHTurnVCTransitionManager.swift in Sources */,
 				6073DD141DFFC46700C99E9C /* AHNewWorkingAgent.swift in Sources */,
@@ -821,6 +828,7 @@
 				600D2B731DF8F33E00D57EA0 /* AHMineViewController.swift in Sources */,
 				600D2B751DF8F35C00D57EA0 /* AHGankViewController.swift in Sources */,
 				602754BD1E00FCC400A2B757 /* AHClassCell.swift in Sources */,
+				607042E41E28CB5400462731 /* NSObject+alertController.swift in Sources */,
 				600DD41A1E0D1ABC00ACFC00 /* AHHomeCell.swift in Sources */,
 				600D2B6D1DF8F1C200D57EA0 /* NSObject+Extension.swift in Sources */,
 			);

@@ -29,13 +29,15 @@ class AHSearchViewController: BaseViewController {
         recentSearchView.getTitleArrayClouse = { [unowned self] (titles) in
             self.recentSearchTitles = titles
             NSKeyedArchiver.archiveRootObject(self.recentSearchTitles, toFile: "saveRecentSearchTitles".cachesDir())
-            AHLog(self.recentSearchTitles)
         }
         
-        recentSearchView.searchGankWithTitleClouse = { [unowned self] (text) in
+        recentSearchView.searchGankWithTitleClouse = { [unowned self] (text, titles) in
             self.view.endEditing(true)
             self.searchTextField.text = text
             self.loadRequest(WithText: text)
+            
+            self.recentSearchTitles = titles
+            NSKeyedArchiver.archiveRootObject(self.recentSearchTitles, toFile: "saveRecentSearchTitles".cachesDir())
         }
         
         return recentSearchView
@@ -96,36 +98,40 @@ class AHSearchViewController: BaseViewController {
     
     func popViewController() {
         self.lastText = ""
-        
+        ToolKit.dismiss()
         view.endEditing(true)
         self.dismiss(animated: true, completion: nil)
     }
     
     func loadRequest(WithText: String) {
         self.lastText = WithText
-        SVProgressHUD.show(withStatus: "正在加载中")
+        
+        ToolKit.show(withStatus: "正在加载中", style: .dark)
         AHNewWorkingAgent.loadSearchRequest(text: WithText, page: 1, success: { (result: Any) in
             if self.lastText != WithText { return }
-            SVProgressHUD.dismiss()
+            
+            ToolKit.dismiss()
             AHLog("成功----\(WithText)")
+            
             guard let datasArray = result as? [AHSearchGankModel] else { return }
             self.tableView.isHidden = false
             self.contentView.isHidden = true
-            
-            // self.recentSearchTitlesAddTitle(text: WithText)
             
             self.datasArray = datasArray
             self.tableView.reloadData()
         }) { (error: Error) in
             if self.lastText != WithText { return }
-            
-            // self.recentSearchTitlesAddTitle(text: self.searchTextField.text!)
+            ToolKit.showError(withStatus: "加载失败", style: .dark)
             AHLog(error)
         }
     }
     
     func cleanBtnAction() {
-        AHLog("清除")
+        self.showAlertController(locationVC: self, title: "清除历史记录", message: "", confrimClouse: { (action) in
+            self.recentSearchView.removeAllTags()
+            self.recentSearchTitles.removeAll()
+            NSKeyedArchiver.archiveRootObject(self.recentSearchTitles, toFile: "saveRecentSearchTitles".cachesDir())
+        }) {_ in}
     }
     
     func viewEndEditing() {
