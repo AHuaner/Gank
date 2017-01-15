@@ -86,8 +86,8 @@ class AHSearchViewController: BaseViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.isHidden = true
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "AHSearchCell")
         tableView.tableFooterView = UIView()
+        tableView.rowHeight = 65
         
         contentView.contentSize = CGSize(width: kScreen_W, height: self.recentSearchView.Height)
         view.addSubview(contentView)
@@ -111,8 +111,6 @@ class AHSearchViewController: BaseViewController {
             if self.lastText != WithText { return }
             
             ToolKit.dismiss()
-            AHLog("成功----\(WithText)")
-            
             guard let datasArray = result as? [AHSearchGankModel] else { return }
             self.tableView.isHidden = false
             self.contentView.isHidden = true
@@ -121,6 +119,7 @@ class AHSearchViewController: BaseViewController {
             self.tableView.reloadData()
         }) { (error: Error) in
             if self.lastText != WithText { return }
+            
             ToolKit.showError(withStatus: "加载失败", style: .dark)
             AHLog(error)
         }
@@ -171,10 +170,17 @@ extension AHSearchViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "AHSearchCell", for: indexPath)
+        let cell = AHSearchCell.cellWithTableView(tableView)
         let model = datasArray[indexPath.row]
-        cell.textLabel?.text = model.desc!
+        cell.searchModel = model
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let model = datasArray[indexPath.row]
+        let webVC = AHHomeWebViewController()
+        webVC.urlString = model.url
+        self.navigationController?.pushViewController(webVC, animated: true)
     }
 }
 

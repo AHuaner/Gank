@@ -93,7 +93,7 @@ class AHNewWorkingAgent: NSObject {
     }
     
     class func loadSearchRequest(text: String, page: Int, success: @escaping Success, failure: @escaping Failure) {
-        let url = AHConfig.Http_ + "search/query/\(text)/category/all/count/10/page/\(page)"
+        let url = AHConfig.Http_ + "search/query/\(text)/category/all/count/20/page/\(page)"
         let urlString = url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
         
         AHNetWorking.requestData(.get, URLString: urlString!, success: { (result: Any) in

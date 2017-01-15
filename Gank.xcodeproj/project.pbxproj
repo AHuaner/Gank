@@ -65,6 +65,8 @@
 		604A29C61E2767FE00228F69 /* AHTurnChannelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604A29C21E2767FE00228F69 /* AHTurnChannelViewController.swift */; };
 		604A29C81E27713B00228F69 /* icon_clean@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 604A29C71E27713B00228F69 /* icon_clean@2x.png */; };
 		605E07F41E026D0E00225BA3 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 605E07F31E026D0E00225BA3 /* String+Extension.swift */; };
+		606920BD1E2B927C0010945F /* AHSearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 606920BB1E2B927C0010945F /* AHSearchCell.swift */; };
+		606920BE1E2B927C0010945F /* AHSearchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 606920BC1E2B927C0010945F /* AHSearchCell.xib */; };
 		6069380F1E04E86900918949 /* AHBrowserImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6069380E1E04E86900918949 /* AHBrowserImageView.swift */; };
 		606938111E05303700918949 /* AHWaitingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 606938101E05303700918949 /* AHWaitingView.swift */; };
 		606B1E2A1DFD7DFD00BD86E2 /* close_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 606B1E291DFD7DFD00BD86E2 /* close_button@2x.png */; };
@@ -190,6 +192,8 @@
 		604A29C21E2767FE00228F69 /* AHTurnChannelViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHTurnChannelViewController.swift; sourceTree = "<group>"; };
 		604A29C71E27713B00228F69 /* icon_clean@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_clean@2x.png"; sourceTree = "<group>"; };
 		605E07F31E026D0E00225BA3 /* String+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		606920BB1E2B927C0010945F /* AHSearchCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHSearchCell.swift; sourceTree = "<group>"; };
+		606920BC1E2B927C0010945F /* AHSearchCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AHSearchCell.xib; sourceTree = "<group>"; };
 		6069380E1E04E86900918949 /* AHBrowserImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHBrowserImageView.swift; sourceTree = "<group>"; };
 		606938101E05303700918949 /* AHWaitingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHWaitingView.swift; sourceTree = "<group>"; };
 		606B1E291DFD7DFD00BD86E2 /* close_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "close_button@2x.png"; sourceTree = "<group>"; };
@@ -410,6 +414,8 @@
 				6036A8741E2377DB00ACDE90 /* AHSearchViewController.xib */,
 				604A29BA1E273C3100228F69 /* AHSearchListView.swift */,
 				604A29BC1E27629800228F69 /* AHSeatchTagBtn.swift */,
+				606920BB1E2B927C0010945F /* AHSearchCell.swift */,
+				606920BC1E2B927C0010945F /* AHSearchCell.xib */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -675,6 +681,7 @@
 				60C7F8C21DFA6B4E0069E69A /* tabBar_bgwhiteColor@2x.png in Resources */,
 				6036A8751E2377DB00ACDE90 /* AHSearchViewController.xib in Resources */,
 				6045F3801E09316C002B0FB6 /* nav_back@2x.png in Resources */,
+				606920BE1E2B927C0010945F /* AHSearchCell.xib in Resources */,
 				60C7F8C01DFA6B4E0069E69A /* property_select@2x.png in Resources */,
 				60C7F8C11DFA6B4E0069E69A /* property@2x.png in Resources */,
 				6045F37A1E091A06002B0FB6 /* AHWebToolView.xib in Resources */,
@@ -784,6 +791,7 @@
 				608EED161DF9898C00D1984A /* AHTimeButton.swift in Sources */,
 				604A29BD1E27629800228F69 /* AHSeatchTagBtn.swift in Sources */,
 				600D2B6E1DF8F1C200D57EA0 /* UIView+Extension.swift in Sources */,
+				606920BD1E2B927C0010945F /* AHSearchCell.swift in Sources */,
 				60A19DED1E213A98007D24D2 /* AHHomeWebViewController.swift in Sources */,
 				6036A8731E2376A600ACDE90 /* AHSearchViewController.swift in Sources */,
 				600BA1451E0B9478002E4D94 /* AHHomeGankModel.swift in Sources */,
