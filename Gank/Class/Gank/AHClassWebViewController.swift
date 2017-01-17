@@ -26,7 +26,7 @@ class AHClassWebViewController: BaseWebViewController {
     fileprivate lazy var moreView: AHMoreView = {
         let moreView = AHMoreView.moreView()
         let W = kScreen_W / 2
-        moreView.frame = CGRect(x: kScreen_W - W - 5, y: 50, width: W, height: 147)
+        moreView.frame = CGRect(x: kScreen_W - W - 3, y: 50, width: W, height: 147)
         return moreView
     }()
     
@@ -86,7 +86,9 @@ class AHClassWebViewController: BaseWebViewController {
             case 1: // 分享
                 ToolKit.showSuccess(withStatus: "收藏成功")
             case 2: // Safari打开
-                ToolKit.showSuccess(withStatus: "收藏成功")
+                guard let urlString = self.urlString else { return }
+                guard let url = URL(string: urlString) else { return }
+                UIApplication.shared.openURL(url)
             default: break
             }
         }

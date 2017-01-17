@@ -107,7 +107,11 @@ class AHSearchViewController: BaseViewController {
     
     // 设置刷新控件
     fileprivate func setupRefresh() {
-        tableView.mj_footer = MJRefreshBackNormalFooter.init(refreshingTarget: self, refreshingAction: #selector(AHSearchViewController.loadMoreGank))
+        let footer =  MJRefreshBackNormalFooter.init(refreshingTarget: self, refreshingAction: #selector(AHSearchViewController.loadMoreGank))
+        footer?.setTitle("上拉加载更多", for: .idle)
+        footer?.setTitle("释放立即加载", for: .pulling)
+        footer?.setTitle("干货加载中...", for: .refreshing)
+        tableView.mj_footer = footer
     }
     
     // 上拉加载更多数据
