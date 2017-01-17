@@ -200,7 +200,7 @@
 		607042DD1E286F2C00462731 /* icon_search_blue@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon_search_blue@2x.png"; path = "../../../Downloads/icon_search_blue@2x.png"; sourceTree = "<group>"; };
 		607042DF1E2870B700462731 /* icon_search_ gray@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_search_ gray@2x.png"; sourceTree = "<group>"; };
 		607042E11E28C69700462731 /* ToolKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ToolKit.swift; path = Transtion/ToolKit.swift; sourceTree = "<group>"; };
-		607042E31E28CB5400462731 /* NSObject+alertController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSObject+alertController.swift"; sourceTree = "<group>"; };
+		607042E31E28CB5400462731 /* NSObject+alertController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "NSObject+alertController.swift"; path = "../Utility/NSObject+alertController.swift"; sourceTree = "<group>"; };
 		6073DD131DFFC46700C99E9C /* AHNewWorkingAgent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHNewWorkingAgent.swift; sourceTree = "<group>"; };
 		6073DD151DFFC49E00C99E9C /* AHNetWorking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHNetWorking.swift; sourceTree = "<group>"; };
 		6074E3EA1E0A5F03006BCC8D /* icon_time@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_time@2x.png"; sourceTree = "<group>"; };
@@ -311,6 +311,7 @@
 		600D2B681DF8F1C200D57EA0 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				607042E31E28CB5400462731 /* NSObject+alertController.swift */,
 				605E07F31E026D0E00225BA3 /* String+Extension.swift */,
 				600D2B691DF8F1C200D57EA0 /* DispatchTime+Extension.swift */,
 				600D2B6A1DF8F1C200D57EA0 /* NSObject+Extension.swift */,
@@ -517,7 +518,6 @@
 				602754BF1E01260700A2B757 /* FPSLabel.h */,
 				602754C01E01260700A2B757 /* FPSLabel.m */,
 				607042E11E28C69700462731 /* ToolKit.swift */,
-				607042E31E28CB5400462731 /* NSObject+alertController.swift */,
 				60C7F8B51DFA66D30069E69A /* AHDisplayViewController.swift */,
 				600D2BA21DF8F7A900D57EA0 /* AHLaunchImageView.swift */,
 				608EED151DF9898C00D1984A /* AHTimeButton.swift */,

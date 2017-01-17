@@ -59,7 +59,6 @@ class AHSearchViewController: BaseViewController {
         super.viewWillAppear(animated)
         UIApplication.shared.statusBarStyle = .default
         self.navigationController?.setNavigationBarHidden(true, animated: animated)
-        searchTextField.becomeFirstResponder()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -72,6 +71,9 @@ class AHSearchViewController: BaseViewController {
     
     
     fileprivate func setupUI() {
+        // 弹出键盘
+        searchTextField.becomeFirstResponder()
+        
         // 获取历史搜索
         let saveRecentSearchTitles = NSKeyedUnarchiver.unarchiveObject(withFile: "saveRecentSearchTitles".cachesDir()) as? [String]
         if saveRecentSearchTitles != nil {
@@ -87,12 +89,11 @@ class AHSearchViewController: BaseViewController {
         tableView.dataSource = self
         tableView.isHidden = true
         tableView.tableFooterView = UIView()
-        tableView.rowHeight = 65
+        tableView.rowHeight = 50
         
         contentView.contentSize = CGSize(width: kScreen_W, height: self.recentSearchView.Height)
         view.addSubview(contentView)
         contentView.addSubview(recentSearchView)
-        
         recentSearchView.cleanBtn.addTarget(self, action: #selector(AHSearchViewController.cleanBtnAction), for: .touchUpInside)
     }
     
