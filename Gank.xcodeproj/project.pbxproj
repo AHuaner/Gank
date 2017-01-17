@@ -80,6 +80,11 @@
 		6084E1731E2364C200E8AC15 /* AHSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6084E1721E2364C200E8AC15 /* AHSearchView.swift */; };
 		6084E1751E2364D000E8AC15 /* AHSearchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6084E1741E2364D000E8AC15 /* AHSearchView.xib */; };
 		6084E1771E23660000E8AC15 /* icon_search@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6084E1761E23660000E8AC15 /* icon_search@2x.png */; };
+		6089C93B1E2E077200ACE2CB /* icon_collect@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6089C9381E2E077200ACE2CB /* icon_collect@2x.png */; };
+		6089C93C1E2E077200ACE2CB /* icon_safari@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6089C9391E2E077200ACE2CB /* icon_safari@2x.png */; };
+		6089C93D1E2E077200ACE2CB /* icon_share@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6089C93A1E2E077200ACE2CB /* icon_share@2x.png */; };
+		6089C9401E2E07C900ACE2CB /* AHMoreCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6089C93E1E2E07C900ACE2CB /* AHMoreCell.swift */; };
+		6089C9411E2E07C900ACE2CB /* AHMoreCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6089C93F1E2E07C900ACE2CB /* AHMoreCell.xib */; };
 		608EED141DF9864700D1984A /* adver.png in Resources */ = {isa = PBXBuildFile; fileRef = 608EED131DF9864700D1984A /* adver.png */; };
 		608EED161DF9898C00D1984A /* AHTimeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 608EED151DF9898C00D1984A /* AHTimeButton.swift */; };
 		60939DB81E220409003B3F13 /* icon_more@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60939DB71E220409003B3F13 /* icon_more@2x.png */; };
@@ -89,6 +94,8 @@
 		60939DC01E223F03003B3F13 /* icon_close_second@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60939DBF1E223F03003B3F13 /* icon_close_second@2x.png */; };
 		60A19DED1E213A98007D24D2 /* AHHomeWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A19DEC1E213A98007D24D2 /* AHHomeWebViewController.swift */; };
 		60C0935D1E2DBDBC004D6B90 /* icon_search_blue@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60C0935C1E2DBDBC004D6B90 /* icon_search_blue@2x.png */; };
+		60C093641E2DEF99004D6B90 /* AHMoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C093631E2DEF99004D6B90 /* AHMoreView.swift */; };
+		60C093661E2DEFA6004D6B90 /* AHMoreView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60C093651E2DEFA6004D6B90 /* AHMoreView.xib */; };
 		60C7F8B61DFA66D30069E69A /* AHDisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C7F8B51DFA66D30069E69A /* AHDisplayViewController.swift */; };
 		60C7F8B81DFA6B390069E69A /* back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60C7F8B71DFA6B390069E69A /* back@2x.png */; };
 		60C7F8BE1DFA6B4E0069E69A /* find_select@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60C7F8B91DFA6B4E0069E69A /* find_select@2x.png */; };
@@ -207,6 +214,11 @@
 		6084E1721E2364C200E8AC15 /* AHSearchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHSearchView.swift; sourceTree = "<group>"; };
 		6084E1741E2364D000E8AC15 /* AHSearchView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AHSearchView.xib; sourceTree = "<group>"; };
 		6084E1761E23660000E8AC15 /* icon_search@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_search@2x.png"; sourceTree = "<group>"; };
+		6089C9381E2E077200ACE2CB /* icon_collect@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_collect@2x.png"; sourceTree = "<group>"; };
+		6089C9391E2E077200ACE2CB /* icon_safari@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_safari@2x.png"; sourceTree = "<group>"; };
+		6089C93A1E2E077200ACE2CB /* icon_share@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_share@2x.png"; sourceTree = "<group>"; };
+		6089C93E1E2E07C900ACE2CB /* AHMoreCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHMoreCell.swift; sourceTree = "<group>"; };
+		6089C93F1E2E07C900ACE2CB /* AHMoreCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AHMoreCell.xib; sourceTree = "<group>"; };
 		608EED131DF9864700D1984A /* adver.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = adver.png; sourceTree = "<group>"; };
 		608EED151DF9898C00D1984A /* AHTimeButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHTimeButton.swift; sourceTree = "<group>"; };
 		60939DB71E220409003B3F13 /* icon_more@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_more@2x.png"; sourceTree = "<group>"; };
@@ -216,6 +228,8 @@
 		60939DBF1E223F03003B3F13 /* icon_close_second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_close_second@2x.png"; sourceTree = "<group>"; };
 		60A19DEC1E213A98007D24D2 /* AHHomeWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHHomeWebViewController.swift; sourceTree = "<group>"; };
 		60C0935C1E2DBDBC004D6B90 /* icon_search_blue@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_search_blue@2x.png"; sourceTree = "<group>"; };
+		60C093631E2DEF99004D6B90 /* AHMoreView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHMoreView.swift; sourceTree = "<group>"; };
+		60C093651E2DEFA6004D6B90 /* AHMoreView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AHMoreView.xib; sourceTree = "<group>"; };
 		60C7F8B51DFA66D30069E69A /* AHDisplayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHDisplayViewController.swift; sourceTree = "<group>"; };
 		60C7F8B71DFA6B390069E69A /* back@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back@2x.png"; sourceTree = "<group>"; };
 		60C7F8B91DFA6B4E0069E69A /* find_select@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "find_select@2x.png"; sourceTree = "<group>"; };
@@ -472,6 +486,9 @@
 		60396BE81DF83C1E00A23DAA /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				6089C9381E2E077200ACE2CB /* icon_collect@2x.png */,
+				6089C9391E2E077200ACE2CB /* icon_safari@2x.png */,
+				6089C93A1E2E077200ACE2CB /* icon_share@2x.png */,
 				60C0935C1E2DBDBC004D6B90 /* icon_search_blue@2x.png */,
 				607042DF1E2870B700462731 /* icon_search_ gray@2x.png */,
 				604A29C71E27713B00228F69 /* icon_clean@2x.png */,
@@ -519,6 +536,10 @@
 				600D2BA21DF8F7A900D57EA0 /* AHLaunchImageView.swift */,
 				608EED151DF9898C00D1984A /* AHTimeButton.swift */,
 				601560931DFEC46F00369E64 /* AHLoadingView.swift */,
+				60C093631E2DEF99004D6B90 /* AHMoreView.swift */,
+				60C093651E2DEFA6004D6B90 /* AHMoreView.xib */,
+				6089C93E1E2E07C900ACE2CB /* AHMoreCell.swift */,
+				6089C93F1E2E07C900ACE2CB /* AHMoreCell.xib */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -690,12 +711,16 @@
 				6036A8751E2377DB00ACDE90 /* AHSearchViewController.xib in Resources */,
 				6045F3801E09316C002B0FB6 /* nav_back@2x.png in Resources */,
 				606920BE1E2B927C0010945F /* AHSearchCell.xib in Resources */,
+				6089C93D1E2E077200ACE2CB /* icon_share@2x.png in Resources */,
 				60C7F8C01DFA6B4E0069E69A /* property_select@2x.png in Resources */,
 				60C7F8C11DFA6B4E0069E69A /* property@2x.png in Resources */,
+				6089C9411E2E07C900ACE2CB /* AHMoreCell.xib in Resources */,
 				6045F37A1E091A06002B0FB6 /* AHWebToolView.xib in Resources */,
 				604A29C81E27713B00228F69 /* icon_clean@2x.png in Resources */,
 				600BA14A1E0BB753002E4D94 /* AHHeaderSectionView.xib in Resources */,
+				60C093661E2DEFA6004D6B90 /* AHMoreView.xib in Resources */,
 				60C7F8D01DFAD3FE0069E69A /* close2_button@2x.png in Resources */,
+				6089C93B1E2E077200ACE2CB /* icon_collect@2x.png in Resources */,
 				6074E3F11E0A6CF0006BCC8D /* icon_editor@2x.png in Resources */,
 				60939DC01E223F03003B3F13 /* icon_close_second@2x.png in Resources */,
 				60DDC86F1DF8FD88003F1464 /* loading4.png in Resources */,
@@ -718,6 +743,7 @@
 				600DD41B1E0D1ABC00ACFC00 /* AHHomeCell.xib in Resources */,
 				60939DBE1E221E19003B3F13 /* add_button_normal@2x.png in Resources */,
 				6084E1771E23660000E8AC15 /* icon_search@2x.png in Resources */,
+				6089C93C1E2E077200ACE2CB /* icon_safari@2x.png in Resources */,
 				60C7F8BF1DFA6B4E0069E69A /* find@2x.png in Resources */,
 				606B1E2A1DFD7DFD00BD86E2 /* close_button@2x.png in Resources */,
 				60C0935D1E2DBDBC004D6B90 /* icon_search_blue@2x.png in Resources */,
@@ -828,6 +854,7 @@
 				604A29C31E2767FE00228F69 /* AHListView.swift in Sources */,
 				6073DD161DFFC49E00C99E9C /* AHNetWorking.swift in Sources */,
 				600906E91E0020A6002F0A73 /* AHClassModel.swift in Sources */,
+				60C093641E2DEF99004D6B90 /* AHMoreView.swift in Sources */,
 				60144EA11E01632C00AC31D1 /* AHImageCell.swift in Sources */,
 				600BA13D1E0B7A67002E4D94 /* AHHomeViewController.swift in Sources */,
 				600BA14C1E0BBA72002E4D94 /* AHHomeHeaderView.swift in Sources */,
@@ -839,6 +866,7 @@
 				60EB315B1E2374E100E93715 /* AHPushTransition.swift in Sources */,
 				601CF5E91DF8379A002AF8D5 /* AHMainViewController.swift in Sources */,
 				6036A86C1E23762200ACDE90 /* BaseWebViewController.swift in Sources */,
+				6089C9401E2E07C900ACE2CB /* AHMoreCell.swift in Sources */,
 				602754C11E01260700A2B757 /* FPSLabel.m in Sources */,
 				60F0EE821E041AB800D8ECA0 /* AHPhotoBrowser.swift in Sources */,
 				600D2B731DF8F33E00D57EA0 /* AHMineViewController.swift in Sources */,

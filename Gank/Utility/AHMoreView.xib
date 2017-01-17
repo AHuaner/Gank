@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="AHMoreView" customModule="Gank" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="popover_background_right" translatesAutoresizingMaskIntoConstraints="NO" id="y1F-YL-H8l">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                </imageView>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="SSW-Tr-0td">
+                    <rect key="frame" x="5" y="10" width="365" height="652"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </tableView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="SSW-Tr-0td" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="8DY-oE-VQl"/>
+                <constraint firstAttribute="bottom" secondItem="y1F-YL-H8l" secondAttribute="bottom" id="A3F-Os-Cda"/>
+                <constraint firstItem="SSW-Tr-0td" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="5" id="EeZ-2e-zMF"/>
+                <constraint firstItem="y1F-YL-H8l" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="F13-xP-eKd"/>
+                <constraint firstItem="y1F-YL-H8l" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="SSp-sZ-2c1"/>
+                <constraint firstAttribute="bottom" secondItem="SSW-Tr-0td" secondAttribute="bottom" constant="5" id="bpO-Yp-Esy"/>
+                <constraint firstAttribute="trailing" secondItem="y1F-YL-H8l" secondAttribute="trailing" id="tei-BT-4Bn"/>
+                <constraint firstAttribute="trailing" secondItem="SSW-Tr-0td" secondAttribute="trailing" constant="5" id="tf1-oe-nB7"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <connections>
+                <outlet property="tableView" destination="SSW-Tr-0td" id="FEi-IX-JXH"/>
+            </connections>
+            <point key="canvasLocation" x="-92" y="9"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="popover_background_right" width="160" height="62"/>
+    </resources>
+</document>

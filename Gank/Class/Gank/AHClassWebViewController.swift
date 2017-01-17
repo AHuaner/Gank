@@ -22,6 +22,22 @@ class AHClassWebViewController: BaseWebViewController {
     
     var classModel: AHClassModel?
     
+    // 弹窗
+    fileprivate lazy var moreView: AHMoreView = {
+        let moreView = AHMoreView.moreView()
+        let W = kScreen_W / 2
+        moreView.frame = CGRect(x: kScreen_W - W - 5, y: 50, width: W, height: 147)
+        return moreView
+    }()
+    
+    // 蒙版
+    fileprivate var maskBtnView: UIButton = {
+        let maskBtnView = UIButton()
+        maskBtnView.frame = kScreen_BOUNDS
+        maskBtnView.backgroundColor = UIColor.clear
+        return maskBtnView
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -35,6 +51,7 @@ class AHClassWebViewController: BaseWebViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        self.navigationController?.setNavigationBarHidden(false, animated: false)
         self.navigationController?.delegate = nil
         
         if isCustomTranstion { return }
@@ -59,26 +76,30 @@ class AHClassWebViewController: BaseWebViewController {
         
         let oriImage = UIImage(named: "icon_more")?.withRenderingMode(UIImageRenderingMode.alwaysOriginal)
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: oriImage, style: .plain, target: self, action: #selector(AHClassWebViewController.moreClick))
+        
+        maskBtnView.addTarget(self, action: #selector(AHClassWebViewController.dismissMoreView), for: .touchUpInside)
+        
+        moreView.tableViewdidSelectClouse = { [unowned self] (indexPath) in
+            switch indexPath.row {
+            case 0: // 收藏
+                ToolKit.showSuccess(withStatus: "收藏成功")
+            case 1: // 分享
+                ToolKit.showSuccess(withStatus: "收藏成功")
+            case 2: // Safari打开
+                ToolKit.showSuccess(withStatus: "收藏成功")
+            default: break
+            }
+        }
     }
     
     func moreClick() {
-        
+        kWindow?.addSubview(maskBtnView)
+        kWindow?.addSubview(moreView)
     }
     
-    func backAciton() {
-        webView.goBack()
-    }
-    
-    func forwardAction() {
-        webView.goForward()
-    }
-    
-    func reloadAction() {
-        webView.reload()
-    }
-    
-    func likeAction() {
-        AHLog("喜欢")
+    func dismissMoreView() {
+        maskBtnView.removeFromSuperview()
+        moreView.removeFromSuperview()
     }
 }
 
@@ -95,8 +116,10 @@ extension AHClassWebViewController: UIScrollViewDelegate {
         newContentOffsetY = scrollView.contentOffset.y
         if newContentOffsetY > oldContentOffsetY && oldContentOffsetY > contentOffsetY {
             // setToolViewHidden(true)
+            // self.navigationController?.setNavigationBarHidden(true, animated: true)
         } else if newContentOffsetY < oldContentOffsetY && oldContentOffsetY < contentOffsetY {
             // setToolViewHidden(false)
+            // self.navigationController?.setNavigationBarHidden(false, animated: true)
         }
         
         
