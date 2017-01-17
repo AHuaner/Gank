@@ -34,7 +34,7 @@ extension ToolKit {
         SVProgressHUD.showError(withStatus: status)
     }
     
-    class func dismiss() {
+    class func dismissHUD() {
         SVProgressHUD.dismiss()
     }
 }

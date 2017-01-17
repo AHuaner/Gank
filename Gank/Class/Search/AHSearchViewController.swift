@@ -8,6 +8,7 @@
 
 import UIKit
 import SVProgressHUD
+import MJRefresh
 
 class AHSearchViewController: BaseViewController {
 
@@ -15,7 +16,11 @@ class AHSearchViewController: BaseViewController {
     @IBOutlet weak var searchTextField: UITextField!
     @IBOutlet weak var tableView: UITableView!
     
+    // 模型数组
     fileprivate var datasArray: [AHSearchGankModel] = [AHSearchGankModel]()
+    
+    // 当前页码
+    fileprivate var currentPage: Int = 1
     
     // 最后一次请求的内容, 防止重复加载
     fileprivate var lastText: String!
@@ -53,6 +58,8 @@ class AHSearchViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        
+        setupRefresh()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -91,27 +98,54 @@ class AHSearchViewController: BaseViewController {
         tableView.tableFooterView = UIView()
         tableView.rowHeight = 50
         
+        
         contentView.contentSize = CGSize(width: kScreen_W, height: self.recentSearchView.Height)
         view.addSubview(contentView)
         contentView.addSubview(recentSearchView)
         recentSearchView.cleanBtn.addTarget(self, action: #selector(AHSearchViewController.cleanBtnAction), for: .touchUpInside)
     }
     
+    // 设置刷新控件
+    fileprivate func setupRefresh() {
+        tableView.mj_footer = MJRefreshBackNormalFooter.init(refreshingTarget: self, refreshingAction: #selector(AHSearchViewController.loadMoreGank))
+    }
+    
+    // 上拉加载更多数据
+    func loadMoreGank() {
+        let currentPage = self.currentPage + 1
+        guard let text = self.searchTextField.text else { return }
+        
+        AHNewWorkingAgent.loadSearchRequest(text: text, page: currentPage, success: { (result) in
+            guard let datas = result as? [AHSearchGankModel] else {
+                self.tableView.mj_footer.endRefreshing()
+                return
+            }
+            
+            self.datasArray.append(contentsOf: datas)
+            self.tableView.reloadData()
+            self.currentPage = currentPage
+            self.tableView.mj_footer.endRefreshing()
+            
+        }) { (error) in
+            self.tableView.mj_footer.endRefreshing()
+        }
+    }
+    
     func popViewController() {
         self.lastText = ""
-        ToolKit.dismiss()
+        ToolKit.dismissHUD()
         view.endEditing(true)
         self.dismiss(animated: true, completion: nil)
     }
     
-    func loadRequest(WithText: String) {
-        self.lastText = WithText
+    func loadRequest(WithText text: String) {
+        self.lastText = text
         
         ToolKit.show(withStatus: "正在加载中", style: .dark)
-        AHNewWorkingAgent.loadSearchRequest(text: WithText, page: 1, success: { (result: Any) in
-            if self.lastText != WithText { return }
+        AHNewWorkingAgent.loadSearchRequest(text: text, page: 1, success: { (result: Any) in
+            if self.lastText != text { return }
             
-            ToolKit.dismiss()
+            ToolKit.dismissHUD()
             guard let datasArray = result as? [AHSearchGankModel] else { return }
             self.tableView.isHidden = false
             self.contentView.isHidden = true
@@ -119,7 +153,7 @@ class AHSearchViewController: BaseViewController {
             self.datasArray = datasArray
             self.tableView.reloadData()
         }) { (error: Error) in
-            if self.lastText != WithText { return }
+            if self.lastText != text { return }
             
             ToolKit.showError(withStatus: "加载失败", style: .dark)
             AHLog(error)
@@ -178,6 +212,8 @@ extension AHSearchViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        
         let model = datasArray[indexPath.row]
         let webVC = AHHomeWebViewController()
         webVC.urlString = model.url

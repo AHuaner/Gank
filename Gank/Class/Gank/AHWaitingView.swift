@@ -57,7 +57,7 @@ class AHWaitingView: UIView {
             ctx.addEllipse(in: CGRect(x: bigX, y: bigY, width: bigW, height: bigH))
             ctx.fillPath()
             
-            RGBColor(0, g: 0, b: 0, alpha: 0.8).set()
+            RGBColor(0, g: 0, b: 0, alpha: 0.1).set()
             let radius = bigRadius - 1
             let w = radius * 2
             let h = w
