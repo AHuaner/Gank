@@ -9,6 +9,17 @@ target 'Gank' do
   pod 'MJRefresh'
   pod 'YYWebImage'
   pod 'FMDB'
+  
+  # U-Share SDK UI模块（分享面板，建议添加）
+  pod 'UMengUShare/UI'
+  # 集成微信
+  pod 'UMengUShare/Social/WeChat'
+  # 集成短信
+  pod 'UMengUShare/Social/SMS'
+  # 集成新浪微博
+  pod ‘UMengUShare/Social/Sina'
+  
+  pod 'Bugly'
 end
 
 post_install do |installer|

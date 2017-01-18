@@ -16,7 +16,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
+        // 设置根控制器
         setRootVC()
+        
+        // 腾讯Bugly crash日志配置
+        setBugly()
         
         return true
     }
@@ -49,6 +53,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.backgroundColor = UIColorMainBG
         window?.rootViewController = rootVC
         window?.makeKeyAndVisible()
+    }
+    
+    fileprivate func setBugly() {
+        let config = BuglyConfig()
+        config.reportLogLevel = .warn
+        config.blockMonitorEnable = true
+        config.blockMonitorTimeout = 1.5
+        config.channel = "AppStore"
+        
+        Bugly.start(withAppId: "b8f061c283",
+                    developmentDevice: false,
+                    config: config)
+        Bugly.updateAppVersion(Bundle.releaseVersionNumber!)
+        Bugly.setUserValue(ProcessInfo.processInfo.processName, forKey: "Process")
+        Bugly.setUserIdentifier("\(UIDevice.current.name)")
     }
 }
 

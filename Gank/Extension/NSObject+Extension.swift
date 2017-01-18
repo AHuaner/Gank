@@ -9,13 +9,11 @@
 import UIKit
 
 extension NSObject {
-    
     class func getClassName() -> String {
         let name =  Bundle.main.infoDictionary!["CFBundleExecutable"] as! String
         let reaName = name + "."
         return NSStringFromClass(self).substring(from: reaName.endIndex)
     }
-    
 }
 
 func RGBColor(_ r:CGFloat, g:CGFloat, b:CGFloat, alpha:CGFloat) -> UIColor{

@@ -7,5 +7,6 @@
 #import <MJRefresh/MJRefresh.h>
 #import <YYWebImage/YYWebImage.h>
 #import <FMDB/FMDB.h>
+#import <Bugly/Bugly.h>
 #import "FPSLabel.h"
 

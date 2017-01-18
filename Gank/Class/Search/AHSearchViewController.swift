@@ -58,7 +58,6 @@ class AHSearchViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        
         setupRefresh()
     }
     

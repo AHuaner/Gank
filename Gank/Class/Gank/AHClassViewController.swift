@@ -74,7 +74,7 @@ class AHClassViewController: BaseViewController {
         tableView.mj_header = header
         let footer = MJRefreshBackNormalFooter.init(refreshingTarget: self, refreshingAction: #selector(AHClassViewController.loadMoreGank))
         footer?.setTitle("上拉加载更多", for: .idle)
-        footer?.setTitle("松开立即加载", for: .pulling)
+        footer?.setTitle("释放立即加载", for: .pulling)
         footer?.setTitle("干货加载中...", for: .refreshing)
         tableView.mj_footer = footer
     }
