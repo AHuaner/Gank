@@ -78,6 +78,21 @@ class AHGankViewController: AHDisplayViewController {
         addTitleButton.addTarget(self, action: #selector(AHGankViewController.addTitleButtonClick(_:)), for: .touchUpInside)
         
         NotificationCenter.default.addObserver(self, selector: #selector(AHGankViewController.changeStatusBar), name: NSNotification.Name(rawValue: "changeStatusBarNotifica"), object: nil)
+        
+        setupSqlite()
+    }
+    
+    // 初始化数据库
+    func setupSqlite() {
+        for key in showTagsArray {
+            let name = ConfigDict[key] as! String
+            SQLiteManager.shareManager().creatTable(tableName: name)
+        }
+        
+        for key in moreTagsArray {
+            let name = ConfigDict[key] as! String
+            SQLiteManager.shareManager().creatTable(tableName: name)
+        }
     }
     
     func addTitleButtonClick(_ btn: UIButton) {

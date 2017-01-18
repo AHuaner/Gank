@@ -16,10 +16,10 @@ target 'Gank' do
   pod 'UMengUShare/Social/WeChat'
   # 集成短信
   pod 'UMengUShare/Social/SMS'
-  # 集成新浪微博
-  pod ‘UMengUShare/Social/Sina'
   
+  # 腾讯Bugly
   pod 'Bugly'
+  
 end
 
 post_install do |installer|

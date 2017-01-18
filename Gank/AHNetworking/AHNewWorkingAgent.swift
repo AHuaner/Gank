@@ -17,6 +17,10 @@ class AHNewWorkingAgent: NSObject {
         let urlString = url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
         
         AHNetWorking.requestData(.get, URLString: urlString!, parameters: nil, success: { (result: Any) in
+            let json = result as! [String: Any]
+            let array = json["results"] as! [[String: Any]]
+            AHGankDAO.cacheStatuses(type: tpye, ganks: array)
+            
             // 创建一个组队列
             let group = DispatchGroup()
             

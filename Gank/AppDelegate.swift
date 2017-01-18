@@ -16,11 +16,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
-        // 设置根控制器
+        // 初始化根控制器
         setRootVC()
         
         // 腾讯Bugly crash日志配置
         setBugly()
+        
+        // 创建数据库文件
+        SQLiteManager.shareManager().openDB(DBName: "ganks.sqlite")
         
         return true
     }
@@ -46,7 +49,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-
+    
     fileprivate func setRootVC() {
         let rootVC = AHMainViewController()
         window = UIWindow(frame: UIScreen.main.bounds)
@@ -63,8 +66,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         config.channel = "AppStore"
         
         Bugly.start(withAppId: "b8f061c283",
-                    developmentDevice: false,
+                    developmentDevice: true,
                     config: config)
+        
         Bugly.updateAppVersion(Bundle.releaseVersionNumber!)
         Bugly.setUserValue(ProcessInfo.processInfo.processName, forKey: "Process")
         Bugly.setUserIdentifier("\(UIDevice.current.name)")

@@ -85,6 +85,8 @@
 		6089C93D1E2E077200ACE2CB /* icon_share@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6089C93A1E2E077200ACE2CB /* icon_share@2x.png */; };
 		6089C9401E2E07C900ACE2CB /* AHMoreCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6089C93E1E2E07C900ACE2CB /* AHMoreCell.swift */; };
 		6089C9411E2E07C900ACE2CB /* AHMoreCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6089C93F1E2E07C900ACE2CB /* AHMoreCell.xib */; };
+		608C52301E2F678600BBE794 /* SQLiteManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 608C522F1E2F678600BBE794 /* SQLiteManager.swift */; };
+		608C52331E2F70C800BBE794 /* AHGankDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 608C52321E2F70C800BBE794 /* AHGankDAO.swift */; };
 		608EED141DF9864700D1984A /* adver.png in Resources */ = {isa = PBXBuildFile; fileRef = 608EED131DF9864700D1984A /* adver.png */; };
 		608EED161DF9898C00D1984A /* AHTimeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 608EED151DF9898C00D1984A /* AHTimeButton.swift */; };
 		60939DB81E220409003B3F13 /* icon_more@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60939DB71E220409003B3F13 /* icon_more@2x.png */; };
@@ -219,6 +221,8 @@
 		6089C93A1E2E077200ACE2CB /* icon_share@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_share@2x.png"; sourceTree = "<group>"; };
 		6089C93E1E2E07C900ACE2CB /* AHMoreCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHMoreCell.swift; sourceTree = "<group>"; };
 		6089C93F1E2E07C900ACE2CB /* AHMoreCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AHMoreCell.xib; sourceTree = "<group>"; };
+		608C522F1E2F678600BBE794 /* SQLiteManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SQLiteManager.swift; path = Gank/Utility/SQLiteManager.swift; sourceTree = SOURCE_ROOT; };
+		608C52321E2F70C800BBE794 /* AHGankDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHGankDAO.swift; sourceTree = "<group>"; };
 		608EED131DF9864700D1984A /* adver.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = adver.png; sourceTree = "<group>"; };
 		608EED151DF9898C00D1984A /* AHTimeButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHTimeButton.swift; sourceTree = "<group>"; };
 		60939DB71E220409003B3F13 /* icon_more@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_more@2x.png"; sourceTree = "<group>"; };
@@ -528,6 +532,7 @@
 		60396BE91DF83C2300A23DAA /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				608C52311E2F70B100BBE794 /* SQLite */,
 				60939DB61E21EA27003B3F13 /* Transtion */,
 				602754BF1E01260700A2B757 /* FPSLabel.h */,
 				602754C01E01260700A2B757 /* FPSLabel.m */,
@@ -553,6 +558,15 @@
 				604A29C11E2767FE00228F69 /* AHTagBtn.swift */,
 			);
 			path = TurnChannel;
+			sourceTree = "<group>";
+		};
+		608C52311E2F70B100BBE794 /* SQLite */ = {
+			isa = PBXGroup;
+			children = (
+				608C522F1E2F678600BBE794 /* SQLiteManager.swift */,
+				608C52321E2F70C800BBE794 /* AHGankDAO.swift */,
+			);
+			path = SQLite;
 			sourceTree = "<group>";
 		};
 		608EED101DF985A000D1984A /* Other */ = {
@@ -831,6 +845,7 @@
 				600BA1451E0B9478002E4D94 /* AHHomeGankModel.swift in Sources */,
 				6084E1731E2364C200E8AC15 /* AHSearchView.swift in Sources */,
 				601560921DFE820F00369E64 /* AHClassViewController.swift in Sources */,
+				608C52301E2F678600BBE794 /* SQLiteManager.swift in Sources */,
 				601731381DF97C200069D4C4 /* TabBarController.swift in Sources */,
 				60EB31591E2374D900E93715 /* AHPopTranstion.swift in Sources */,
 				600D2BA31DF8F7A900D57EA0 /* AHLaunchImageView.swift in Sources */,
@@ -852,6 +867,7 @@
 				6073DD141DFFC46700C99E9C /* AHNewWorkingAgent.swift in Sources */,
 				604A29C41E2767FE00228F69 /* AHMoreListView.swift in Sources */,
 				604A29C31E2767FE00228F69 /* AHListView.swift in Sources */,
+				608C52331E2F70C800BBE794 /* AHGankDAO.swift in Sources */,
 				6073DD161DFFC49E00C99E9C /* AHNetWorking.swift in Sources */,
 				600906E91E0020A6002F0A73 /* AHClassModel.swift in Sources */,
 				60C093641E2DEF99004D6B90 /* AHMoreView.swift in Sources */,
