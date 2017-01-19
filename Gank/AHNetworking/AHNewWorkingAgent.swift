@@ -17,16 +17,20 @@ class AHNewWorkingAgent: NSObject {
         let urlString = url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
         
         AHNetWorking.requestData(.get, URLString: urlString!, parameters: nil, success: { (result: Any) in
-            let json = result as! [String: Any]
-            let array = json["results"] as! [[String: Any]]
-            AHGankDAO.cacheStatuses(type: tpye, ganks: array)
             
-            // 创建一个组队列
-            let group = DispatchGroup()
+            // 缓存第一页的数据
+            if page == 1 {
+                AHGankDAO.cleanCacheGanks(type: tpye)
+                let json = result as! [String: Any]
+                let array = json["results"] as! [[String: Any]]
+                AHGankDAO.cacheGanks(type: tpye, ganks: array)
+            }
             
             let dict = JSON(result)
             var datas = [AHClassModel]()
-    
+            
+            // 创建一个组队列
+            let group = DispatchGroup()
             let urlconfig = URLSessionConfiguration.default
             urlconfig.timeoutIntervalForRequest = 2
             urlconfig.timeoutIntervalForResource = 2

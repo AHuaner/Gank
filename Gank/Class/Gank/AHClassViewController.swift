@@ -9,6 +9,7 @@
 import UIKit
 import MJRefresh
 import SVProgressHUD
+import SwiftyJSON
 
 class AHClassViewController: BaseViewController {
     
@@ -60,7 +61,7 @@ class AHClassViewController: BaseViewController {
         
         tableView.backgroundColor = UIColorMainBG
         
-        tableView.addSubview(loadingView)
+        loadDataFromSQLite()
     }
     
     // 设置刷新控件
@@ -144,6 +145,58 @@ class AHClassViewController: BaseViewController {
         AHLog("\(self.title!)-----第一次加载")
     }
     
+    fileprivate func loadDataFromSQLite() {
+        AHGankDAO.loadCacheGanks(type: self.type) { (result) in
+            let dict = JSON(result)
+            var datas = [AHClassModel]()
+            
+            if dict.count <= 0 {
+                self.tableView.addSubview(self.loadingView)
+            }
+            
+            // 创建一个组队列
+            let group = DispatchGroup()
+            let urlconfig = URLSessionConfiguration.default
+            urlconfig.timeoutIntervalForRequest = 2
+            urlconfig.timeoutIntervalForResource = 2
+            
+            for i in 0..<dict.count {
+                let model = AHClassModel(dict: dict[i])
+                
+                if let images = model.images, model.images?.count == 1 {
+                    let urlString = images[0] + "?imageInfo"
+                    let url = URL(string: urlString)
+                    
+                    let session = URLSession(configuration: urlconfig)
+                    // 当前线程加入组队列
+                    group.enter()
+                    let tast = session.dataTask(with: url!, completionHandler: { (data: Data?, _, error: Error?) in
+                        if let data = data {
+                            let json = JSON(data: data)
+                            if let width = json["width"].object as? CGFloat {
+                                model.imageW = width
+                            }
+                            if let height = json["height"].object as? CGFloat {
+                                model.imageH = height
+                            }
+                        }
+                        // 当前线程离开组队列
+                        group.leave()
+                    })
+                    tast.resume()
+                    // 防止内存泄漏
+                    session.finishTasksAndInvalidate()
+                }
+                datas.append(model)
+            }
+            
+            // 等组队列执行完, 在主线程回调
+            group.notify(queue: DispatchQueue.main, execute: {
+                self.datasArray = datas
+                self.tableView.reloadData()
+            })
+        }
+    }
 }
 
 extension AHClassViewController: UITableViewDataSource, UITableViewDelegate {
