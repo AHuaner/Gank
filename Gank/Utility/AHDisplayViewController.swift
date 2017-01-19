@@ -301,7 +301,7 @@ extension AHDisplayViewController {
         
         if vc.isKind(of: AHClassViewController.self) {
             let classVC = vc as! AHClassViewController
-            DispatchQueue.main.asyncAfter(deadline: 0.1, execute: {
+            DispatchQueue.main.asyncAfter(deadline: 0.01, execute: {
                 classVC.firstLoadDate()
             })
         }

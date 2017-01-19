@@ -24,7 +24,6 @@ class SQLiteManager: NSObject {
     func openDB(DBName: String) {
         
         let path = DBName.docDir()
-        AHLog(path)
         
         // 创建数据库对象
         dbQueue = FMDatabaseQueue(path: path)

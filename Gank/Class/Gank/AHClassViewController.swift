@@ -8,15 +8,16 @@
 
 import UIKit
 import MJRefresh
-import SVProgressHUD
 import SwiftyJSON
 
 class AHClassViewController: BaseViewController {
     
     var type: String!
     
+    // 是否第一次加载
     var isFirstLoad: Bool = false
     
+    // 当前页码
     fileprivate var currentPage: Int = 1
     
     // 最后一次请求的页码, 防止重复加载
@@ -46,6 +47,13 @@ class AHClassViewController: BaseViewController {
         setupUI()
         
         setupRefresh()
+        
+        // 从数据库加载
+        loadDataFromSQLite()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
     }
     
     override func didReceiveMemoryWarning() {
@@ -54,14 +62,12 @@ class AHClassViewController: BaseViewController {
     
     fileprivate func setupUI() {
         // 添加fps测试
-        // let fpsLabel = FPSLabel(frame: CGRect(x: kScreen_W - 50, y: 20, width: 50, height: 30))
-        // UIApplication.shared.keyWindow?.addSubview(fpsLabel)
+        let fpsLabel = FPSLabel(frame: CGRect(x: kScreen_W - 50, y: 20, width: 50, height: 30))
+        UIApplication.shared.keyWindow?.addSubview(fpsLabel)
         
         view.addSubview(tableView)
         
         tableView.backgroundColor = UIColorMainBG
-        
-        loadDataFromSQLite()
     }
     
     // 设置刷新控件
@@ -139,12 +145,18 @@ class AHClassViewController: BaseViewController {
     }
     
     func firstLoadDate() {
+        // 延迟刷新
+        DispatchQueue.main.asyncAfter(deadline: 0.1, execute: {
+            self.tableView.reloadData()
+        })
+        
         if isFirstLoad { return }
         self.isFirstLoad = true
         self.tableView.mj_header.beginRefreshing()
         AHLog("\(self.title!)-----第一次加载")
     }
     
+    // 从数据库加载
     fileprivate func loadDataFromSQLite() {
         AHGankDAO.loadCacheGanks(type: self.type) { (result) in
             let dict = JSON(result)
@@ -152,6 +164,7 @@ class AHClassViewController: BaseViewController {
             
             if dict.count <= 0 {
                 self.tableView.addSubview(self.loadingView)
+                return
             }
             
             // 创建一个组队列
@@ -193,7 +206,6 @@ class AHClassViewController: BaseViewController {
             // 等组队列执行完, 在主线程回调
             group.notify(queue: DispatchQueue.main, execute: {
                 self.datasArray = datas
-                self.tableView.reloadData()
             })
         }
     }
@@ -251,5 +263,3 @@ extension AHClassViewController: UINavigationControllerDelegate {
         return AHPushTransition()
     }
 }
-
-
