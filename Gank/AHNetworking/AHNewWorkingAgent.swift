@@ -94,7 +94,11 @@ class AHNewWorkingAgent: NSObject {
                 datas.append(groupModel)
             }
             
+            // 缓存首页数据
+            NSKeyedArchiver.archiveRootObject(datas, toFile: "homeGanks".cachesDir())
+            
             success(datas)
+            
         }) { (error: Error) in
             failure(error)
         }

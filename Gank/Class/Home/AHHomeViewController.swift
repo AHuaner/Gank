@@ -38,7 +38,6 @@ class AHHomeViewController: BaseViewController {
     }()
     
     fileprivate var curDateString: String = ""
-    fileprivate var yesDateString: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -81,9 +80,6 @@ class AHHomeViewController: BaseViewController {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "YYYY/MM/dd"
         curDateString = dateFormatter.string(from: currentDate)
-        
-        let yesterdayDate = Calendar.current.date(byAdding: .day, value: -1, to: currentDate)
-        yesDateString = dateFormatter.string(from: yesterdayDate!)
     }
     
     fileprivate func sendRequest() {
@@ -91,26 +87,15 @@ class AHHomeViewController: BaseViewController {
         
         AHNewWorkingAgent.loadHomeRequest(date: curDateString, success: { (result: Any) in
             guard let datasArray = result as? [AHHomeGroupModel] else { return }
-            
-            // 还没有当日数据, 请求昨日数据
-            if datasArray.count == 0 {
-                AHNewWorkingAgent.loadHomeRequest(date: self.yesDateString, success: { (result: Any) in
-                    guard let datasArray = result as? [AHHomeGroupModel] else {
-                        return
-                    }
-                    self.datasArray = datasArray
-                    self.setupHeaderView(date: self.yesDateString)
-                    self.tableView.reloadData()
-                }) { (error: Error) in
-                    AHLog(error)
-                }
-            }
-            
             self.datasArray = datasArray
             self.setupHeaderView(date: self.curDateString)
             self.tableView.reloadData()
         }) { (error: Error) in
-            AHLog(error)
+            // 读取缓存的首页数据
+            guard let datas = NSKeyedUnarchiver.unarchiveObject(withFile: "homeGanks".cachesDir()) as? [AHHomeGroupModel] else { return }
+            self.datasArray = datas
+            self.setupHeaderView(date: self.curDateString)
+            self.tableView.reloadData()
         }
     }
     

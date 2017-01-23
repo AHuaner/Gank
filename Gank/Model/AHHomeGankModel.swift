@@ -9,7 +9,7 @@
 import UIKit
 import SwiftyJSON
 
-class AHHomeGankModel: NSObject {
+class AHHomeGankModel: NSObject, NSCoding{
     fileprivate var separatorLineH: CGFloat = 1
     
     fileprivate var editorLabelH: CGFloat = 15
@@ -91,5 +91,23 @@ class AHHomeGankModel: NSObject {
             default: break
             }
         }
+    }
+    
+    required init(coder aDecoder: NSCoder) {
+        self.id = aDecoder.decodeObject(forKey: "id") as? String
+        self.publishedAt = aDecoder.decodeObject(forKey: "publishedAt") as? String
+        self.desc = aDecoder.decodeObject(forKey: "desc") as? String
+        self.url = aDecoder.decodeObject(forKey: "url") as? String
+        self.user = aDecoder.decodeObject(forKey: "user") as? String
+        self.type = aDecoder.decodeObject(forKey: "type") as? String
+    }
+    
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(id, forKey: "id")
+        aCoder.encode(publishedAt, forKey: "publishedAt")
+        aCoder.encode(desc, forKey: "desc")
+        aCoder.encode(url, forKey: "url")
+        aCoder.encode(user, forKey: "user")
+        aCoder.encode(type, forKey: "type")
     }
 }

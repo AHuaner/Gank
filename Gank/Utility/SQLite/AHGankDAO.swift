@@ -9,7 +9,7 @@
 import UIKit
 
 class AHGankDAO: NSObject {
-    /// 缓存微博数据
+    /// 缓存干货数据
     class func cacheGanks(type: String, ganks: [[String: Any]]) {
         let userId = "AHuaner"
         SQLiteManager.shareManager().dbQueue?.inTransaction({ (db, rollback) -> Void in

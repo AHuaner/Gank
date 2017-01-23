@@ -9,7 +9,7 @@
 import UIKit
 import SwiftyJSON
 
-class AHHomeGroupModel: NSObject {
+class AHHomeGroupModel: NSObject, NSCoding {
     var groupTitle: String
     var ganks: [AHHomeGankModel]
     
@@ -23,4 +23,15 @@ class AHHomeGroupModel: NSObject {
             ganks.append(gankModel)
         }
     }
+    
+    required init(coder aDecoder: NSCoder) {
+        self.ganks = aDecoder.decodeObject(forKey: "ganks") as! [AHHomeGankModel]
+        self.groupTitle = aDecoder.decodeObject(forKey: "groupTitle") as! String
+    }
+    
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(ganks, forKey: "ganks")
+        aCoder.encode(groupTitle, forKey: "groupTitle")
+    }
 }
+

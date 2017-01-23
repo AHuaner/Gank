@@ -108,15 +108,14 @@ class AHDisplayViewController: BaseViewController {
         
         // 设置内容滚动视图
         contentScrollView.isPagingEnabled = true;
-        contentScrollView.showsHorizontalScrollIndicator = false;
-        contentScrollView.bounces = false;
-        contentScrollView.delegate = self;
-        contentScrollView.dataSource = self;
-        contentScrollView.scrollsToTop = false;
+        contentScrollView.showsHorizontalScrollIndicator = false
+        contentScrollView.bounces = false
+        contentScrollView.delegate = self
+        contentScrollView.dataSource = self
+        contentScrollView.scrollsToTop = false
         // 注册cell
         contentScrollView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: ReusecellID)
-        
-        contentScrollView.backgroundColor = self.view.backgroundColor;
+        contentScrollView.backgroundColor = self.view.backgroundColor
         
         return contentScrollView
     }()
