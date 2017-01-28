@@ -9,6 +9,10 @@
 import UIKit
 import SwiftyJSON
 
+enum AHHomeError: Error {
+    case invalidDateSelection
+}
+
 class AHNewWorkingAgent: NSObject {
     
     class func loadClassRequest(tpye: String, page: Int, success: @escaping Success, failure: @escaping Failure) {
@@ -84,7 +88,8 @@ class AHNewWorkingAgent: NSObject {
             var datas = [AHHomeGroupModel]()
             
             if dict["category"].count == 0 {
-                success(datas)
+                let error = AHHomeError.invalidDateSelection
+                failure(error)
                 return
             }
             
