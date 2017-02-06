@@ -47,7 +47,9 @@ func AHLog<T>(_ message: T, fileName: String = #file, methodName: String = #func
     #if DEBUG
         var fileN = (fileName as NSString).lastPathComponent as NSString
         fileN = fileN.substring(with: NSMakeRange(0, fileN.length - 6)) as NSString
-        print("\(fileN)--\(methodName)--[\(lineNumber)]: \(message)")
+        
+        let nowDate = Date().toString(WithFormat: "yyyy-MM-dd hh:mm:ss")
+        print("**\(nowDate)--\(fileN)--\(methodName)--[\(lineNumber)]: \(message)")
     #endif
 }
 
@@ -58,19 +60,17 @@ extension CGFloat {
 }
 
 extension Date {
-    func toString() -> String {
+    func toString(WithFormat format: String) -> String {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy MM dd"
+        dateFormatter.dateFormat = format
         return dateFormatter.string(from: self)
     }
 }
 
 //获取正确的删除索引
 func getRemoveIndex<T: Equatable>(value: T, array: [T]) -> [Int]{
-    
     var indexArray = [Int]()
     var correctArray = [Int]()
-    
     
     //获取指定值在数组中的索引
     for (index,_) in array.enumerated() {
@@ -87,20 +87,17 @@ func getRemoveIndex<T: Equatable>(value: T, array: [T]) -> [Int]{
         //添加到正确的索引数组中
         correctArray.append(correctIndex)
     }
-    
     return correctArray
 }
 
 
 //从数组中删除指定元素
 func removeValueFromArray<T: Equatable>(value: T, array: inout [T]){
-    
     let correctArray = getRemoveIndex(value: value, array: array)
     
     //从原数组中删除指定元素
     for index in correctArray{
         array.remove(at: index)
     }
-    
 }
 
