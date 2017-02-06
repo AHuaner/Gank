@@ -14,9 +14,15 @@ class AHHomeCell: UITableViewCell {
     
     @IBOutlet weak var contentLabel: UILabel!
     
+    @IBOutlet weak var separatorLine: UIView!
+    
     var moreButtonClickedClouse: ((_ indexPath: IndexPath) -> Void)?
     
-    var indexPath: IndexPath!
+    var indexPath: IndexPath! {
+        didSet {
+            self.separatorLine.isHidden = (indexPath.row == 0)
+        }
+    }
     
     lazy var moreBrn: UIButton = {
         let moreBrn = UIButton()

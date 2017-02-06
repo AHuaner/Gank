@@ -14,11 +14,11 @@
             <rect key="frame" x="0.0" y="0.0" width="328" height="69"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="328" height="68"/>
+                <rect key="frame" x="0.0" y="0.0" width="328" height="68.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fyr-A9-Vpd" userLabel="line">
-                        <rect key="frame" x="0.0" y="0.0" width="328" height="1"/>
+                        <rect key="frame" x="10" y="0.0" width="318" height="1"/>
                         <color key="backgroundColor" red="0.94117647058823528" green="0.94117647058823528" blue="0.94117647058823528" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="1" id="PsY-SU-eQ2"/>
@@ -50,14 +50,15 @@
                     <constraint firstAttribute="trailing" secondItem="6TL-Uf-iSX" secondAttribute="trailing" constant="10" id="o3A-DG-OXg"/>
                     <constraint firstItem="zZA-T3-Wp1" firstAttribute="top" secondItem="Fyr-A9-Vpd" secondAttribute="bottom" constant="5" id="tbW-TX-BSc"/>
                     <constraint firstItem="6TL-Uf-iSX" firstAttribute="top" secondItem="zZA-T3-Wp1" secondAttribute="bottom" constant="5" id="und-wk-xnr"/>
-                    <constraint firstItem="Fyr-A9-Vpd" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="w84-T3-XeF"/>
+                    <constraint firstItem="Fyr-A9-Vpd" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="w84-T3-XeF"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="contentLabel" destination="6TL-Uf-iSX" id="ZTa-I1-Oag"/>
                 <outlet property="editorBtn" destination="zZA-T3-Wp1" id="HTk-4R-z8l"/>
+                <outlet property="separatorLine" destination="Fyr-A9-Vpd" id="dT9-YC-C8d"/>
             </connections>
-            <point key="canvasLocation" x="29" y="64.5"/>
+            <point key="canvasLocation" x="-206" y="49"/>
         </tableViewCell>
     </objects>
     <resources>

@@ -5,7 +5,6 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -15,44 +14,44 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="A25-xv-H7q">
-                    <rect key="frame" x="10" y="5" width="39" height="39"/>
-                    <constraints>
-                        <constraint firstAttribute="width" secondItem="A25-xv-H7q" secondAttribute="height" multiplier="39:39" id="EoP-hY-daG"/>
-                    </constraints>
-                </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UFh-6T-ELI">
-                    <rect key="frame" x="54" y="16" width="38" height="18"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <rect key="frame" x="20" y="17" width="33" height="16"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BRu-C0-JsI">
+                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BRu-C0-JsI">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="1"/>
                     <color key="backgroundColor" red="0.90196078431372551" green="0.90196078431372551" blue="0.90196078431372551" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="1" id="ddO-yI-ZDy"/>
                     </constraints>
                 </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q1k-eB-02O">
+                    <rect key="frame" x="10" y="19.5" width="2" height="11"/>
+                    <color key="backgroundColor" red="0.15686274510000001" green="0.60392156860000001" blue="0.92549019610000005" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="2" id="6ho-aI-rwC"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="UFh-6T-ELI" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="0BR-HI-3uk"/>
-                <constraint firstItem="A25-xv-H7q" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="5" id="1BI-E1-GWJ"/>
                 <constraint firstAttribute="trailing" secondItem="BRu-C0-JsI" secondAttribute="trailing" id="7ps-Tm-Kjr"/>
                 <constraint firstItem="BRu-C0-JsI" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="O41-iK-Yoj"/>
-                <constraint firstItem="A25-xv-H7q" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="ZJM-BB-Wbf"/>
-                <constraint firstItem="UFh-6T-ELI" firstAttribute="leading" secondItem="A25-xv-H7q" secondAttribute="trailing" constant="5" id="fnZ-U6-sHu"/>
+                <constraint firstItem="Q1k-eB-02O" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="YXa-qB-r9L"/>
+                <constraint firstItem="UFh-6T-ELI" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="c4o-i9-BHn"/>
                 <constraint firstItem="BRu-C0-JsI" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="j1g-vN-uJX"/>
-                <constraint firstAttribute="bottom" secondItem="A25-xv-H7q" secondAttribute="bottom" constant="5" id="nlC-vJ-69d"/>
+                <constraint firstItem="Q1k-eB-02O" firstAttribute="height" secondItem="UFh-6T-ELI" secondAttribute="height" constant="-5" id="zS2-Cg-ZVA"/>
+                <constraint firstItem="Q1k-eB-02O" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="zuc-Hb-M5W"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
-                <outlet property="imageView" destination="A25-xv-H7q" id="Alh-74-bip"/>
                 <outlet property="titleLabel" destination="UFh-6T-ELI" id="zuH-oi-5UW"/>
             </connections>
-            <point key="canvasLocation" x="-256" y="-11"/>
+            <point key="canvasLocation" x="-256.5" y="-11.5"/>
         </view>
     </objects>
 </document>

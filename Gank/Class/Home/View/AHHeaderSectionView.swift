@@ -10,8 +10,6 @@ import UIKit
 
 class AHHeaderSectionView: UIView {
     @IBOutlet weak var titleLabel: UILabel!
-
-    @IBOutlet weak var imageView: UIImageView!
     
     var groupModel: AHHomeGroupModel! {
         didSet {
@@ -21,8 +19,8 @@ class AHHeaderSectionView: UIView {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        titleLabel.textColor = UIColorTextBlue
-        backgroundColor = UIColorMainBG
+        titleLabel.textColor = UIColorTextGray
+        backgroundColor = RGBColor(245, g: 245, b: 245, alpha: 1.0)
     }
     
     class func headerSectionView() -> AHHeaderSectionView {
