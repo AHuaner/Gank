@@ -71,7 +71,7 @@ class AHClassWebViewController: BaseWebViewController {
     }
     
     fileprivate func setupUI() {
-        self.title = "详细内容"
+        self.title = "加载中..."
         webView.scrollView.delegate = self
         
         let oriImage = UIImage(named: "icon_more")?.withRenderingMode(UIImageRenderingMode.alwaysOriginal)

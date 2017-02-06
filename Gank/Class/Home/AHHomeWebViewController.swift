@@ -38,7 +38,7 @@ class AHHomeWebViewController: BaseWebViewController {
     }
     
     func setupUI() {
-        self.title = "详细内容"
+        self.title = "加载中..."
         
         let oriImage = UIImage(named: "icon_more")?.withRenderingMode(UIImageRenderingMode.alwaysOriginal)
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: oriImage, style: .plain, target: self, action: #selector(AHClassWebViewController.moreClick))

@@ -114,6 +114,8 @@ class BaseWebViewController: BaseViewController {
 }
 
 extension BaseWebViewController: WKNavigationDelegate {
-    func webView(_ webView: WKWebView, didCommit navigation: WKNavigation!) { }
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        self.title = "详细内容"
+    }
 }
 
