@@ -115,6 +115,9 @@
 		60EB31591E2374D900E93715 /* AHPopTranstion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60EB31571E2374D900E93715 /* AHPopTranstion.swift */; };
 		60EB315B1E2374E100E93715 /* AHPushTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60EB315A1E2374E100E93715 /* AHPushTransition.swift */; };
 		60F0EE821E041AB800D8ECA0 /* AHPhotoBrowser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F0EE811E041AB800D8ECA0 /* AHPhotoBrowser.swift */; };
+		60F462331E49AF5700FDBE72 /* AHLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F462311E49AF5700FDBE72 /* AHLoginViewController.swift */; };
+		60F462341E49AF5700FDBE72 /* AHLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60F462321E49AF5700FDBE72 /* AHLoginViewController.xib */; };
+		60F462361E49E22300FDBE72 /* CALayer+BorderColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F462351E49E22300FDBE72 /* CALayer+BorderColor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -252,6 +255,9 @@
 		60EB31571E2374D900E93715 /* AHPopTranstion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHPopTranstion.swift; sourceTree = "<group>"; };
 		60EB315A1E2374E100E93715 /* AHPushTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHPushTransition.swift; sourceTree = "<group>"; };
 		60F0EE811E041AB800D8ECA0 /* AHPhotoBrowser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHPhotoBrowser.swift; sourceTree = "<group>"; };
+		60F462311E49AF5700FDBE72 /* AHLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHLoginViewController.swift; sourceTree = "<group>"; };
+		60F462321E49AF5700FDBE72 /* AHLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AHLoginViewController.xib; sourceTree = "<group>"; };
+		60F462351E49E22300FDBE72 /* CALayer+BorderColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CALayer+BorderColor.swift"; sourceTree = "<group>"; };
 		92E140CCC03B446F1E0E29B6 /* Pods-Gank.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gank.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Gank/Pods-Gank.debug.xcconfig"; sourceTree = "<group>"; };
 		BBF349F95A2C7F4277EE5517 /* Pods_Gank.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Gank.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -334,6 +340,7 @@
 				600D2B691DF8F1C200D57EA0 /* DispatchTime+Extension.swift */,
 				600D2B6A1DF8F1C200D57EA0 /* NSObject+Extension.swift */,
 				600D2B6B1DF8F1C200D57EA0 /* UIView+Extension.swift */,
+				60F462351E49E22300FDBE72 /* CALayer+BorderColor.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -448,6 +455,7 @@
 		60396BE31DF83BE900A23DAA /* Class */ = {
 			isa = PBXGroup;
 			children = (
+				60F462301E49AEDA00FDBE72 /* Login */,
 				604A29BE1E27677200228F69 /* TurnChannel */,
 				6036A86F1E23767600ACDE90 /* Search */,
 				600BA13B1E0B7A4B002E4D94 /* Home */,
@@ -597,6 +605,15 @@
 				606920BC1E2B927C0010945F /* AHSearchCell.xib */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		60F462301E49AEDA00FDBE72 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				60F462311E49AF5700FDBE72 /* AHLoginViewController.swift */,
+				60F462321E49AF5700FDBE72 /* AHLoginViewController.xib */,
+			);
+			path = Login;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -757,6 +774,7 @@
 				600DD41B1E0D1ABC00ACFC00 /* AHHomeCell.xib in Resources */,
 				60939DBE1E221E19003B3F13 /* add_button_normal@2x.png in Resources */,
 				6084E1771E23660000E8AC15 /* icon_search@2x.png in Resources */,
+				60F462341E49AF5700FDBE72 /* AHLoginViewController.xib in Resources */,
 				6089C93C1E2E077200ACE2CB /* icon_safari@2x.png in Resources */,
 				60C7F8BF1DFA6B4E0069E69A /* find@2x.png in Resources */,
 				606B1E2A1DFD7DFD00BD86E2 /* close_button@2x.png in Resources */,
@@ -850,6 +868,7 @@
 				60EB31591E2374D900E93715 /* AHPopTranstion.swift in Sources */,
 				600D2BA31DF8F7A900D57EA0 /* AHLaunchImageView.swift in Sources */,
 				601731321DF952D40069D4C4 /* AHLaunchViewController.swift in Sources */,
+				60F462331E49AF5700FDBE72 /* AHLoginViewController.swift in Sources */,
 				605E07F41E026D0E00225BA3 /* String+Extension.swift in Sources */,
 				604A29BB1E273C3100228F69 /* AHSearchListView.swift in Sources */,
 				601560941DFEC46F00369E64 /* AHLoadingView.swift in Sources */,
@@ -885,6 +904,7 @@
 				6089C9401E2E07C900ACE2CB /* AHMoreCell.swift in Sources */,
 				602754C11E01260700A2B757 /* FPSLabel.m in Sources */,
 				60F0EE821E041AB800D8ECA0 /* AHPhotoBrowser.swift in Sources */,
+				60F462361E49E22300FDBE72 /* CALayer+BorderColor.swift in Sources */,
 				600D2B731DF8F33E00D57EA0 /* AHMineViewController.swift in Sources */,
 				600D2B751DF8F35C00D57EA0 /* AHGankViewController.swift in Sources */,
 				602754BD1E00FCC400A2B757 /* AHClassCell.swift in Sources */,

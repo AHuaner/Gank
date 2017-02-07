@@ -25,6 +25,7 @@ class AHClassWebViewController: BaseWebViewController {
     // 弹窗
     fileprivate lazy var moreView: AHMoreView = {
         let moreView = AHMoreView.moreView()
+        moreView.alpha = 0.01
         let W = kScreen_W / 2
         moreView.frame = CGRect(x: kScreen_W - W - 3, y: 50, width: W, height: 147)
         return moreView
@@ -97,11 +98,18 @@ class AHClassWebViewController: BaseWebViewController {
     func moreClick() {
         kWindow?.addSubview(maskBtnView)
         kWindow?.addSubview(moreView)
+        UIView.animate(withDuration: 0.25) { 
+            self.moreView.alpha = 1
+        }
     }
     
     func dismissMoreView() {
         maskBtnView.removeFromSuperview()
-        moreView.removeFromSuperview()
+        UIView.animate(withDuration: 0.25, animations: { 
+            self.moreView.alpha = 0.01
+        }) { (_) in
+            self.moreView.removeFromSuperview()
+        }
     }
 }
 

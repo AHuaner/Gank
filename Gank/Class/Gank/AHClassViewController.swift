@@ -64,7 +64,7 @@ class AHClassViewController: BaseViewController {
     
     fileprivate func setupUI() {
         // 添加fps测试
-        let fpsLabel = FPSLabel(frame: CGRect(x: kScreen_W - 50, y: 20, width: 50, height: 30))
+        let fpsLabel = FPSLabel(frame: CGRect(x: kScreen_W - 100, y: 0, width: 30, height: 20))
         UIApplication.shared.keyWindow?.addSubview(fpsLabel)
         
         view.addSubview(tableView)
