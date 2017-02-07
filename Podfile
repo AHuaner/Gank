@@ -9,6 +9,7 @@ target 'Gank' do
   pod 'MJRefresh'
   pod 'YYWebImage'
   pod 'FMDB'
+  pod 'IQKeyboardManagerSwift'
   
   # U-Share SDK UI模块（分享面板，建议添加）
   pod 'UMengUShare/UI'

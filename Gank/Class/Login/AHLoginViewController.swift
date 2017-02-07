@@ -36,6 +36,7 @@ class AHLoginViewController: BaseViewController {
     }
 
     @IBAction func closeAction() {
+        view.endEditing(true)
         dismiss(animated: true, completion: nil)
     }
     

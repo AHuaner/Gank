@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import IQKeyboardManagerSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -24,6 +25,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // 创建数据库文件
         SQLiteManager.shareManager().openDB(DBName: "ganks.sqlite")
+        
+        // 初始化IQKeyboardManager
+        setIQKeyboardManager()
         
         return true
     }
@@ -72,6 +76,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Bugly.updateAppVersion(Bundle.releaseVersionNumber!)
         Bugly.setUserValue(ProcessInfo.processInfo.processName, forKey: "Process")
         Bugly.setUserIdentifier("\(UIDevice.current.name)")
+    }
+    
+    fileprivate func setIQKeyboardManager() {
+        IQKeyboardManager.sharedManager().enable = true
+        IQKeyboardManager.sharedManager().shouldShowTextFieldPlaceholder = false
     }
 }
 

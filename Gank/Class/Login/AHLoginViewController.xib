@@ -62,17 +62,17 @@
                                                 <constraint firstAttribute="height" constant="0.5" id="dxe-rQ-khI"/>
                                             </constraints>
                                         </view>
-                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="手机号" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Hd1-7W-BNT">
+                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="手机号" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Hd1-7W-BNT">
                                             <rect key="frame" x="10" y="0.0" width="325" height="45"/>
                                             <nil key="textColor"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <textInputTraits key="textInputTraits"/>
+                                            <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="next"/>
                                         </textField>
-                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="密码" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Pzn-bG-u6d">
+                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="密码" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Pzn-bG-u6d">
                                             <rect key="frame" x="10" y="46" width="325" height="44"/>
                                             <nil key="textColor"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <textInputTraits key="textInputTraits"/>
+                                            <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                         </textField>
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -181,7 +181,7 @@
                         <constraint firstItem="v4q-JW-Nhz" firstAttribute="leading" secondItem="Fps-um-35B" secondAttribute="leading" id="DSq-JJ-qIm"/>
                         <constraint firstAttribute="trailing" secondItem="oK6-sB-VQ0" secondAttribute="trailing" id="Eok-Y1-ky4"/>
                         <constraint firstItem="gkI-Tz-9QI" firstAttribute="width" secondItem="oK6-sB-VQ0" secondAttribute="width" id="QGD-pf-5u2"/>
-                        <constraint firstAttribute="bottom" secondItem="v4q-JW-Nhz" secondAttribute="bottom" constant="180" id="S9m-Sa-kEG"/>
+                        <constraint firstAttribute="bottom" secondItem="v4q-JW-Nhz" secondAttribute="bottom" constant="100" id="S9m-Sa-kEG"/>
                         <constraint firstItem="Dq3-bY-dR6" firstAttribute="width" secondItem="hu6-KU-i05" secondAttribute="width" id="THI-6c-GnU"/>
                         <constraint firstAttribute="trailing" secondItem="v4q-JW-Nhz" secondAttribute="trailing" id="a7g-sR-Wum"/>
                         <constraint firstItem="PMc-ja-fYV" firstAttribute="top" secondItem="Fps-um-35B" secondAttribute="top" constant="30" id="bDc-Tz-1an"/>

@@ -4,6 +4,7 @@ PODS:
   - FMDB (2.6.2):
     - FMDB/standard (= 2.6.2)
   - FMDB/standard (2.6.2)
+  - IQKeyboardManagerSwift (4.0.7)
   - MJRefresh (3.1.12)
   - SDWebImage (3.8.2):
     - SDWebImage/Core (= 3.8.2)
@@ -31,6 +32,7 @@ DEPENDENCIES:
   - Alamofire (~> 4.0)
   - Bugly
   - FMDB
+  - IQKeyboardManagerSwift
   - MJRefresh
   - SDWebImage
   - SVProgressHUD
@@ -44,6 +46,7 @@ SPEC CHECKSUMS:
   Alamofire: aa2e09d871c9160ac53c90e83c68064a94e3dfbe
   Bugly: b09cd3c7e54048a0e079be88a7a99610f14eab8f
   FMDB: 854a0341b4726e53276f2a8996f06f1b80f9259a
+  IQKeyboardManagerSwift: 58bbcf46b5cf9fd4ed625d28a60cb2fbae4ab0f4
   MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
   SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
   SVProgressHUD: 1127180503b9a308ddf7006f3cc58fc05cc1092d
@@ -53,6 +56,6 @@ SPEC CHECKSUMS:
   YYImage: 1e1b62a9997399593e4b9c4ecfbbabbf1d3f3b54
   YYWebImage: 5f7f36aee2ae293f016d418c7d6ba05c4863e928
 
-PODFILE CHECKSUM: a0b4648277bff3029a9329fb178fbed594d19979
+PODFILE CHECKSUM: 1cf9b1fc280d45ab74e00bc63520d10699984e78
 
 COCOAPODS: 1.1.1
