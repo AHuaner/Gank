@@ -12,6 +12,7 @@ class AHMainViewController: BaseViewController {
     
     lazy var tabBarVC: TabBarController = {
         let tabBarVC = TabBarController()
+        tabBarVC.delegate = self
         return tabBarVC
     }()
     
@@ -36,5 +37,11 @@ class AHMainViewController: BaseViewController {
     func setupLaunchVC() {
         addChildViewController(LaunchVC)
         view.addSubview(LaunchVC.view)
+    }
+}
+
+extension AHMainViewController: UITabBarControllerDelegate {
+    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "TabBarDidSelectNotification"), object: nil)
     }
 }

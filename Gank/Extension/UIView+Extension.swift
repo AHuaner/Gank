@@ -79,4 +79,16 @@ extension UIView {
     class func viewFromNib() -> Any? {
         return Bundle.main.loadNibNamed(self.getClassName(), owner: nil, options: nil)?.last as Any?
     }
+    
+    // 判断一个控件是否真正显示在主窗口
+    func isShowingOnKeyWindow() -> Bool {
+        
+        // 以主窗口左上角为坐标原点, 计算self的矩形框
+        let newFrame = kWindow!.convert(self.frame, from: self.superview)
+        let winBounds = kWindow!.bounds
+        
+        // 主窗口的bounds 和 self的矩形框 是否有重叠
+        let intersects = newFrame.intersects(winBounds)
+        return !self.isHidden && self.alpha > 0.01 && self.window == kWindow && intersects
+    }
 }

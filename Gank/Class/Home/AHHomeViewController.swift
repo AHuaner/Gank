@@ -12,6 +12,8 @@ class AHHomeViewController: BaseViewController {
 
     fileprivate var datasArray: [AHHomeGroupModel] = [AHHomeGroupModel]()
     
+    fileprivate var lastSelectedIndex: Int = 0
+    
     lazy var headerView: AHHomeHeaderView = {
         let headerView = AHHomeHeaderView.headerView()
         headerView.frame = CGRect(x: 0, y: 0, width: kScreen_W, height: kScreen_H * 0.55)
@@ -73,13 +75,12 @@ class AHHomeViewController: BaseViewController {
         view.addSubview(navBar)
         
         self.automaticallyAdjustsScrollViewInsets = false
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(AHHomeViewController.tabBarSelector), name: NSNotification.Name(rawValue: "TabBarDidSelectNotification"), object: nil)
     }
     
     fileprivate func calculateDate() {
-        let currentDate = Date()
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "YYYY/MM/dd"
-        curDateString = dateFormatter.string(from: currentDate)
+        curDateString = Date().toString(WithFormat: "YYYY/MM/dd")
     }
     
     fileprivate func sendRequest() {
@@ -113,6 +114,19 @@ class AHHomeViewController: BaseViewController {
             newData.append(data)
         }
         datasArray = newData
+    }
+    
+    func tabBarSelector() {
+        if self.lastSelectedIndex == self.tabBarController!.selectedIndex && self.view.isShowingOnKeyWindow() {
+            var offset = self.tableView.contentOffset
+            offset.y = -self.tableView.contentInset.top;
+            self.tableView.setContentOffset(offset, animated: true)
+        }
+        self.lastSelectedIndex = self.tabBarController!.selectedIndex
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
 }
 

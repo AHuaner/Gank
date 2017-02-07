@@ -28,6 +28,8 @@ class AHClassViewController: BaseViewController {
         return loadingView
     }()
     
+    fileprivate var lastSelectedIndex: Int = 1
+    
     fileprivate var datasArray: [AHClassModel] = [AHClassModel]()
     
     fileprivate lazy var tableView: UITableView = {
@@ -68,6 +70,8 @@ class AHClassViewController: BaseViewController {
         view.addSubview(tableView)
         
         tableView.backgroundColor = UIColorMainBG
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(AHClassViewController.tabBarSelector), name: NSNotification.Name(rawValue: "TabBarDidSelectNotification"), object: nil)
     }
     
     // 设置刷新控件
@@ -208,6 +212,17 @@ class AHClassViewController: BaseViewController {
                 self.datasArray = datas
             })
         }
+    }
+    
+    func tabBarSelector() {
+        if self.lastSelectedIndex == self.tabBarController!.selectedIndex && self.view.isShowingOnKeyWindow() {
+            self.tableView.mj_header.beginRefreshing()
+        }
+        self.lastSelectedIndex = self.tabBarController!.selectedIndex
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
 }
 
