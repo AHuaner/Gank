@@ -97,13 +97,16 @@ class BaseWebViewController: BaseViewController {
             backBtn.addTarget(self, action: #selector(BaseWebViewController.didBackButtonClick), for: .touchUpInside)
             let backItem = UIBarButtonItem(customView: backBtn)
             
+            let spaceItem = UIBarButtonItem(barButtonSystemItem: .fixedSpace, target: self, action: nil)
+            spaceItem.width = 25
+            
             let closeImage = UIImage(named: "icon_close_second")?.withRenderingMode(UIImageRenderingMode.alwaysOriginal)
             let closeBtn = UIButton(frame: CGRect(x: 0, y: 0, width: 22, height: 22))
             closeBtn.setImage(closeImage, for: .normal)
             closeBtn.addTarget(self, action: #selector(BaseWebViewController.webViewPop), for: .touchUpInside)
             let closeItem = UIBarButtonItem(customView: closeBtn)
             
-            navigationItem.leftBarButtonItems = [backItem, closeItem]
+            navigationItem.leftBarButtonItems = [backItem, spaceItem, closeItem]
         }
     }
     

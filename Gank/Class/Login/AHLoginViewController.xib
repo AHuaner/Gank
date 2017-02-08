@@ -13,7 +13,7 @@
                 <outlet property="accountTextField" destination="Hd1-7W-BNT" id="dnf-e2-kj4"/>
                 <outlet property="forgetBtn" destination="tcE-XC-L5Z" id="r3J-W8-Kol"/>
                 <outlet property="loginBtn" destination="Dq3-bY-dR6" id="948-HM-UZr"/>
-                <outlet property="passwordBtn" destination="Pzn-bG-u6d" id="nuZ-gL-ULb"/>
+                <outlet property="passwordTextField" destination="Pzn-bG-u6d" id="iJD-5R-ZVT"/>
                 <outlet property="registerBtn" destination="N8r-K8-9iK" id="bbj-Fk-Myf"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -65,13 +65,13 @@
                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="手机号" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Hd1-7W-BNT">
                                             <rect key="frame" x="10" y="0.0" width="325" height="45"/>
                                             <nil key="textColor"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="next"/>
                                         </textField>
                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="密码" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Pzn-bG-u6d">
                                             <rect key="frame" x="10" y="46" width="325" height="44"/>
                                             <nil key="textColor"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                         </textField>
                                     </subviews>
@@ -130,6 +130,9 @@
                                             <integer key="value" value="3"/>
                                         </userDefinedRuntimeAttribute>
                                     </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <action selector="loginAction" destination="-1" eventType="touchUpInside" id="Lhb-Zg-0GK"/>
+                                    </connections>
                                 </button>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7P5-BT-MbE" userLabel="line">
                                     <rect key="frame" x="187" y="75" width="1" height="15"/>
@@ -145,6 +148,9 @@
                                     <state key="normal" title="注册干货">
                                         <color key="titleColor" red="0.1176470588" green="0.50980392159999999" blue="0.82352941180000006" alpha="1" colorSpace="calibratedRGB"/>
                                     </state>
+                                    <connections>
+                                        <action selector="registerAction" destination="-1" eventType="touchUpInside" id="LqU-8H-q5Y"/>
+                                    </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tcE-XC-L5Z">
                                     <rect key="frame" x="198" y="68" width="58" height="29"/>
@@ -152,6 +158,9 @@
                                     <state key="normal" title="忘记密码">
                                         <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
+                                    <connections>
+                                        <action selector="forgetAction" destination="-1" eventType="touchUpInside" id="JV2-Ow-w72"/>
+                                    </connections>
                                 </button>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

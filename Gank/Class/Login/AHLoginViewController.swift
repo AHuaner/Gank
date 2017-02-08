@@ -14,7 +14,7 @@ class AHLoginViewController: BaseViewController {
     @IBOutlet weak var forgetBtn: UIButton!
     
     @IBOutlet weak var accountTextField: UITextField!
-    @IBOutlet weak var passwordBtn: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,6 +38,31 @@ class AHLoginViewController: BaseViewController {
     @IBAction func closeAction() {
         view.endEditing(true)
         dismiss(animated: true, completion: nil)
+    }
+    
+    
+    @IBAction func loginAction() {
+        view.endEditing(true)
+        
+        if accountTextField.text?.characters.count == 0 {
+            ToolKit.showInfo(withStatus: "请输入11位手机号码", style: .dark)
+        } else {
+            if Validate.checkMobile(accountTextField.text!) {
+                if passwordTextField.text?.characters.count == 0 {
+                    ToolKit.showInfo(withStatus: "请输入登录密码", style: .dark)
+                }
+            } else {
+                ToolKit.showInfo(withStatus: "请输入正确的11位手机号码", style: .dark)
+            }
+        }
+    }
+    
+    @IBAction func registerAction() {
+        
+    }
+    
+    @IBAction func forgetAction() {
+        
     }
     
     override func didReceiveMemoryWarning() {

@@ -23,11 +23,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // 腾讯Bugly crash日志配置
         setBugly()
         
-        // 创建数据库文件
-        SQLiteManager.shareManager().openDB(DBName: "ganks.sqlite")
-        
         // 初始化IQKeyboardManager
         setIQKeyboardManager()
+        
+        // 初始化全局属性
+        setGlobalConfig()
+        
+        // 创建数据库文件
+        SQLiteManager.shareManager().openDB(DBName: "ganks.sqlite")
         
         return true
     }
@@ -79,8 +82,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     fileprivate func setIQKeyboardManager() {
-        IQKeyboardManager.sharedManager().enable = true
-        IQKeyboardManager.sharedManager().shouldShowTextFieldPlaceholder = false
+        let manager = IQKeyboardManager.sharedManager()
+        manager.enable = true
+        manager.shouldShowTextFieldPlaceholder = false
+        manager.toolbarTintColor = UIColorMainBlue
+        manager.toolbarDoneBarButtonItemText = "完成"
+    }
+    
+    fileprivate func setGlobalConfig() {
+        UITextField.appearance().tintColor = UIColorMainBlue
+        UITabBar.appearance().tintColor = UIColorMainBlue
     }
 }
 
