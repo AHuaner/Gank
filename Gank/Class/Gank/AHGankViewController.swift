@@ -125,7 +125,8 @@ class AHGankViewController: AHDisplayViewController {
 //        turnVC.modalPresentationStyle = UIModalPresentationStyle.custom
 //        present(turnVC, animated: true, completion: nil)
         let loginVC = AHLoginViewController()
-        present(loginVC, animated: true, completion: nil)
+        let nav = UINavigationController(rootViewController: loginVC)
+        present(nav, animated: true, completion: nil)
     }
     
     override func didReceiveMemoryWarning() {

@@ -26,6 +26,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // 初始化IQKeyboardManager
         setIQKeyboardManager()
         
+        // 初始化Bmob
+        setBmob()
+        
         // 初始化全局属性
         setGlobalConfig()
         
@@ -92,6 +95,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     fileprivate func setGlobalConfig() {
         UITextField.appearance().tintColor = UIColorMainBlue
         UITabBar.appearance().tintColor = UIColorMainBlue
+    }
+    
+    fileprivate func setBmob() {
+        // Bmob.register(withAppKey: "480048add0eb994db572f59796aa9bb7")
     }
 }
 
