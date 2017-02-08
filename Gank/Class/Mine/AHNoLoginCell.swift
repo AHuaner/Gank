@@ -1,0 +1,28 @@
+//
+//  AHNoLoginCell.swift
+//  Gank
+//
+//  Created by AHuaner on 2017/2/8.
+//  Copyright © 2017年 CoderAhuan. All rights reserved.
+//
+
+import UIKit
+
+class AHNoLoginCell: UITableViewCell {
+
+    override func awakeFromNib() {
+        super.awakeFromNib()
+    }
+
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+    }
+    
+    static func cellWithTableView(_ tableview: UITableView) -> AHNoLoginCell {
+        var cell = tableview.dequeueReusableCell(withIdentifier: "AHNoLoginCell")
+        if cell == nil {
+            cell = self.viewFromNib() as! AHNoLoginCell
+        }
+        return cell as! AHNoLoginCell
+    }
+}

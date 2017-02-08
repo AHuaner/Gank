@@ -31,9 +31,6 @@ class AHLoginViewController: BaseViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         UIApplication.shared.statusBarStyle = .lightContent
-        if (self.navigationController?.viewControllers.count)! > 1 {
-            self.navigationController?.setNavigationBarHidden(false, animated: animated)
-        }
     }
     
     fileprivate func setupUI() {

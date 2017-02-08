@@ -30,7 +30,7 @@ let iPhone6_Height = 667.0
 let iPhone6Plus_Width = 414.0
 let iPhone6Plus_Height = 736.0
 
-let UIColorMainBG = RGBColor(240.0, g: 240.0, b: 240.0, alpha: 1.0)
+let UIColorMainBG = RGBColor(239, g: 239, b: 245, alpha: 1.0)
 let UIColorTextGray = RGBColor(153.0, g: 153.0, b: 153.0, alpha: 1.0)
 let UIColorTextBlue = RGBColor(40, g: 154, b: 236, alpha: 1.0)
 let UIColorMainBlue = RGBColor(30, g: 130, b: 210, alpha: 1.0)

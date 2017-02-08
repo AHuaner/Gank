@@ -96,37 +96,34 @@ class AHGankViewController: AHDisplayViewController {
     }
     
     func addTitleButtonClick(_ btn: UIButton) {
-//        let turnVC = AHTurnChannelViewController()
-//        turnVC.showTagsArray = showTagsArray
-//        turnVC.moreTagsArray = moreTagsArray
-//        
-//        turnVC.turnChannelClouse = { [unowned self]  showTags, moreTags in
-//            if self.showTagsArray == showTags {
-//                return
-//            }
-//            
-//            for childVC in self.childViewControllers {
-//                childVC.removeFromParentViewController()
-//            }
-//            
-//            self.setupChildVCs(titles: showTags)
-//            AHLog(showTags)
-//            // 更新未显示的tags
-//            self.moreTagsArray = moreTags
-//            NSKeyedArchiver.archiveRootObject(moreTags, toFile: "saveMoreTagsArray".cachesDir())
-//            
-//            self.setupTitleWidth()
-//            self.setupAllTitle()
-//            self.contentScrollView.reloadData()
-//        }
-//        
-//        // 自定义转场动画
-//        turnVC.transitioningDelegate = turnVCTransitionManager
-//        turnVC.modalPresentationStyle = UIModalPresentationStyle.custom
-//        present(turnVC, animated: true, completion: nil)
-        let loginVC = AHLoginViewController()
-        let nav = UINavigationController(rootViewController: loginVC)
-        present(nav, animated: true, completion: nil)
+        let turnVC = AHTurnChannelViewController()
+        turnVC.showTagsArray = showTagsArray
+        turnVC.moreTagsArray = moreTagsArray
+        
+        turnVC.turnChannelClouse = { [unowned self]  showTags, moreTags in
+            if self.showTagsArray == showTags {
+                return
+            }
+            
+            for childVC in self.childViewControllers {
+                childVC.removeFromParentViewController()
+            }
+            
+            self.setupChildVCs(titles: showTags)
+            AHLog(showTags)
+            // 更新未显示的tags
+            self.moreTagsArray = moreTags
+            NSKeyedArchiver.archiveRootObject(moreTags, toFile: "saveMoreTagsArray".cachesDir())
+            
+            self.setupTitleWidth()
+            self.setupAllTitle()
+            self.contentScrollView.reloadData()
+        }
+        
+        // 自定义转场动画
+        turnVC.transitioningDelegate = turnVCTransitionManager
+        turnVC.modalPresentationStyle = UIModalPresentationStyle.custom
+        present(turnVC, animated: true, completion: nil)
     }
     
     override func didReceiveMemoryWarning() {
