@@ -82,6 +82,11 @@ class AHGankViewController: AHDisplayViewController {
         setupSqlite()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        UIApplication.shared.statusBarStyle = .lightContent
+    }
+    
     // 初始化数据库
     func setupSqlite() {
         for key in showTagsArray {

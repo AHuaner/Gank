@@ -33,11 +33,22 @@ class BaseViewController: UIViewController, UIGestureRecognizerDelegate {
     
     var popClosure: (() -> Void)?
     
+    var userInfo: BmobUser? {
+        get {
+            return BmobUser.current()
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColorMainBG
         
         setupNav()
+    }
+    
+    enum navBarBackItem {
+        case blue
+        case white
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -71,19 +82,37 @@ class BaseViewController: UIViewController, UIGestureRecognizerDelegate {
                 guard let navigationController = self.navigationController else { return }
                 navigationController.popViewController(animated: true)
             }
-            
-            let oriImage = UIImage(named: "nav_back")?.withRenderingMode(UIImageRenderingMode.alwaysOriginal)
-            navigationItem.leftBarButtonItem = UIBarButtonItem(image: oriImage, style: UIBarButtonItemStyle.plain, target: self, action: #selector(BaseViewController.back))
         }
-        
-        self.navigationController?.navigationBar.barTintColor = UIColorMainBlue
-        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white,
-                                                                NSFontAttributeName : UIFont.systemFont(ofSize: 17)]
+        setNavigationBarStyle()
     }
     
     func back() {
         if popClosure != nil {
             popClosure!()
+        }
+    }
+    
+    func setNavigationBarStyle(BarColor: UIColor = UIColorMainBlue, backItemColor: navBarBackItem = .white) {
+        self.navigationController?.navigationBar.barTintColor = BarColor
+        
+        var titleColor = UIColor.white
+        
+        if BarColor.isEqual(UIColor.white) {
+            titleColor = UIColor.black
+        }
+        
+        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: titleColor,
+                                                                        NSFontAttributeName : UIFont.systemFont(ofSize: 20)]
+        
+        if navigationController?.viewControllers.count > 1 {
+            switch backItemColor {
+            case .blue:
+                let oriImage = UIImage(named: "nav_back_blue")?.withRenderingMode(UIImageRenderingMode.alwaysOriginal)
+                navigationItem.leftBarButtonItem = UIBarButtonItem(image: oriImage, style: UIBarButtonItemStyle.plain, target: self, action: #selector(BaseViewController.back))
+            default: // white
+                let oriImage = UIImage(named: "nav_back")?.withRenderingMode(UIImageRenderingMode.alwaysOriginal)
+                navigationItem.leftBarButtonItem = UIBarButtonItem(image: oriImage, style: UIBarButtonItemStyle.plain, target: self, action: #selector(BaseViewController.back))
+            }
         }
     }
 }

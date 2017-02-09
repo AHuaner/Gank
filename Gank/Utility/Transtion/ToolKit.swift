@@ -14,27 +14,27 @@ class ToolKit: NSObject {
 }
 
 extension ToolKit {
-    class func show(withStatus status: String!, style: SVProgressHUDStyle = .light) {
+    class func show(withStatus status: String!, style: SVProgressHUDStyle = .dark) {
         SVProgressHUD.setDefaultStyle(style)
         SVProgressHUD.setDefaultMaskType(.clear)
         SVProgressHUD.show(withStatus: status)
     }
     
-    class func showInfo(withStatus status: String!, style: SVProgressHUDStyle = .light) {
+    class func showInfo(withStatus status: String!, style: SVProgressHUDStyle = .dark) {
         SVProgressHUD.setDefaultStyle(style)
         SVProgressHUD.setDefaultMaskType(.clear)
         SVProgressHUD.setMinimumDismissTimeInterval(2.5)
         SVProgressHUD.showInfo(withStatus: status)
     }
     
-    class func showSuccess(withStatus status: String!, style: SVProgressHUDStyle = .light) {
+    class func showSuccess(withStatus status: String!, style: SVProgressHUDStyle = .dark) {
         SVProgressHUD.setDefaultStyle(style)
         SVProgressHUD.setDefaultMaskType(.clear)
         SVProgressHUD.setMinimumDismissTimeInterval(2.5)
         SVProgressHUD.showSuccess(withStatus: status)
     }
     
-    class func showError(withStatus status: String!, style: SVProgressHUDStyle = .light) {
+    class func showError(withStatus status: String!, style: SVProgressHUDStyle = .dark) {
         SVProgressHUD.setDefaultStyle(style)
         SVProgressHUD.setDefaultMaskType(.clear)
         SVProgressHUD.setMinimumDismissTimeInterval(2.5)

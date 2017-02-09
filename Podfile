@@ -10,7 +10,7 @@ target 'Gank' do
   pod 'YYWebImage'
   pod 'FMDB'
   pod 'IQKeyboardManagerSwift'
-  # pod 'BmobSDK'
+  pod 'BmobSDK'
   
   # U-Share SDK UI模块（分享面板，建议添加）
   pod 'UMengUShare/UI'

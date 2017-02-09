@@ -10,12 +10,6 @@ import UIKit
 import YYWebImage
 
 class AHMineViewController: BaseViewController {
-
-    fileprivate var cacheSize: CGFloat? {
-        didSet {
-            tableView.reloadData()
-        }
-    }
     
     fileprivate lazy var tableView: UITableView = {
         let tabelView = UITableView(frame: CGRect(x: 0, y: 0, width: kScreen_W, height: kScreen_H - kNavBarHeight), style: .grouped)
@@ -28,27 +22,37 @@ class AHMineViewController: BaseViewController {
         return tabelView
     }()
 
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.addSubview(tableView)
+        
+        setupUI()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        calculateCacheSize()
-    }
-    
-    fileprivate func calculateCacheSize() {
-        let cache = YYWebImageManager.shared().cache
-        let memorySize = CGFloat(cache!.memoryCache.totalCost)
-        let diskSize = CGFloat(cache!.diskCache.totalCost())
-        let size = (memorySize + diskSize) / 1000.0 / 1000.0
-        cacheSize = size
+        
+        UIApplication.shared.statusBarStyle = .default
+        
+        tableView.reloadData()
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    fileprivate func setupUI() {
+        view.addSubview(tableView)
+        
+        setNavigationBarStyle(BarColor: UIColor.white, backItemColor: .blue)
+        
+        navigationController?.navigationBar.tintColor = UIColor.black
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "设置", style: .plain, target: self, action: #selector(AHMineViewController.settingAction))
+    }
+    
+    func settingAction() {
+        let settingVC = AHSettingViewController()
+        settingVC.hidesBottomBarWhenPushed = true
+        self.navigationController?.pushViewController(settingVC, animated: true)
     }
 }
 
@@ -65,12 +69,18 @@ extension AHMineViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         if indexPath.section == 0 {
-            let cell = AHNoLoginCell.cellWithTableView(tableView)
-            cell.selectionStyle = .none
-            return cell
+            if userInfo == nil {
+                let cell = AHNoLoginCell.cellWithTableView(tableView)
+                cell.selectionStyle = .none
+                return cell
+            } else {
+                let cell = AHUserCell.cellWithTableView(tableView)
+                return cell
+            }
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "mineCell", for: indexPath)
-            cell.textLabel?.text = "清除缓存（已使用\(cacheSize!.format(f: 2))MB)"
+            cell.accessoryType = .disclosureIndicator
+            cell.textLabel?.text = "我的收藏"
             return cell
         }
     }
@@ -79,21 +89,22 @@ extension AHMineViewController: UITableViewDelegate, UITableViewDataSource {
         tableView.deselectRow(at: indexPath, animated: true)
         
         if indexPath.section == 0 {
-            let loginVC = AHLoginViewController()
-            let nav = UINavigationController(rootViewController: loginVC)
-            present(nav, animated: true, completion: nil)
-        } else {
-            let cache = YYWebImageManager.shared().cache
-            cache?.memoryCache.removeAllObjects()
-            cache?.diskCache.removeAllObjects()
-            cacheSize = 0.0
+            if userInfo == nil {
+                let loginVC = AHLoginViewController()
+                let nav = UINavigationController(rootViewController: loginVC)
+                present(nav, animated: true, completion: nil)
+            } else {
+                let vc = BaseViewController()
+                vc.title = "编辑个人主页"
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
         }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.section {
         case 0:
-            return 90
+            return userInfo == nil ? 90 : 70
         default:
             return 44
         }

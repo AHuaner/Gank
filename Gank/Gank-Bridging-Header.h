@@ -8,6 +8,6 @@
 #import <YYWebImage/YYWebImage.h>
 #import <FMDB/FMDB.h>
 #import <Bugly/Bugly.h>
-//#import <BmobSDK/Bmob.h>
+#import <BmobSDK/Bmob.h>
 #import "FPSLabel.h"
 

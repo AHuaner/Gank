@@ -122,6 +122,11 @@
 		60EB31591E2374D900E93715 /* AHPopTranstion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60EB31571E2374D900E93715 /* AHPopTranstion.swift */; };
 		60EB315B1E2374E100E93715 /* AHPushTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60EB315A1E2374E100E93715 /* AHPushTransition.swift */; };
 		60F0EE821E041AB800D8ECA0 /* AHPhotoBrowser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F0EE811E041AB800D8ECA0 /* AHPhotoBrowser.swift */; };
+		60F315D41E4C206C00A0AB36 /* AHUserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F315D21E4C206C00A0AB36 /* AHUserCell.swift */; };
+		60F315D51E4C206C00A0AB36 /* AHUserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60F315D31E4C206C00A0AB36 /* AHUserCell.xib */; };
+		60F315D71E4C2D2400A0AB36 /* nav_back_blue@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60F315D61E4C2D2400A0AB36 /* nav_back_blue@2x.png */; };
+		60F315DC1E4C3D1800A0AB36 /* icon_setting@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60F315DB1E4C3D1800A0AB36 /* icon_setting@2x.png */; };
+		60F315DE1E4C3F8000A0AB36 /* AHSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F315DD1E4C3F8000A0AB36 /* AHSettingViewController.swift */; };
 		60F462331E49AF5700FDBE72 /* AHLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F462311E49AF5700FDBE72 /* AHLoginViewController.swift */; };
 		60F462341E49AF5700FDBE72 /* AHLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60F462321E49AF5700FDBE72 /* AHLoginViewController.xib */; };
 		60F462361E49E22300FDBE72 /* CALayer+BorderColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F462351E49E22300FDBE72 /* CALayer+BorderColor.swift */; };
@@ -191,8 +196,8 @@
 		602754C01E01260700A2B757 /* FPSLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FPSLabel.m; sourceTree = "<group>"; };
 		6029BE901E4B30D600FCC56B /* icon_show_blue@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_show_blue@2x.png"; sourceTree = "<group>"; };
 		6029BE911E4B30D700FCC56B /* icon_show@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_show@2x.png"; sourceTree = "<group>"; };
-		6029BE941E4B499F00FCC56B /* AHNoLoginCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHNoLoginCell.swift; sourceTree = "<group>"; };
-		6029BE951E4B499F00FCC56B /* AHNoLoginCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AHNoLoginCell.xib; sourceTree = "<group>"; };
+		6029BE941E4B499F00FCC56B /* AHNoLoginCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AHNoLoginCell.swift; path = ../AHNoLoginCell.swift; sourceTree = "<group>"; };
+		6029BE951E4B499F00FCC56B /* AHNoLoginCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AHNoLoginCell.xib; path = ../AHNoLoginCell.xib; sourceTree = "<group>"; };
 		6036A86B1E23762200ACDE90 /* BaseWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseWebViewController.swift; sourceTree = "<group>"; };
 		6036A8721E2376A600ACDE90 /* AHSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHSearchViewController.swift; sourceTree = "<group>"; };
 		6036A8741E2377DB00ACDE90 /* AHSearchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AHSearchViewController.xib; sourceTree = "<group>"; };
@@ -269,6 +274,11 @@
 		60EB31571E2374D900E93715 /* AHPopTranstion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHPopTranstion.swift; sourceTree = "<group>"; };
 		60EB315A1E2374E100E93715 /* AHPushTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHPushTransition.swift; sourceTree = "<group>"; };
 		60F0EE811E041AB800D8ECA0 /* AHPhotoBrowser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHPhotoBrowser.swift; sourceTree = "<group>"; };
+		60F315D21E4C206C00A0AB36 /* AHUserCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AHUserCell.swift; path = ../AHUserCell.swift; sourceTree = "<group>"; };
+		60F315D31E4C206C00A0AB36 /* AHUserCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AHUserCell.xib; path = ../AHUserCell.xib; sourceTree = "<group>"; };
+		60F315D61E4C2D2400A0AB36 /* nav_back_blue@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nav_back_blue@2x.png"; sourceTree = "<group>"; };
+		60F315DB1E4C3D1800A0AB36 /* icon_setting@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_setting@2x.png"; sourceTree = "<group>"; };
+		60F315DD1E4C3F8000A0AB36 /* AHSettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHSettingViewController.swift; sourceTree = "<group>"; };
 		60F462311E49AF5700FDBE72 /* AHLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHLoginViewController.swift; sourceTree = "<group>"; };
 		60F462321E49AF5700FDBE72 /* AHLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AHLoginViewController.xib; sourceTree = "<group>"; };
 		60F462351E49E22300FDBE72 /* CALayer+BorderColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CALayer+BorderColor.swift"; sourceTree = "<group>"; };
@@ -494,9 +504,9 @@
 		60396BE51DF83BE900A23DAA /* Mine */ = {
 			isa = PBXGroup;
 			children = (
+				60F315D81E4C336800A0AB36 /* View */,
 				600D2B721DF8F33E00D57EA0 /* AHMineViewController.swift */,
-				6029BE941E4B499F00FCC56B /* AHNoLoginCell.swift */,
-				6029BE951E4B499F00FCC56B /* AHNoLoginCell.xib */,
+				60F315DD1E4C3F8000A0AB36 /* AHSettingViewController.swift */,
 			);
 			path = Mine;
 			sourceTree = "<group>";
@@ -515,6 +525,7 @@
 		60396BE81DF83C1E00A23DAA /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				60F315DB1E4C3D1800A0AB36 /* icon_setting@2x.png */,
 				6029BE901E4B30D600FCC56B /* icon_show_blue@2x.png */,
 				6029BE911E4B30D700FCC56B /* icon_show@2x.png */,
 				6089C9381E2E077200ACE2CB /* icon_collect@2x.png */,
@@ -535,6 +546,7 @@
 				6045F3921E093624002B0FB6 /* toolBar_like@2x.png */,
 				6045F3851E09344C002B0FB6 /* nav_ list@2x.png */,
 				6045F37F1E09316C002B0FB6 /* nav_back@2x.png */,
+				60F315D61E4C2D2400A0AB36 /* nav_back_blue@2x.png */,
 				606B1E291DFD7DFD00BD86E2 /* close_button@2x.png */,
 				60C7F8CF1DFAD3FE0069E69A /* close2_button@2x.png */,
 				600BA1401E0B7E58002E4D94 /* tabbar_home_highlighted@2x.png */,
@@ -622,6 +634,17 @@
 				604A29BC1E27629800228F69 /* AHSeatchTagBtn.swift */,
 				606920BB1E2B927C0010945F /* AHSearchCell.swift */,
 				606920BC1E2B927C0010945F /* AHSearchCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		60F315D81E4C336800A0AB36 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				6029BE941E4B499F00FCC56B /* AHNoLoginCell.swift */,
+				6029BE951E4B499F00FCC56B /* AHNoLoginCell.xib */,
+				60F315D21E4C206C00A0AB36 /* AHUserCell.swift */,
+				60F315D31E4C206C00A0AB36 /* AHUserCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -765,6 +788,7 @@
 				606920BE1E2B927C0010945F /* AHSearchCell.xib in Resources */,
 				6089C93D1E2E077200ACE2CB /* icon_share@2x.png in Resources */,
 				60C7F8C01DFA6B4E0069E69A /* property_select@2x.png in Resources */,
+				60F315D51E4C206C00A0AB36 /* AHUserCell.xib in Resources */,
 				60C7F8C11DFA6B4E0069E69A /* property@2x.png in Resources */,
 				6089C9411E2E07C900ACE2CB /* AHMoreCell.xib in Resources */,
 				6045F37A1E091A06002B0FB6 /* AHWebToolView.xib in Resources */,
@@ -772,6 +796,7 @@
 				600BA14A1E0BB753002E4D94 /* AHHeaderSectionView.xib in Resources */,
 				60C093661E2DEFA6004D6B90 /* AHMoreView.xib in Resources */,
 				60C7F8D01DFAD3FE0069E69A /* close2_button@2x.png in Resources */,
+				60F315DC1E4C3D1800A0AB36 /* icon_setting@2x.png in Resources */,
 				6089C93B1E2E077200ACE2CB /* icon_collect@2x.png in Resources */,
 				6074E3F11E0A6CF0006BCC8D /* icon_editor@2x.png in Resources */,
 				60939DC01E223F03003B3F13 /* icon_close_second@2x.png in Resources */,
@@ -798,6 +823,7 @@
 				60939DBE1E221E19003B3F13 /* add_button_normal@2x.png in Resources */,
 				6084E1771E23660000E8AC15 /* icon_search@2x.png in Resources */,
 				60F462341E49AF5700FDBE72 /* AHLoginViewController.xib in Resources */,
+				60F315D71E4C2D2400A0AB36 /* nav_back_blue@2x.png in Resources */,
 				6089C93C1E2E077200ACE2CB /* icon_safari@2x.png in Resources */,
 				60C7F8BF1DFA6B4E0069E69A /* find@2x.png in Resources */,
 				60CF67451E4B1B58001AD276 /* AHRegisterViewController.xib in Resources */,
@@ -885,6 +911,7 @@
 				606920BD1E2B927C0010945F /* AHSearchCell.swift in Sources */,
 				60A19DED1E213A98007D24D2 /* AHHomeWebViewController.swift in Sources */,
 				6036A8731E2376A600ACDE90 /* AHSearchViewController.swift in Sources */,
+				60F315DE1E4C3F8000A0AB36 /* AHSettingViewController.swift in Sources */,
 				600BA1451E0B9478002E4D94 /* AHHomeGankModel.swift in Sources */,
 				6084E1731E2364C200E8AC15 /* AHSearchView.swift in Sources */,
 				601560921DFE820F00369E64 /* AHClassViewController.swift in Sources */,
@@ -895,6 +922,7 @@
 				601731321DF952D40069D4C4 /* AHLaunchViewController.swift in Sources */,
 				60F462331E49AF5700FDBE72 /* AHLoginViewController.swift in Sources */,
 				605E07F41E026D0E00225BA3 /* String+Extension.swift in Sources */,
+				60F315D41E4C206C00A0AB36 /* AHUserCell.swift in Sources */,
 				604A29BB1E273C3100228F69 /* AHSearchListView.swift in Sources */,
 				601560941DFEC46F00369E64 /* AHLoadingView.swift in Sources */,
 				60EB31581E2374D900E93715 /* AHClosePopTranstion.swift in Sources */,
@@ -1076,6 +1104,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = LSWWVUU45W;
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = Gank/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1097,6 +1126,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = LSWWVUU45W;
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = Gank/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

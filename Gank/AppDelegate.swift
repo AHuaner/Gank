@@ -98,7 +98,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     fileprivate func setBmob() {
-        // Bmob.register(withAppKey: "480048add0eb994db572f59796aa9bb7")
+        Bmob.register(withAppKey: "480048add0eb994db572f59796aa9bb7")
     }
 }
 
