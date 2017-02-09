@@ -39,6 +39,11 @@ class BaseViewController: UIViewController, UIGestureRecognizerDelegate {
         }
     }
     
+    enum navBarBackItem {
+        case blue
+        case white
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColorMainBG
@@ -46,9 +51,8 @@ class BaseViewController: UIViewController, UIGestureRecognizerDelegate {
         setupNav()
     }
     
-    enum navBarBackItem {
-        case blue
-        case white
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -102,7 +106,7 @@ class BaseViewController: UIViewController, UIGestureRecognizerDelegate {
         }
         
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: titleColor,
-                                                                        NSFontAttributeName : UIFont.systemFont(ofSize: 20)]
+                                                                        NSFontAttributeName : UIFont.systemFont(ofSize: 19)]
         
         if navigationController?.viewControllers.count > 1 {
             switch backItemColor {

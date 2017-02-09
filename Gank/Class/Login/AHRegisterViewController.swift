@@ -12,10 +12,15 @@ class AHRegisterViewController: BaseViewController {
     
     var completeRegisterClouse: (() -> Void)?
     
-    @IBOutlet weak var nicknameTextField: UITextField!
     @IBOutlet weak var accountTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var authcodeTextField: UITextField!
+    @IBOutlet weak var autocodeBtn: UIButton!
     
+    var timer: Timer?
+    
+    var time: Int = 60
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
@@ -24,12 +29,6 @@ class AHRegisterViewController: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         UIApplication.shared.statusBarStyle = .default
-    }
-    
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        UIApplication.shared.statusBarStyle = .lightContent
     }
     
     override func didReceiveMemoryWarning() {
@@ -48,6 +47,7 @@ class AHRegisterViewController: BaseViewController {
      }
     
     @IBAction func popAction() {
+        timer?.invalidate()
         self.navigationController!.popViewController(animated: true)
     }
     
@@ -58,6 +58,34 @@ class AHRegisterViewController: BaseViewController {
             btn.setImage(UIImage(named: "icon_show"), for: .normal)
         } else {
             btn.setImage(UIImage(named: "icon_show_blue"), for: .normal)
+        }
+    }
+    
+    @IBAction func autocodeAction() {
+//        BmobSMS.requestCodeInBackground(withPhoneNumber: "15993901771", andTemplate: "干货") { (SMSID, error) in
+//            if error != nil {
+//                let nserror = error as! NSError
+//                AHLog(nserror.code)
+//            } else {
+//                AHLog(SMSID)
+//            }
+//        }
+        // 重置时间
+        time = 60
+        
+        autocodeBtn.isUserInteractionEnabled = false
+        autocodeBtn.setTitle("(\(time)s) 后可重发", for: .normal)
+        
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(timeRun), userInfo: nil, repeats: true)
+    }
+    
+    func timeRun() {
+        time = time - 1
+        autocodeBtn.setTitle("(\(time)s) 后可重发", for: .normal)
+        if time <= 0 {
+            autocodeBtn.isUserInteractionEnabled = true
+            autocodeBtn.setTitle("重发验证码", for: .normal)
+            timer?.invalidate()
         }
     }
 }

@@ -127,6 +127,7 @@
 		60F315D71E4C2D2400A0AB36 /* nav_back_blue@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60F315D61E4C2D2400A0AB36 /* nav_back_blue@2x.png */; };
 		60F315DC1E4C3D1800A0AB36 /* icon_setting@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60F315DB1E4C3D1800A0AB36 /* icon_setting@2x.png */; };
 		60F315DE1E4C3F8000A0AB36 /* AHSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F315DD1E4C3F8000A0AB36 /* AHSettingViewController.swift */; };
+		60F315E01E4C6EDA00A0AB36 /* icon_copy@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60F315DF1E4C6EDA00A0AB36 /* icon_copy@2x.png */; };
 		60F462331E49AF5700FDBE72 /* AHLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F462311E49AF5700FDBE72 /* AHLoginViewController.swift */; };
 		60F462341E49AF5700FDBE72 /* AHLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60F462321E49AF5700FDBE72 /* AHLoginViewController.xib */; };
 		60F462361E49E22300FDBE72 /* CALayer+BorderColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F462351E49E22300FDBE72 /* CALayer+BorderColor.swift */; };
@@ -279,6 +280,7 @@
 		60F315D61E4C2D2400A0AB36 /* nav_back_blue@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nav_back_blue@2x.png"; sourceTree = "<group>"; };
 		60F315DB1E4C3D1800A0AB36 /* icon_setting@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_setting@2x.png"; sourceTree = "<group>"; };
 		60F315DD1E4C3F8000A0AB36 /* AHSettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHSettingViewController.swift; sourceTree = "<group>"; };
+		60F315DF1E4C6EDA00A0AB36 /* icon_copy@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_copy@2x.png"; sourceTree = "<group>"; };
 		60F462311E49AF5700FDBE72 /* AHLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHLoginViewController.swift; sourceTree = "<group>"; };
 		60F462321E49AF5700FDBE72 /* AHLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AHLoginViewController.xib; sourceTree = "<group>"; };
 		60F462351E49E22300FDBE72 /* CALayer+BorderColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CALayer+BorderColor.swift"; sourceTree = "<group>"; };
@@ -528,6 +530,7 @@
 				60F315DB1E4C3D1800A0AB36 /* icon_setting@2x.png */,
 				6029BE901E4B30D600FCC56B /* icon_show_blue@2x.png */,
 				6029BE911E4B30D700FCC56B /* icon_show@2x.png */,
+				60F315DF1E4C6EDA00A0AB36 /* icon_copy@2x.png */,
 				6089C9381E2E077200ACE2CB /* icon_collect@2x.png */,
 				6089C9391E2E077200ACE2CB /* icon_safari@2x.png */,
 				6089C93A1E2E077200ACE2CB /* icon_share@2x.png */,
@@ -815,6 +818,7 @@
 				608EED141DF9864700D1984A /* adver.png in Resources */,
 				6045F38D1E093529002B0FB6 /* toolBar_forward@2x.png in Resources */,
 				60DDC86D1DF8FD88003F1464 /* loading2.png in Resources */,
+				60F315E01E4C6EDA00A0AB36 /* icon_copy@2x.png in Resources */,
 				602754BE1E00FCC400A2B757 /* AHClassCell.xib in Resources */,
 				600BA1431E0B7E58002E4D94 /* tabbar_home@2x.png in Resources */,
 				6029BE931E4B30D700FCC56B /* icon_show@2x.png in Resources */,

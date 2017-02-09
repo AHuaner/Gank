@@ -99,7 +99,6 @@ class AHLoginViewController: BaseViewController {
         let passWord = passwordTextField.text!
         
         ToolKit.show(withStatus: "正在获取用户信息")
-        
         BmobUser.loginWithUsername(inBackground: userName, password: passWord) { (BmobUser, error) in
             if let user = BmobUser {
                 AHLog(user)

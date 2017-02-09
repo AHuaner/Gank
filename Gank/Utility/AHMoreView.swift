@@ -14,8 +14,8 @@ class AHMoreView: UIView {
     
     var tableViewdidSelectClouse: ((IndexPath) -> Void)?
     
-    fileprivate var titles = ["收藏", "分享", "Safari打开"]
-    fileprivate var images = ["icon_collect", "icon_share", "icon_safari"];
+    var titles = ["收藏", "分享", "复制链接", "Safari打开"]
+    var images = ["icon_collect", "icon_share", "icon_copy", "icon_safari"];
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -39,7 +39,7 @@ extension AHMoreView: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return titles.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

@@ -26,6 +26,12 @@ class AHMineViewController: BaseViewController {
         super.viewDidLoad()
         
         setupUI()
+    
+//        let query = BmobUser.query()!
+//        query.getObjectInBackground(withId: "f5577d068f") { (bmobObject, error) in
+//            let user = bmobObject as! BmobUser
+//            AHLog(user)
+//        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -75,6 +81,7 @@ extension AHMineViewController: UITableViewDelegate, UITableViewDataSource {
                 return cell
             } else {
                 let cell = AHUserCell.cellWithTableView(tableView)
+                cell.accessoryType = .disclosureIndicator
                 return cell
             }
         } else {
@@ -104,7 +111,7 @@ extension AHMineViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.section {
         case 0:
-            return userInfo == nil ? 90 : 70
+            return userInfo == nil ? 90 : 90
         default:
             return 44
         }

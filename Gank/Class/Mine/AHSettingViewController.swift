@@ -18,7 +18,7 @@ class AHSettingViewController: BaseViewController {
     }
     
     lazy var footView: UIButton = {
-        let footView = UIButton(frame: CGRect(x: 0, y: 0, width: kScreen_W, height: 50))
+        let footView = UIButton(frame: CGRect(x: 0, y: 0, width: kScreen_W, height: 44))
         footView.backgroundColor = UIColor.white
         footView.setTitleColor(UIColor.red, for: .normal)
         footView.addTarget(self, action: #selector(AHSettingViewController.logoutORLoginAction), for: .touchUpInside)
@@ -43,7 +43,10 @@ class AHSettingViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
         calculateCacheSize()
+        
+        UIApplication.shared.statusBarStyle = .default
         
         if self.userInfo == nil {
             footView.setTitle("登录", for: .normal)
@@ -78,13 +81,15 @@ class AHSettingViewController: BaseViewController {
             self.showAlertController(locationVC: self, title: "是否退出登录", message: "", confrimClouse: { (_) in
                 BmobUser.logout()
                 let loginVC = AHLoginViewController()
-                self.present(loginVC, animated: true, completion: nil)
+                let nav = UINavigationController.init(rootViewController: loginVC)
+                self.present(nav, animated: true, completion: nil)
             }, cancelClouse: { (_) in
                 
             })
         } else {
             let loginVC = AHLoginViewController()
-            self.present(loginVC, animated: true, completion: nil)
+            let nav = UINavigationController(rootViewController: loginVC)
+            present(nav, animated: true, completion: nil)
         }
     }
 }

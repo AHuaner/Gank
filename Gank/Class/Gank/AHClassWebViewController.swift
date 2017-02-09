@@ -25,9 +25,10 @@ class AHClassWebViewController: BaseWebViewController {
     // 弹窗
     fileprivate lazy var moreView: AHMoreView = {
         let moreView = AHMoreView.moreView()
-        moreView.alpha = 0.01
         let W = kScreen_W / 2
-        moreView.frame = CGRect(x: kScreen_W - W - 3, y: 50, width: W, height: 147)
+        let H = CGFloat(moreView.titles.count * 44 + 15)
+        moreView.alpha = 0.01
+        moreView.frame = CGRect(x: kScreen_W - W - 3, y: 50, width: W, height: H)
         return moreView
     }()
     
@@ -81,12 +82,17 @@ class AHClassWebViewController: BaseWebViewController {
         maskBtnView.addTarget(self, action: #selector(AHClassWebViewController.dismissMoreView), for: .touchUpInside)
         
         moreView.tableViewdidSelectClouse = { [unowned self] (indexPath) in
+            self.dismissMoreView()
             switch indexPath.row {
             case 0: // 收藏
                 ToolKit.showSuccess(withStatus: "收藏成功")
             case 1: // 分享
                 ToolKit.showSuccess(withStatus: "收藏成功")
-            case 2: // Safari打开
+            case 2: // 复制链接
+                let pasteboard = UIPasteboard.general
+                pasteboard.string = self.urlString!
+                ToolKit.showSuccess(withStatus: "复制成功")
+            case 3: // Safari打开
                 guard let urlString = self.urlString else { return }
                 guard let url = URL(string: urlString) else { return }
                 UIApplication.shared.openURL(url)
