@@ -75,13 +75,14 @@ extension AHMineViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         if indexPath.section == 0 {
-            if userInfo == nil {
+            if userInfo == nil { // 未登录
                 let cell = AHNoLoginCell.cellWithTableView(tableView)
                 cell.selectionStyle = .none
                 return cell
-            } else {
+            } else { // 已登录
                 let cell = AHUserCell.cellWithTableView(tableView)
                 cell.accessoryType = .disclosureIndicator
+                cell.userInfo = self.userInfo
                 return cell
             }
         } else {

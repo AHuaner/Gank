@@ -10,6 +10,15 @@ import UIKit
 
 class AHUserCell: UITableViewCell {
 
+    @IBOutlet weak var iconImageView: UIImageView!
+    @IBOutlet weak var nickName: UILabel!
+    
+    var userInfo: BmobUser! {
+        didSet {
+            nickName.text = userInfo.object(forKey: "nickName") as? String
+        }
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     }

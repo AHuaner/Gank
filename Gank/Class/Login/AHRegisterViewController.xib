@@ -15,6 +15,7 @@
                 <outlet property="authcodeTextField" destination="shS-Av-JB9" id="oop-Jw-fuv"/>
                 <outlet property="autocodeBtn" destination="AZy-Zy-9ea" id="ocF-4X-4bI"/>
                 <outlet property="passwordTextField" destination="CGi-cN-aJ6" id="xNJ-rh-jHQ"/>
+                <outlet property="registerBtn" destination="Y59-JR-mWz" id="f8c-12-MCC"/>
                 <outlet property="view" destination="rAE-Zg-7Ut" id="DO6-96-Yg1"/>
             </connections>
         </placeholder>
@@ -75,7 +76,7 @@
                                             <rect key="frame" x="10" y="46" width="300" height="45"/>
                                             <nil key="textColor"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                            <textInputTraits key="textInputTraits" keyboardType="numberPad" secureTextEntry="YES"/>
+                                            <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                         </textField>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WQe-Td-Eds" userLabel="line2">
                                             <rect key="frame" x="0.0" y="91" width="345" height="1"/>
@@ -162,14 +163,14 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oX7-ee-2rS" userLabel="bottom">
                             <rect key="frame" x="0.0" y="286" width="375" height="120"/>
                             <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y59-JR-mWz">
+                                <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y59-JR-mWz">
                                     <rect key="frame" x="15" y="15" width="345" height="45"/>
-                                    <color key="backgroundColor" red="0.1176470588" green="0.50980392159999999" blue="0.82352941180000006" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="45" id="SWp-7r-dG4"/>
                                     </constraints>
                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                    <state key="normal" title="完成">
+                                    <state key="normal" title="注册">
                                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
                                     <userDefinedRuntimeAttributes>
@@ -178,7 +179,7 @@
                                         </userDefinedRuntimeAttribute>
                                     </userDefinedRuntimeAttributes>
                                     <connections>
-                                        <action selector="completeAction" destination="-1" eventType="touchUpInside" id="ooL-0E-T8z"/>
+                                        <action selector="registerAction" destination="-1" eventType="touchUpInside" id="UPE-5a-MW6"/>
                                     </connections>
                                 </button>
                             </subviews>
@@ -226,7 +227,7 @@
                 <constraint firstItem="zQ2-V1-sOF" firstAttribute="top" secondItem="rAE-Zg-7Ut" secondAttribute="top" id="epA-71-hxG"/>
                 <constraint firstItem="ri7-sA-fg4" firstAttribute="width" secondItem="rAE-Zg-7Ut" secondAttribute="width" id="p7F-UP-QwB"/>
             </constraints>
-            <point key="canvasLocation" x="-1212" y="-402"/>
+            <point key="canvasLocation" x="-1442" y="-430"/>
         </view>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
     </objects>

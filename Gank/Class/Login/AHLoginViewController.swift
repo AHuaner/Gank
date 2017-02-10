@@ -34,17 +34,6 @@ class AHLoginViewController: BaseViewController {
     
     fileprivate func setupUI() {
         view.backgroundColor = UIColor.white
-        
-//        let user = BmobUser()
-//        user.username = "15539183979"
-//        user.password = "123456"
-//        user.signUpInBackground { (_ isSuccess, error) in
-//            if isSuccess {
-//                AHLog("登录成功")
-//            } else {
-//                AHLog(error)
-//            }
-//        }
     }
 
     @IBAction func closeAction() {
@@ -73,7 +62,7 @@ class AHLoginViewController: BaseViewController {
     @IBAction func registerAction() {
         self.view.endEditing(true)
         let registerVC = AHRegisterViewController()
-        registerVC.completeRegisterClouse = {
+        registerVC.registerClouse = {
             self.dismiss(animated: true, completion: nil)
         }
         
@@ -115,7 +104,7 @@ class AHLoginViewController: BaseViewController {
                 case 20002:
                     ToolKit.showError(withStatus: "请求失败\n请检查网络设置")
                 default:
-                    break
+                    ToolKit.showError(withStatus: "请求失败\n请检查网络设置")
                 }
             }
         }
