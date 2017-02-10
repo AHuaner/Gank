@@ -48,7 +48,10 @@ class AHClassWebViewController: BaseWebViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        isCustomTranstion = false
         self.navigationController?.delegate = self
+        tabBarController?.tabBar.isHidden = true
+        UIApplication.shared.statusBarStyle = .lightContent
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -85,7 +88,7 @@ class AHClassWebViewController: BaseWebViewController {
             self.dismissMoreView()
             switch indexPath.row {
             case 0: // 收藏
-                ToolKit.showSuccess(withStatus: "收藏成功")
+                self.collectGankAction()
             case 1: // 分享
                 ToolKit.showSuccess(withStatus: "收藏成功")
             case 2: // 复制链接
@@ -116,6 +119,20 @@ class AHClassWebViewController: BaseWebViewController {
         }) { (_) in
             self.moreView.removeFromSuperview()
         }
+    }
+    
+    func collectGankAction() {
+        if userInfo == nil { // 未登录
+            //
+            isCustomTranstion = true
+            let loginVC = AHLoginViewController()
+            let nav = UINavigationController(rootViewController: loginVC)
+            present(nav, animated: true, completion: nil)
+            return
+        }
+        
+        // 登录
+        ToolKit.showSuccess(withStatus: "收藏成功")
     }
 }
 

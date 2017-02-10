@@ -57,6 +57,11 @@ class AHMineViewController: BaseViewController {
     
     func settingAction() {
         let settingVC = AHSettingViewController()
+        settingVC.logoutClouse = {
+            let loginVC = AHLoginViewController()
+            let nav = UINavigationController.init(rootViewController: loginVC)
+            self.present(nav, animated: true, completion: nil)
+        }
         settingVC.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(settingVC, animated: true)
     }

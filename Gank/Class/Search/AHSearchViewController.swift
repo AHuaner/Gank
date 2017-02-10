@@ -144,7 +144,7 @@ class AHSearchViewController: BaseViewController {
     func loadRequest(WithText text: String) {
         self.lastText = text
         
-        ToolKit.show(withStatus: "正在加载中", style: .dark)
+        ToolKit.show(withStatus: "正在加载中")
         AHNewWorkingAgent.loadSearchRequest(text: text, page: 1, success: { (result: Any) in
             if self.lastText != text { return }
             

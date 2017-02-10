@@ -31,9 +31,9 @@
                             <rect key="frame" x="0.0" y="50" width="375" height="100"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PCK-3n-7zI">
-                                    <rect key="frame" x="82.5" y="25.5" width="210" height="49"/>
+                                    <rect key="frame" x="147" y="26" width="82" height="49"/>
                                     <attributedString key="attributedText">
-                                        <fragment content="欢迎来到干货">
+                                        <fragment content="干 货">
                                             <attributes>
                                                 <color key="NSColor" red="0.11764705882352941" green="0.50980392156862742" blue="0.82352941176470584" alpha="1" colorSpace="calibratedRGB"/>
                                                 <font key="NSFont" size="35" name="PingFangSC-Regular"/>
@@ -192,8 +192,12 @@
                             </constraints>
                         </view>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PMc-ja-fYV">
-                            <rect key="frame" x="15" y="20" width="24" height="24"/>
-                            <state key="normal" image="close2_button.png"/>
+                            <rect key="frame" x="330" y="20" width="30" height="30"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="30" id="mof-gA-RPc"/>
+                                <constraint firstAttribute="width" constant="30" id="xoE-ee-e3a"/>
+                            </constraints>
+                            <state key="normal" backgroundImage="close2_button.png"/>
                             <connections>
                                 <action selector="closeAction" destination="-1" eventType="touchUpInside" id="KRd-NQ-mcs"/>
                             </connections>
@@ -207,13 +211,13 @@
                         <constraint firstItem="gkI-Tz-9QI" firstAttribute="width" secondItem="oK6-sB-VQ0" secondAttribute="width" id="QGD-pf-5u2"/>
                         <constraint firstAttribute="bottom" secondItem="v4q-JW-Nhz" secondAttribute="bottom" constant="100" id="S9m-Sa-kEG"/>
                         <constraint firstItem="Dq3-bY-dR6" firstAttribute="width" secondItem="hu6-KU-i05" secondAttribute="width" id="THI-6c-GnU"/>
+                        <constraint firstAttribute="trailing" secondItem="PMc-ja-fYV" secondAttribute="trailing" constant="15" id="TwG-hk-6p0"/>
                         <constraint firstAttribute="trailing" secondItem="v4q-JW-Nhz" secondAttribute="trailing" id="a7g-sR-Wum"/>
                         <constraint firstItem="PMc-ja-fYV" firstAttribute="top" secondItem="Fps-um-35B" secondAttribute="top" constant="20" id="bDc-Tz-1an"/>
                         <constraint firstItem="oK6-sB-VQ0" firstAttribute="top" secondItem="Fps-um-35B" secondAttribute="top" constant="50" id="fwI-Ut-8Am"/>
                         <constraint firstItem="v4q-JW-Nhz" firstAttribute="top" secondItem="gkI-Tz-9QI" secondAttribute="bottom" id="ptn-nv-wMF"/>
                         <constraint firstItem="oK6-sB-VQ0" firstAttribute="leading" secondItem="Fps-um-35B" secondAttribute="leading" id="rEo-iS-Tnt"/>
                         <constraint firstItem="gkI-Tz-9QI" firstAttribute="leading" secondItem="Fps-um-35B" secondAttribute="leading" id="sbM-xm-pKb"/>
-                        <constraint firstItem="PMc-ja-fYV" firstAttribute="leading" secondItem="Fps-um-35B" secondAttribute="leading" constant="15" id="x1q-1e-03I"/>
                     </constraints>
                 </scrollView>
             </subviews>
@@ -225,7 +229,7 @@
                 <constraint firstItem="Fps-um-35B" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="eaT-At-Yxd"/>
                 <constraint firstAttribute="bottom" secondItem="Fps-um-35B" secondAttribute="bottom" id="h8o-vJ-dba"/>
             </constraints>
-            <point key="canvasLocation" x="-638.5" y="-287.5"/>
+            <point key="canvasLocation" x="-708" y="-491"/>
         </view>
     </objects>
     <resources>

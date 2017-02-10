@@ -17,6 +17,8 @@ class AHSettingViewController: BaseViewController {
         }
     }
     
+    var logoutClouse: (() -> Void)?
+    
     lazy var footView: UIButton = {
         let footView = UIButton(frame: CGRect(x: 0, y: 0, width: kScreen_W, height: 44))
         footView.backgroundColor = UIColor.white
@@ -80,16 +82,13 @@ class AHSettingViewController: BaseViewController {
         if userInfo != nil { // 退出登录
             self.showAlertController(locationVC: self, title: "是否退出登录", message: "", confrimClouse: { (_) in
                 BmobUser.logout()
-                let loginVC = AHLoginViewController()
-                let nav = UINavigationController.init(rootViewController: loginVC)
-                self.present(nav, animated: true, completion: nil)
-            }, cancelClouse: { (_) in
-                
-            })
+                if self.logoutClouse != nil { self.logoutClouse!() }
+                self.navigationController!.popViewController(animated: false)
+            }, cancelClouse: { (_) in })
+            
         } else {
-            let loginVC = AHLoginViewController()
-            let nav = UINavigationController(rootViewController: loginVC)
-            present(nav, animated: true, completion: nil)
+            if self.logoutClouse != nil { self.logoutClouse!() }
+            self.navigationController!.popViewController(animated: false)
         }
     }
 }

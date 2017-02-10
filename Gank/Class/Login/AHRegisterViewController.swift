@@ -20,7 +20,7 @@ class AHRegisterViewController: BaseViewController {
     @IBOutlet weak var registerBtn: UIButton!
     
     var timer: Timer?
-    var time: Int = 10
+    var time: Int = 60
     // 用户是否获取短信验证码
     var isGetAutoCode: Bool = false
     
@@ -123,11 +123,11 @@ class AHRegisterViewController: BaseViewController {
                 }, cancelClouse: { (_) in })
             } else { // 该账号未注册
                 // 重置时间
-                self.time = 10
+                self.time = 60
                 
                 self.autocodeBtn.isUserInteractionEnabled = false
-                self.autocodeBtn.setTitle("(\(self.time)s) 后可重发", for: .normal)
                 self.timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(AHRegisterViewController.timeRun), userInfo: nil, repeats: true)
+                RunLoop.current.add(self.timer!, forMode: .commonModes)
                 
                 self.requestSMSCode()
             }
@@ -148,11 +148,13 @@ class AHRegisterViewController: BaseViewController {
     }
     
     func timeRun() {
+        autocodeBtn.setTitleColor(UIColor.lightGray, for: .normal)
+        autocodeBtn.setTitle("重新获取(\(self.time))", for: .normal)
         time = time - 1
-        autocodeBtn.setTitle("(\(time)s) 后可重发", for: .normal)
         if time <= 0 {
             autocodeBtn.isUserInteractionEnabled = true
-            autocodeBtn.setTitle("重发验证码", for: .normal)
+            autocodeBtn.setTitleColor(UIColorMainBlue, for: .normal)
+            autocodeBtn.setTitle("获取验证码", for: .normal)
             timer?.invalidate()
         }
     }
@@ -167,14 +169,20 @@ class AHRegisterViewController: BaseViewController {
         user.password = passwordTextField.text
         user.signUpOrLoginInbackground(withSMSCode: authcodeTextField.text) { (isSuccessful, error) in
             if error == nil {
-                AHLog("\(user)")
+                AHLog("注册成功---\(user)")
                 ToolKit.showSuccess(withStatus: "注册成功")
                 DispatchQueue.main.asyncAfter(deadline: 1, execute: {
                     if self.registerClouse != nil { self.registerClouse!() }
                 })
             }else{
                 AHLog("\(error)")
-                ToolKit.showError(withStatus: "注册失败, 请稍后重试")
+                let nserror = error as! NSError
+                switch nserror.code {
+                case 207:
+                    ToolKit.showError(withStatus: "验证码错误")
+                default:
+                    ToolKit.showError(withStatus: "注册失败, 请稍后重试")
+                }
             }
         }
     }

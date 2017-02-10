@@ -45,16 +45,16 @@ class AHLoginViewController: BaseViewController {
         view.endEditing(true)
         
         if accountTextField.text?.characters.count == 0 {
-            ToolKit.showInfo(withStatus: "请输入手机号码", style: .dark)
+            ToolKit.showInfo(withStatus: "请输入手机号码")
         } else {
             if Validate.checkMobile(accountTextField.text!) {
                 if passwordTextField.text?.characters.count == 0 {
-                    ToolKit.showInfo(withStatus: "请输入登录密码", style: .dark)
+                    ToolKit.showInfo(withStatus: "请输入登录密码")
                 } else {
                     logining()
                 }
             } else {
-                ToolKit.showInfo(withStatus: "请输入正确的手机号码", style: .dark)
+                ToolKit.showInfo(withStatus: "请输入正确的手机号码")
             }
         }
     }
@@ -90,7 +90,7 @@ class AHLoginViewController: BaseViewController {
         ToolKit.show(withStatus: "正在获取用户信息")
         BmobUser.loginWithUsername(inBackground: userName, password: passWord) { (BmobUser, error) in
             if let user = BmobUser {
-                AHLog(user)
+                AHLog("登录成功---\(user)")
                 ToolKit.dismissHUD()
                 self.dismiss(animated: true, completion: nil)
             } else {
@@ -100,11 +100,11 @@ class AHLoginViewController: BaseViewController {
                 }
                 switch nserror.code {
                 case 101:
-                    ToolKit.showError(withStatus: "登录失败\n手机号和密码不匹配")
+                    ToolKit.showError(withStatus: "手机号和密码不匹配")
                 case 20002:
-                    ToolKit.showError(withStatus: "请求失败\n请检查网络设置")
+                    ToolKit.showError(withStatus: "请检查网络设置")
                 default:
-                    ToolKit.showError(withStatus: "请求失败\n请检查网络设置")
+                    ToolKit.showError(withStatus: "请检查网络设置")
                 }
             }
         }

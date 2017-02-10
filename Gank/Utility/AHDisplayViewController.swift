@@ -45,7 +45,7 @@ class AHDisplayViewController: BaseViewController {
     fileprivate var titleBtnSelColor: UIColor = UIColor.red
     
     /// 下标的高度
-    fileprivate var underLineH: CGFloat = 2.0
+    fileprivate var underLineH: CGFloat = 2
     
     /// 下标的颜色
     fileprivate var underLineColor: UIColor = UIColor.red
@@ -124,6 +124,7 @@ class AHDisplayViewController: BaseViewController {
     fileprivate lazy var underLine: UIView = {
         let underLine = UIView()
         underLine.backgroundColor = self.underLineColor
+        underLine.layer.cornerRadius = 1
         return underLine
     }()
     
