@@ -10,6 +10,7 @@ import UIKit
 
 class AHSearchView: UIView {
     
+    @IBOutlet weak var seatchTitle: UILabel!
     weak var locationVC: AHHomeViewController?
     
     /// 转场代理

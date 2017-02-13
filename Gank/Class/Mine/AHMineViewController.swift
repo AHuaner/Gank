@@ -17,7 +17,6 @@ class AHMineViewController: BaseViewController {
         tabelView.delegate = self
         tabelView.dataSource = self
         tabelView.contentInset.bottom = kBottomBarHeight
-        tabelView.separatorStyle = .none
         tabelView.register(UITableViewCell.self, forCellReuseIdentifier: "mineCell")
         return tabelView
     }()
@@ -26,12 +25,6 @@ class AHMineViewController: BaseViewController {
         super.viewDidLoad()
         
         setupUI()
-    
-//        let query = BmobUser.query()!
-//        query.getObjectInBackground(withId: "f5577d068f") { (bmobObject, error) in
-//            let user = bmobObject as! BmobUser
-//            AHLog(user)
-//        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -74,7 +67,14 @@ extension AHMineViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        switch section {
+        case 0:
+            return 1
+        case 1:
+            return 2
+        default:
+            return 1
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

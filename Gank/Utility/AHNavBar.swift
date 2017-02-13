@@ -16,6 +16,12 @@ class AHNavBar: UIView {
         }
     }
     
+    var bgAlpha: CGFloat = 0 {
+        didSet {
+            self.backgroundColor = UIColorMainBlue.withAlphaComponent(bgAlpha)
+        }
+    }
+    
     fileprivate lazy var titleLabel: UILabel = {
         let titleLabel = UILabel()
         titleLabel.font = UIFont.systemFont(ofSize: 17)
@@ -29,7 +35,6 @@ class AHNavBar: UIView {
     
     lazy var searchView: AHSearchView = {
         let searchView = AHSearchView.searchView()
-        searchView.frame = CGRect(x: 10, y: 27, width: self.frame.width - 20, height: 30)
         return searchView
     }()
     
@@ -41,13 +46,23 @@ class AHNavBar: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = UIColorMainBlue
+        backgroundColor = UIColor.clear
         addSubview(searchView)
-        // addSubview(titleLabel)
-        addSubview(lineView)
+        showShortStyle()
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func showLongStyle() {
+        searchView.frame = CGRect(x: 15, y: 27, width: kScreen_W - 30, height: 30)
+        searchView.seatchTitle.text = "搜索更多干货"
+    }
+    
+    func showShortStyle() {
+        let W: CGFloat = 80
+        searchView.frame = CGRect(x: kScreen_W - W - 15, y: 27, width: W, height: 30)
+        searchView.seatchTitle.text = "搜索"
     }
 }

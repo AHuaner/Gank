@@ -39,10 +39,13 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <userDefinedRuntimeAttributes>
                 <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                    <integer key="value" value="3"/>
+                    <integer key="value" value="15"/>
                 </userDefinedRuntimeAttribute>
             </userDefinedRuntimeAttributes>
-            <point key="canvasLocation" x="-328.5" y="89"/>
+            <connections>
+                <outlet property="seatchTitle" destination="dBj-7b-vRZ" id="Ohd-X5-52g"/>
+            </connections>
+            <point key="canvasLocation" x="-724" y="6"/>
         </view>
     </objects>
     <resources>

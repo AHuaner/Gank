@@ -34,7 +34,6 @@ class AHHomeViewController: BaseViewController {
     
     lazy var navBar: AHNavBar = {
         let navBar = AHNavBar(frame: CGRect(x: 0, y: 0, width: kScreen_W, height: 64))
-        navBar.alpha = 0.001
         navBar.searchView.locationVC = self
         return navBar
     }()
@@ -187,11 +186,25 @@ extension AHHomeViewController: UITableViewDelegate, UITableViewDataSource {
 
 extension AHHomeViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        if scrollView.contentOffset.y > 0 {
-            let alpha = scrollView.contentOffset.y / (kScreen_H * 0.55 - 64.0)
-            navBar.alpha = alpha
+    
+        let offsetY = scrollView.contentOffset.y
+        let alpha = offsetY / (kScreen_H * 0.55 - kNavBarHeight)
+        
+        if offsetY > 0 {
+            navBar.bgAlpha = alpha
+            if offsetY >= kScreen_H * 0.55 - kNavBarHeight {
+                UIView.animate(withDuration: 0.5, animations: { 
+                    self.navBar.showLongStyle()
+                })
+            }
         } else {
-            navBar.alpha = 0.001
+            UIView.animate(withDuration: 0.5, animations: {
+                self.navBar.showShortStyle()
+            })
+        }
+        
+        if offsetY == 0 {
+            self.navBar.backgroundColor = UIColor.clear
         }
     }
 }

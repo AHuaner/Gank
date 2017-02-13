@@ -56,7 +56,7 @@ class AHClassWebViewController: BaseWebViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        self.navigationController?.setNavigationBarHidden(false, animated: false)
+        
         self.navigationController?.delegate = nil
         
         if isCustomTranstion { return }

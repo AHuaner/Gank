@@ -336,8 +336,8 @@
 			isa = PBXGroup;
 			children = (
 				600BA1461E0BB69A002E4D94 /* View */,
-				600BA13C1E0B7A67002E4D94 /* AHHomeViewController.swift */,
 				60A19DEC1E213A98007D24D2 /* AHHomeWebViewController.swift */,
+				600BA13C1E0B7A67002E4D94 /* AHHomeViewController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
