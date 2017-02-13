@@ -33,6 +33,7 @@
 		60116FAE1E518F3C0068663F /* AHCollectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60116FAC1E518F3C0068663F /* AHCollectCell.swift */; };
 		60116FAF1E518F3C0068663F /* AHCollectCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60116FAD1E518F3C0068663F /* AHCollectCell.xib */; };
 		60116FB11E518FA30068663F /* icon_user@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60116FB01E518FA30068663F /* icon_user@2x.png */; };
+		60116FB31E51F6D00068663F /* GankModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60116FB21E51F6D00068663F /* GankModel.swift */; };
 		60144EA11E01632C00AC31D1 /* AHImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60144E9F1E01632C00AC31D1 /* AHImageCell.swift */; };
 		60144EA21E01632C00AC31D1 /* AHImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60144EA01E01632C00AC31D1 /* AHImageCell.xib */; };
 		601560921DFE820F00369E64 /* AHClassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 601560911DFE820F00369E64 /* AHClassViewController.swift */; };
@@ -182,6 +183,7 @@
 		60116FAC1E518F3C0068663F /* AHCollectCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHCollectCell.swift; sourceTree = "<group>"; };
 		60116FAD1E518F3C0068663F /* AHCollectCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AHCollectCell.xib; sourceTree = "<group>"; };
 		60116FB01E518FA30068663F /* icon_user@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_user@2x.png"; sourceTree = "<group>"; };
+		60116FB21E51F6D00068663F /* GankModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GankModel.swift; sourceTree = "<group>"; };
 		60144E9F1E01632C00AC31D1 /* AHImageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHImageCell.swift; sourceTree = "<group>"; };
 		60144EA01E01632C00AC31D1 /* AHImageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AHImageCell.xib; sourceTree = "<group>"; };
 		601560911DFE820F00369E64 /* AHClassViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHClassViewController.swift; sourceTree = "<group>"; };
@@ -527,6 +529,7 @@
 		60396BE71DF83C0F00A23DAA /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				60116FB21E51F6D00068663F /* GankModel.swift */,
 				600906E81E0020A6002F0A73 /* AHClassModel.swift */,
 				600BA1441E0B9478002E4D94 /* AHHomeGankModel.swift */,
 				600BA13E1E0B7AC8002E4D94 /* AHHomeGroupModel.swift */,
@@ -976,6 +979,7 @@
 				6045F37C1E092148002B0FB6 /* AHClassWebViewController.swift in Sources */,
 				60939DBC1E220BC0003B3F13 /* AHPresentationController.swift in Sources */,
 				600BA13F1E0B7AC8002E4D94 /* AHHomeGroupModel.swift in Sources */,
+				60116FB31E51F6D00068663F /* GankModel.swift in Sources */,
 				60C7F8B61DFA66D30069E69A /* AHDisplayViewController.swift in Sources */,
 				60EB315B1E2374E100E93715 /* AHPushTransition.swift in Sources */,
 				601CF5E91DF8379A002AF8D5 /* AHMainViewController.swift in Sources */,

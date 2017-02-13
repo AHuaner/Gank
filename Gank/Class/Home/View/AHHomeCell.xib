@@ -14,7 +14,7 @@
             <rect key="frame" x="0.0" y="0.0" width="328" height="69"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="328" height="68.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="328" height="68"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fyr-A9-Vpd" userLabel="line">
@@ -30,7 +30,7 @@
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zZA-T3-Wp1" userLabel="editor">
+                    <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zZA-T3-Wp1" userLabel="editor">
                         <rect key="frame" x="10" y="6" width="100" height="15"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="100" id="QfS-j5-MON"/>

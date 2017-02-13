@@ -58,6 +58,34 @@ class AHMineViewController: BaseViewController {
         settingVC.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(settingVC, animated: true)
     }
+    
+    // 编辑个人主页
+    func showPersonalPage() {
+        if userInfo == nil {
+            let loginVC = AHLoginViewController()
+            let nav = UINavigationController(rootViewController: loginVC)
+            present(nav, animated: true, completion: nil)
+            return
+        }
+        
+        let vc = BaseViewController()
+        vc.title = "编辑个人主页"
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    // 我的收藏
+    func showMyCollection() {
+        if userInfo == nil {
+            let loginVC = AHLoginViewController()
+            let nav = UINavigationController(rootViewController: loginVC)
+            present(nav, animated: true, completion: nil)
+            return
+        }
+        
+        let vc = AHCollectViewController()
+        vc.hidesBottomBarWhenPushed = true
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
 }
 
 extension AHMineViewController: UITableViewDelegate, UITableViewDataSource {
@@ -101,22 +129,12 @@ extension AHMineViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        if indexPath.section == 0 {
-            if userInfo == nil {
-                let loginVC = AHLoginViewController()
-                let nav = UINavigationController(rootViewController: loginVC)
-                present(nav, animated: true, completion: nil)
-            } else {
-                let vc = BaseViewController()
-                vc.title = "编辑个人主页"
-                self.navigationController?.pushViewController(vc, animated: true)
-            }
+        if indexPath.section == 0 { // 个人主页
+            showPersonalPage()
         } else if indexPath.section == 1 {
             switch indexPath.row {
-            case 0:
-                let vc = AHCollectViewController()
-                vc.hidesBottomBarWhenPushed = true
-                self.navigationController?.pushViewController(vc, animated: true)
+            case 0: // 我的收藏
+                showMyCollection()
             default:
                 break
             }

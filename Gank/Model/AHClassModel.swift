@@ -28,21 +28,9 @@ let collectMargin: CGFloat = 5
 import UIKit
 import SwiftyJSON
 
-class AHClassModel: NSObject {
-    var id: String?
-    
-    var publishedAt: String?
-    
-    var desc: String?
-    
-    var url: String?
-    
-    var user: String?
+class AHClassModel: GankModel {
     
     var images: [String]?
-    
-    var type: String?
-    
     var imageContainFrame: CGRect = CGRect.zero
     var imageH: CGFloat = 0
     var imageW: CGFloat = 0

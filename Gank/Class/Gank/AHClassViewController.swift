@@ -266,7 +266,7 @@ extension AHClassViewController: UITableViewDataSource, UITableViewDelegate {
         let model = datasArray[indexPath.row]
         let webView = AHClassWebViewController()
         webView.urlString = model.url
-        webView.classModel = model
+        webView.gankModel = model
         
         self.navigationController?.delegate = self
         self.navigationController?.pushViewController(webView, animated: true)

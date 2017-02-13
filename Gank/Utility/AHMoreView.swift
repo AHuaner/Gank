@@ -30,6 +30,15 @@ class AHMoreView: UIView {
     class func moreView() -> AHMoreView {
         return self.viewFromNib() as! AHMoreView
     }
+    
+    func gankBe(collected: Bool) {
+        if collected {
+            titles[0] = "取消收藏"
+        } else {
+            titles[0] = "收藏"
+        }
+        self.tableView.reloadData()
+    }
 }
 
 extension AHMoreView: UITableViewDelegate, UITableViewDataSource {

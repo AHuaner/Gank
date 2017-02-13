@@ -9,22 +9,9 @@
 import UIKit
 import SwiftyJSON
 
-class AHHomeGankModel: NSObject, NSCoding{
+class AHHomeGankModel: GankModel, NSCoding{
     fileprivate var separatorLineH: CGFloat = 1
-    
     fileprivate var editorLabelH: CGFloat = 15
-    
-    var id: String?
-    
-    var publishedAt: String?
-    
-    var desc: String?
-    
-    var url: String?
-    
-    var user: String?
-    
-    var type: String?
     
     var isShouldShowMoreButton: Bool = false
     
@@ -91,9 +78,14 @@ class AHHomeGankModel: NSObject, NSCoding{
             default: break
             }
         }
+        
+        // 时间处理
+        let time = self.publishedAt! as NSString
+        self.publishedAt = time.substring(to: 10) as String
     }
     
     required init(coder aDecoder: NSCoder) {
+        super.init()
         self.id = aDecoder.decodeObject(forKey: "id") as? String
         self.publishedAt = aDecoder.decodeObject(forKey: "publishedAt") as? String
         self.desc = aDecoder.decodeObject(forKey: "desc") as? String

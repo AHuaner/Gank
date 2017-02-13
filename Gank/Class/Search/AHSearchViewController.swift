@@ -221,6 +221,7 @@ extension AHSearchViewController: UITableViewDelegate, UITableViewDataSource {
         let model = datasArray[indexPath.row]
         let webVC = AHHomeWebViewController()
         webVC.urlString = model.url
+        webVC.gankModel = model
         self.navigationController?.pushViewController(webVC, animated: true)
     }
 }

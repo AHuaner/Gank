@@ -15,10 +15,10 @@ class AHCollectCell: UITableViewCell {
     @IBOutlet weak var timeBtn: UIButton!
     @IBOutlet weak var classBtn: UIButton!
     
-    var gankModel: AHSearchGankModel! {
+    var gankModel: GankModel! {
         didSet {
-            contentLabel.text = gankModel.desc!
-            userBtn.setTitle(gankModel.who, for: .normal)
+            contentLabel.text = gankModel.desc
+            userBtn.setTitle(gankModel.user, for: .normal)
             timeBtn.setTitle(gankModel.publishedAt, for: .normal)
             classBtn.setTitle(gankModel.type, for: .normal)
         }

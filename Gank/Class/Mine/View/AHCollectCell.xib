@@ -17,7 +17,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="94"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AX7-oG-2W8">
+                    <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AX7-oG-2W8">
                         <rect key="frame" x="15" y="8" width="290" height="16"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <state key="normal" title=" AHuaner" image="icon_user.png">
@@ -33,7 +33,7 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sm9-dC-vKk" userLabel="toolView">
                         <rect key="frame" x="15" y="72" width="290" height="15"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h5m-Ve-ogM" userLabel="timeBtn">
+                            <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h5m-Ve-ogM" userLabel="timeBtn">
                                 <rect key="frame" x="0.0" y="0.0" width="90" height="15"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="90" id="4ln-9T-bbO"/>
@@ -43,7 +43,7 @@
                                     <color key="titleColor" red="0.54117647059999996" green="0.54117647059999996" blue="0.54117647059999996" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qBY-60-6rS" userLabel="editor">
+                            <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qBY-60-6rS" userLabel="editor">
                                 <rect key="frame" x="100" y="0.0" width="190" height="15"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <state key="normal" title="AHuaner" image="icon_class.png">

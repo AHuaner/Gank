@@ -26,7 +26,7 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Nu-Pf-hUH" userLabel="toolView">
                         <rect key="frame" x="15" y="41" width="290" height="20"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Mp-S4-d3I" userLabel="timeBtn">
+                            <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Mp-S4-d3I" userLabel="timeBtn">
                                 <rect key="frame" x="0.0" y="0.0" width="97" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="97" id="6D2-SM-EQe"/>
@@ -37,7 +37,7 @@
                                     <color key="titleColor" red="0.54117647059999996" green="0.54117647059999996" blue="0.54117647059999996" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="alS-lc-sK4" userLabel="editor">
+                            <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="alS-lc-sK4" userLabel="editor">
                                 <rect key="frame" x="97" y="0.0" width="193" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="fLE-jz-nxD"/>

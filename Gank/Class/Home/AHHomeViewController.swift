@@ -178,7 +178,7 @@ extension AHHomeViewController: UITableViewDelegate, UITableViewDataSource {
         
         let webView = AHHomeWebViewController()
         webView.urlString = model.url
-        webView.homeGankModel = model
+        webView.gankModel = model
         webView.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(webView, animated: true)
     }
