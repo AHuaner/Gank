@@ -111,6 +111,15 @@ extension AHMineViewController: UITableViewDelegate, UITableViewDataSource {
                 vc.title = "编辑个人主页"
                 self.navigationController?.pushViewController(vc, animated: true)
             }
+        } else if indexPath.section == 1 {
+            switch indexPath.row {
+            case 0:
+                let vc = AHCollectViewController()
+                vc.hidesBottomBarWhenPushed = true
+                self.navigationController?.pushViewController(vc, animated: true)
+            default:
+                break
+            }
         }
     }
     

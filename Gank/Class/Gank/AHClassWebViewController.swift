@@ -122,7 +122,7 @@ class AHClassWebViewController: BaseWebViewController {
     }
     
     func collectGankAction() {
-        if userInfo == nil { // 未登录
+        if userInfo == nil { // 未登录状态
             //
             isCustomTranstion = true
             let loginVC = AHLoginViewController()
@@ -131,8 +131,22 @@ class AHClassWebViewController: BaseWebViewController {
             return
         }
         
-        // 登录
-        ToolKit.showSuccess(withStatus: "收藏成功")
+        // 登录状态
+        let gankInfo = BmobObject(className: "Collect")
+        gankInfo?.setObject(userInfo!.objectId, forKey: "userId")
+        gankInfo?.setObject(classModel?.id, forKey: "gankId")
+        gankInfo?.setObject(classModel?.desc, forKey: "gankDesc")
+        gankInfo?.setObject(classModel?.type, forKey: "gankType")
+        gankInfo?.setObject(classModel?.user, forKey: "gankUser")
+        gankInfo?.setObject(classModel?.publishedAt, forKey: "gankPublishAt")
+        gankInfo?.setObject(classModel?.url, forKey: "gankUrl")
+        gankInfo?.saveInBackground(resultBlock: { (isSuccessful, error) in
+            if error != nil { // 收藏失败
+                ToolKit.showError(withStatus: "收藏失败")
+            } else { // 收藏成功
+                ToolKit.showSuccess(withStatus: "收藏成功")
+            }
+        })
     }
 }
 

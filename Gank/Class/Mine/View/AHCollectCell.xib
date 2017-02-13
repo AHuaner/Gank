@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AHCollectCell" rowHeight="95" id="KGk-i7-Jjw" customClass="AHCollectCell" customModule="Gank" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="95"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="94"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AX7-oG-2W8">
+                        <rect key="frame" x="15" y="8" width="290" height="16"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <state key="normal" title=" AHuaner" image="icon_user.png">
+                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                        </state>
+                    </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LabelLabelLabelLabelLabeLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabeLabelLabelLabelLabelLabelLabel" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R5V-XZ-Lb1">
+                        <rect key="frame" x="15" y="29" width="290" height="36"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sm9-dC-vKk" userLabel="toolView">
+                        <rect key="frame" x="15" y="72" width="290" height="15"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h5m-Ve-ogM" userLabel="timeBtn">
+                                <rect key="frame" x="0.0" y="0.0" width="90" height="15"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="90" id="4ln-9T-bbO"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <state key="normal" title="2016-12-21" image="icon_time.png">
+                                    <color key="titleColor" red="0.54117647059999996" green="0.54117647059999996" blue="0.54117647059999996" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qBY-60-6rS" userLabel="editor">
+                                <rect key="frame" x="100" y="0.0" width="190" height="15"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <state key="normal" title="AHuaner" image="icon_class.png">
+                                    <color key="titleColor" red="0.54117647059999996" green="0.54117647059999996" blue="0.54117647059999996" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="h5m-Ve-ogM" firstAttribute="leading" secondItem="Sm9-dC-vKk" secondAttribute="leading" id="3Cs-Lp-eKZ"/>
+                            <constraint firstAttribute="trailing" secondItem="qBY-60-6rS" secondAttribute="trailing" id="JHX-Iv-8VW"/>
+                            <constraint firstAttribute="bottom" secondItem="h5m-Ve-ogM" secondAttribute="bottom" id="KDY-Ne-xEG"/>
+                            <constraint firstItem="h5m-Ve-ogM" firstAttribute="top" secondItem="Sm9-dC-vKk" secondAttribute="top" id="L14-c2-EFt"/>
+                            <constraint firstItem="qBY-60-6rS" firstAttribute="top" secondItem="Sm9-dC-vKk" secondAttribute="top" id="N2t-WD-6zU"/>
+                            <constraint firstItem="qBY-60-6rS" firstAttribute="leading" secondItem="h5m-Ve-ogM" secondAttribute="trailing" constant="10" id="awk-dV-cUe"/>
+                            <constraint firstAttribute="height" constant="15" id="dxU-PW-afI"/>
+                            <constraint firstAttribute="bottom" secondItem="qBY-60-6rS" secondAttribute="bottom" id="kki-vO-Nba"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="AX7-oG-2W8" secondAttribute="trailing" constant="15" id="2Tl-6O-8dY"/>
+                    <constraint firstItem="AX7-oG-2W8" firstAttribute="leading" secondItem="R5V-XZ-Lb1" secondAttribute="leading" id="460-F7-2xH"/>
+                    <constraint firstItem="Sm9-dC-vKk" firstAttribute="trailing" secondItem="R5V-XZ-Lb1" secondAttribute="trailing" id="506-4L-6T5"/>
+                    <constraint firstItem="R5V-XZ-Lb1" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="7ei-ZN-RqI"/>
+                    <constraint firstAttribute="trailing" secondItem="R5V-XZ-Lb1" secondAttribute="trailing" constant="15" id="9sz-nS-fxh"/>
+                    <constraint firstItem="R5V-XZ-Lb1" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="IBS-Rt-IsE"/>
+                    <constraint firstItem="R5V-XZ-Lb1" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="N4w-2F-Qfz"/>
+                    <constraint firstItem="Sm9-dC-vKk" firstAttribute="top" secondItem="R5V-XZ-Lb1" secondAttribute="bottom" constant="7" id="R3f-Qd-TeI"/>
+                    <constraint firstItem="R5V-XZ-Lb1" firstAttribute="top" secondItem="AX7-oG-2W8" secondAttribute="bottom" constant="5" id="h8U-LC-IwY"/>
+                    <constraint firstItem="Sm9-dC-vKk" firstAttribute="leading" secondItem="R5V-XZ-Lb1" secondAttribute="leading" id="xVx-Vm-ZaN"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="classBtn" destination="qBY-60-6rS" id="2zG-0V-CH8"/>
+                <outlet property="contentLabel" destination="R5V-XZ-Lb1" id="qzH-tD-ypf"/>
+                <outlet property="timeBtn" destination="h5m-Ve-ogM" id="21K-7T-rt0"/>
+                <outlet property="userBtn" destination="AX7-oG-2W8" id="XdG-PW-UBs"/>
+            </connections>
+            <point key="canvasLocation" x="25" y="77.5"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="icon_class.png" width="16" height="16"/>
+        <image name="icon_time.png" width="16" height="16"/>
+        <image name="icon_user.png" width="16" height="16"/>
+    </resources>
+</document>

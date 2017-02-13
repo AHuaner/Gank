@@ -36,5 +36,18 @@ class AHSearchGankModel: NSObject {
             default: break
             }
         }
+        // 时间处理
+        let time = self.publishedAt! as NSString
+        self.publishedAt = time.substring(to: 10) as String
+    }
+    
+    init(bmob: BmobObject) {
+        super.init()
+        self.id = bmob.object(forKey: "gankId") as? String
+        self.desc = bmob.object(forKey: "gankDesc") as? String
+        self.publishedAt = bmob.object(forKey: "gankPublishAt") as? String
+        self.url = bmob.object(forKey: "gankUrl") as? String
+        self.type = bmob.object(forKey: "gankType") as? String
+        self.who = bmob.object(forKey: "gankUser") as? String
     }
 }

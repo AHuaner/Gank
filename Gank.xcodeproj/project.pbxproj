@@ -28,6 +28,11 @@
 		600D2BC01DF8FA9200D57EA0 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 600D2BBF1DF8FA9200D57EA0 /* BaseViewController.swift */; };
 		600DD41A1E0D1ABC00ACFC00 /* AHHomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 600DD4181E0D1ABC00ACFC00 /* AHHomeCell.swift */; };
 		600DD41B1E0D1ABC00ACFC00 /* AHHomeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 600DD4191E0D1ABC00ACFC00 /* AHHomeCell.xib */; };
+		60116FA91E5164EC0068663F /* icon_class@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60116FA81E5164EC0068663F /* icon_class@2x.png */; };
+		60116FAB1E5181160068663F /* AHCollectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60116FAA1E5181160068663F /* AHCollectViewController.swift */; };
+		60116FAE1E518F3C0068663F /* AHCollectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60116FAC1E518F3C0068663F /* AHCollectCell.swift */; };
+		60116FAF1E518F3C0068663F /* AHCollectCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60116FAD1E518F3C0068663F /* AHCollectCell.xib */; };
+		60116FB11E518FA30068663F /* icon_user@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60116FB01E518FA30068663F /* icon_user@2x.png */; };
 		60144EA11E01632C00AC31D1 /* AHImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60144E9F1E01632C00AC31D1 /* AHImageCell.swift */; };
 		60144EA21E01632C00AC31D1 /* AHImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60144EA01E01632C00AC31D1 /* AHImageCell.xib */; };
 		601560921DFE820F00369E64 /* AHClassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 601560911DFE820F00369E64 /* AHClassViewController.swift */; };
@@ -172,6 +177,11 @@
 		600D2BBF1DF8FA9200D57EA0 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		600DD4181E0D1ABC00ACFC00 /* AHHomeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHHomeCell.swift; sourceTree = "<group>"; };
 		600DD4191E0D1ABC00ACFC00 /* AHHomeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AHHomeCell.xib; sourceTree = "<group>"; };
+		60116FA81E5164EC0068663F /* icon_class@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_class@2x.png"; sourceTree = "<group>"; };
+		60116FAA1E5181160068663F /* AHCollectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHCollectViewController.swift; sourceTree = "<group>"; };
+		60116FAC1E518F3C0068663F /* AHCollectCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHCollectCell.swift; sourceTree = "<group>"; };
+		60116FAD1E518F3C0068663F /* AHCollectCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AHCollectCell.xib; sourceTree = "<group>"; };
+		60116FB01E518FA30068663F /* icon_user@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_user@2x.png"; sourceTree = "<group>"; };
 		60144E9F1E01632C00AC31D1 /* AHImageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHImageCell.swift; sourceTree = "<group>"; };
 		60144EA01E01632C00AC31D1 /* AHImageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AHImageCell.xib; sourceTree = "<group>"; };
 		601560911DFE820F00369E64 /* AHClassViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHClassViewController.swift; sourceTree = "<group>"; };
@@ -509,6 +519,7 @@
 				60F315D81E4C336800A0AB36 /* View */,
 				600D2B721DF8F33E00D57EA0 /* AHMineViewController.swift */,
 				60F315DD1E4C3F8000A0AB36 /* AHSettingViewController.swift */,
+				60116FAA1E5181160068663F /* AHCollectViewController.swift */,
 			);
 			path = Mine;
 			sourceTree = "<group>";
@@ -527,6 +538,7 @@
 		60396BE81DF83C1E00A23DAA /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				60116FB01E518FA30068663F /* icon_user@2x.png */,
 				60F315DB1E4C3D1800A0AB36 /* icon_setting@2x.png */,
 				6029BE901E4B30D600FCC56B /* icon_show_blue@2x.png */,
 				6029BE911E4B30D700FCC56B /* icon_show@2x.png */,
@@ -544,6 +556,7 @@
 				6074E3EA1E0A5F03006BCC8D /* icon_time@2x.png */,
 				6045F3871E093529002B0FB6 /* toolBar_back@2x.png */,
 				6045F3881E093529002B0FB6 /* toolBar_forward@2x.png */,
+				60116FA81E5164EC0068663F /* icon_class@2x.png */,
 				6045F38B1E093529002B0FB6 /* toolBar_reload@2x.png */,
 				6045F3911E093624002B0FB6 /* toolBar_like_select@2x.png */,
 				6045F3921E093624002B0FB6 /* toolBar_like@2x.png */,
@@ -648,6 +661,8 @@
 				6029BE951E4B499F00FCC56B /* AHNoLoginCell.xib */,
 				60F315D21E4C206C00A0AB36 /* AHUserCell.swift */,
 				60F315D31E4C206C00A0AB36 /* AHUserCell.xib */,
+				60116FAC1E518F3C0068663F /* AHCollectCell.swift */,
+				60116FAD1E518F3C0068663F /* AHCollectCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -810,8 +825,10 @@
 				6084E1751E2364D000E8AC15 /* AHSearchView.xib in Resources */,
 				6045F3861E09344C002B0FB6 /* nav_ list@2x.png in Resources */,
 				6029BE971E4B499F00FCC56B /* AHNoLoginCell.xib in Resources */,
+				60116FA91E5164EC0068663F /* icon_class@2x.png in Resources */,
 				6074E3EC1E0A5F03006BCC8D /* icon_time@2x.png in Resources */,
 				60C7F8BE1DFA6B4E0069E69A /* find_select@2x.png in Resources */,
+				60116FB11E518FA30068663F /* icon_user@2x.png in Resources */,
 				60144EA21E01632C00AC31D1 /* AHImageCell.xib in Resources */,
 				60C7F8B81DFA6B390069E69A /* back@2x.png in Resources */,
 				601CF5C01DF836B4002AF8D5 /* Assets.xcassets in Resources */,
@@ -832,6 +849,7 @@
 				60C7F8BF1DFA6B4E0069E69A /* find@2x.png in Resources */,
 				60CF67451E4B1B58001AD276 /* AHRegisterViewController.xib in Resources */,
 				606B1E2A1DFD7DFD00BD86E2 /* close_button@2x.png in Resources */,
+				60116FAF1E518F3C0068663F /* AHCollectCell.xib in Resources */,
 				6029BE921E4B30D700FCC56B /* icon_show_blue@2x.png in Resources */,
 				60C0935D1E2DBDBC004D6B90 /* icon_search_blue@2x.png in Resources */,
 			);
@@ -930,6 +948,7 @@
 				604A29BB1E273C3100228F69 /* AHSearchListView.swift in Sources */,
 				601560941DFEC46F00369E64 /* AHLoadingView.swift in Sources */,
 				60EB31581E2374D900E93715 /* AHClosePopTranstion.swift in Sources */,
+				60116FAE1E518F3C0068663F /* AHCollectCell.swift in Sources */,
 				604A29C61E2767FE00228F69 /* AHTurnChannelViewController.swift in Sources */,
 				600BA1501E0BC469002E4D94 /* AHNavBar.swift in Sources */,
 				600BA1481E0BB745002E4D94 /* AHHeaderSectionView.swift in Sources */,
@@ -966,6 +985,7 @@
 				60F0EE821E041AB800D8ECA0 /* AHPhotoBrowser.swift in Sources */,
 				60F462361E49E22300FDBE72 /* CALayer+BorderColor.swift in Sources */,
 				600D2B731DF8F33E00D57EA0 /* AHMineViewController.swift in Sources */,
+				60116FAB1E5181160068663F /* AHCollectViewController.swift in Sources */,
 				600D2B751DF8F35C00D57EA0 /* AHGankViewController.swift in Sources */,
 				602754BD1E00FCC400A2B757 /* AHClassCell.swift in Sources */,
 				607042E41E28CB5400462731 /* NSObject+alertController.swift in Sources */,
