@@ -18,13 +18,13 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabel" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vgY-t3-m7v">
-                        <rect key="frame" x="15" y="8" width="290" height="18"/>
+                        <rect key="frame" x="15" y="12" width="290" height="18"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Nu-Pf-hUH" userLabel="toolView">
-                        <rect key="frame" x="15" y="41" width="290" height="20"/>
+                        <rect key="frame" x="15" y="38.5" width="290" height="20"/>
                         <subviews>
                             <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Mp-S4-d3I" userLabel="timeBtn">
                                 <rect key="frame" x="0.0" y="0.0" width="97" height="20"/>
@@ -70,10 +70,10 @@
                 <constraints>
                     <constraint firstItem="8Nu-Pf-hUH" firstAttribute="leading" secondItem="vgY-t3-m7v" secondAttribute="leading" id="27q-lg-oDQ"/>
                     <constraint firstItem="vgY-t3-m7v" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="Cus-mz-Nze"/>
-                    <constraint firstItem="vgY-t3-m7v" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="Qgy-Oe-dxC"/>
+                    <constraint firstItem="vgY-t3-m7v" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="Qgy-Oe-dxC"/>
                     <constraint firstItem="8Nu-Pf-hUH" firstAttribute="trailing" secondItem="vgY-t3-m7v" secondAttribute="trailing" id="Vga-Pf-8jm"/>
                     <constraint firstAttribute="trailing" secondItem="vgY-t3-m7v" secondAttribute="trailing" constant="15" id="eBz-Xj-NkC"/>
-                    <constraint firstAttribute="bottom" secondItem="8Nu-Pf-hUH" secondAttribute="bottom" id="pBf-7l-uN1"/>
+                    <constraint firstAttribute="bottom" secondItem="8Nu-Pf-hUH" secondAttribute="bottom" constant="3" id="pBf-7l-uN1"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>

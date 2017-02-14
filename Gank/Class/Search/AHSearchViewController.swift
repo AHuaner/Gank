@@ -96,7 +96,7 @@ class AHSearchViewController: BaseViewController {
         tableView.isHidden = true
         tableView.separatorInset = .zero
         tableView.tableFooterView = UIView()
-        tableView.rowHeight = 55
+        tableView.rowHeight = 60
         
         
         contentView.contentSize = CGSize(width: kScreen_W, height: self.recentSearchView.Height)

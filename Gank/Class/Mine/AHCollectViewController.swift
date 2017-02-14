@@ -24,7 +24,7 @@ class AHCollectViewController: BaseViewController {
         tabelView.backgroundColor = UIColorMainBG
         tabelView.delegate = self
         tabelView.dataSource = self
-        tabelView.rowHeight = 95
+        tabelView.rowHeight = 100
         tabelView.tableFooterView = UIView()
         return tabelView
     }()
@@ -163,6 +163,7 @@ extension AHCollectViewController: UITableViewDelegate, UITableViewDataSource {
                 self.datasArray.remove(at: indexPath.row)
                 tableView.deleteRows(at: [indexPath], with: .automatic)
             } else {
+                AHLog(error!)
                 ToolKit.showError(withStatus: "取消收藏失败")
             }
         }

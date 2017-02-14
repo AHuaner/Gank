@@ -21,8 +21,8 @@
                         <constraint firstAttribute="width" constant="24" id="d79-x5-gMH"/>
                     </constraints>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="搜索更多干货" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dBj-7b-vRZ">
-                    <rect key="frame" x="39" y="7" width="86" height="17"/>
+                <label opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="搜索" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dBj-7b-vRZ">
+                    <rect key="frame" x="39" y="7" width="326" height="17"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <color key="textColor" red="0.83921568627450982" green="0.9137254901960784" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
@@ -31,6 +31,7 @@
             <color key="backgroundColor" red="0.19607843137254902" green="0.55294117647058827" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="dBj-7b-vRZ" firstAttribute="centerY" secondItem="hOE-dD-4pI" secondAttribute="centerY" id="0YS-ZA-eTz"/>
+                <constraint firstAttribute="trailing" secondItem="dBj-7b-vRZ" secondAttribute="trailing" constant="10" id="2q4-iI-6j6"/>
                 <constraint firstItem="hOE-dD-4pI" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="3X3-3E-75i"/>
                 <constraint firstItem="hOE-dD-4pI" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="SJG-b1-Pon"/>
                 <constraint firstItem="dBj-7b-vRZ" firstAttribute="leading" secondItem="hOE-dD-4pI" secondAttribute="trailing" constant="5" id="r8d-X6-kn8"/>

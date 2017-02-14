@@ -34,6 +34,12 @@ class AHLoginViewController: BaseViewController {
     
     fileprivate func setupUI() {
         view.backgroundColor = UIColor.white
+        passwordTextField.delegate = self
+        
+        // 获取上次登录的账号
+        if let lastPhoneNumber =  ToolKit.getUserInfoObjectForKey(key: "mobilePhoneNumber") as? String {
+            accountTextField.text = lastPhoneNumber
+        }
     }
 
     @IBAction func closeAction() {
@@ -70,7 +76,13 @@ class AHLoginViewController: BaseViewController {
     }
     
     @IBAction func forgetAction() {
+        self.view.endEditing(true)
+        let resetVC = AHResetPasswordController()
+        resetVC.resetClouse = {
+            self.dismiss(animated: true, completion: nil)
+        }
         
+        self.navigationController?.pushViewController(resetVC, animated: true)
     }
     
     @IBAction func showSecureTextAction(_ btn: UIButton) {
@@ -87,11 +99,12 @@ class AHLoginViewController: BaseViewController {
         let userName = accountTextField.text!
         let passWord = passwordTextField.text!
         
-        ToolKit.show(withStatus: "正在获取用户信息")
+        ToolKit.show(withStatus: "正在获取用户信息", style: .dark, maskType: .clear)
         BmobUser.loginWithUsername(inBackground: userName, password: passWord) { (BmobUser, error) in
             if let user = BmobUser {
                 AHLog("登录成功---\(user)")
                 ToolKit.dismissHUD()
+                ToolKit.saveUserInfoObject(object: user.mobilePhoneNumber, key: "mobilePhoneNumber")
                 self.dismiss(animated: true, completion: nil)
             } else {
                 guard let nserror = error as? NSError else {
@@ -112,5 +125,13 @@ class AHLoginViewController: BaseViewController {
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+}
+
+extension AHLoginViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        loginAction()
+        return true
     }
 }

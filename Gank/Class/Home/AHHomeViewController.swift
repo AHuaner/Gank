@@ -105,8 +105,9 @@ class AHHomeViewController: BaseViewController {
         
         for data in datasArray {
             if data.groupTitle == "福利" {
-                let urlString = data.ganks.first?.url
-                headerView.imageView.yy_imageURL = URL(string: urlString!)
+                guard let urlString = data.ganks.first?.url else { return }
+                let url = urlString + "?/0/w/\(kScreen_H * 0.55)/h/\(kScreen_W)"
+                headerView.imageView.yy_imageURL = URL(string: url)
                 headerView.timeLabel.text = date
                 continue
             }
@@ -190,21 +191,14 @@ extension AHHomeViewController: UIScrollViewDelegate {
         let offsetY = scrollView.contentOffset.y
         let alpha = offsetY / (kScreen_H * 0.55 - kNavBarHeight)
         
-        if offsetY > 0 {
+        if offsetY >= 0 {
             navBar.bgAlpha = alpha
             if offsetY >= kScreen_H * 0.55 - kNavBarHeight {
-                UIView.animate(withDuration: 0.5, animations: { 
-                    self.navBar.showLongStyle()
-                })
+                self.navBar.showLongStyle()
             }
         } else {
-            UIView.animate(withDuration: 0.5, animations: {
-                self.navBar.showShortStyle()
-            })
-        }
-        
-        if offsetY == 0 {
-            self.navBar.backgroundColor = UIColor.clear
+            navBar.bgAlpha = 0.001
+            self.navBar.showShortStyle()
         }
     }
 }

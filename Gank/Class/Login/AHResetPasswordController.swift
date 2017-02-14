@@ -1,23 +1,23 @@
 //
-//  AHRegisterViewController.swift
+//  AHResetPasswordController.swift
 //  Gank
 //
-//  Created by AHuaner on 2017/2/8.
+//  Created by AHuaner on 2017/2/14.
 //  Copyright © 2017年 CoderAhuan. All rights reserved.
 //
 
 import UIKit
 
-class AHRegisterViewController: BaseViewController {
-    
-    var registerClouse: (() -> Void)?
+class AHResetPasswordController: BaseViewController {
+
+    var resetClouse: (() -> Void)?
     
     @IBOutlet weak var accountTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var authcodeTextField: UITextField!
     
     @IBOutlet weak var autocodeBtn: UIButton!
-    @IBOutlet weak var registerBtn: UIButton!
+    @IBOutlet weak var resetBtn: UIButton!
     
     var timer: Timer?
     var time: Int = 60
@@ -48,20 +48,19 @@ class AHRegisterViewController: BaseViewController {
     
     func chectRegisterCanClick() {
         if accountTextField.text != "" && passwordTextField.text != "" && authcodeTextField.text != "" {
-            registerBtn.backgroundColor = UIColorMainBlue
-            registerBtn.isEnabled = true
+            resetBtn.backgroundColor = UIColorMainBlue
+            resetBtn.isEnabled = true
         } else {
-            registerBtn.backgroundColor = UIColor.lightGray
-            registerBtn.isEnabled = false
+            resetBtn.backgroundColor = UIColor.lightGray
+            resetBtn.isEnabled = false
         }
     }
     
-    @IBAction func registerAction() {
-        
+    @IBAction func resetAction() {
         if Validate.checkMobile(accountTextField.text!) {
             if Validate.checkPassword(passwordTextField.text!) {
                 if isGetAutoCode {
-                    requestRegister()
+                    requestReset()
                 } else {
                     ToolKit.showInfo(withStatus: "请获取短信验证码", style: .dark)
                 }
@@ -71,7 +70,7 @@ class AHRegisterViewController: BaseViewController {
         } else {
             ToolKit.showInfo(withStatus: "请输入正确的手机号码", style: .dark)
         }
-     }
+    }
     
     @IBAction func popAction() {
         timer?.invalidate()
@@ -99,14 +98,14 @@ class AHRegisterViewController: BaseViewController {
                     if Validate.checkPassword(passwordTextField.text!) {
                         checkRegistered()
                     } else {
-                        ToolKit.showInfo(withStatus: "密码为6-18位字母数字组合", style: .dark)
+                        ToolKit.showInfo(withStatus: "新密码为6-18位字母数字组合", style: .dark)
                     }
                 }
             } else {
                 ToolKit.showInfo(withStatus: "请输入正确的手机号码", style: .dark)
             }
         }
-
+        
     }
     
     // 检验账号是否已注册
@@ -116,20 +115,17 @@ class AHRegisterViewController: BaseViewController {
         let query = BmobUser.query()!
         query.whereKey("username", equalTo: accountTextField.text)
         query.findObjectsInBackground { (array, error) in
-            AHLog(array!)
             if array!.count > 0 { // 该账号已注册
-                self.showAlertController(locationVC: self, title: "该账号已注册, 要去登陆吗?", message: "", cancelTitle: "取消", confirmTitle: "好的", confrimClouse: { (_) in
-                    self.navigationController!.popViewController(animated: true)
-                }, cancelClouse: { (_) in })
-            } else { // 该账号未注册
                 // 重置时间
                 self.time = 60
                 
                 self.autocodeBtn.isUserInteractionEnabled = false
-                self.timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(AHRegisterViewController.timeRun), userInfo: nil, repeats: true)
+                self.timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.timeRun), userInfo: nil, repeats: true)
                 RunLoop.current.add(self.timer!, forMode: .commonModes)
                 
                 self.requestSMSCode()
+            } else { // 该账号未注册
+                ToolKit.showInfo(withStatus: "账户不存在")
             }
         }
     }
@@ -160,32 +156,27 @@ class AHRegisterViewController: BaseViewController {
         }
     }
     
-    // 发送注册请求
-    func requestRegister() {
+    // 发送重置密码请求
+    func requestReset() {
         self.view.endEditing(true)
-        ToolKit.show(withStatus: "正在注册中", style: .dark, maskType: .clear)
-        let user = BmobUser()
-        user.username = accountTextField.text
-        user.mobilePhoneNumber = accountTextField.text
-        user.password = passwordTextField.text
-        user.signUpOrLoginInbackground(withSMSCode: authcodeTextField.text) { (isSuccessful, error) in
+        ToolKit.show(withStatus: "正在重置")
+        BmobUser.resetPasswordInbackground(withSMSCode: authcodeTextField.text, andNewPassword: passwordTextField.text) { (isSuccessful, error) in
             if error == nil {
-                AHLog("注册成功---\(user)")
-                ToolKit.showSuccess(withStatus: "注册成功")
-                ToolKit.saveUserInfoObject(object: user.mobilePhoneNumber, key: "mobilePhoneNumber")
+                ToolKit.showSuccess(withStatus: "重置成功")
                 DispatchQueue.main.asyncAfter(deadline: 1, execute: {
-                    if self.registerClouse != nil { self.registerClouse!() }
+                    self.popAction()
                 })
-            }else{
-                AHLog("\(error)")
+            } else {
+                AHLog(error!)
                 let nserror = error as! NSError
                 switch nserror.code {
                 case 207:
                     ToolKit.showError(withStatus: "验证码错误")
                 default:
-                    ToolKit.showError(withStatus: "注册失败, 请稍后重试")
+                    ToolKit.showError(withStatus: "重置密码失败, 请稍后重试")
                 }
             }
         }
     }
+
 }

@@ -86,7 +86,7 @@ class AHClassWebViewController: BaseWebViewController {
         let oriImage = UIImage(named: "icon_more")?.withRenderingMode(UIImageRenderingMode.alwaysOriginal)
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: oriImage, style: .plain, target: self, action: #selector(AHClassWebViewController.moreClick))
         
-        maskBtnView.addTarget(self, action: #selector(AHClassWebViewController.dismissMoreView), for: .touchUpInside)
+        maskBtnView.addTarget(self, action: #selector(self.dismissMoreView), for: .touchUpInside)
         
         moreView.tableViewdidSelectClouse = { [unowned self] (indexPath) in
             self.dismissMoreView()
@@ -190,6 +190,7 @@ class AHClassWebViewController: BaseWebViewController {
         
         gankInfo?.saveInBackground(resultBlock: { (isSuccessful, error) in
             if error != nil { // 收藏失败
+                AHLog(error!)
                 ToolKit.showError(withStatus: "收藏失败")
             } else { // 收藏成功
                 ToolKit.showSuccess(withStatus: "收藏成功")

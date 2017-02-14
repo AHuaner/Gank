@@ -46,9 +46,12 @@ class AHNavBar: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        
         backgroundColor = UIColor.clear
         addSubview(searchView)
-        showShortStyle()
+        
+        let W: CGFloat = 80
+        self.searchView.frame = CGRect(x: kScreen_W - W - 15, y: 27, width: W, height: 30)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -56,13 +59,20 @@ class AHNavBar: UIView {
     }
     
     func showLongStyle() {
-        searchView.frame = CGRect(x: 15, y: 27, width: kScreen_W - 30, height: 30)
-        searchView.seatchTitle.text = "搜索更多干货"
+        UIView.animate(withDuration: 0.5) { 
+            self.searchView.frame = CGRect(x: 15, y: 27, width: kScreen_W - 30, height: 30)
+        }
+        DispatchQueue.main.asyncAfter(deadline: 0.1) {
+            self.searchView.seatchTitle.text = "搜索更多干货"
+        }
     }
     
     func showShortStyle() {
         let W: CGFloat = 80
-        searchView.frame = CGRect(x: kScreen_W - W - 15, y: 27, width: W, height: 30)
-        searchView.seatchTitle.text = "搜索"
+        UIView.animate(withDuration: 0.5) { 
+            self.searchView.frame = CGRect(x: kScreen_W - W - 15, y: 27, width: W, height: 30)
+            self.searchView.seatchTitle.text = "搜索"
+        }
     }
+    
 }
