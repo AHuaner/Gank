@@ -42,6 +42,7 @@ class AHBrowserImageView: YYAnimatedImageView {
         let waitingView = AHWaitingView(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
         waitingView.tpye = AHWaitingViewType.AHDWaitingViewTypePie
         waitingView.center = CGPoint(x: kScreen_W * 0.5, y: kScreen_H * 0.5)
+        waitingView.isHidden = true
         return waitingView
     }()
     
@@ -61,6 +62,8 @@ class AHBrowserImageView: YYAnimatedImageView {
     }
     
     func setImage(url: URL?, placeholderImage: UIImage?) {
+        waitingView.isHidden = false
+        
         weak var weakSelf = self
         
         self.yy_setImage(with: url, placeholder: placeholderImage, options: .setImageWithFadeAnimation, manager: nil, progress: { (receivedSize: Int, expectedSize: Int) in

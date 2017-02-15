@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import YYWebImage
 
 let AHPhotoBrowserImageViewMargin: CGFloat = 5
 let AHPhotoBrowserShowImageDuration: CGFloat = 0.3
@@ -277,14 +278,25 @@ class AHPhotoBrowser: UIView {
         let imageView = scrollView.subviews[index] as! AHBrowserImageView
         if imageView.isLoadedImage { return }
         
-        imageView.image = placeholderImageForIndex(index: index)
+        imageView.image = imageFromCache(url: highQualityImageURLForIndex(index: index)) ?? placeholderImageForIndex(index: index)
         currentImageIndex = index
+        
+        if ToolKit.getNetWorkType() != "Wifi" && onlyWifiDownPic == true { return }
+        
         if highQualityImageURLForIndex(index: index) != nil {
             imageView.setImage(url: highQualityImageURLForIndex(index: index), placeholderImage: placeholderImageForIndex(index: index))
         }
         
         // 不要再回调里面设置
         imageView.isLoadedImage = true
+    }
+    
+    fileprivate func imageFromCache(url: URL?) -> UIImage? {
+        guard let url = url else { return nil }
+        let cacheKey = YYWebImageManager.shared().cacheKey(for: url)
+        let image = YYWebImageManager.shared().cache?.getImageForKey(cacheKey)
+        
+        return image
     }
 }
 
