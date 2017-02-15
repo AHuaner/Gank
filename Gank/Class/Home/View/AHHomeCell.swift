@@ -73,8 +73,8 @@ class AHHomeCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        editorBtn.titleEdgeInsets = UIEdgeInsets(top: 0, left: 3, bottom: 0, right: 0)
-        timeBtn.titleEdgeInsets = UIEdgeInsets(top: 0, left: 3, bottom: 0, right: 0)
+        editorBtn.titleEdgeInsets = UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 0)
+        timeBtn.titleEdgeInsets = UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 0)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
