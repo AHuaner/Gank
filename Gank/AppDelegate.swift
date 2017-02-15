@@ -61,7 +61,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     fileprivate func setRootVC() {
-        let rootVC = AHMainViewController()
+        // let rootVC = AHMainViewController()
+        let rootVC = TabBarController()
+        rootVC.delegate = self
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.backgroundColor = UIColorMainBG
         window?.rootViewController = rootVC
@@ -99,6 +101,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     fileprivate func setBmob() {
         Bmob.register(withAppKey: "480048add0eb994db572f59796aa9bb7")
+    }
+}
+
+extension AppDelegate: UITabBarControllerDelegate {
+    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "TabBarDidSelectNotification"), object: nil)
     }
 }
 

@@ -26,24 +26,16 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="何家欢" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3vk-3C-Q3c">
-                        <rect key="frame" x="100" y="25" width="52" height="20.5"/>
+                        <rect key="frame" x="105" y="35" width="52" height="20.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="查看或编辑个人资料" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V6Z-CF-iDK">
-                        <rect key="frame" x="100" y="49.5" width="119.5" height="16"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
                     <constraint firstItem="wQw-mZ-pRM" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="FTK-en-X6u"/>
-                    <constraint firstItem="V6Z-CF-iDK" firstAttribute="centerY" secondItem="wQw-mZ-pRM" secondAttribute="centerY" constant="12" id="T4L-Sr-t6m"/>
-                    <constraint firstItem="3vk-3C-Q3c" firstAttribute="centerY" secondItem="wQw-mZ-pRM" secondAttribute="centerY" constant="-10" id="VMY-8A-bLm"/>
-                    <constraint firstItem="V6Z-CF-iDK" firstAttribute="leading" secondItem="3vk-3C-Q3c" secondAttribute="leading" id="X3i-kU-2c8"/>
-                    <constraint firstItem="3vk-3C-Q3c" firstAttribute="leading" secondItem="wQw-mZ-pRM" secondAttribute="trailing" constant="10" id="d2e-cx-Zby"/>
+                    <constraint firstItem="3vk-3C-Q3c" firstAttribute="centerY" secondItem="wQw-mZ-pRM" secondAttribute="centerY" id="VMY-8A-bLm"/>
+                    <constraint firstItem="3vk-3C-Q3c" firstAttribute="leading" secondItem="wQw-mZ-pRM" secondAttribute="trailing" constant="15" id="d2e-cx-Zby"/>
                     <constraint firstItem="wQw-mZ-pRM" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="dJJ-xs-Xlr"/>
                 </constraints>
             </tableViewCellContentView>

@@ -18,7 +18,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AX7-oG-2W8">
-                        <rect key="frame" x="15" y="8" width="290" height="16"/>
+                        <rect key="frame" x="15" y="6" width="290" height="16"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <state key="normal" title=" AHuaner" image="icon_user.png">
                             <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -27,11 +27,11 @@
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LabelLabelLabelLabelLabeLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabeLabelLabelLabelLabelLabelLabel" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R5V-XZ-Lb1">
                         <rect key="frame" x="15" y="29" width="290" height="36"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sm9-dC-vKk" userLabel="toolView">
-                        <rect key="frame" x="15" y="72" width="290" height="15"/>
+                        <rect key="frame" x="15" y="74" width="290" height="15"/>
                         <subviews>
                             <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h5m-Ve-ogM" userLabel="timeBtn">
                                 <rect key="frame" x="0.0" y="0.0" width="90" height="15"/>
@@ -71,8 +71,8 @@
                     <constraint firstAttribute="trailing" secondItem="R5V-XZ-Lb1" secondAttribute="trailing" constant="15" id="9sz-nS-fxh"/>
                     <constraint firstItem="R5V-XZ-Lb1" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="IBS-Rt-IsE"/>
                     <constraint firstItem="R5V-XZ-Lb1" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="N4w-2F-Qfz"/>
-                    <constraint firstItem="Sm9-dC-vKk" firstAttribute="top" secondItem="R5V-XZ-Lb1" secondAttribute="bottom" constant="7" id="R3f-Qd-TeI"/>
-                    <constraint firstItem="R5V-XZ-Lb1" firstAttribute="top" secondItem="AX7-oG-2W8" secondAttribute="bottom" constant="5" id="h8U-LC-IwY"/>
+                    <constraint firstItem="Sm9-dC-vKk" firstAttribute="top" secondItem="R5V-XZ-Lb1" secondAttribute="bottom" constant="9" id="R3f-Qd-TeI"/>
+                    <constraint firstItem="R5V-XZ-Lb1" firstAttribute="top" secondItem="AX7-oG-2W8" secondAttribute="bottom" constant="7" id="h8U-LC-IwY"/>
                     <constraint firstItem="Sm9-dC-vKk" firstAttribute="leading" secondItem="R5V-XZ-Lb1" secondAttribute="leading" id="xVx-Vm-ZaN"/>
                 </constraints>
             </tableViewCellContentView>

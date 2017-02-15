@@ -14,7 +14,7 @@ class AHHomeViewController: BaseViewController {
     
     fileprivate var lastSelectedIndex: Int = 0
     
-    lazy var headerView: AHHomeHeaderView = {
+    fileprivate lazy var headerView: AHHomeHeaderView = {
         let headerView = AHHomeHeaderView.headerView()
         headerView.frame = CGRect(x: 0, y: 0, width: kScreen_W, height: kScreen_H * 0.55)
         return headerView
@@ -32,20 +32,22 @@ class AHHomeViewController: BaseViewController {
         return tabelView
     }()
     
-    lazy var navBar: AHNavBar = {
+    fileprivate lazy var navBar: AHNavBar = {
         let navBar = AHNavBar(frame: CGRect(x: 0, y: 0, width: kScreen_W, height: 64))
         navBar.searchView.locationVC = self
         return navBar
     }()
     
-    fileprivate var curDateString: String = ""
+    fileprivate var curDateString: String {
+        get {
+            return Date().toString(WithFormat: "YYYY/MM/dd")
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupUI()
-        
-        calculateDate()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -76,10 +78,6 @@ class AHHomeViewController: BaseViewController {
         self.automaticallyAdjustsScrollViewInsets = false
         
         NotificationCenter.default.addObserver(self, selector: #selector(AHHomeViewController.tabBarSelector), name: NSNotification.Name(rawValue: "TabBarDidSelectNotification"), object: nil)
-    }
-    
-    fileprivate func calculateDate() {
-        curDateString = Date().toString(WithFormat: "YYYY/MM/dd")
     }
     
     fileprivate func sendRequest() {
@@ -172,7 +170,6 @@ extension AHHomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
         tableView.deselectRow(at: indexPath, animated: true)
         
         let model = datasArray[indexPath.section].ganks[indexPath.row]
@@ -187,11 +184,10 @@ extension AHHomeViewController: UITableViewDelegate, UITableViewDataSource {
 
 extension AHHomeViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-    
         let offsetY = scrollView.contentOffset.y
         let alpha = offsetY / (kScreen_H * 0.55 - kNavBarHeight)
         
-        if offsetY >= 0 {
+        if offsetY > 0 {
             navBar.bgAlpha = alpha
             if offsetY >= kScreen_H * 0.55 - kNavBarHeight {
                 self.navBar.showLongStyle()

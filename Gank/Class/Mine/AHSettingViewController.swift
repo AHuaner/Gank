@@ -11,15 +11,15 @@ import YYWebImage
 
 class AHSettingViewController: BaseViewController {
 
+    var logoutClouse: (() -> Void)?
+    
     fileprivate var cacheSize: CGFloat? {
         didSet {
             tableView.reloadData()
         }
     }
     
-    var logoutClouse: (() -> Void)?
-    
-    lazy var footView: UIButton = {
+    fileprivate lazy var footView: UIButton = {
         let footView = UIButton(frame: CGRect(x: 0, y: 0, width: kScreen_W, height: 44))
         footView.backgroundColor = UIColor.white
         footView.setTitleColor(UIColor.red, for: .normal)
@@ -33,9 +33,10 @@ class AHSettingViewController: BaseViewController {
         tabelView.delegate = self
         tabelView.dataSource = self
         tabelView.contentInset.bottom = kBottomBarHeight
-        tabelView.separatorStyle = .none
         return tabelView
     }()
+    
+    fileprivate var titlesArray = [["账号与安全"], ["移动网络不下载图片", "清除缓存"], ["分享应用", "关于我们"]]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,10 +65,8 @@ class AHSettingViewController: BaseViewController {
     fileprivate func setupUI() {
         view.addSubview(tableView)
         title = "设置"
-        
-        setNavigationBarStyle(BarColor: UIColor.white, backItemColor: .blue)
-        
         tableView.tableFooterView = footView
+        setNavigationBarStyle(BarColor: UIColor.white, backItemColor: .blue)
     }
     
     fileprivate func calculateCacheSize() {
@@ -91,37 +90,99 @@ class AHSettingViewController: BaseViewController {
             self.navigationController!.popViewController(animated: false)
         }
     }
+    
+    // 账户与安全
+    fileprivate func pushAccountSafeController() {
+        ToolKit.showInfo(withStatus: "该功能未实现")
+    }
+    
+    // 移动网络下载图片 yes or no
+    func mobileNetwork(switchView: UISwitch) {
+        if switchView.isOn {
+            
+        } else {
+            
+        }
+    }
+    
+    // 清理缓存
+    fileprivate func cleanCache() {        
+        self.showAlertController(locationVC: self, title: Bundle.appName ?? "Gank", message: "确定清除缓存的数据和图片?", confrimClouse: { (_) in
+            let cache = YYWebImageManager.shared().cache
+            cache?.memoryCache.removeAllObjects()
+            cache?.diskCache.removeAllObjects()
+            self.cacheSize = 0.0
+        }) { (_) in }
+    }
+    
+    // 分享应用
+    fileprivate func shareApp() {
+        ToolKit.showInfo(withStatus: "该功能未实现")
+    }
+    
+    // 关于我们
+    fileprivate func pushAboutUsController() {
+        ToolKit.showInfo(withStatus: "该功能未实现")
+    }
+    
 }
 
 extension AHSettingViewController: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return titlesArray.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return titlesArray[section].count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCell(withIdentifier: "settingCell")
-        if cell == nil {
-            cell = UITableViewCell(style: .value1, reuseIdentifier: "settingCell")
-            cell!.accessoryType = .disclosureIndicator
+        switch indexPath.section {
+        case 0: // 账户与安全
+            let cell = cellForValue1()
+            cell.textLabel?.text = titlesArray[indexPath.section][indexPath.row]
+            return cell
+        case 1:
+            if indexPath.row == 0 { // 移动网络不下载图片
+                let cell = cellForSwitch()
+                cell.textLabel?.text = titlesArray[indexPath.section][indexPath.row]
+                return cell
+            } else { // 清除缓存
+                let cell = cellForValue1()
+                cell.textLabel?.text = titlesArray[indexPath.section][indexPath.row]
+                cell.detailTextLabel?.text = "\(cacheSize!.format(f: 0))MB"
+                return cell
+            }
+        case 2:
+            // 分享应用 && 关于我们
+            let cell = cellForValue1()
+            cell.textLabel?.text = titlesArray[indexPath.section][indexPath.row]
+            return cell
+        default:
+            return cellForValue1()
         }
-        cell!.textLabel?.text = "清除缓存"
-        cell!.detailTextLabel?.text = "\(cacheSize!.format(f: 0))MB"
-        return cell!
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        let cache = YYWebImageManager.shared().cache
-        cache?.memoryCache.removeAllObjects()
-        cache?.diskCache.removeAllObjects()
-        cacheSize = 0.0
+        switch indexPath.section {
+        case 0: // 账户与安全
+            pushAccountSafeController()
+        case 1:
+            if indexPath.row == 1 { // 清除缓存
+                cleanCache()
+            }
+        case 2:
+            if indexPath.row == 0 { // 分享应用
+                shareApp()
+            } else if indexPath.row == 1 { // 关于我们
+                pushAboutUsController()
+            }
+        default:
+            break
+        }
     }
-    
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 15
@@ -130,4 +191,29 @@ extension AHSettingViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return section == (numberOfSections(in: tableView) - 1) ? 15 : 0.01
     }
+    
+    fileprivate func cellForValue1() -> UITableViewCell {
+        var cell = tableView.dequeueReusableCell(withIdentifier: "settingValue1Cell")
+        if cell == nil {
+            cell = UITableViewCell(style: .value1, reuseIdentifier: "settingValue1Cell")
+            cell!.accessoryType = .disclosureIndicator
+            cell!.textLabel?.textColor = UIColorTextBlock
+        }
+        return cell!
+    }
+    
+    fileprivate func cellForSwitch() -> UITableViewCell {
+        var cell = tableView.dequeueReusableCell(withIdentifier: "settingSwitchCell")
+        if cell == nil {
+            cell = UITableViewCell(style: .value1, reuseIdentifier: "settingSwitchCell")
+            let switchView = UISwitch()
+            switchView.setOn(true, animated: false)
+            switchView.addTarget(self, action: #selector(mobileNetwork(switchView:)), for: .valueChanged)
+            cell!.selectionStyle = .none
+            cell!.accessoryView = switchView
+            cell!.textLabel?.textColor = UIColorTextBlock
+        }
+        return cell!
+    }
+    
 }

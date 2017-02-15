@@ -102,6 +102,8 @@ class AHHomeWebViewController: BaseWebViewController {
     }
     
     func moreClick() {
+        cheakIsCollected()
+        
         kWindow?.addSubview(maskBtnView)
         kWindow?.addSubview(moreView)
         UIView.animate(withDuration: 0.25) {
@@ -118,6 +120,7 @@ class AHHomeWebViewController: BaseWebViewController {
         }
     }
     
+    // 点击收藏
     func collectGankAction() {
         if userInfo == nil { // 未登录
             let loginVC = AHLoginViewController()
@@ -130,7 +133,8 @@ class AHHomeWebViewController: BaseWebViewController {
         // 取消收藏
         if isCollected {
             ToolKit.show(withStatus: "正在取消收藏")
-            let gank: BmobObject = BmobObject(outDataWithClassName: "Collect", objectId: gankModel?.objectId)
+            guard let objectId =  gankModel?.objectId else { return }
+            let gank: BmobObject = BmobObject(outDataWithClassName: "Collect", objectId: objectId)
             gank.deleteInBackground { (isSuccessful, error) in
                 if isSuccessful { // 删除成功
                     ToolKit.showSuccess(withStatus: "以取消收藏")

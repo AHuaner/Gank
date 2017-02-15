@@ -11,13 +11,15 @@ import YYWebImage
 
 class AHMineViewController: BaseViewController {
     
+    // 收藏的文章的个数
+    fileprivate var collectedCount: Int?
+    
     fileprivate lazy var tableView: UITableView = {
         let tabelView = UITableView(frame: CGRect(x: 0, y: 0, width: kScreen_W, height: kScreen_H - kNavBarHeight), style: .grouped)
         tabelView.backgroundColor = UIColorMainBG
         tabelView.delegate = self
         tabelView.dataSource = self
         tabelView.contentInset.bottom = kBottomBarHeight
-        tabelView.register(UITableViewCell.self, forCellReuseIdentifier: "mineCell")
         return tabelView
     }()
 
@@ -29,6 +31,8 @@ class AHMineViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        requestCollectedCount()
         
         UIApplication.shared.statusBarStyle = .default
         
@@ -53,10 +57,27 @@ class AHMineViewController: BaseViewController {
         settingVC.logoutClouse = {
             let loginVC = AHLoginViewController()
             let nav = UINavigationController.init(rootViewController: loginVC)
-            self.present(nav, animated: true, completion: nil)
+            // 不要用self去present, 不然会报下面的警告
+            // Presenting view controllers on detached view controllers is discouraged
+            self.navigationController!.present(nav, animated: true, completion: nil)
         }
         settingVC.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(settingVC, animated: true)
+    }
+    
+    func requestCollectedCount() {
+        if userInfo == nil {
+            self.collectedCount = 0
+            return
+        }
+        
+        let query: BmobQuery = BmobQuery(className: "Collect")
+        query.whereKey("userId", equalTo: userInfo?.objectId)
+        query.countObjectsInBackground { (count, error) in
+            if error != nil { return }
+            self.collectedCount = (Int)(count)
+            self.tableView.reloadData()
+        }
     }
     
     // 编辑个人主页
@@ -99,7 +120,7 @@ extension AHMineViewController: UITableViewDelegate, UITableViewDataSource {
         case 0:
             return 1
         case 1:
-            return 2
+            return 1
         default:
             return 1
         }
@@ -119,9 +140,15 @@ extension AHMineViewController: UITableViewDelegate, UITableViewDataSource {
                 return cell
             }
         } else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "mineCell", for: indexPath)
-            cell.accessoryType = .disclosureIndicator
+            let cell = cellForValue1()
             cell.textLabel?.text = "我的收藏"
+            if let count = collectedCount {
+                if count == 0 {
+                    cell.detailTextLabel?.text = ""
+                } else {
+                    cell.detailTextLabel?.text = "\(count) "
+                }
+            }
             return cell
         }
     }
@@ -161,5 +188,15 @@ extension AHMineViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return 0.01
+    }
+    
+    fileprivate func cellForValue1() -> UITableViewCell {
+        var cell = tableView.dequeueReusableCell(withIdentifier: "mineCell")
+        if cell == nil {
+            cell = UITableViewCell(style: .value1, reuseIdentifier: "mineCell")
+            cell!.accessoryType = .disclosureIndicator
+            cell!.textLabel?.textColor = UIColorTextBlock
+        }
+        return cell!
     }
 }

@@ -34,8 +34,10 @@ class AHMoreView: UIView {
     func gankBe(collected: Bool) {
         if collected {
             titles[0] = "取消收藏"
+            images[0] = "icon_collected"
         } else {
             titles[0] = "收藏"
+            images[0] = "icon_collect"
         }
         self.tableView.reloadData()
     }

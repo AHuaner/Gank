@@ -61,9 +61,8 @@ class AHNavBar: UIView {
     func showLongStyle() {
         UIView.animate(withDuration: 0.5) { 
             self.searchView.frame = CGRect(x: 15, y: 27, width: kScreen_W - 30, height: 30)
-        }
-        DispatchQueue.main.asyncAfter(deadline: 0.1) {
             self.searchView.seatchTitle.text = "搜索更多干货"
+            self.searchView.seatchTitle.sizeToFit()
         }
     }
     
@@ -72,6 +71,7 @@ class AHNavBar: UIView {
         UIView.animate(withDuration: 0.5) { 
             self.searchView.frame = CGRect(x: kScreen_W - W - 15, y: 27, width: W, height: 30)
             self.searchView.seatchTitle.text = "搜索"
+            self.searchView.seatchTitle.sizeToFit()
         }
     }
     

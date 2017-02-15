@@ -131,6 +131,8 @@ class AHClassWebViewController: BaseWebViewController {
     }
     
     func moreClick() {
+        cheakIsCollected()
+        
         kWindow?.addSubview(maskBtnView)
         kWindow?.addSubview(moreView)
         UIView.animate(withDuration: 0.25) { 
@@ -147,6 +149,7 @@ class AHClassWebViewController: BaseWebViewController {
         }
     }
     
+    // 点击收藏
     func collectGankAction() {
         if userInfo == nil { // 未登录状态
             //
