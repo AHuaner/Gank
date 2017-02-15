@@ -111,6 +111,7 @@ class AHResetPasswordController: BaseViewController {
     // 检验账号是否已注册
     fileprivate func checkRegistered() {
         self.view.endEditing(true)
+        ToolKit.show(withStatus: "正在获取")
         
         let query = BmobUser.query()!
         query.whereKey("username", equalTo: accountTextField.text)
@@ -136,8 +137,10 @@ class AHResetPasswordController: BaseViewController {
         BmobSMS.requestCodeInBackground(withPhoneNumber: accountTextField.text, andTemplate: "干货") { (SMSID, error) in
             if error != nil {
                 let nserror = error as! NSError
+                ToolKit.showError(withStatus: "获取失败")
                 AHLog(nserror.code)
             } else {
+                ToolKit.showSuccess(withStatus: "获取成功")
                 AHLog("SMSID --\(SMSID)")
             }
         }

@@ -12,6 +12,8 @@ class AHHomeCell: UITableViewCell {
 
     @IBOutlet weak var editorBtn: UIButton!
     
+    @IBOutlet weak var timeBtn: UIButton!
+    
     @IBOutlet weak var contentLabel: UILabel!
     
     @IBOutlet weak var separatorLine: UIView!
@@ -44,6 +46,8 @@ class AHHomeCell: UITableViewCell {
             editorBtn.setTitle(gankModel.user, for: .normal)
             editorBtn.isHidden = (gankModel.user == nil) ? true : false
             
+            timeBtn.setTitle(gankModel.publishedAt, for: .normal)
+            
             moreBrn.frame = gankModel.moreBtnFrame
             moreBrn.isHidden = !gankModel.isShouldShowMoreButton
             
@@ -70,6 +74,7 @@ class AHHomeCell: UITableViewCell {
         super.awakeFromNib()
         
         editorBtn.titleEdgeInsets = UIEdgeInsets(top: 0, left: 3, bottom: 0, right: 0)
+        timeBtn.titleEdgeInsets = UIEdgeInsets(top: 0, left: 3, bottom: 0, right: 0)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

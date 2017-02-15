@@ -15,36 +15,26 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UFh-6T-ELI">
-                    <rect key="frame" x="20" y="17" width="33" height="16"/>
+                    <rect key="frame" x="24" y="17" width="33" height="16"/>
                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BRu-C0-JsI">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="1"/>
-                    <color key="backgroundColor" red="0.90196078431372551" green="0.90196078431372551" blue="0.90196078431372551" alpha="1" colorSpace="calibratedRGB"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="1" id="ddO-yI-ZDy"/>
-                    </constraints>
-                </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q1k-eB-02O">
-                    <rect key="frame" x="10" y="19.5" width="2" height="11"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q1k-eB-02O" userLabel="line">
+                    <rect key="frame" x="11" y="19" width="3" height="12"/>
                     <color key="backgroundColor" red="0.15686274510000001" green="0.60392156860000001" blue="0.92549019610000005" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="2" id="6ho-aI-rwC"/>
+                        <constraint firstAttribute="height" constant="12" id="8LB-cn-xx7"/>
+                        <constraint firstAttribute="width" constant="3" id="So1-Ev-EHh"/>
                     </constraints>
                 </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="UFh-6T-ELI" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="0BR-HI-3uk"/>
-                <constraint firstAttribute="trailing" secondItem="BRu-C0-JsI" secondAttribute="trailing" id="7ps-Tm-Kjr"/>
-                <constraint firstItem="BRu-C0-JsI" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="O41-iK-Yoj"/>
-                <constraint firstItem="Q1k-eB-02O" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="YXa-qB-r9L"/>
-                <constraint firstItem="UFh-6T-ELI" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="c4o-i9-BHn"/>
-                <constraint firstItem="BRu-C0-JsI" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="j1g-vN-uJX"/>
-                <constraint firstItem="Q1k-eB-02O" firstAttribute="height" secondItem="UFh-6T-ELI" secondAttribute="height" constant="-5" id="zS2-Cg-ZVA"/>
-                <constraint firstItem="Q1k-eB-02O" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="zuc-Hb-M5W"/>
+                <constraint firstItem="UFh-6T-ELI" firstAttribute="leading" secondItem="Q1k-eB-02O" secondAttribute="trailing" constant="10" id="BjF-uO-yrZ"/>
+                <constraint firstItem="UFh-6T-ELI" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="On5-Wu-knm"/>
+                <constraint firstItem="Q1k-eB-02O" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="11" id="SJJ-iZ-zLq"/>
+                <constraint firstItem="Q1k-eB-02O" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="tz5-lh-vy5"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>

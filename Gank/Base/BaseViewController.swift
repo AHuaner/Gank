@@ -111,6 +111,7 @@ class BaseViewController: UIViewController, UIGestureRecognizerDelegate {
         if navigationController?.viewControllers.count > 1 {
             switch backItemColor {
             case .blue:
+                navigationController?.navigationBar.tintColor = UIColorMainBlue
                 let oriImage = UIImage(named: "nav_back_blue")?.withRenderingMode(UIImageRenderingMode.alwaysOriginal)
                 navigationItem.leftBarButtonItem = UIBarButtonItem(image: oriImage, style: UIBarButtonItemStyle.plain, target: self, action: #selector(BaseViewController.back))
             default: // white

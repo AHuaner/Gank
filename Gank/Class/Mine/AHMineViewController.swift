@@ -14,6 +14,8 @@ class AHMineViewController: BaseViewController {
     // 收藏的文章的个数
     fileprivate var collectedCount: Int?
     
+    fileprivate var titlesArray = [[""], ["我的收藏"], ["分享应用", "意见反馈"], ["设置"]]
+    
     fileprivate lazy var tableView: UITableView = {
         let tabelView = UITableView(frame: CGRect(x: 0, y: 0, width: kScreen_W, height: kScreen_H - kNavBarHeight), style: .grouped)
         tabelView.backgroundColor = UIColorMainBG
@@ -48,8 +50,8 @@ class AHMineViewController: BaseViewController {
         
         setNavigationBarStyle(BarColor: UIColor.white, backItemColor: .blue)
         
-        navigationController?.navigationBar.tintColor = UIColor.black
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "设置", style: .plain, target: self, action: #selector(AHMineViewController.settingAction))
+        // navigationController?.navigationBar.tintColor = UIColor.black
+        // navigationItem.rightBarButtonItem = UIBarButtonItem(title: "设置", style: .plain, target: self, action: #selector(AHMineViewController.settingAction))
     }
     
     func settingAction() {
@@ -95,7 +97,7 @@ class AHMineViewController: BaseViewController {
     }
     
     // 我的收藏
-    func showMyCollection() {
+    fileprivate func pushMyViewCollection() {
         if userInfo == nil {
             let loginVC = AHLoginViewController()
             let nav = UINavigationController(rootViewController: loginVC)
@@ -107,23 +109,29 @@ class AHMineViewController: BaseViewController {
         vc.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(vc, animated: true)
     }
+    
+    // 分享应用
+    fileprivate func shareApp() {
+        
+    }
+    
+    // 意见反馈
+    fileprivate func pushFeedbackViewCollection() {
+        let vc = AHFeedbackViewController()
+        vc.hidesBottomBarWhenPushed = true
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
 }
 
 extension AHMineViewController: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return titlesArray.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        switch section {
-        case 0:
-            return 1
-        case 1:
-            return 1
-        default:
-            return 1
-        }
+        return titlesArray[section].count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -139,16 +147,8 @@ extension AHMineViewController: UITableViewDelegate, UITableViewDataSource {
                 cell.userInfo = self.userInfo
                 return cell
             }
-        } else {
-            let cell = cellForValue1()
-            cell.textLabel?.text = "我的收藏"
-            if let count = collectedCount {
-                if count == 0 {
-                    cell.detailTextLabel?.text = ""
-                } else {
-                    cell.detailTextLabel?.text = "\(count) "
-                }
-            }
+        } else { // 我的收藏
+            let cell = cellForValue1(WithIndex: indexPath)
             return cell
         }
     }
@@ -161,10 +161,19 @@ extension AHMineViewController: UITableViewDelegate, UITableViewDataSource {
         } else if indexPath.section == 1 {
             switch indexPath.row {
             case 0: // 我的收藏
-                showMyCollection()
-            default:
-                break
+                pushMyViewCollection()
+            default: break
             }
+        } else if indexPath.section == 2 {
+            switch indexPath.row {
+            case 0: // 分享应用
+                shareApp()
+            case 1: // 意见反馈
+                pushFeedbackViewCollection()
+            default: break
+            }
+        } else if indexPath.section == 3 { // 设置
+            settingAction()
         }
     }
     
@@ -190,13 +199,26 @@ extension AHMineViewController: UITableViewDelegate, UITableViewDataSource {
         return 0.01
     }
     
-    fileprivate func cellForValue1() -> UITableViewCell {
+    fileprivate func cellForValue1(WithIndex indexPath: IndexPath) -> UITableViewCell {
         var cell = tableView.dequeueReusableCell(withIdentifier: "mineCell")
         if cell == nil {
             cell = UITableViewCell(style: .value1, reuseIdentifier: "mineCell")
             cell!.accessoryType = .disclosureIndicator
             cell!.textLabel?.textColor = UIColorTextBlock
         }
+        
+        cell!.textLabel?.text = titlesArray[indexPath.section][indexPath.row]
+        
+        if indexPath.section == 1 && indexPath.row == 0 { // 我的收藏
+            if let count = collectedCount {
+                if count == 0 {
+                    cell!.detailTextLabel?.text = ""
+                } else {
+                    cell!.detailTextLabel?.text = "\(count) "
+                }
+            }
+        }
         return cell!
     }
+    
 }

@@ -112,12 +112,14 @@ class AHRegisterViewController: BaseViewController {
     // 检验账号是否已注册
     fileprivate func checkRegistered() {
         self.view.endEditing(true)
+        ToolKit.show(withStatus: "正在获取")
         
         let query = BmobUser.query()!
         query.whereKey("username", equalTo: accountTextField.text)
         query.findObjectsInBackground { (array, error) in
             AHLog(array!)
             if array!.count > 0 { // 该账号已注册
+                ToolKit.dismissHUD()
                 self.showAlertController(locationVC: self, title: "该账号已注册, 要去登陆吗?", message: "", cancelTitle: "取消", confirmTitle: "好的", confrimClouse: { (_) in
                     self.navigationController!.popViewController(animated: true)
                 }, cancelClouse: { (_) in })
@@ -140,8 +142,10 @@ class AHRegisterViewController: BaseViewController {
         BmobSMS.requestCodeInBackground(withPhoneNumber: accountTextField.text, andTemplate: "干货") { (SMSID, error) in
             if error != nil {
                 let nserror = error as! NSError
+                ToolKit.showError(withStatus: "获取失败")
                 AHLog(nserror.code)
             } else {
+                ToolKit.showSuccess(withStatus: "获取成功")
                 AHLog("SMSID --\(SMSID)")
             }
         }

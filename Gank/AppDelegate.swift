@@ -96,6 +96,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     fileprivate func setGlobalConfig() {
         UITextField.appearance().tintColor = UIColorMainBlue
+        UITextView.appearance().tintColor = UIColorMainBlue
         UITabBar.appearance().tintColor = UIColorMainBlue
     }
     

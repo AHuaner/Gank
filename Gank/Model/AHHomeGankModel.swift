@@ -11,7 +11,10 @@ import SwiftyJSON
 
 class AHHomeGankModel: GankModel, NSCoding{
     fileprivate var separatorLineH: CGFloat = 1
+    
     fileprivate var editorLabelH: CGFloat = 15
+    
+    fileprivate var timeLabelH: CGFloat = 15
     
     var isShouldShowMoreButton: Bool = false
     
@@ -24,7 +27,7 @@ class AHHomeGankModel: GankModel, NSCoding{
     var cellH: CGFloat {
         if _cellH == nil {
             
-            _cellH = separatorLineH + editorLabelH + 5
+            _cellH = separatorLineH + editorLabelH + 8
             
             // 文字的高度
             let maxSize = CGSize(width: cellMaxWidth, height: CGFloat(MAXFLOAT))
@@ -42,7 +45,7 @@ class AHHomeGankModel: GankModel, NSCoding{
                 contentTextH = descTextH!
             }
             
-            _cellH = _cellH! + 5 + contentTextH
+            _cellH = _cellH! + 8 + contentTextH
             
             if isShouldShowMoreButton {
                 let moreBtnX = cellMargin * 0.5
@@ -54,7 +57,7 @@ class AHHomeGankModel: GankModel, NSCoding{
                 _cellH = _cellH! + moreBtnH
             }
             
-            _cellH = _cellH! + cellMargin
+            _cellH = _cellH! + 8 + timeLabelH + cellMargin
         }
         return _cellH!
     }

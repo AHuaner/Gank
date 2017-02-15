@@ -36,7 +36,7 @@ class AHSettingViewController: BaseViewController {
         return tabelView
     }()
     
-    fileprivate var titlesArray = [["账号与安全"], ["移动网络不下载图片", "清除缓存"], ["分享应用", "关于我们"]]
+    fileprivate var titlesArray = [["账号与安全"], ["仅Wi-Fi网络下载图片", "清除缓存"], ["给个好评", "关于我们"]]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -96,8 +96,8 @@ class AHSettingViewController: BaseViewController {
         ToolKit.showInfo(withStatus: "该功能未实现")
     }
     
-    // 移动网络下载图片 yes or no
-    func mobileNetwork(switchView: UISwitch) {
+    // 仅Wi-Fi网络下载图片
+    func wiFiNetwork(switchView: UISwitch) {
         if switchView.isOn {
             
         } else {
@@ -116,7 +116,7 @@ class AHSettingViewController: BaseViewController {
     }
     
     // 分享应用
-    fileprivate func shareApp() {
+    fileprivate func evaluateApp() {
         ToolKit.showInfo(withStatus: "该功能未实现")
     }
     
@@ -143,7 +143,7 @@ extension AHSettingViewController: UITableViewDelegate, UITableViewDataSource {
             cell.textLabel?.text = titlesArray[indexPath.section][indexPath.row]
             return cell
         case 1:
-            if indexPath.row == 0 { // 移动网络不下载图片
+            if indexPath.row == 0 { // 仅Wi-Fi网络下载图片
                 let cell = cellForSwitch()
                 cell.textLabel?.text = titlesArray[indexPath.section][indexPath.row]
                 return cell
@@ -154,7 +154,7 @@ extension AHSettingViewController: UITableViewDelegate, UITableViewDataSource {
                 return cell
             }
         case 2:
-            // 分享应用 && 关于我们
+            // 给个好评 && 关于我们
             let cell = cellForValue1()
             cell.textLabel?.text = titlesArray[indexPath.section][indexPath.row]
             return cell
@@ -174,8 +174,8 @@ extension AHSettingViewController: UITableViewDelegate, UITableViewDataSource {
                 cleanCache()
             }
         case 2:
-            if indexPath.row == 0 { // 分享应用
-                shareApp()
+            if indexPath.row == 0 { // 给个好评
+                evaluateApp()
             } else if indexPath.row == 1 { // 关于我们
                 pushAboutUsController()
             }
@@ -208,7 +208,7 @@ extension AHSettingViewController: UITableViewDelegate, UITableViewDataSource {
             cell = UITableViewCell(style: .value1, reuseIdentifier: "settingSwitchCell")
             let switchView = UISwitch()
             switchView.setOn(true, animated: false)
-            switchView.addTarget(self, action: #selector(mobileNetwork(switchView:)), for: .valueChanged)
+            switchView.addTarget(self, action: #selector(wiFiNetwork(switchView:)), for: .valueChanged)
             cell!.selectionStyle = .none
             cell!.accessoryView = switchView
             cell!.textLabel?.textColor = UIColorTextBlock

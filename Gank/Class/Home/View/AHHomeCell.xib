@@ -10,11 +10,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AHHomeCell" rowHeight="69" id="KGk-i7-Jjw" customClass="AHHomeCell" customModule="Gank" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="328" height="69"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AHHomeCell" rowHeight="97" id="KGk-i7-Jjw" customClass="AHHomeCell" customModule="Gank" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="328" height="97"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="328" height="68"/>
+                <rect key="frame" x="0.0" y="0.0" width="328" height="97"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fyr-A9-Vpd" userLabel="line">
@@ -25,31 +25,44 @@
                         </constraints>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="全文全文全文全文全文全文全文全文全文全文全文全文全文全文全文全文全文全文" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6TL-Uf-iSX" userLabel="contentLabel">
-                        <rect key="frame" x="10" y="26" width="308" height="33.5"/>
+                        <rect key="frame" x="10" y="32" width="308" height="33.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zZA-T3-Wp1" userLabel="editor">
-                        <rect key="frame" x="10" y="6" width="100" height="15"/>
+                        <rect key="frame" x="10" y="9" width="100" height="15"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="100" id="QfS-j5-MON"/>
                             <constraint firstAttribute="height" constant="15" id="joi-tQ-Mi5"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                        <state key="normal" title="AHuaner" image="icon_editor.png">
+                        <state key="normal" title="AHuaner" image="icon_user1.png">
+                            <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                    </button>
+                    <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qrR-nw-HCu">
+                        <rect key="frame" x="10" y="74" width="308" height="15"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="15" id="BxF-yu-CsF"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <state key="normal" title="2015-02-11" image="icon_time.png">
                             <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
                     </button>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="qrR-nw-HCu" firstAttribute="trailing" secondItem="6TL-Uf-iSX" secondAttribute="trailing" id="1Pd-AZ-hQb"/>
                     <constraint firstItem="Fyr-A9-Vpd" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="6ck-Bt-oB7"/>
                     <constraint firstAttribute="trailing" secondItem="Fyr-A9-Vpd" secondAttribute="trailing" id="Ls3-qD-Uss"/>
+                    <constraint firstAttribute="bottom" secondItem="qrR-nw-HCu" secondAttribute="bottom" constant="8" id="WZK-fH-IJR"/>
                     <constraint firstItem="zZA-T3-Wp1" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="a5F-Jr-Vov"/>
                     <constraint firstItem="6TL-Uf-iSX" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="gRi-Ac-ly1"/>
+                    <constraint firstItem="qrR-nw-HCu" firstAttribute="leading" secondItem="6TL-Uf-iSX" secondAttribute="leading" id="jAV-oO-XaT"/>
                     <constraint firstAttribute="trailing" secondItem="6TL-Uf-iSX" secondAttribute="trailing" constant="10" id="o3A-DG-OXg"/>
-                    <constraint firstItem="zZA-T3-Wp1" firstAttribute="top" secondItem="Fyr-A9-Vpd" secondAttribute="bottom" constant="5" id="tbW-TX-BSc"/>
-                    <constraint firstItem="6TL-Uf-iSX" firstAttribute="top" secondItem="zZA-T3-Wp1" secondAttribute="bottom" constant="5" id="und-wk-xnr"/>
+                    <constraint firstItem="zZA-T3-Wp1" firstAttribute="top" secondItem="Fyr-A9-Vpd" secondAttribute="bottom" constant="8" id="tbW-TX-BSc"/>
+                    <constraint firstItem="6TL-Uf-iSX" firstAttribute="top" secondItem="zZA-T3-Wp1" secondAttribute="bottom" constant="8" id="und-wk-xnr"/>
                     <constraint firstItem="Fyr-A9-Vpd" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="w84-T3-XeF"/>
                 </constraints>
             </tableViewCellContentView>
@@ -57,11 +70,13 @@
                 <outlet property="contentLabel" destination="6TL-Uf-iSX" id="ZTa-I1-Oag"/>
                 <outlet property="editorBtn" destination="zZA-T3-Wp1" id="HTk-4R-z8l"/>
                 <outlet property="separatorLine" destination="Fyr-A9-Vpd" id="dT9-YC-C8d"/>
+                <outlet property="timeBtn" destination="qrR-nw-HCu" id="WYz-OY-lXI"/>
             </connections>
-            <point key="canvasLocation" x="-206" y="49"/>
+            <point key="canvasLocation" x="-206" y="62.5"/>
         </tableViewCell>
     </objects>
     <resources>
-        <image name="icon_editor.png" width="16" height="16"/>
+        <image name="icon_time.png" width="16" height="16"/>
+        <image name="icon_user1.png" width="16" height="16"/>
     </resources>
 </document>

@@ -67,6 +67,9 @@
 		6045F3901E093529002B0FB6 /* toolBar_reload@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6045F38B1E093529002B0FB6 /* toolBar_reload@2x.png */; };
 		6045F3931E093624002B0FB6 /* toolBar_like_select@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6045F3911E093624002B0FB6 /* toolBar_like_select@2x.png */; };
 		6045F3941E093624002B0FB6 /* toolBar_like@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6045F3921E093624002B0FB6 /* toolBar_like@2x.png */; };
+		604991791E5458A9000B1592 /* AHFeedbackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604991771E5458A9000B1592 /* AHFeedbackViewController.swift */; };
+		6049917A1E5458A9000B1592 /* AHFeedbackViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 604991781E5458A9000B1592 /* AHFeedbackViewController.xib */; };
+		6049917C1E546B10000B1592 /* icon_user1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6049917B1E546B10000B1592 /* icon_user1@2x.png */; };
 		604A29BB1E273C3100228F69 /* AHSearchListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604A29BA1E273C3100228F69 /* AHSearchListView.swift */; };
 		604A29BD1E27629800228F69 /* AHSeatchTagBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604A29BC1E27629800228F69 /* AHSeatchTagBtn.swift */; };
 		604A29C31E2767FE00228F69 /* AHListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604A29BF1E2767FE00228F69 /* AHListView.swift */; };
@@ -228,6 +231,9 @@
 		6045F38B1E093529002B0FB6 /* toolBar_reload@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "toolBar_reload@2x.png"; sourceTree = "<group>"; };
 		6045F3911E093624002B0FB6 /* toolBar_like_select@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "toolBar_like_select@2x.png"; sourceTree = "<group>"; };
 		6045F3921E093624002B0FB6 /* toolBar_like@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "toolBar_like@2x.png"; sourceTree = "<group>"; };
+		604991771E5458A9000B1592 /* AHFeedbackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHFeedbackViewController.swift; sourceTree = "<group>"; };
+		604991781E5458A9000B1592 /* AHFeedbackViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AHFeedbackViewController.xib; sourceTree = "<group>"; };
+		6049917B1E546B10000B1592 /* icon_user1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_user1@2x.png"; sourceTree = "<group>"; };
 		604A29BA1E273C3100228F69 /* AHSearchListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AHSearchListView.swift; path = ../AHSearchListView.swift; sourceTree = "<group>"; };
 		604A29BC1E27629800228F69 /* AHSeatchTagBtn.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AHSeatchTagBtn.swift; path = ../AHSeatchTagBtn.swift; sourceTree = "<group>"; };
 		604A29BF1E2767FE00228F69 /* AHListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHListView.swift; sourceTree = "<group>"; };
@@ -528,6 +534,8 @@
 				600D2B721DF8F33E00D57EA0 /* AHMineViewController.swift */,
 				60F315DD1E4C3F8000A0AB36 /* AHSettingViewController.swift */,
 				60116FAA1E5181160068663F /* AHCollectViewController.swift */,
+				604991771E5458A9000B1592 /* AHFeedbackViewController.swift */,
+				604991781E5458A9000B1592 /* AHFeedbackViewController.xib */,
 			);
 			path = Mine;
 			sourceTree = "<group>";
@@ -563,6 +571,7 @@
 				60939DBF1E223F03003B3F13 /* icon_close_second@2x.png */,
 				60939DB71E220409003B3F13 /* icon_more@2x.png */,
 				6074E3F01E0A6CF0006BCC8D /* icon_editor@2x.png */,
+				6049917B1E546B10000B1592 /* icon_user1@2x.png */,
 				6074E3EA1E0A5F03006BCC8D /* icon_time@2x.png */,
 				6045F3871E093529002B0FB6 /* toolBar_back@2x.png */,
 				6045F3881E093529002B0FB6 /* toolBar_forward@2x.png */,
@@ -817,11 +826,13 @@
 				6045F3801E09316C002B0FB6 /* nav_back@2x.png in Resources */,
 				606920BE1E2B927C0010945F /* AHSearchCell.xib in Resources */,
 				6089C93D1E2E077200ACE2CB /* icon_share@2x.png in Resources */,
+				6049917A1E5458A9000B1592 /* AHFeedbackViewController.xib in Resources */,
 				60C7F8C01DFA6B4E0069E69A /* property_select@2x.png in Resources */,
 				60F315D51E4C206C00A0AB36 /* AHUserCell.xib in Resources */,
 				60C7F8C11DFA6B4E0069E69A /* property@2x.png in Resources */,
 				6089C9411E2E07C900ACE2CB /* AHMoreCell.xib in Resources */,
 				6045F37A1E091A06002B0FB6 /* AHWebToolView.xib in Resources */,
+				6049917C1E546B10000B1592 /* icon_user1@2x.png in Resources */,
 				604A29C81E27713B00228F69 /* icon_clean@2x.png in Resources */,
 				600BA14A1E0BB753002E4D94 /* AHHeaderSectionView.xib in Resources */,
 				60C093661E2DEFA6004D6B90 /* AHMoreView.xib in Resources */,
@@ -982,6 +993,7 @@
 				6073DD161DFFC49E00C99E9C /* AHNetWorking.swift in Sources */,
 				600906E91E0020A6002F0A73 /* AHClassModel.swift in Sources */,
 				60C093641E2DEF99004D6B90 /* AHMoreView.swift in Sources */,
+				604991791E5458A9000B1592 /* AHFeedbackViewController.swift in Sources */,
 				60144EA11E01632C00AC31D1 /* AHImageCell.swift in Sources */,
 				600BA13D1E0B7A67002E4D94 /* AHHomeViewController.swift in Sources */,
 				60CF67441E4B1B58001AD276 /* AHRegisterViewController.swift in Sources */,
