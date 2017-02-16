@@ -10,21 +10,16 @@ import UIKit
 
 class AHSearchListView: UIView {
     
+    // MARK: - property
     /// 存放ListView上所有的btn的标题
-    lazy var tagTitleArray: [String] = {
-        let tagTitleArray = [String]()
-        return tagTitleArray
-    }()
+    var tagTitleArray: [String] = [String]()
     
     var getTitleArrayClouse: (([String]) -> Void)?
     
     var searchGankWithTitleClouse: ((String, [String]) -> Void)?
     
     /// 存放所有的btn
-    fileprivate lazy var tagArray: [AHSeatchTagBtn] = {
-        let tagArray = [AHSeatchTagBtn]()
-        return tagArray
-    }()
+    fileprivate var tagArray: [AHSeatchTagBtn] = [AHSeatchTagBtn]()
     
     fileprivate var moveFinalRect: CGRect = CGRect.zero
     
@@ -41,6 +36,7 @@ class AHSearchListView: UIView {
         }
     }
     
+    // MARK: - control
     fileprivate lazy var infoLabel: UILabel = {
         let infoLabel = UILabel()
         infoLabel.X = self.margin
@@ -62,7 +58,7 @@ class AHSearchListView: UIView {
         return cleanBtn
     }()
     
-    
+    // MARK: - method
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupUI()

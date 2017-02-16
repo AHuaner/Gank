@@ -11,20 +11,35 @@ import SVProgressHUD
 
 class AHListView: UIView {
     
-    /// 存放ListView上所有的btn的标题
-    lazy var tagTitleArray: [String] = {
-        let tagTitleArray = [String]()
-        return tagTitleArray
-    }()
-    
+    // MARK: - property
     var listViewMoveTagClouse: ((String) -> Void)?
     
-    /// 存放所有的btn
-    fileprivate lazy var tagArray: [AHTagBtn] = {
-        let tagArray = [AHTagBtn]()
-        return tagArray
-    }()
+    /// 存放ListView上所有的btn的标题
+    lazy var tagTitleArray: [String] = [String]()
     
+    /// 存放所有的btn
+    fileprivate var tagArray: [AHTagBtn] = [AHTagBtn]()
+    
+    /// 一共有多少列
+    fileprivate let listCols: Int = 4
+    
+    fileprivate let margin: CGFloat = 10.0
+    
+    fileprivate var moveFinalRect: CGRect = CGRect.zero
+    
+    fileprivate var oriCenter: CGPoint = CGPoint.zero
+    
+    /// 编辑模式
+    fileprivate var isEditModel: Bool = false
+    
+    /// 整体的高度
+    fileprivate var ListViewH: CGFloat {
+        get {
+            return (tagArray.count <= 0 ? 30.0 : ((tagArray.last?.MaxY)! + margin))
+        }
+    }
+    
+    // MARK: - control
     fileprivate lazy var infoButton: UIButton = {
         let infoButton = UIButton()
         infoButton.titleLabel?.textAlignment = .left
@@ -50,25 +65,7 @@ class AHListView: UIView {
         return completeBtn
     }()
     
-    /// 一共有多少列
-    fileprivate let listCols: Int = 4
-    
-    fileprivate let margin: CGFloat = 10.0
-    
-    fileprivate var moveFinalRect: CGRect = CGRect.zero
-    
-    fileprivate var oriCenter: CGPoint = CGPoint.zero
-    
-    /// 编辑模式
-    fileprivate var isEditModel: Bool = false
-    
-    /// 整体的高度
-    fileprivate var ListViewH: CGFloat {
-        get {
-            return (tagArray.count <= 0 ? 30.0 : ((tagArray.last?.MaxY)! + margin))
-        }
-    }
-    
+    // MARK: - method
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupUI()

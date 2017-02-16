@@ -62,6 +62,10 @@ class AHClassViewController: BaseViewController {
         super.didReceiveMemoryWarning()
     }
     
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
     fileprivate func setupUI() {
         // 添加fps测试
         let fpsLabel = FPSLabel(frame: CGRect(x: kScreen_W - 100, y: 0, width: 30, height: 20))
@@ -221,9 +225,6 @@ class AHClassViewController: BaseViewController {
         self.lastSelectedIndex = self.tabBarController!.selectedIndex
     }
     
-    deinit {
-        NotificationCenter.default.removeObserver(self)
-    }
 }
 
 extension AHClassViewController: UITableViewDataSource, UITableViewDelegate {

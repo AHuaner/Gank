@@ -10,8 +10,7 @@ import UIKit
 
 class AHRegisterViewController: BaseViewController {
     
-    var registerClouse: (() -> Void)?
-    
+    // MARK: - control
     @IBOutlet weak var accountTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var authcodeTextField: UITextField!
@@ -19,11 +18,15 @@ class AHRegisterViewController: BaseViewController {
     @IBOutlet weak var autocodeBtn: UIButton!
     @IBOutlet weak var registerBtn: UIButton!
     
+    // MARK: - property
+    var registerClouse: (() -> Void)?
+    
     var timer: Timer?
     var time: Int = 60
     // 用户是否获取短信验证码
     var isGetAutoCode: Bool = false
     
+    // MARK: - life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
@@ -38,7 +41,8 @@ class AHRegisterViewController: BaseViewController {
         super.didReceiveMemoryWarning()
     }
     
-    func setupUI() {
+    // MARK: - event && methods
+    fileprivate func setupUI() {
         view.backgroundColor = UIColor.white
         
         accountTextField.addTarget(self, action: #selector(chectRegisterCanClick), for: .editingChanged)
@@ -57,7 +61,6 @@ class AHRegisterViewController: BaseViewController {
     }
     
     @IBAction func registerAction() {
-        
         if Validate.checkMobile(accountTextField.text!) {
             if Validate.checkPassword(passwordTextField.text!) {
                 if isGetAutoCode {
@@ -194,4 +197,5 @@ class AHRegisterViewController: BaseViewController {
             }
         }
     }
+    
 }

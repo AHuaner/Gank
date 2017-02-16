@@ -87,6 +87,14 @@ class AHGankViewController: AHDisplayViewController {
         UIApplication.shared.statusBarStyle = .lightContent
     }
     
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
     // 初始化数据库
     func setupSqlite() {
         for key in showTagsArray {
@@ -131,14 +139,6 @@ class AHGankViewController: AHDisplayViewController {
         present(turnVC, animated: true, completion: nil)
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
-    
-    deinit {
-        NotificationCenter.default.removeObserver(self)
-    }
-    
     // 显示\隐藏导航栏
     func changeStatusBar() {
         UIApplication.shared.isStatusBarHidden = !UIApplication.shared.isStatusBarHidden
@@ -157,4 +157,5 @@ class AHGankViewController: AHDisplayViewController {
         }
         NSKeyedArchiver.archiveRootObject(showTagsArray, toFile: "saveShowTagsArray".cachesDir())
     }
+    
 }

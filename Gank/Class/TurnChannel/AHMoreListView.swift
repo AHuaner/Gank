@@ -9,20 +9,29 @@
 import UIKit
 
 class AHMoreListView: UIView {
+    
+    // MARK: - property
     var listViewAddTagClouse: ((String) -> Void)?
     
     /// 存放所有的btn
-    fileprivate lazy var tagArray: [AHTagBtn] = {
-        let tagArray = [AHTagBtn]()
-        return tagArray
-    }()
+    fileprivate var tagArray: [AHTagBtn] = [AHTagBtn]()
     
     /// 存放MoreListView上所有的btn的标题
-    lazy var tagTitleArray: [String] = {
-        let tagTitleArray = [String]()
-        return tagTitleArray
-    }()
+    var tagTitleArray: [String] = [String]()
     
+    /// 一共有多少列
+    fileprivate let listCols: Int = 4
+    
+    fileprivate let margin: CGFloat = 10.0
+    
+    /// 整体的高度
+    fileprivate var ListViewH: CGFloat {
+        get {
+            return (tagArray.count <= 0 ? 30.0 : ((tagArray.last?.MaxY)! + margin))
+        }
+    }
+    
+    // MARK: - control
     fileprivate lazy var infoView: UIView = {
         let infoView = UIView()
         infoView.frame = CGRect(x: 0, y: 0, width: kScreen_W, height: 30)
@@ -37,18 +46,7 @@ class AHMoreListView: UIView {
         return infoView
     }()
     
-    /// 一共有多少列
-    fileprivate let listCols: Int = 4
-    
-    fileprivate let margin: CGFloat = 10.0
-    
-    /// 整体的高度
-    fileprivate var ListViewH: CGFloat {
-        get {
-            return (tagArray.count <= 0 ? 30.0 : ((tagArray.last?.MaxY)! + margin))
-        }
-    }
-    
+    // MARK: - method
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupUI()

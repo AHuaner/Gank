@@ -11,11 +11,7 @@ import SVProgressHUD
 import MJRefresh
 
 class AHSearchViewController: BaseViewController {
-
-    @IBOutlet weak var closeBtn: UIButton!
-    @IBOutlet weak var searchTextField: UITextField!
-    @IBOutlet weak var tableView: UITableView!
-    
+    // MARK: - property
     // 模型数组
     fileprivate var datasArray: [AHSearchGankModel] = [AHSearchGankModel]()
     
@@ -26,6 +22,11 @@ class AHSearchViewController: BaseViewController {
     fileprivate var lastText: String!
     
     fileprivate var recentSearchTitles = [String]()
+    
+    // MARK: - control
+    @IBOutlet weak var closeBtn: UIButton!
+    @IBOutlet weak var searchTextField: UITextField!
+    @IBOutlet weak var tableView: UITableView!
     
     lazy var recentSearchView: AHSearchListView = {
         let recentSearchView = AHSearchListView(frame: CGRect(x: 0, y: 0, width: kScreen_W, height: 0))
@@ -54,7 +55,8 @@ class AHSearchViewController: BaseViewController {
         contentView.addGestureRecognizer(tap)
         return contentView
     }()
-
+    
+    // MARK: - life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
@@ -75,7 +77,15 @@ class AHSearchViewController: BaseViewController {
         }
     }
     
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
     
+    deinit {
+        self.recentSearchView.removeObserver(self, forKeyPath: "frame")
+    }
+    
+    // MARK: - event && methods
     fileprivate func setupUI() {
         // 弹出键盘
         searchTextField.becomeFirstResponder()
@@ -194,15 +204,9 @@ class AHSearchViewController: BaseViewController {
         }
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
-    
-    deinit {
-        self.recentSearchView.removeObserver(self, forKeyPath: "frame")
-    }
 }
 
+// MARK: - UITableViewDelegate && UITableViewDataSource
 extension AHSearchViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return datasArray.count
@@ -226,6 +230,7 @@ extension AHSearchViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
+// MARK: - UITextFieldDelegate
 extension AHSearchViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         guard let text = textField.text else { return true }

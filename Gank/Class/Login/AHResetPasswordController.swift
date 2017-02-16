@@ -9,9 +9,7 @@
 import UIKit
 
 class AHResetPasswordController: BaseViewController {
-
-    var resetClouse: (() -> Void)?
-    
+    // MARK: - control
     @IBOutlet weak var accountTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var authcodeTextField: UITextField!
@@ -19,11 +17,14 @@ class AHResetPasswordController: BaseViewController {
     @IBOutlet weak var autocodeBtn: UIButton!
     @IBOutlet weak var resetBtn: UIButton!
     
+    // MARK: - property
+    var resetClouse: (() -> Void)?
     var timer: Timer?
     var time: Int = 60
     // 用户是否获取短信验证码
     var isGetAutoCode: Bool = false
     
+    // MARK: - life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
@@ -38,7 +39,8 @@ class AHResetPasswordController: BaseViewController {
         super.didReceiveMemoryWarning()
     }
     
-    func setupUI() {
+    // MARK: - event && methods
+    fileprivate func setupUI() {
         view.backgroundColor = UIColor.white
         
         accountTextField.addTarget(self, action: #selector(chectRegisterCanClick), for: .editingChanged)

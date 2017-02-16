@@ -9,12 +9,13 @@
 import UIKit
 
 class AHHomeWebViewController: BaseWebViewController {
-    
+    // MARK: - property
     var gankModel: GankModel?
     
     // 文章是否被收藏
     fileprivate var isCollected: Bool = false
     
+    // MARK: - control
     // 弹窗
     fileprivate lazy var moreView: AHMoreView = {
         let moreView = AHMoreView.moreView()
@@ -33,6 +34,7 @@ class AHHomeWebViewController: BaseWebViewController {
         return maskBtnView
     }()
     
+    // MARK: - life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -50,6 +52,7 @@ class AHHomeWebViewController: BaseWebViewController {
         super.didReceiveMemoryWarning()
     }
     
+    // MARK: - event && methods
     fileprivate func setupUI() {
         self.title = "加载中..."
         

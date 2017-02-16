@@ -10,7 +10,8 @@ import UIKit
 
 class AHTurnChannelViewController: BaseViewController {
     
-    ///
+    // MARK: - property
+    /// 回调
     var turnChannelClouse: ((_ showTags: [String], _ moreTags: [String]) -> Void)?
     
     /// 已显示的tags
@@ -21,6 +22,7 @@ class AHTurnChannelViewController: BaseViewController {
     
     fileprivate let listViewY: CGFloat = 40
     
+    // MARK: - control
     lazy var closeBtn: UIButton = {
         let closeBtn = UIButton()
         let btnW: CGFloat = 35.0
@@ -69,6 +71,7 @@ class AHTurnChannelViewController: BaseViewController {
         return moreListView
     }()
     
+    // MARK: - life cycle
     override func viewDidLoad() {
         self.listView.addObserver(self, forKeyPath: "frame", options: .new, context: nil)
         self.moreListView.addObserver(self, forKeyPath: "frame", options: .new, context: nil)
@@ -85,6 +88,12 @@ class AHTurnChannelViewController: BaseViewController {
         contentView.addSubview(listView)
     }
     
+    deinit {
+        self.listView.removeObserver(self, forKeyPath: "frame")
+        self.moreListView.removeObserver(self, forKeyPath: "frame")
+    }
+    
+    // MARK: - event && methods
     func close() {
         if turnChannelClouse != nil {
             turnChannelClouse!(listView.tagTitleArray, moreListView.tagTitleArray)
@@ -111,8 +120,4 @@ class AHTurnChannelViewController: BaseViewController {
         }
     }
     
-    deinit {
-        self.listView.removeObserver(self, forKeyPath: "frame")
-        self.moreListView.removeObserver(self, forKeyPath: "frame")
-    }
 }

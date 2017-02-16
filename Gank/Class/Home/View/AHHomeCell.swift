@@ -26,18 +26,6 @@ class AHHomeCell: UITableViewCell {
         }
     }
     
-    lazy var moreBrn: UIButton = {
-        let moreBrn = UIButton()
-        moreBrn.setTitle("全文", for: .normal)
-        moreBrn.setTitle("收起", for: .selected)
-        moreBrn.titleLabel?.font = FontSize(size: 15)
-        moreBrn.titleLabel?.textAlignment = .left
-        moreBrn.setTitleColor(UIColorMainBlue, for: .normal)
-        self.contentView.addSubview(moreBrn)
-        moreBrn.addTarget(self, action: #selector(AHHomeCell.moreBtnClicked), for: .touchUpInside)
-        return moreBrn
-    }()
-    
     var gankModel: AHHomeGankModel! {
         didSet {
             contentLabel.text = gankModel.desc!
@@ -61,6 +49,18 @@ class AHHomeCell: UITableViewCell {
             }
         }
     }
+    
+    lazy var moreBrn: UIButton = {
+        let moreBrn = UIButton()
+        moreBrn.setTitle("全文", for: .normal)
+        moreBrn.setTitle("收起", for: .selected)
+        moreBrn.titleLabel?.font = FontSize(size: 15)
+        moreBrn.titleLabel?.textAlignment = .left
+        moreBrn.setTitleColor(UIColorMainBlue, for: .normal)
+        self.contentView.addSubview(moreBrn)
+        moreBrn.addTarget(self, action: #selector(AHHomeCell.moreBtnClicked), for: .touchUpInside)
+        return moreBrn
+    }()
     
     func moreBtnClicked () {
         self.gankModel._cellH = nil

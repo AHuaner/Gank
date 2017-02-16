@@ -10,10 +10,14 @@ import UIKit
 
 class AHHomeViewController: BaseViewController {
 
+    // MARK: - property
     fileprivate var datasArray: [AHHomeGroupModel] = [AHHomeGroupModel]()
     
     fileprivate var lastSelectedIndex: Int = 0
     
+    fileprivate var lastDate: String = ""
+    
+    // MARK: - control
     fileprivate lazy var headerView: AHHomeHeaderView = {
         let headerView = AHHomeHeaderView.headerView()
         headerView.frame = CGRect(x: 0, y: 0, width: kScreen_W, height: kScreen_H * 0.55)
@@ -38,8 +42,7 @@ class AHHomeViewController: BaseViewController {
         return navBar
     }()
     
-    fileprivate var lastDate: String = ""
-    
+    // MARK: - life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -67,6 +70,11 @@ class AHHomeViewController: BaseViewController {
         super.didReceiveMemoryWarning()
     }
     
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    // MARK: - event && methods
     fileprivate func setupUI() {
         view.addSubview(tableView)
         view.addSubview(navBar)
@@ -133,12 +141,9 @@ class AHHomeViewController: BaseViewController {
         }
         self.lastSelectedIndex = self.tabBarController!.selectedIndex
     }
-    
-    deinit {
-        NotificationCenter.default.removeObserver(self)
-    }
 }
 
+// MARK: - UITableViewDelegate, UITableViewDataSource
 extension AHHomeViewController: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return datasArray.count
@@ -193,6 +198,7 @@ extension AHHomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
+// MARK: - UIScrollViewDelegate
 extension AHHomeViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let offsetY = scrollView.contentOffset.y

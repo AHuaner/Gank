@@ -8,7 +8,9 @@
 
 import UIKit
 
-class AHLoginViewController: BaseViewController {    
+class AHLoginViewController: BaseViewController {
+    
+    // MARK: - control
     @IBOutlet weak var loginBtn: UIButton!
     @IBOutlet weak var registerBtn: UIButton!
     @IBOutlet weak var forgetBtn: UIButton!
@@ -16,6 +18,7 @@ class AHLoginViewController: BaseViewController {
     @IBOutlet weak var accountTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
+    // MARK: - life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
@@ -32,6 +35,11 @@ class AHLoginViewController: BaseViewController {
         UIApplication.shared.statusBarStyle = .lightContent
     }
     
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
+    
+    // MARK: - event && methods
     fileprivate func setupUI() {
         view.backgroundColor = UIColor.white
         passwordTextField.delegate = self
@@ -124,12 +132,9 @@ class AHLoginViewController: BaseViewController {
         }
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
-    
 }
 
+// MARK: - UITextFieldDelegate
 extension AHLoginViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         loginAction()

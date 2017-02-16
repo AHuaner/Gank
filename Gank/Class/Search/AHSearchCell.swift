@@ -11,7 +11,6 @@ import UIKit
 class AHSearchCell: UITableViewCell {
 
     @IBOutlet weak var descLabel: UILabel!
-    
     @IBOutlet weak var timeBtn: UIButton!
     @IBOutlet weak var classBtn: UIButton!
     

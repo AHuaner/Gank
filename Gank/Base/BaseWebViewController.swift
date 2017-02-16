@@ -38,6 +38,11 @@ class BaseWebViewController: BaseViewController {
         loadWithURLString(urlString)
     }
     
+    deinit {
+        webView.removeObserver(self, forKeyPath: "estimatedProgress")
+        webView.navigationDelegate = nil
+    }
+    
     fileprivate func setupUI() {
         view.addSubview(webView)
         view.addSubview(progressView)
@@ -65,11 +70,6 @@ class BaseWebViewController: BaseViewController {
         } else {
             super.observeValue(forKeyPath: keyPath, of: object, change: change, context: context)
         }
-    }
-    
-    deinit {
-        webView.removeObserver(self, forKeyPath: "estimatedProgress")
-        webView.navigationDelegate = nil
     }
     
     func loadWithURLString(_ urlString: String?) {
