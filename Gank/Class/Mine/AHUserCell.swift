@@ -13,9 +13,10 @@ class AHUserCell: UITableViewCell {
     @IBOutlet weak var iconImageView: UIImageView!
     @IBOutlet weak var nickName: UILabel!
     
-    var userInfo: BmobUser! {
+    var userInfo: BmobUser? {
         didSet {
-            nickName.text = userInfo.object(forKey: "nickName") as? String
+            guard let name = userInfo?.object(forKey: "nickName") as? String else { return }
+            nickName.text = name
         }
     }
     

@@ -111,7 +111,7 @@ class AHClassWebViewController: BaseWebViewController {
     // 检验文章是否已被收藏
     fileprivate func cheakIsCollected() {
         let query: BmobQuery = BmobQuery(className: "Collect")
-        let array = [["userId": userInfo?.objectId], ["gankId": gankModel?.id]]
+        let array = [["userId": User.info?.objectId], ["gankId": gankModel?.id]]
         query.addTheConstraintByAndOperation(with: array)
         
         query.findObjectsInBackground { (array, error) in
@@ -151,7 +151,7 @@ class AHClassWebViewController: BaseWebViewController {
     
     // 点击收藏
     func collectGankAction() {
-        if userInfo == nil { // 未登录状态
+        if User.info == nil { // 未登录状态
             //
             isCustomTranstion = true
             let loginVC = AHLoginViewController()
@@ -180,8 +180,8 @@ class AHClassWebViewController: BaseWebViewController {
         
         // 收藏
         let gankInfo = BmobObject(className: "Collect")
-        gankInfo?.setObject(userInfo!.objectId, forKey: "userId")
-        gankInfo?.setObject(userInfo!.mobilePhoneNumber, forKey: "userPhone")
+        gankInfo?.setObject(User.info!.objectId, forKey: "userId")
+        gankInfo?.setObject(User.info!.mobilePhoneNumber, forKey: "userPhone")
         if let gankModel = gankModel {
             gankInfo?.setObject(gankModel.id, forKey: "gankId")
             gankInfo?.setObject(gankModel.desc, forKey: "gankDesc")

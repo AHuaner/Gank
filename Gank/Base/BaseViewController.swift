@@ -33,12 +33,6 @@ class BaseViewController: UIViewController, UIGestureRecognizerDelegate {
     
     var popClosure: (() -> Void)?
     
-    var userInfo: BmobUser? {
-        get {
-            return BmobUser.current()
-        }
-    }
-    
     enum navBarBackItem {
         case blue
         case white

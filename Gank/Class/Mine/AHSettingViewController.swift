@@ -41,6 +41,8 @@ class AHSettingViewController: BaseViewController {
     
     fileprivate var titlesArray = [["账号与安全"], ["仅Wi-Fi网络下载图片", "清除缓存"], ["给个好评", "关于我们"]]
     
+    fileprivate var unLoginTitlesArray = [["仅Wi-Fi网络下载图片", "清除缓存"], ["给个好评", "关于我们"]]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -54,7 +56,7 @@ class AHSettingViewController: BaseViewController {
         
         UIApplication.shared.statusBarStyle = .default
         
-        if self.userInfo == nil {
+        if User.info == nil {
             footView.setTitle("登录", for: .normal)
         } else {
             footView.setTitle("退出登录", for: .normal)
@@ -81,9 +83,9 @@ class AHSettingViewController: BaseViewController {
     }
     
     func logoutORLoginAction() {
-        if userInfo != nil { // 退出登录
+        if User.info != nil { // 退出登录
             self.showAlertController(locationVC: self, title: "是否退出登录", message: "", confrimClouse: { (_) in
-                BmobUser.logout()
+                User.logout()
                 if self.logoutClouse != nil { self.logoutClouse!() }
                 self.navigationController!.popViewController(animated: false)
             }, cancelClouse: { (_) in })
@@ -106,7 +108,7 @@ class AHSettingViewController: BaseViewController {
     
     // 清理缓存
     fileprivate func cleanCache() {        
-        self.showAlertController(locationVC: self, title: Bundle.appName ?? "Gank", message: "确定清除缓存的数据和图片?", confrimClouse: { (_) in
+        self.showAlertController(locationVC: self, title: Bundle.appName, message: "确定清除缓存的数据和图片?", confrimClouse: { (_) in
             let cache = YYWebImageManager.shared().cache
             cache?.memoryCache.removeAllObjects()
             cache?.diskCache.removeAllObjects()
@@ -128,14 +130,39 @@ class AHSettingViewController: BaseViewController {
 
 extension AHSettingViewController: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return titlesArray.count
+        return (User.info == nil) ? unLoginTitlesArray.count : titlesArray.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return titlesArray[section].count
+        return (User.info == nil) ? unLoginTitlesArray[section].count : titlesArray[section].count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        // 未登录
+        if User.info == nil {
+            switch indexPath.section {
+            case 0:
+                if indexPath.row == 0 { // 仅Wi-Fi网络下载图片
+                    let cell = cellForSwitch()
+                    cell.textLabel?.text = unLoginTitlesArray[indexPath.section][indexPath.row]
+                    return cell
+                } else { // 清除缓存
+                    let cell = cellForValue1()
+                    cell.textLabel?.text = unLoginTitlesArray[indexPath.section][indexPath.row]
+                    cell.detailTextLabel?.text = "\(cacheSize!.format(f: 0))MB"
+                    return cell
+                }
+            case 1:
+                // 给个好评 && 关于我们
+                let cell = cellForValue1()
+                cell.textLabel?.text = unLoginTitlesArray[indexPath.section][indexPath.row]
+                return cell
+            default:
+                return cellForValue1()
+            }
+        }
+        
+        // 已登录
         switch indexPath.section {
         case 0: // 账户与安全
             let cell = cellForValue1()
@@ -165,6 +192,26 @@ extension AHSettingViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
+        // 未登录
+        if User.info == nil {
+            switch indexPath.section {
+            case 0:
+                if indexPath.row == 1 { // 清除缓存
+                    cleanCache()
+                }
+            case 1:
+                if indexPath.row == 0 { // 给个好评
+                    evaluateApp()
+                } else if indexPath.row == 1 { // 关于我们
+                    pushAboutUsController()
+                }
+            default:
+                break
+            }
+            return
+        }
+        
+        // 已登录
         switch indexPath.section {
         case 0: // 账户与安全
             pushAccountSafeController()

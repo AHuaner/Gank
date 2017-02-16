@@ -63,8 +63,8 @@ extension Bundle {
         return Bundle.main.infoDictionary?["CFBundleVersion"] as? String
     }
     
-    static var appName: String? {
-        return Bundle.main.infoDictionary?["CFBundleName"] as? String
+    static var appName: String {
+        return Bundle.main.infoDictionary?["CFBundleName"] as! String
     }
     
 }

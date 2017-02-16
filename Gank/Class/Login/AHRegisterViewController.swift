@@ -172,9 +172,11 @@ class AHRegisterViewController: BaseViewController {
         user.username = accountTextField.text
         user.mobilePhoneNumber = accountTextField.text
         user.password = passwordTextField.text
+        user.setObject("\(Bundle.appName)用户", forKey: "nickName")
         user.signUpOrLoginInbackground(withSMSCode: authcodeTextField.text) { (isSuccessful, error) in
             if error == nil {
-                AHLog("注册成功---\(user)")
+                User.update()
+                AHLog("注册成功---\(User.info)")
                 ToolKit.showSuccess(withStatus: "注册成功")
                 ToolKit.saveUserInfoObject(object: user.mobilePhoneNumber, key: "mobilePhoneNumber")
                 DispatchQueue.main.asyncAfter(deadline: 1, execute: {

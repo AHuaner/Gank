@@ -51,7 +51,7 @@ class AHFeedbackViewController: BaseViewController {
         ToolKit.show(withStatus: "正在提交")
         
         let feedbackInfo = BmobObject(className: "UserFeedback")
-        feedbackInfo?.setObject(userInfo?.objectId, forKey: "userId")
+        feedbackInfo?.setObject(User.info?.objectId, forKey: "userId")
         feedbackInfo?.setObject(textView.text!, forKey: "content")
         
         feedbackInfo?.saveInBackground(resultBlock: { (isSuccessful, error) in

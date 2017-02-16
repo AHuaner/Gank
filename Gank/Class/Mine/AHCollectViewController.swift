@@ -79,7 +79,7 @@ class AHCollectViewController: BaseViewController {
         let query: BmobQuery = BmobQuery(className: "Collect")
         query.order(byDescending: "createdAt")
         query.limit = limitCount
-        query.whereKey("userId", equalTo: userInfo?.objectId)
+        query.whereKey("userId", equalTo: User.info?.objectId)
         
         query.findObjectsInBackground { (array, error) in
             
@@ -107,7 +107,7 @@ class AHCollectViewController: BaseViewController {
         query.order(byDescending: "createdAt")
         query.limit = limitCount
         query.skip = currentPage * limitCount
-        query.whereKey("userId", equalTo: userInfo?.objectId)
+        query.whereKey("userId", equalTo: User.info?.objectId)
         
         query.findObjectsInBackground { (array, error) in
             

@@ -102,7 +102,8 @@ class AHLoginViewController: BaseViewController {
         ToolKit.show(withStatus: "正在获取用户信息", style: .dark, maskType: .clear)
         BmobUser.loginWithUsername(inBackground: userName, password: passWord) { (BmobUser, error) in
             if let user = BmobUser {
-                AHLog("登录成功---\(user)")
+                User.update()
+                AHLog("登录成功---\(User.info)")
                 ToolKit.dismissHUD()
                 ToolKit.saveUserInfoObject(object: user.mobilePhoneNumber, key: "mobilePhoneNumber")
                 self.dismiss(animated: true, completion: nil)

@@ -27,18 +27,17 @@ class AHMineViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setupUI()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        requestCollectedCount()
+        tableView.reloadData()
+        
+        sendRequest()
         
         UIApplication.shared.statusBarStyle = .default
-        
-        tableView.reloadData()
     }
     
     override func didReceiveMemoryWarning() {
@@ -49,9 +48,6 @@ class AHMineViewController: BaseViewController {
         view.addSubview(tableView)
         
         setNavigationBarStyle(BarColor: UIColor.white, backItemColor: .blue)
-        
-        // navigationController?.navigationBar.tintColor = UIColor.black
-        // navigationItem.rightBarButtonItem = UIBarButtonItem(title: "设置", style: .plain, target: self, action: #selector(AHMineViewController.settingAction))
     }
     
     func settingAction() {
@@ -67,16 +63,25 @@ class AHMineViewController: BaseViewController {
         self.navigationController?.pushViewController(settingVC, animated: true)
     }
     
-    func requestCollectedCount() {
-        if userInfo == nil {
+    // 网络请求
+    func sendRequest() {
+        if User.info == nil {
             self.collectedCount = 0
+            self.tableView.reloadData()
             return
         }
         
+//        let userQuery: BmobQuery = BmobQuery(className: "_User")
+//        userQuery.getObjectInBackground(withId: User.info?.objectId) { (object, error) in
+//            if error != nil { AHLog(error!); return }
+//            self.userInfo = object as? BmobUser
+//            self.tableView.reloadData()
+//        }
+        
         let query: BmobQuery = BmobQuery(className: "Collect")
-        query.whereKey("userId", equalTo: userInfo?.objectId)
+        query.whereKey("userId", equalTo: User.info?.objectId)
         query.countObjectsInBackground { (count, error) in
-            if error != nil { return }
+            if error != nil { AHLog(error!); return }
             self.collectedCount = (Int)(count)
             self.tableView.reloadData()
         }
@@ -84,21 +89,21 @@ class AHMineViewController: BaseViewController {
     
     // 编辑个人主页
     func showPersonalPage() {
-        if userInfo == nil {
+        if User.info == nil {
             let loginVC = AHLoginViewController()
             let nav = UINavigationController(rootViewController: loginVC)
             present(nav, animated: true, completion: nil)
             return
         }
         
-        let vc = BaseViewController()
-        vc.title = "编辑个人主页"
+        let vc = AHPersonalPageViewController()
+        vc.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
     // 我的收藏
     fileprivate func pushMyViewCollection() {
-        if userInfo == nil {
+        if User.info == nil {
             let loginVC = AHLoginViewController()
             let nav = UINavigationController(rootViewController: loginVC)
             present(nav, animated: true, completion: nil)
@@ -137,14 +142,14 @@ extension AHMineViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         if indexPath.section == 0 {
-            if userInfo == nil { // 未登录
+            if User.info == nil { // 未登录
                 let cell = AHNoLoginCell.cellWithTableView(tableView)
                 cell.selectionStyle = .none
                 return cell
             } else { // 已登录
                 let cell = AHUserCell.cellWithTableView(tableView)
                 cell.accessoryType = .disclosureIndicator
-                cell.userInfo = self.userInfo
+                cell.userInfo = User.info
                 return cell
             }
         } else { // 我的收藏
@@ -180,7 +185,7 @@ extension AHMineViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.section {
         case 0:
-            return userInfo == nil ? 90 : 90
+            return User.info == nil ? 90 : 90
         default:
             return 44
         }

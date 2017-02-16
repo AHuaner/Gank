@@ -82,7 +82,7 @@ class AHHomeWebViewController: BaseWebViewController {
     fileprivate func cheakIsCollected() {
         let query: BmobQuery = BmobQuery(className: "Collect")
         
-        let array = [["userId": userInfo?.objectId], ["gankId": gankModel?.id]]
+        let array = [["userId": User.info?.objectId], ["gankId": gankModel?.id]]
         query.addTheConstraintByAndOperation(with: array)
         
         query.findObjectsInBackground { (array, error) in
@@ -122,7 +122,7 @@ class AHHomeWebViewController: BaseWebViewController {
     
     // 点击收藏
     func collectGankAction() {
-        if userInfo == nil { // 未登录
+        if User.info == nil { // 未登录
             let loginVC = AHLoginViewController()
             let nav = UINavigationController(rootViewController: loginVC)
             present(nav, animated: true, completion: nil)
@@ -150,8 +150,8 @@ class AHHomeWebViewController: BaseWebViewController {
         
         // 收藏
         let gankInfo = BmobObject(className: "Collect")
-        gankInfo?.setObject(userInfo!.objectId, forKey: "userId")
-        gankInfo?.setObject(userInfo!.mobilePhoneNumber, forKey: "userPhone")
+        gankInfo?.setObject(User.info!.objectId, forKey: "userId")
+        gankInfo?.setObject(User.info!.mobilePhoneNumber, forKey: "userPhone")
         if let gankModel = gankModel {
             gankInfo?.setObject(gankModel.id, forKey: "gankId")
             gankInfo?.setObject(gankModel.desc, forKey: "gankDesc")
