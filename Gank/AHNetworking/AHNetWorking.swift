@@ -22,7 +22,7 @@ class AHNetWorking {
 }
 
 extension AHNetWorking {
-    class func requestData(_ type: MethodType, URLString: String, parameters: [String : Any]? = nil, success: @escaping Success, failure: @escaping Failure) {
+    class func requestData(_ type: MethodType, URLString: String, parameters: JSONObject? = nil, success: @escaping Success, failure: @escaping Failure) {
         
         let method = type == .get ? HTTPMethod.get : HTTPMethod.post
         

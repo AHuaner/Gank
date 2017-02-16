@@ -152,7 +152,7 @@ extension AHCollectViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        ToolKit.show(withStatus: "正在取消收藏...")
+        ToolKit.show(withStatus: "正在取消收藏")
         
         let model = self.datasArray[indexPath.row]
         let gank: BmobObject = BmobObject(outDataWithClassName: "Collect", objectId: model.objectId)

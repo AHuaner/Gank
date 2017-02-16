@@ -37,6 +37,8 @@ let UIColorTextBlue = RGBColor(40, g: 154, b: 236, alpha: 1.0)
 let UIColorMainBlue = RGBColor(30, g: 130, b: 210, alpha: 1.0)
 let UIColorLine = RGBColor(217.0, g: 217.0, b: 217.0, alpha: 1.0)
 
+typealias JSONObject = [String: Any]
+
 class AHConfig {
     
     // MARK: 服务器地址

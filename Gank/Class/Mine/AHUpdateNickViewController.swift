@@ -50,15 +50,15 @@ class AHUpdateNickViewController: BaseViewController {
             return
         }
         
-        ToolKit.show(withStatus: "正在保存")
+        ToolKit.show(withStatus: " 正在保存 ")
         view.endEditing(true)
         
         User.info?.setObject(textField.text, forKey: "nickName")
         User.info?.updateInBackground { (isSuccessful, error) in
             if isSuccessful {
-                ToolKit.showSuccess(withStatus: "保存成功")
+                ToolKit.showSuccess(withStatus: " 保存成功 ")
             } else {
-                ToolKit.showError(withStatus: "保存失败")
+                ToolKit.showError(withStatus: " 保存失败 ")
                 User.info?.setObject(self.lastNickName, forKey: "nickName")
                 AHLog(error!)
             }

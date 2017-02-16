@@ -71,13 +71,6 @@ class AHMineViewController: BaseViewController {
             return
         }
         
-//        let userQuery: BmobQuery = BmobQuery(className: "_User")
-//        userQuery.getObjectInBackground(withId: User.info?.objectId) { (object, error) in
-//            if error != nil { AHLog(error!); return }
-//            self.userInfo = object as? BmobUser
-//            self.tableView.reloadData()
-//        }
-        
         let query: BmobQuery = BmobQuery(className: "Collect")
         query.whereKey("userId", equalTo: User.info?.objectId)
         query.countObjectsInBackground { (count, error) in
@@ -185,7 +178,7 @@ extension AHMineViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.section {
         case 0:
-            return User.info == nil ? 90 : 90
+            return User.info == nil ? 100 : 90
         default:
             return 44
         }

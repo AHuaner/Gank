@@ -48,7 +48,7 @@ class AHFeedbackViewController: BaseViewController {
         }
         
         self.view.endEditing(true)
-        ToolKit.show(withStatus: "正在提交")
+        ToolKit.show(withStatus: " 正在提交 ")
         
         let feedbackInfo = BmobObject(className: "UserFeedback")
         feedbackInfo?.setObject(User.info?.objectId, forKey: "userId")
@@ -57,9 +57,9 @@ class AHFeedbackViewController: BaseViewController {
         feedbackInfo?.saveInBackground(resultBlock: { (isSuccessful, error) in
             if error != nil { // 提交失败
                 AHLog(error!)
-                ToolKit.showError(withStatus: "提交失败")
+                ToolKit.showError(withStatus: " 提交失败 ")
             } else { // 提交成功
-                ToolKit.showSuccess(withStatus: "提交成功")
+                ToolKit.showSuccess(withStatus: " 提交成功 ")
             }
         })
     }

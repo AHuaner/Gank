@@ -10,7 +10,7 @@ import UIKit
 
 class AHGankDAO: NSObject {
     /// 缓存干货数据
-    class func cacheGanks(type: String, ganks: [[String: Any]]) {
+    class func cacheGanks(type: String, ganks: [JSONObject]) {
         let userId = "AHuaner"
         SQLiteManager.shareManager().dbQueue?.inTransaction({ (db, rollback) -> Void in
             for dict in ganks {
@@ -31,16 +31,16 @@ class AHGankDAO: NSObject {
     }
     
     /// 从数据库中加载缓存数据
-    class func loadCacheGanks(type: String, finished: @escaping ([[String: Any]]) -> ()) {
+    class func loadCacheGanks(type: String, finished: @escaping ([JSONObject]) -> ()) {
         let sql = "SELECT * FROM T_\(type) "
         SQLiteManager.shareManager().dbQueue?.inDatabase({ (db) in
-            var ganks = [[String: Any]]()
+            var ganks = [JSONObject]()
             if let res = db?.executeQuery(sql, withArgumentsIn: nil) {
                 while res.next() {
                     guard let gankText = res.string(forColumn: "gankText") else { return }
                     let data = gankText.data(using: String.Encoding.utf8)!
                     
-                    let dict = try! JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.mutableContainers) as! [String: Any]
+                    let dict = try! JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.mutableContainers) as! JSONObject
                     ganks.append(dict)
                 }
                 finished(ganks)

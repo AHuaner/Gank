@@ -38,11 +38,7 @@ class AHHomeViewController: BaseViewController {
         return navBar
     }()
     
-    fileprivate var curDateString: String {
-        get {
-            return Date().toString(WithFormat: "YYYY/MM/dd")
-        }
-    }
+    fileprivate var lastDate: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -81,24 +77,39 @@ class AHHomeViewController: BaseViewController {
     }
     
     fileprivate func sendRequest() {
-        if datasArray.count != 0 { return }
-        
-        AHNewWorkingAgent.loadHomeRequest(date: curDateString, success: { (result: Any) in
+        AHNewWorkingAgent.loadDateRequest(success: { (result: Any) in
+            guard let dateArray = result as? [String] else { return }
+            guard let newestDate = dateArray.first else { return }
+            
+            let date = newestDate.replacingOccurrences(of: "-", with: "/")
+            
+            if self.lastDate == date { return }
+            
+            self.loadGanks(WithDate: date)
+            
+        }) { (error: Error) in
+            AHLog(error)
+        }
+    }
+    
+    func loadGanks(WithDate date: String) {
+        AHNewWorkingAgent.loadHomeRequest(date: date, success: { (result: Any) in
             guard let datasArray = result as? [AHHomeGroupModel] else { return }
+            self.lastDate = date
+            
             self.datasArray = datasArray
-            self.setupHeaderView(date: self.curDateString)
+            self.setupHeaderView(date: date)
             self.tableView.reloadData()
         }) { (error: Error) in
             // 读取缓存的首页数据
             guard let datas = NSKeyedUnarchiver.unarchiveObject(withFile: "homeGanks".cachesDir()) as? [AHHomeGroupModel] else { return }
             self.datasArray = datas
-            self.setupHeaderView(date: self.curDateString)
+            self.setupHeaderView(date: date)
             self.tableView.reloadData()
         }
     }
     
     fileprivate func setupHeaderView(date: String) {
-        
         var newData = [AHHomeGroupModel]()
         
         for data in datasArray {

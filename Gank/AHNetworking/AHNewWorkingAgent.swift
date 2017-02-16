@@ -25,8 +25,8 @@ class AHNewWorkingAgent: NSObject {
             // 缓存第一页的数据
             if page == 1 {
                 AHGankDAO.cleanCacheGanks(type: tpye)
-                let json = result as! [String: Any]
-                let array = json["results"] as! [[String: Any]]
+                let json = result as! JSONObject
+                let array = json["results"] as! [JSONObject]
                 AHGankDAO.cacheGanks(type: tpye, ganks: array)
             }
             
@@ -123,6 +123,19 @@ class AHNewWorkingAgent: NSObject {
             }
             success(datas)
             
+        }) { (error: Error) in
+            failure(error)
+        }
+    }
+    
+    class func loadDateRequest(success: @escaping Success, failure: @escaping Failure) {
+        let url = AHConfig.Http_ + "day/history"
+        let urlString = url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+        
+        AHNetWorking.requestData(.get, URLString: urlString!, success: { (result: Any) in
+            let json = result as! JSONObject
+            guard let dateArray = json["results"] else { return }
+            success(dateArray)
         }) { (error: Error) in
             failure(error)
         }
