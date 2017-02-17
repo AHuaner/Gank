@@ -20,14 +20,14 @@ class AHTurnChannelViewController: BaseViewController {
     /// 未显示的tags
     var moreTagsArray: [String] = [String]()
     
-    fileprivate let listViewY: CGFloat = 40
+    fileprivate let listViewY: CGFloat = 70
     
     // MARK: - control
     lazy var closeBtn: UIButton = {
         let closeBtn = UIButton()
-        let btnW: CGFloat = 35.0
-        let btnF = CGRect(x: kScreen_W - btnW, y: 0, width: btnW, height: btnW)
-        closeBtn.setImage(UIImage(named: "close2_button"), for: .normal)
+        let btnW: CGFloat = 30
+        let btnF = CGRect(x: kScreen_W - btnW - 5, y: 30, width: btnW, height: btnW)
+        closeBtn.setImage(UIImage(named: "icon_close_block"), for: .normal)
         closeBtn.frame = btnF
         closeBtn.addTarget(self, action: #selector(AHTurnChannelViewController.close), for: .touchUpInside)
         return closeBtn
@@ -39,7 +39,7 @@ class AHTurnChannelViewController: BaseViewController {
         titleLable.text = "频道管理"
         titleLable.textAlignment = .center
         titleLable.font = FontSize(size: 15)
-        titleLable.textColor = RGBColor(51, g: 51, b: 51, alpha: 1.0)
+        titleLable.textColor = UIColorTextBlock
         titleView.addSubview(titleLable)
         
         let lineView = UIView(frame: CGRect(x: 0, y: 34, width: kScreen_W, height: 1))
@@ -73,19 +73,32 @@ class AHTurnChannelViewController: BaseViewController {
     
     // MARK: - life cycle
     override func viewDidLoad() {
+        super.viewDidLoad()
+        
         self.listView.addObserver(self, forKeyPath: "frame", options: .new, context: nil)
         self.moreListView.addObserver(self, forKeyPath: "frame", options: .new, context: nil)
-        super.viewDidLoad()
+        
         self.title = "频道"
         view.backgroundColor = UIColorMainBG
         contentView.contentSize = CGSize(width: kScreen_W, height: self.moreListView.Height + self.listView.Height + listViewY)
         view.addSubview(contentView)
-        contentView.addSubview(titleView)
+        // contentView.addSubview(titleView)
         contentView.addSubview(closeBtn)
         // 先添加moreListView, 再添加listView
         // 确保listView上的btn移动时, 不会被moreListView遮挡
         contentView.addSubview(moreListView)
         contentView.addSubview(listView)
+
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        UIApplication.shared.statusBarStyle = .default
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        UIApplication.shared.statusBarStyle = .lightContent
     }
     
     deinit {

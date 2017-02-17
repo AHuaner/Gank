@@ -47,6 +47,7 @@
 		601CF5E91DF8379A002AF8D5 /* AHMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 601CF5E81DF8379A002AF8D5 /* AHMainViewController.swift */; };
 		6020138D1E24FBD8009C0184 /* AHSearchGankModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6020138C1E24FBD7009C0184 /* AHSearchGankModel.swift */; };
 		60270DF31E56CA87001610E3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60270DF21E56CA87001610E3 /* LaunchScreen.storyboard */; };
+		60270DF71E570587001610E3 /* icon_close_block@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60270DF61E570587001610E3 /* icon_close_block@2x.png */; };
 		602754BD1E00FCC400A2B757 /* AHClassCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602754BB1E00FCC400A2B757 /* AHClassCell.swift */; };
 		602754BE1E00FCC400A2B757 /* AHClassCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 602754BC1E00FCC400A2B757 /* AHClassCell.xib */; };
 		602754C11E01260700A2B757 /* FPSLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 602754C01E01260700A2B757 /* FPSLabel.m */; };
@@ -218,6 +219,7 @@
 		6020138C1E24FBD7009C0184 /* AHSearchGankModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHSearchGankModel.swift; sourceTree = "<group>"; };
 		602388AD1E1E8DEB00121DE3 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		60270DF21E56CA87001610E3 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		60270DF61E570587001610E3 /* icon_close_block@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_close_block@2x.png"; sourceTree = "<group>"; };
 		602754BB1E00FCC400A2B757 /* AHClassCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHClassCell.swift; sourceTree = "<group>"; };
 		602754BC1E00FCC400A2B757 /* AHClassCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AHClassCell.xib; sourceTree = "<group>"; };
 		602754BF1E01260700A2B757 /* FPSLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FPSLabel.h; sourceTree = "<group>"; };
@@ -578,6 +580,7 @@
 			children = (
 				60116FB01E518FA30068663F /* icon_user@2x.png */,
 				60F315DB1E4C3D1800A0AB36 /* icon_setting@2x.png */,
+				60270DF61E570587001610E3 /* icon_close_block@2x.png */,
 				6029BE901E4B30D600FCC56B /* icon_show_blue@2x.png */,
 				6029BE911E4B30D700FCC56B /* icon_show@2x.png */,
 				60F315DF1E4C6EDA00A0AB36 /* icon_copy@2x.png */,
@@ -854,6 +857,7 @@
 				60DDC8701DF8FD88003F1464 /* loading5.png in Resources */,
 				6045F3941E093624002B0FB6 /* toolBar_like@2x.png in Resources */,
 				60C7F8C21DFA6B4E0069E69A /* tabBar_bgwhiteColor@2x.png in Resources */,
+				60270DF71E570587001610E3 /* icon_close_block@2x.png in Resources */,
 				6036A8751E2377DB00ACDE90 /* AHSearchViewController.xib in Resources */,
 				6045F3801E09316C002B0FB6 /* nav_back@2x.png in Resources */,
 				606920BE1E2B927C0010945F /* AHSearchCell.xib in Resources */,

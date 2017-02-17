@@ -42,7 +42,7 @@ class AHSearchListView: UIView {
         infoLabel.X = self.margin
         infoLabel.CenterY = self.topMargin / 3
         infoLabel.font = FontSize(size: 13)
-        infoLabel.textColor = UIColor.black
+        infoLabel.textColor = UIColorTextBlock
         infoLabel.text = "历史搜索"
         infoLabel.sizeToFit()
         return infoLabel

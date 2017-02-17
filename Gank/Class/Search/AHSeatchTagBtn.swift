@@ -33,7 +33,7 @@ class AHSeatchTagBtn: UIButton {
         layer.cornerRadius = 3
         backgroundColor = RGBColor(246, g: 246, b: 246, alpha: 1)
         adjustsImageWhenHighlighted = false
-        setTitleColor(UIColor.black, for: .normal)
+        setTitleColor(UIColorTextBlock, for: .normal)
         titleLabel?.textAlignment = .center
         titleLabel?.font = FontSize(size: 12)
         imageView?.isHighlighted = true

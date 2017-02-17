@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SVProgressHUD
 
 class AHListView: UIView {
     
@@ -45,9 +44,9 @@ class AHListView: UIView {
         infoButton.titleLabel?.textAlignment = .left
         infoButton.setTitle("切换频道                 ", for: .normal)
         infoButton.setTitle("拖动排序, 点击删除", for: .selected)
-        infoButton.setTitleColor(UIColorTextLightGray, for: .normal)
+        infoButton.setTitleColor(UIColorTextBlock, for: .normal)
         infoButton.frame.origin = CGPoint(x: 10, y: 0)
-        infoButton.titleLabel?.font = FontSize(size: 13)
+        infoButton.titleLabel?.font = FontSize(size: 14)
         infoButton.sizeToFit()
         return infoButton
     }()
@@ -57,10 +56,15 @@ class AHListView: UIView {
         completeBtn.titleLabel?.textAlignment = .right
         completeBtn.setTitle("编辑", for: .normal)
         completeBtn.setTitle("完成", for: .selected)
-        completeBtn.setTitleColor(UIColorTextLightGray, for: .normal)
+        completeBtn.setTitleColor(UIColorTextBlue, for: .normal)
         completeBtn.setTitleColor(UIColorTextBlue, for: .selected)
-        completeBtn.frame = CGRect(x: kScreen_W - 40.0 - 5.0, y: 0, width: 40.0, height: 35)
-        completeBtn.titleLabel?.font = FontSize(size: 13)
+        completeBtn.frame = CGRect(x: kScreen_W - 45 - 10, y: 0, width: 45, height: 25)
+        completeBtn.titleLabel?.font = FontSize(size: 12)
+        
+        completeBtn.layer.borderColor = UIColorTextBlue.cgColor
+        completeBtn.layer.borderWidth = 0.5
+        completeBtn.layer.cornerRadius = 12.5
+        
         completeBtn.addTarget(self, action: #selector(AHListView.completeAction(btn:)), for: .touchUpInside)
         return completeBtn
     }()
@@ -78,6 +82,8 @@ class AHListView: UIView {
     fileprivate func setupUI() {
         addSubview(infoButton)
         addSubview(completeBtn)
+        
+        completeBtn.CenterY = infoButton.CenterY
     }
 }
 
@@ -234,7 +240,7 @@ extension AHListView {
         
         if tagArray.count <= 1 {
             AHLog("至少保留一个频道")
-            SVProgressHUD.showError(withStatus: "至少保留一个频道")
+            ToolKit.showError(withStatus: "至少保留一个频道")
             return
         }
         

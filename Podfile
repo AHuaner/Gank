@@ -13,11 +13,11 @@ target 'Gank' do
   pod 'BmobSDK'
   
   # U-Share SDK UI模块（分享面板，建议添加）
-  pod 'UMengUShare/UI'
+  #pod 'UMengUShare/UI'
   # 集成微信
-  pod 'UMengUShare/Social/WeChat'
+  #pod 'UMengUShare/Social/WeChat'
   # 集成短信
-  pod 'UMengUShare/Social/SMS'
+  #pod 'UMengUShare/Social/SMS'
   
   # 腾讯Bugly
   pod 'Bugly'

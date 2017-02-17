@@ -31,7 +31,7 @@ class AHGankViewController: AHDisplayViewController {
     fileprivate lazy var turnVCTransitionManager: AHTurnVCTransitionManager = {
         let manager = AHTurnVCTransitionManager()
         
-        let y: CGFloat = 64
+        let y: CGFloat = 0
         let x: CGFloat = 0
         let width: CGFloat = kScreen_W
         let height: CGFloat = kScreen_H - y
