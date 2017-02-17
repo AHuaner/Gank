@@ -10,7 +10,14 @@ import Foundation
 
 extension String {
     
-    static func getUUID() -> String{
+    /** 长度 */
+    var length: Int {
+        get {
+            return self.characters.count
+        }
+    }
+    
+    static func getUUID() -> String {
      
         let UUID = Foundation.UUID().uuidString
         

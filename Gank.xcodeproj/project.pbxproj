@@ -111,6 +111,8 @@
 		60939DC01E223F03003B3F13 /* icon_close_second@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60939DBF1E223F03003B3F13 /* icon_close_second@2x.png */; };
 		60A19DED1E213A98007D24D2 /* AHHomeWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A19DEC1E213A98007D24D2 /* AHHomeWebViewController.swift */; };
 		60A9D8721E52F3E2001517FC /* icon_collected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60A9D8711E52F3E2001517FC /* icon_collected@2x.png */; };
+		60BDD7AE1E56930C004C6B4C /* AHAccountSafeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60BDD7AC1E56930C004C6B4C /* AHAccountSafeViewController.swift */; };
+		60BDD7AF1E56930C004C6B4C /* AHAccountSafeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60BDD7AD1E56930C004C6B4C /* AHAccountSafeViewController.xib */; };
 		60C0935D1E2DBDBC004D6B90 /* icon_search_blue@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60C0935C1E2DBDBC004D6B90 /* icon_search_blue@2x.png */; };
 		60C093641E2DEF99004D6B90 /* AHMoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C093631E2DEF99004D6B90 /* AHMoreView.swift */; };
 		60C093661E2DEFA6004D6B90 /* AHMoreView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60C093651E2DEFA6004D6B90 /* AHMoreView.xib */; };
@@ -280,6 +282,8 @@
 		60939DBF1E223F03003B3F13 /* icon_close_second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_close_second@2x.png"; sourceTree = "<group>"; };
 		60A19DEC1E213A98007D24D2 /* AHHomeWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHHomeWebViewController.swift; sourceTree = "<group>"; };
 		60A9D8711E52F3E2001517FC /* icon_collected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_collected@2x.png"; sourceTree = "<group>"; };
+		60BDD7AC1E56930C004C6B4C /* AHAccountSafeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHAccountSafeViewController.swift; sourceTree = "<group>"; };
+		60BDD7AD1E56930C004C6B4C /* AHAccountSafeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AHAccountSafeViewController.xib; sourceTree = "<group>"; };
 		60C0935C1E2DBDBC004D6B90 /* icon_search_blue@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_search_blue@2x.png"; sourceTree = "<group>"; };
 		60C093631E2DEF99004D6B90 /* AHMoreView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHMoreView.swift; sourceTree = "<group>"; };
 		60C093651E2DEFA6004D6B90 /* AHMoreView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AHMoreView.xib; sourceTree = "<group>"; };
@@ -692,6 +696,8 @@
 			isa = PBXGroup;
 			children = (
 				60F315DD1E4C3F8000A0AB36 /* AHSettingViewController.swift */,
+				60BDD7AC1E56930C004C6B4C /* AHAccountSafeViewController.swift */,
+				60BDD7AD1E56930C004C6B4C /* AHAccountSafeViewController.xib */,
 			);
 			path = Setting;
 			sourceTree = "<group>";
@@ -855,6 +861,7 @@
 				60C7F8C11DFA6B4E0069E69A /* property@2x.png in Resources */,
 				6089C9411E2E07C900ACE2CB /* AHMoreCell.xib in Resources */,
 				6045F37A1E091A06002B0FB6 /* AHWebToolView.xib in Resources */,
+				60BDD7AF1E56930C004C6B4C /* AHAccountSafeViewController.xib in Resources */,
 				6049917C1E546B10000B1592 /* icon_user1@2x.png in Resources */,
 				604A29C81E27713B00228F69 /* icon_clean@2x.png in Resources */,
 				600BA14A1E0BB753002E4D94 /* AHHeaderSectionView.xib in Resources */,
@@ -994,6 +1001,7 @@
 				601731321DF952D40069D4C4 /* AHLaunchViewController.swift in Sources */,
 				60F462331E49AF5700FDBE72 /* AHLoginViewController.swift in Sources */,
 				60D2E2E11E554D90004292AE /* AHPersonalPageViewController.swift in Sources */,
+				60BDD7AE1E56930C004C6B4C /* AHAccountSafeViewController.swift in Sources */,
 				605E07F41E026D0E00225BA3 /* String+Extension.swift in Sources */,
 				60F315D41E4C206C00A0AB36 /* AHUserCell.swift in Sources */,
 				604A29BB1E273C3100228F69 /* AHSearchListView.swift in Sources */,

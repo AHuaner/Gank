@@ -23,7 +23,7 @@ class AHSettingViewController: BaseViewController {
         }
     }
     
-    fileprivate var titlesArray = [["账号与安全"], ["仅Wi-Fi网络下载图片", "清除缓存"], ["给个好评", "关于我们"]]
+    fileprivate var titlesArray = [["修改密码"], ["仅Wi-Fi网络下载图片", "清除缓存"], ["给个好评", "关于我们"]]
     
     fileprivate var unLoginTitlesArray = [["仅Wi-Fi网络下载图片", "清除缓存"], ["给个好评", "关于我们"]]
     
@@ -102,7 +102,9 @@ class AHSettingViewController: BaseViewController {
     
     // 账户与安全
     fileprivate func pushAccountSafeController() {
-        ToolKit.showInfo(withStatus: "该功能未实现")
+        let vc = AHAccountSafeViewController()
+        vc.hidesBottomBarWhenPushed = true
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     // 仅Wi-Fi网络下载图片
