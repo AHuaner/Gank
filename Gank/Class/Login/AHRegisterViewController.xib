@@ -81,6 +81,9 @@
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WQe-Td-Eds" userLabel="line2">
                                             <rect key="frame" x="0.0" y="91" width="345" height="1"/>
                                             <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="0.5" id="7si-Tg-iLd"/>
+                                            </constraints>
                                         </view>
                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入验证码" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="shS-Av-JB9">
                                             <rect key="frame" x="10" y="92" width="235" height="45"/>
@@ -137,7 +140,6 @@
                                         <constraint firstItem="rb1-ea-FSE" firstAttribute="leading" secondItem="3e2-UO-UMb" secondAttribute="leading" id="vJk-eZ-JDG"/>
                                         <constraint firstItem="rb1-ea-FSE" firstAttribute="top" secondItem="unm-ST-bAm" secondAttribute="bottom" id="xGb-Gk-Rmt"/>
                                         <constraint firstItem="CGi-cN-aJ6" firstAttribute="height" secondItem="unm-ST-bAm" secondAttribute="height" id="yAF-5P-HuN"/>
-                                        <constraint firstItem="WQe-Td-Eds" firstAttribute="height" secondItem="rb1-ea-FSE" secondAttribute="height" id="zXq-Nc-xdw"/>
                                     </constraints>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">

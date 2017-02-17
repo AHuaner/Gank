@@ -207,7 +207,7 @@ extension AHMineViewController: UITableViewDelegate, UITableViewDataSource {
         if cell == nil {
             cell = UITableViewCell(style: .value1, reuseIdentifier: "mineCell")
             cell!.accessoryType = .disclosureIndicator
-            cell!.textLabel?.textColor = UIColorTextBlock
+            cell!.textLabel?.textColor = UIColorTextGray
         }
         
         cell!.textLabel?.text = titlesArray[indexPath.section][indexPath.row]

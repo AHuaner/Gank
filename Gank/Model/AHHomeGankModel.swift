@@ -31,13 +31,13 @@ class AHHomeGankModel: GankModel, NSCoding{
             
             // 文字的高度
             let maxSize = CGSize(width: cellMaxWidth, height: CGFloat(MAXFLOAT))
-            let descTextH = desc?.boundingRect(with: maxSize, options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSFontAttributeName : UIFont.systemFont(ofSize: 14)], context: nil).size.height
+            let descTextH = desc?.boundingRect(with: maxSize, options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSFontAttributeName : UIFont.systemFont(ofSize: 15)], context: nil).size.height
             
             var contentTextH: CGFloat = descTextH!
             
             // 文字大于三行
-            if descTextH! > UIFont.systemFont(ofSize: 14).lineHeight * 3 {
-                contentTextH = UIFont.systemFont(ofSize: 14).lineHeight * 3
+            if descTextH! > UIFont.systemFont(ofSize: 15).lineHeight * 3 {
+                contentTextH = UIFont.systemFont(ofSize: 15).lineHeight * 3
                 isShouldShowMoreButton = true
             }
             

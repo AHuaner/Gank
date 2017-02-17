@@ -103,7 +103,7 @@ class BaseViewController: UIViewController, UIGestureRecognizerDelegate {
         var titleColor = UIColor.white
         
         if BarColor.isEqual(UIColor.white) {
-            titleColor = UIColor.black
+            titleColor = UIColorTextBlock
         }
         
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: titleColor,

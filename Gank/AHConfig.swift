@@ -30,12 +30,13 @@ let iPhone6_Height = 667.0
 let iPhone6Plus_Width = 414.0
 let iPhone6Plus_Height = 736.0
 
-let UIColorMainBG = RGBColor(239, g: 239, b: 245, alpha: 1.0)
-let UIColorTextGray = RGBColor(153.0, g: 153.0, b: 153.0, alpha: 1.0)
-let UIColorTextBlock = RGBColor(99, g: 99, b: 99, alpha: 1.0)
-let UIColorTextBlue = RGBColor(40, g: 154, b: 236, alpha: 1.0)
-let UIColorMainBlue = RGBColor(30, g: 130, b: 210, alpha: 1.0)
-let UIColorLine = RGBColor(217.0, g: 217.0, b: 217.0, alpha: 1.0)
+let UIColorMainBG = RGBColor(239, g: 239, b: 245, alpha: 1)
+let UIColorTextLightGray = RGBColor(153, g: 153, b: 153, alpha: 1)
+let UIColorTextGray = RGBColor(99, g: 99, b: 99, alpha: 1)
+let UIColorTextBlock = RGBColor(47, g: 47, b: 47, alpha: 1)
+let UIColorTextBlue = RGBColor(40, g: 154, b: 236, alpha: 1)
+let UIColorMainBlue = RGBColor(30, g: 130, b: 210, alpha: 1)
+let UIColorLine = RGBColor(217, g: 217, b: 217, alpha: 1)
 
 typealias JSONObject = [String: Any]
 

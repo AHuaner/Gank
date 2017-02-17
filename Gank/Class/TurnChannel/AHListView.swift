@@ -45,7 +45,7 @@ class AHListView: UIView {
         infoButton.titleLabel?.textAlignment = .left
         infoButton.setTitle("切换频道                 ", for: .normal)
         infoButton.setTitle("拖动排序, 点击删除", for: .selected)
-        infoButton.setTitleColor(UIColorTextGray, for: .normal)
+        infoButton.setTitleColor(UIColorTextLightGray, for: .normal)
         infoButton.frame.origin = CGPoint(x: 10, y: 0)
         infoButton.titleLabel?.font = FontSize(size: 13)
         infoButton.sizeToFit()
@@ -57,7 +57,7 @@ class AHListView: UIView {
         completeBtn.titleLabel?.textAlignment = .right
         completeBtn.setTitle("编辑", for: .normal)
         completeBtn.setTitle("完成", for: .selected)
-        completeBtn.setTitleColor(UIColorTextGray, for: .normal)
+        completeBtn.setTitleColor(UIColorTextLightGray, for: .normal)
         completeBtn.setTitleColor(UIColorTextBlue, for: .selected)
         completeBtn.frame = CGRect(x: kScreen_W - 40.0 - 5.0, y: 0, width: 40.0, height: 35)
         completeBtn.titleLabel?.font = FontSize(size: 13)

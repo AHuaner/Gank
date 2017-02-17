@@ -61,7 +61,7 @@ extension AHPersonalPageViewController: UITableViewDelegate, UITableViewDataSour
         if cell == nil {
             cell = UITableViewCell(style: .value1, reuseIdentifier: "personalCell")
             cell!.accessoryType = .disclosureIndicator
-            cell!.textLabel?.textColor = UIColorTextBlock
+            cell!.textLabel?.textColor = UIColorTextGray
         }
         return cell!
     }

@@ -250,7 +250,7 @@ extension AHSettingViewController: UITableViewDelegate, UITableViewDataSource {
         if cell == nil {
             cell = UITableViewCell(style: .value1, reuseIdentifier: "settingValue1Cell")
             cell!.accessoryType = .disclosureIndicator
-            cell!.textLabel?.textColor = UIColorTextBlock
+            cell!.textLabel?.textColor = UIColorTextGray
         }
         return cell!
     }
@@ -264,7 +264,7 @@ extension AHSettingViewController: UITableViewDelegate, UITableViewDataSource {
             switchView.addTarget(self, action: #selector(wiFiNetwork), for: .valueChanged)
             cell!.selectionStyle = .none
             cell!.accessoryView = switchView
-            cell!.textLabel?.textColor = UIColorTextBlock
+            cell!.textLabel?.textColor = UIColorTextGray
         }
         return cell!
     }

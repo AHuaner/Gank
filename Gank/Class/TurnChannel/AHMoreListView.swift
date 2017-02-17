@@ -39,7 +39,7 @@ class AHMoreListView: UIView {
         label.frame = CGRect(x: 10, y: 0, width: kScreen_W - 10, height: 30)
         label.text = "点击添加更多频道"
         label.textAlignment = .left
-        label.textColor = UIColorTextGray
+        label.textColor = UIColorTextLightGray
         label.font = FontSize(size: 13)
         infoView.addSubview(label)
         infoView.backgroundColor = RGBColor(220.0, g: 220.0, b: 220.0, alpha: 1)

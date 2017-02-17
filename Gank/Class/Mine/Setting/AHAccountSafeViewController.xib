@@ -56,6 +56,9 @@
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TLx-wX-Ack" userLabel="line2">
                                             <rect key="frame" x="0.0" y="91" width="345" height="1"/>
                                             <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="0.5" id="Oz4-pZ-RWY"/>
+                                            </constraints>
                                         </view>
                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="重复输入新密码" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="f8q-NK-zZS">
                                             <rect key="frame" x="10" y="92" width="300" height="45"/>
@@ -96,7 +99,6 @@
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <constraints>
-                                        <constraint firstItem="TLx-wX-Ack" firstAttribute="height" secondItem="ZRR-Rt-azn" secondAttribute="height" id="4Jc-1Z-AhU"/>
                                         <constraint firstItem="Dd4-J6-rtU" firstAttribute="centerY" secondItem="oxB-AB-pLD" secondAttribute="centerY" id="77n-aY-49y"/>
                                         <constraint firstItem="fpP-Dq-9vW" firstAttribute="width" secondItem="fpP-Dq-9vW" secondAttribute="height" multiplier="1:1" id="8ol-Fx-ElF"/>
                                         <constraint firstItem="y7h-bI-pYX" firstAttribute="top" secondItem="fpm-eX-coT" secondAttribute="top" id="9XL-87-cap"/>

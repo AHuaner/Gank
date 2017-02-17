@@ -47,7 +47,7 @@ class AHGankViewController: AHDisplayViewController {
         
         // 设置标题滚动框样式
         setupTitleEffect { (titleScrollViewColor, titleBtnNorColor, titleBtnSelColor, titleFont, titleScrollViewH) in
-            titleBtnNorColor = UIColorTextGray
+            titleBtnNorColor = UIColorTextLightGray
             titleBtnSelColor = UIColorTextBlue
             titleFont = FontSize(size: 14)
         }
