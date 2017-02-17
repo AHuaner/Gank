@@ -31,6 +31,7 @@ import UIKit
 
 class BaseViewController: UIViewController, UIGestureRecognizerDelegate {
     
+    // MARK: - property
     var popClosure: (() -> Void)?
     
     enum navBarBackItem {
@@ -38,6 +39,7 @@ class BaseViewController: UIViewController, UIGestureRecognizerDelegate {
         case white
     }
     
+    // MARK: - life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColorMainBG
@@ -72,6 +74,7 @@ class BaseViewController: UIViewController, UIGestureRecognizerDelegate {
         AHLog("---dealloc---\(type(of: self))")
     }
     
+    // MARK: - event && methods
     fileprivate func setupNav() {
         if navigationController?.viewControllers.count > 1 {
             navigationController?.interactivePopGestureRecognizer?.delegate = self
@@ -114,4 +117,5 @@ class BaseViewController: UIViewController, UIGestureRecognizerDelegate {
             }
         }
     }
+    
 }

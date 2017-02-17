@@ -12,6 +12,7 @@ import SwiftyJSON
 
 class AHClassViewController: BaseViewController {
     
+    // MARK: - property
     var type: String!
     
     // 是否第一次加载
@@ -23,15 +24,11 @@ class AHClassViewController: BaseViewController {
     // 最后一次请求的页码, 防止重复加载
     fileprivate var lastPage: Int?
     
-    fileprivate lazy var loadingView: AHLoadingView = {
-        let loadingView = AHLoadingView(frame: self.view.bounds)
-        return loadingView
-    }()
-    
     fileprivate var lastSelectedIndex: Int = 1
     
     fileprivate var datasArray: [AHClassModel] = [AHClassModel]()
     
+    // MARK: - control
     fileprivate lazy var tableView: UITableView = {
         let tabelView = UITableView(frame: CGRect(x: 0, y: 0, width: kScreen_W, height: kScreen_H - kNavBarHeight), style: UITableViewStyle.plain)
         tabelView.backgroundColor = UIColorMainBG
@@ -43,6 +40,12 @@ class AHClassViewController: BaseViewController {
         return tabelView
     }()
     
+    fileprivate lazy var loadingView: AHLoadingView = {
+        let loadingView = AHLoadingView(frame: self.view.bounds)
+        return loadingView
+    }()
+    
+    // MARK: - life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -66,6 +69,7 @@ class AHClassViewController: BaseViewController {
         NotificationCenter.default.removeObserver(self)
     }
     
+    // MARK: - event && methods
     fileprivate func setupUI() {
         // 添加fps测试
         let fpsLabel = FPSLabel(frame: CGRect(x: kScreen_W - 100, y: 0, width: 30, height: 20))
@@ -227,6 +231,7 @@ class AHClassViewController: BaseViewController {
     
 }
 
+// MARK: - UITableViewDataSource, UITableViewDelegate
 extension AHClassViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         tableView.mj_footer.isHidden = (datasArray.count == 0);
@@ -274,6 +279,7 @@ extension AHClassViewController: UITableViewDataSource, UITableViewDelegate {
     }
 }
 
+// MARK: - UINavigationControllerDelegate
 extension AHClassViewController: UINavigationControllerDelegate {
     func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         return AHPushTransition()

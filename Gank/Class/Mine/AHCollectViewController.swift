@@ -11,6 +11,7 @@ import MJRefresh
 
 class AHCollectViewController: BaseViewController {
     
+    // MARK: - property
     fileprivate var datasArray: [GankModel] = [GankModel]()
     
     // 分页限制
@@ -19,6 +20,7 @@ class AHCollectViewController: BaseViewController {
     // 当前页码
     fileprivate var currentPage: Int = 1
     
+    // MARK: - control
     fileprivate lazy var tableView: UITableView = {
         let tabelView = UITableView(frame: CGRect(x: 0, y: 0, width: kScreen_W, height: kScreen_H), style: .grouped)
         tabelView.backgroundColor = UIColorMainBG
@@ -29,6 +31,7 @@ class AHCollectViewController: BaseViewController {
         return tabelView
     }()
     
+    // MARK: - life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -48,6 +51,7 @@ class AHCollectViewController: BaseViewController {
         super.didReceiveMemoryWarning()
     }
     
+    // MARK: - event && methods
     fileprivate func setupUI() {
         self.title = "我的收藏"
         view.addSubview(tableView)
@@ -130,6 +134,7 @@ class AHCollectViewController: BaseViewController {
     }
 }
 
+// MARK: - UITableViewDelegate, UITableViewDataSource
 extension AHCollectViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.datasArray.count

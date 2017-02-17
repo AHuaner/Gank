@@ -41,7 +41,6 @@ class AHFeedbackViewController: BaseViewController {
     }
     
     func submitAction() {
-        
         if textView.text!.characters.count == 0 {
             ToolKit.showInfo(withStatus: "内容不能为空")
             return

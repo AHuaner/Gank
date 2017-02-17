@@ -10,18 +10,10 @@ import UIKit
 
 class AHClassCell: UITableViewCell {
     
+    // MARK: - control
     @IBOutlet weak var timeBtn: UIButton!
     @IBOutlet weak var editorBtn: UIButton!
     @IBOutlet weak var contentLabel: UILabel!
-    
-    var indexPath: IndexPath!
-    
-    var moreButtonClickedClouse: ((_ indexPath: IndexPath) -> Void)?
-    
-    lazy var layout: UICollectionViewFlowLayout = {
-        let layout = UICollectionViewFlowLayout()
-        return layout
-    }()
     
     lazy var pictureView: UICollectionView = {
         let pictureView = UICollectionView(frame: CGRect.zero, collectionViewLayout: self.layout)
@@ -45,6 +37,16 @@ class AHClassCell: UITableViewCell {
         self.contentView.addSubview(moreBrn)
         moreBrn.addTarget(self, action: #selector(AHClassCell.moreBtnClicked), for: .touchUpInside)
         return moreBrn
+    }()
+    
+    // MARK: - property
+    var indexPath: IndexPath!
+    
+    var moreButtonClickedClouse: ((_ indexPath: IndexPath) -> Void)?
+    
+    lazy var layout: UICollectionViewFlowLayout = {
+        let layout = UICollectionViewFlowLayout()
+        return layout
     }()
     
     var classModel: AHClassModel! {
@@ -101,6 +103,7 @@ class AHClassCell: UITableViewCell {
         }
     }
     
+    // MARK: - event && methods
     func moreBtnClicked () {
         self.classModel._cellH = nil
     
@@ -128,6 +131,7 @@ class AHClassCell: UITableViewCell {
     }
 }
 
+// MARK: - UICollectionViewDelegate, UICollectionViewDataSource
 extension AHClassCell: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         guard let count = classModel.images?.count else {

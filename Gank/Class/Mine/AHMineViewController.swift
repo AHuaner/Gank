@@ -11,11 +11,13 @@ import YYWebImage
 
 class AHMineViewController: BaseViewController {
     
+    // MARK: - property
     // 收藏的文章的个数
     fileprivate var collectedCount: Int?
     
     fileprivate var titlesArray = [[""], ["我的收藏"], ["分享应用", "意见反馈"], ["设置"]]
     
+    // MARK: - control
     fileprivate lazy var tableView: UITableView = {
         let tabelView = UITableView(frame: CGRect(x: 0, y: 0, width: kScreen_W, height: kScreen_H - kNavBarHeight), style: .grouped)
         tabelView.backgroundColor = UIColorMainBG
@@ -25,6 +27,7 @@ class AHMineViewController: BaseViewController {
         return tabelView
     }()
 
+    // MARK: - life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
@@ -44,6 +47,7 @@ class AHMineViewController: BaseViewController {
         super.didReceiveMemoryWarning()
     }
     
+    // MARK: - event && methods
     fileprivate func setupUI() {
         view.addSubview(tableView)
         
@@ -64,7 +68,7 @@ class AHMineViewController: BaseViewController {
     }
     
     // 网络请求
-    func sendRequest() {
+    fileprivate func sendRequest() {
         if User.info == nil {
             self.collectedCount = 0
             self.tableView.reloadData()
@@ -81,7 +85,7 @@ class AHMineViewController: BaseViewController {
     }
     
     // 编辑个人主页
-    func showPersonalPage() {
+    fileprivate func showPersonalPage() {
         if User.info == nil {
             let loginVC = AHLoginViewController()
             let nav = UINavigationController(rootViewController: loginVC)
@@ -122,6 +126,7 @@ class AHMineViewController: BaseViewController {
     
 }
 
+// MARK: - UITableViewDelegate, UITableViewDataSource
 extension AHMineViewController: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {

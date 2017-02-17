@@ -13,7 +13,8 @@ import YYWebImage
 var onlyWifiDownPic = true
 
 class AHSettingViewController: BaseViewController {
-
+    
+    // MARK: - property
     var logoutClouse: (() -> Void)?
     
     fileprivate var cacheSize: CGFloat? {
@@ -22,6 +23,11 @@ class AHSettingViewController: BaseViewController {
         }
     }
     
+    fileprivate var titlesArray = [["账号与安全"], ["仅Wi-Fi网络下载图片", "清除缓存"], ["给个好评", "关于我们"]]
+    
+    fileprivate var unLoginTitlesArray = [["仅Wi-Fi网络下载图片", "清除缓存"], ["给个好评", "关于我们"]]
+    
+    // MARK: - control
     fileprivate lazy var footView: UIButton = {
         let footView = UIButton(frame: CGRect(x: 0, y: 0, width: kScreen_W, height: 44))
         footView.backgroundColor = UIColor.white
@@ -39,10 +45,7 @@ class AHSettingViewController: BaseViewController {
         return tabelView
     }()
     
-    fileprivate var titlesArray = [["账号与安全"], ["仅Wi-Fi网络下载图片", "清除缓存"], ["给个好评", "关于我们"]]
-    
-    fileprivate var unLoginTitlesArray = [["仅Wi-Fi网络下载图片", "清除缓存"], ["给个好评", "关于我们"]]
-    
+    // MARK: - life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -67,6 +70,7 @@ class AHSettingViewController: BaseViewController {
         super.didReceiveMemoryWarning()
     }
     
+    // MARK: - event && methods
     fileprivate func setupUI() {
         view.addSubview(tableView)
         title = "设置"
@@ -128,6 +132,7 @@ class AHSettingViewController: BaseViewController {
     
 }
 
+// MARK: - UITableViewDelegate, UITableViewDataSource
 extension AHSettingViewController: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return (User.info == nil) ? unLoginTitlesArray.count : titlesArray.count

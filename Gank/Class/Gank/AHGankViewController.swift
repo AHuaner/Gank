@@ -20,6 +20,7 @@ let ConfigDict: [AnyHashable: Any] = ["福利" : "福利",
 
 class AHGankViewController: AHDisplayViewController {
     
+    // MARK: - property
     /// 已显示的tags
     fileprivate var showTagsArray: [String] = [String]()
     
@@ -40,6 +41,7 @@ class AHGankViewController: AHDisplayViewController {
     
     var popRect: CGRect = CGRect.zero
     
+    // MARK: - life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -59,8 +61,8 @@ class AHGankViewController: AHDisplayViewController {
         UIApplication.shared.statusBarStyle = .lightContent
         
         // 模拟从服务器获取频道列表
-        showTagsArray = ["干货", "推荐", "iOS", "前端", "Android", "拓展资源"]
-        moreTagsArray = ["福利", "视频", "App"]
+        showTagsArray = ["干货", "iOS", "前端", "Android", "拓展资源", "视频"]
+        moreTagsArray = ["福利", "App", "推荐"]
         
         // 从本地读取频道列表
         let saveShowTagsArray = NSKeyedUnarchiver.unarchiveObject(withFile: "saveShowTagsArray".cachesDir()) as? [String]
@@ -95,8 +97,9 @@ class AHGankViewController: AHDisplayViewController {
         NotificationCenter.default.removeObserver(self)
     }
     
+    // MARK: - event && methods
     // 初始化数据库
-    func setupSqlite() {
+    fileprivate func setupSqlite() {
         for key in showTagsArray {
             let name = ConfigDict[key] as! String
             SQLiteManager.shareManager().creatTable(tableName: name)

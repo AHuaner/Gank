@@ -11,6 +11,7 @@ import WebKit
 
 class AHClassWebViewController: BaseWebViewController {
     
+    // MARK: - property
     fileprivate var contentOffsetY: CGFloat = 0.0
     fileprivate var oldContentOffsetY: CGFloat = 0.0
     fileprivate var newContentOffsetY: CGFloat = 0.0
@@ -24,6 +25,7 @@ class AHClassWebViewController: BaseWebViewController {
     // 文章是否被收藏
     fileprivate var isCollected: Bool = false
     
+    // MARK: - control
     // 弹窗
     fileprivate lazy var moreView: AHMoreView = {
         let moreView = AHMoreView.moreView()
@@ -42,6 +44,7 @@ class AHClassWebViewController: BaseWebViewController {
         return maskBtnView
     }()
     
+    // MARK: - life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -79,6 +82,7 @@ class AHClassWebViewController: BaseWebViewController {
         webView.scrollView.delegate = nil
     }
     
+    // MARK: - event && methods
     fileprivate func setupUI() {
         self.title = "加载中..."
         webView.scrollView.delegate = self
@@ -204,6 +208,7 @@ class AHClassWebViewController: BaseWebViewController {
     }
 }
 
+// MARK: - UIScrollViewDelegate
 extension AHClassWebViewController: UIScrollViewDelegate {
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         contentOffsetY = scrollView.contentOffset.y
@@ -244,6 +249,7 @@ extension AHClassWebViewController: UIScrollViewDelegate {
     }
 }
 
+// MARK: - UINavigationControllerDelegate
 extension AHClassWebViewController: UINavigationControllerDelegate {
     func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         switch operation {
