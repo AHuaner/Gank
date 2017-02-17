@@ -115,7 +115,7 @@ class AHRegisterViewController: BaseViewController {
     // 检验账号是否已注册
     fileprivate func checkRegistered() {
         self.view.endEditing(true)
-        ToolKit.show(withStatus: "正在获取")
+        ToolKit.show(withStatus: "正在获取验证码", style: .dark, maskType: .clear)
         
         let query = BmobUser.query()!
         query.whereKey("username", equalTo: accountTextField.text)

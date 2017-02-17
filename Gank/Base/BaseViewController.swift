@@ -74,6 +74,10 @@ class BaseViewController: UIViewController, UIGestureRecognizerDelegate {
         AHLog("---dealloc---\(type(of: self))")
     }
     
+    override class func initialize() {
+        superclass()?.initialize()
+    }
+
     // MARK: - event && methods
     fileprivate func setupNav() {
         if navigationController?.viewControllers.count > 1 {

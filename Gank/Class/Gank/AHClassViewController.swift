@@ -30,12 +30,11 @@ class AHClassViewController: BaseViewController {
     
     // MARK: - control
     fileprivate lazy var tableView: UITableView = {
-        let tabelView = UITableView(frame: CGRect(x: 0, y: 0, width: kScreen_W, height: kScreen_H - kNavBarHeight), style: UITableViewStyle.plain)
+        let tabelView = UITableView(frame: CGRect(x: 0, y: 0, width: kScreen_W, height: kScreen_H - kNavBarHeight - kBottomBarHeight), style: UITableViewStyle.plain)
         tabelView.backgroundColor = UIColorMainBG
         tabelView.delegate = self
         tabelView.dataSource = self
         tabelView.contentInset.top = 35
-        tabelView.contentInset.bottom = kBottomBarHeight
         tabelView.separatorStyle = .none
         return tabelView
     }()

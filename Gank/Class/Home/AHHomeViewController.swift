@@ -26,7 +26,7 @@ class AHHomeViewController: BaseViewController {
     
     fileprivate lazy var tableView: UITableView = {
         let tabelView = UITableView(frame: CGRect(x: 0, y: 0, width: kScreen_W, height: kScreen_H), style: UITableViewStyle.grouped)
-        tabelView.backgroundColor = UIColorMainBG
+        tabelView.backgroundColor = UIColor.white
         tabelView.delegate = self
         tabelView.dataSource = self
         tabelView.contentInset.bottom = kBottomBarHeight

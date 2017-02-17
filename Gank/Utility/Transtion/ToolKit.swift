@@ -17,7 +17,7 @@ extension ToolKit {
     // MARK: - HUD相关
     class func show(withStatus status: String!, style: SVProgressHUDStyle = .dark, maskType: SVProgressHUDMaskType = .none) {
         SVProgressHUD.setDefaultStyle(style)
-        // SVProgressHUD.setDefaultMaskType(.clear)
+        SVProgressHUD.setDefaultMaskType(maskType)
         SVProgressHUD.show(withStatus: status)
     }
     
