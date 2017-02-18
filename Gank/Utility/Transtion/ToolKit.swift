@@ -77,8 +77,13 @@ extension ToolKit {
             }
         }
         
-        let NetWorkType: String?
-        switch dataNetWorkItemView?.value(forKey: "dataNetworkType")! as! Int {
+        var NetWorkType: String = ""
+        
+        guard let NetworkTypeNum = dataNetWorkItemView?.value(forKey: "dataNetworkType") as? Int else {
+            return "Airplane mode"
+        }
+        
+        switch NetworkTypeNum {
         case 0:
             NetWorkType = "No wifi or cellular"
         case 1:
@@ -90,7 +95,7 @@ extension ToolKit {
         default:
             NetWorkType = "Wifi"
         }
-        return NetWorkType!
+        return NetWorkType
     }
  
     // MARK: - 获取设备型号

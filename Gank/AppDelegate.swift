@@ -78,9 +78,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         config.channel = "AppStore"
         
         Bugly.start(withAppId: "b8f061c283",
-                    developmentDevice: true,
+                    developmentDevice: false,
                     config: config)
         
+        if ToolKit.getCurrentDeviceModel() == "Simulator" {
+            Bugly.start(withAppId: "b8f061c283",
+                        developmentDevice: true,
+                        config: config)
+        }
+
         Bugly.updateAppVersion(Bundle.releaseVersionNumber!)
         Bugly.setUserValue(ProcessInfo.processInfo.processName, forKey: "Process")
         Bugly.setUserIdentifier("\(UIDevice.current.name)")

@@ -15,7 +15,7 @@ class AHHomeViewController: BaseViewController {
     
     fileprivate var lastSelectedIndex: Int = 0
     
-    fileprivate var lastDate: String = ""
+    fileprivate var lastDate: String = (ToolKit.getUserInfoObjectForKey(key: "lastDate") as? String) ?? ""
     
     // MARK: - control
     fileprivate lazy var headerView: AHHomeHeaderView = {
@@ -85,39 +85,51 @@ class AHHomeViewController: BaseViewController {
     }
     
     fileprivate func sendRequest() {
+        // 获取发过干货的日期
         AHNewWorkingAgent.loadDateRequest(success: { (result: Any) in
             guard let dateArray = result as? [String] else { return }
             guard let newestDate = dateArray.first else { return }
             
             let date = newestDate.replacingOccurrences(of: "-", with: "/")
             
-            if self.lastDate == date { return }
+            if self.lastDate == date {
+                self.loadGankFromCache()
+                return
+            }
             
             self.loadGanks(WithDate: date)
             
         }) { (error: Error) in
             AHLog(error)
+            self.loadGankFromCache()
         }
     }
     
-    func loadGanks(WithDate date: String) {
+    // 请求首页数据
+    fileprivate func loadGanks(WithDate date: String) {
         AHNewWorkingAgent.loadHomeRequest(date: date, success: { (result: Any) in
             guard let datasArray = result as? [AHHomeGroupModel] else { return }
+            
             self.lastDate = date
+            ToolKit.saveUserInfoObject(object: date, key: "lastDate")
             
             self.datasArray = datasArray
-            self.setupHeaderView(date: date)
+            self.setupHeaderView()
             self.tableView.reloadData()
         }) { (error: Error) in
-            // 读取缓存的首页数据
-            guard let datas = NSKeyedUnarchiver.unarchiveObject(withFile: "homeGanks".cachesDir()) as? [AHHomeGroupModel] else { return }
-            self.datasArray = datas
-            self.setupHeaderView(date: date)
-            self.tableView.reloadData()
+            self.loadGankFromCache()
         }
     }
     
-    fileprivate func setupHeaderView(date: String) {
+    // 读取缓存的首页数据
+    fileprivate func loadGankFromCache() {
+        guard let datas = NSKeyedUnarchiver.unarchiveObject(withFile: "homeGanks".cachesDir()) as? [AHHomeGroupModel] else { return }
+        self.datasArray = datas
+        self.setupHeaderView()
+        self.tableView.reloadData()
+    }
+    
+    fileprivate func setupHeaderView() {
         var newData = [AHHomeGroupModel]()
         
         for data in datasArray {
@@ -125,7 +137,6 @@ class AHHomeViewController: BaseViewController {
                 guard let urlString = data.ganks.first?.url else { return }
                 let url = urlString + "?/0/w/\(kScreen_H * 0.55)/h/\(kScreen_W)"
                 headerView.imageView.yy_imageURL = URL(string: url)
-                headerView.timeLabel.text = date
                 continue
             }
             newData.append(data)
