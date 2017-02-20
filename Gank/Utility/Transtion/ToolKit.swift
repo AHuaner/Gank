@@ -136,4 +136,37 @@ extension ToolKit {
         default:                                        return identifier
         }
     }
+    
+    // 检验用户是否在其他设备登录
+    static func checkUserLoginedWithOtherDevice(noLogin: @escaping () -> Void) {
+        let query = BmobUser.query()
+        query?.getObjectInBackground(withId: User.info?.objectId, block: { (bombObject, error) in
+            if error != nil {
+                AHLog(error)
+                let nserror = error as! NSError
+                switch nserror.code {
+                case 20003:
+                    let loginVC = AHLoginViewController()
+                    let nav = UINavigationController(rootViewController: loginVC)
+                    kWindow?.rootViewController?.present(nav, animated: true, completion: nil)
+                default:
+                    ToolKit.showInfo(withStatus: "网络请求失败, 请稍后重试")
+                }
+                return
+            }
+            
+            let user = bombObject as! BmobUser
+            if (user.object(forKey: "uuid") as! String) == (User.info?.object(forKey: "uuid") as! String) {
+                noLogin()
+            } else {
+                User.logout()
+                ToolKit().showAlertController(locationVC: kWindow!.rootViewController!, title: "提示", message: "您的账号在其他地方登录, 如非本人操作请及时更换密码", confirmTitle: "确定", confrimClouse: { (_) in
+                    ToolKit.dismissHUD()
+                    let loginVC = AHLoginViewController()
+                    let nav = UINavigationController(rootViewController: loginVC)
+                    kWindow?.rootViewController?.present(nav, animated: true, completion: nil)
+                })
+            }
+        })
+    }
 }

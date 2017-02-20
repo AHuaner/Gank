@@ -75,13 +75,16 @@ class AHMineViewController: BaseViewController {
             return
         }
         
-        let query: BmobQuery = BmobQuery(className: "Collect")
-        query.whereKey("userId", equalTo: User.info?.objectId)
-        query.countObjectsInBackground { (count, error) in
-            if error != nil { AHLog(error!); return }
-            self.collectedCount = (Int)(count)
-            self.tableView.reloadData()
-        }
+        // 检验用户是否在其他设备登录
+        ToolKit.checkUserLoginedWithOtherDevice(noLogin: {
+            let query: BmobQuery = BmobQuery(className: "Collect")
+            query.whereKey("userId", equalTo: User.info?.objectId)
+            query.countObjectsInBackground { (count, error) in
+                if error != nil { AHLog(error!); return }
+                self.collectedCount = (Int)(count)
+                self.tableView.reloadData()
+            }
+        })
     }
     
     // 编辑个人主页
@@ -92,7 +95,7 @@ class AHMineViewController: BaseViewController {
             present(nav, animated: true, completion: nil)
             return
         }
-        
+
         let vc = AHPersonalPageViewController()
         vc.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(vc, animated: true)
@@ -100,6 +103,7 @@ class AHMineViewController: BaseViewController {
     
     // 我的收藏
     fileprivate func pushMyViewCollection() {
+        // 检验用户是否登录
         if User.info == nil {
             let loginVC = AHLoginViewController()
             let nav = UINavigationController(rootViewController: loginVC)

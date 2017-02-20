@@ -17,13 +17,6 @@ extension String {
         }
     }
     
-    static func getUUID() -> String {
-     
-        let UUID = Foundation.UUID().uuidString
-        
-        return UUID
-    }
-    
     // MARK: - 快速生成缓存路径
     /** 快速生成缓存路径 */
     func cachesDir() -> String {

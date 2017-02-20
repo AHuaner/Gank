@@ -41,7 +41,6 @@ let UIColorLine = RGBColor(217, g: 217, b: 217, alpha: 1)
 typealias JSONObject = [String: Any]
 
 class AHConfig {
-    
     // MARK: 服务器地址
     static let Http_ = "http://gank.io/api/"
     
@@ -52,12 +51,12 @@ class AHConfig {
     
     // MARK: UserDefault通用字段
     struct UserDefault {
-        
+        static let lastDate = "lastDate"
+        static let mobilePhoneNumber = "mobilePhoneNumber"
     }
 }
 
 extension Bundle {
-    
     static var releaseVersionNumber: String? {
         return Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
     }
@@ -69,6 +68,12 @@ extension Bundle {
     static var appName: String {
         return Bundle.main.infoDictionary?["CFBundleName"] as! String
     }
-    
+}
+
+extension UIDevice {
+    static func getUUID() -> String {
+        // let UUID = Foundation.UUID().uuidString
+        return UIDevice.current.identifierForVendor!.uuidString
+    }
 }
 

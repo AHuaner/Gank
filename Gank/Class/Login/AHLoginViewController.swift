@@ -45,7 +45,7 @@ class AHLoginViewController: BaseViewController {
         passwordTextField.delegate = self
         
         // 获取上次登录的账号
-        if let lastPhoneNumber =  ToolKit.getUserInfoObjectForKey(key: "mobilePhoneNumber") as? String {
+        if let lastPhoneNumber =  ToolKit.getUserInfoObjectForKey(key: AHConfig.UserDefault.mobilePhoneNumber) as? String {
             accountTextField.text = lastPhoneNumber
         }
     }
@@ -111,10 +111,8 @@ class AHLoginViewController: BaseViewController {
         BmobUser.loginWithUsername(inBackground: userName, password: passWord) { (BmobUser, error) in
             if let user = BmobUser {
                 User.update()
-                AHLog("登录成功---\(User.info)")
-                ToolKit.dismissHUD()
-                ToolKit.saveUserInfoObject(object: user.mobilePhoneNumber, key: "mobilePhoneNumber")
-                self.dismiss(animated: true, completion: nil)
+                ToolKit.saveUserInfoObject(object: user.mobilePhoneNumber, key: AHConfig.UserDefault.mobilePhoneNumber)
+                self.updateUUID()
             } else {
                 guard let nserror = error as? NSError else {
                     ToolKit.showError(withStatus: "登录失败")
@@ -132,6 +130,20 @@ class AHLoginViewController: BaseViewController {
         }
     }
     
+    fileprivate func updateUUID() {
+        let user = User.info
+        user?.setObject(UIDevice.getUUID(), forKey: "uuid")
+        user?.updateInBackground(resultBlock: { (isSuccessful, error) in
+            if error != nil {
+                ToolKit.showError(withStatus: "登录失败")
+                AHLog(error!)
+                return
+            }
+            AHLog("登录成功---\(User.info)")
+            ToolKit.dismissHUD()
+            self.dismiss(animated: true, completion: nil)
+        })
+    }
 }
 
 // MARK: - UITextFieldDelegate

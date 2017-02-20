@@ -17,12 +17,17 @@ class AHUpdateNickViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         setupUI()
+        
+        ToolKit.checkUserLoginedWithOtherDevice {
+            self.textField.becomeFirstResponder()
+        }
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        textField.becomeFirstResponder()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        UIApplication.shared.statusBarStyle = .default
     }
     
     override func didReceiveMemoryWarning() {
@@ -45,15 +50,22 @@ class AHUpdateNickViewController: BaseViewController {
     }
     
     func saveAction() {
-        if textField.text?.characters.count == 0 {
+        if User.info == nil {
+            let loginVC = AHLoginViewController()
+            let nav = UINavigationController(rootViewController: loginVC)
+            kWindow?.rootViewController?.present(nav, animated: true, completion: nil)
+            return
+        }
+        
+        if self.textField.text?.characters.count == 0 {
             ToolKit.showInfo(withStatus: "昵称不能为空")
             return
         }
         
         ToolKit.show(withStatus: " 正在保存 ")
-        view.endEditing(true)
+        self.view.endEditing(true)
         
-        User.info?.setObject(textField.text, forKey: "nickName")
+        User.info?.setObject(self.textField.text, forKey: "nickName")
         User.info?.updateInBackground { (isSuccessful, error) in
             if isSuccessful {
                 ToolKit.showSuccess(withStatus: " 保存成功 ")

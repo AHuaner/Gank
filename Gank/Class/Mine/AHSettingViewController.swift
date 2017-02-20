@@ -102,9 +102,11 @@ class AHSettingViewController: BaseViewController {
     
     // 账户与安全
     fileprivate func pushAccountSafeController() {
-        let vc = AHAccountSafeViewController()
-        vc.hidesBottomBarWhenPushed = true
-        navigationController?.pushViewController(vc, animated: true)
+        ToolKit.checkUserLoginedWithOtherDevice { 
+            let vc = AHAccountSafeViewController()
+            vc.hidesBottomBarWhenPushed = true
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
     }
     
     // 仅Wi-Fi网络下载图片

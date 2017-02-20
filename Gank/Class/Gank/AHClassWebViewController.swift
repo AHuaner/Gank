@@ -164,47 +164,49 @@ class AHClassWebViewController: BaseWebViewController {
             return
         }
         
-        // 登录状态
-        // 取消收藏
-        if isCollected {
-            ToolKit.show(withStatus: "正在取消收藏")
-            let gank: BmobObject = BmobObject(outDataWithClassName: "Collect", objectId: gankModel?.objectId)
-            gank.deleteInBackground { (isSuccessful, error) in
-                if isSuccessful { // 删除成功
-                    ToolKit.showSuccess(withStatus: "以取消收藏")
-                    self.isCollected = false
-                    self.moreView.gankBe(collected: false)
-                } else {
-                    AHLog(error!)
-                    ToolKit.showError(withStatus: "取消收藏失败")
+        ToolKit.checkUserLoginedWithOtherDevice { 
+            // 登录状态
+            // 取消收藏
+            if self.isCollected {
+                ToolKit.show(withStatus: "正在取消收藏")
+                let gank: BmobObject = BmobObject(outDataWithClassName: "Collect", objectId: self.gankModel?.objectId)
+                gank.deleteInBackground { (isSuccessful, error) in
+                    if isSuccessful { // 删除成功
+                        ToolKit.showSuccess(withStatus: "已取消收藏")
+                        self.isCollected = false
+                        self.moreView.gankBe(collected: false)
+                    } else {
+                        AHLog(error!)
+                        ToolKit.showError(withStatus: "取消收藏失败")
+                    }
                 }
+                return
             }
-            return
-        }
-        
-        // 收藏
-        let gankInfo = BmobObject(className: "Collect")
-        gankInfo?.setObject(User.info!.objectId, forKey: "userId")
-        gankInfo?.setObject(User.info!.mobilePhoneNumber, forKey: "userPhone")
-        if let gankModel = gankModel {
-            gankInfo?.setObject(gankModel.id, forKey: "gankId")
-            gankInfo?.setObject(gankModel.desc, forKey: "gankDesc")
-            gankInfo?.setObject(gankModel.type, forKey: "gankType")
-            gankInfo?.setObject(gankModel.user, forKey: "gankUser")
-            gankInfo?.setObject(gankModel.publishedAt, forKey: "gankPublishAt")
-            gankInfo?.setObject(gankModel.url, forKey: "gankUrl")
-        }
-        
-        gankInfo?.saveInBackground(resultBlock: { (isSuccessful, error) in
-            if error != nil { // 收藏失败
-                AHLog(error!)
-                ToolKit.showError(withStatus: "收藏失败")
-            } else { // 收藏成功
-                ToolKit.showSuccess(withStatus: "收藏成功")
-                self.isCollected = true
-                self.moreView.gankBe(collected: true)
+            
+            // 收藏
+            let gankInfo = BmobObject(className: "Collect")
+            gankInfo?.setObject(User.info!.objectId, forKey: "userId")
+            gankInfo?.setObject(User.info!.mobilePhoneNumber, forKey: "userPhone")
+            if let gankModel = self.gankModel {
+                gankInfo?.setObject(gankModel.id, forKey: "gankId")
+                gankInfo?.setObject(gankModel.desc, forKey: "gankDesc")
+                gankInfo?.setObject(gankModel.type, forKey: "gankType")
+                gankInfo?.setObject(gankModel.user, forKey: "gankUser")
+                gankInfo?.setObject(gankModel.publishedAt, forKey: "gankPublishAt")
+                gankInfo?.setObject(gankModel.url, forKey: "gankUrl")
             }
-        })
+            
+            gankInfo?.saveInBackground(resultBlock: { (isSuccessful, error) in
+                if error != nil { // 收藏失败
+                    AHLog(error!)
+                    ToolKit.showError(withStatus: "收藏失败")
+                } else { // 收藏成功
+                    ToolKit.showSuccess(withStatus: "收藏成功")
+                    self.isCollected = true
+                    self.moreView.gankBe(collected: true)
+                }
+            })
+        }
     }
 }
 

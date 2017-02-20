@@ -27,7 +27,10 @@ class AHPersonalPageViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        tableView.reloadData()
+        
+        UIApplication.shared.statusBarStyle = .default
+        
+        self.tableView.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -37,6 +40,7 @@ class AHPersonalPageViewController: BaseViewController {
     
     fileprivate func setupUI() {
         title = "编辑个人主页"
+        
         setNavigationBarStyle(BarColor: UIColor.white, backItemColor: .blue)
         
         view.addSubview(tableView)

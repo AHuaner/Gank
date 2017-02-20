@@ -37,7 +37,10 @@ class AHCollectViewController: BaseViewController {
         
         setupUI()
         
-        setupRefresh()
+        self.setupRefresh()
+        
+        // 检验用户是否在其他设备登录
+        ToolKit.checkUserLoginedWithOtherDevice(noLogin: { })
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -45,6 +48,7 @@ class AHCollectViewController: BaseViewController {
         
         setNavigationBarStyle(BarColor: UIColor.white, backItemColor: .blue)
         UIApplication.shared.statusBarStyle = .default
+        self.tableView.mj_header.beginRefreshing()
     }
 
     override func didReceiveMemoryWarning() {
@@ -72,8 +76,6 @@ class AHCollectViewController: BaseViewController {
         footer?.setTitle("释放立即加载", for: .pulling)
         footer?.setTitle("正在加载...", for: .refreshing)
         tableView.mj_footer = footer
-        
-        self.tableView.mj_header.beginRefreshing()
     }
     
     // 下拉刷新

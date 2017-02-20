@@ -15,7 +15,7 @@ class AHHomeViewController: BaseViewController {
     
     fileprivate var lastSelectedIndex: Int = 0
     
-    fileprivate var lastDate: String = (ToolKit.getUserInfoObjectForKey(key: "lastDate") as? String) ?? ""
+    fileprivate var lastDate: String = (ToolKit.getUserInfoObjectForKey(key: AHConfig.UserDefault.lastDate) as? String) ?? ""
     
     // MARK: - control
     fileprivate lazy var headerView: AHHomeHeaderView = {
@@ -111,7 +111,7 @@ class AHHomeViewController: BaseViewController {
             guard let datasArray = result as? [AHHomeGroupModel] else { return }
             
             self.lastDate = date
-            ToolKit.saveUserInfoObject(object: date, key: "lastDate")
+            ToolKit.saveUserInfoObject(object: date, key: AHConfig.UserDefault.lastDate)
             
             self.datasArray = datasArray
             self.setupHeaderView()
