@@ -1203,7 +1203,7 @@
 				INFOPLIST_FILE = Gank/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = CoderAhuan.Gank;
+				PRODUCT_BUNDLE_IDENTIFIER = AHuaner.Gank;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				"SWIFT_ACTIVE_COMPILATION_CONDITIONS[arch=*]" = "-D DEBUG";
 				SWIFT_OBJC_BRIDGING_HEADER = "Gank/Gank-Bridging-Header.h";
@@ -1224,7 +1224,7 @@
 				INFOPLIST_FILE = Gank/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = CoderAhuan.Gank;
+				PRODUCT_BUNDLE_IDENTIFIER = AHuaner.Gank;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Gank/Gank-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;

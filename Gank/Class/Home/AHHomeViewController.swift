@@ -55,6 +55,8 @@ class AHHomeViewController: BaseViewController {
         
         self.navigationController?.setNavigationBarHidden(true, animated: animated)
         
+        loadGankFromCache()
+        
         sendRequest()
     }
     
@@ -126,6 +128,7 @@ class AHHomeViewController: BaseViewController {
         guard let datas = NSKeyedUnarchiver.unarchiveObject(withFile: "homeGanks".cachesDir()) as? [AHHomeGroupModel] else { return }
         self.datasArray = datas
         self.setupHeaderView()
+        if datas.count == 0 { return }
         self.tableView.reloadData()
     }
     

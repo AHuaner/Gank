@@ -17,12 +17,8 @@ class AHUpdateNickViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setupUI()
-        
-        ToolKit.checkUserLoginedWithOtherDevice {
-            self.textField.becomeFirstResponder()
-        }
+        ToolKit.checkUserLoginedWithOtherDevice { }
     }
     
     override func viewWillAppear(_ animated: Bool) {

@@ -49,8 +49,6 @@ class AHClassWebViewController: BaseWebViewController {
         super.viewDidLoad()
         
         setupUI()
-        
-        cheakIsCollected()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -131,17 +129,17 @@ class AHClassWebViewController: BaseWebViewController {
                 self.isCollected = false
                 self.gankModel?.objectId = nil
             }
+            
+            kWindow?.addSubview(self.maskBtnView)
+            kWindow?.addSubview(self.moreView)
+            UIView.animate(withDuration: 0.25) {
+                self.moreView.alpha = 1
+            }
         }
     }
     
     func moreClick() {
         cheakIsCollected()
-        
-        kWindow?.addSubview(maskBtnView)
-        kWindow?.addSubview(moreView)
-        UIView.animate(withDuration: 0.25) { 
-            self.moreView.alpha = 1
-        }
     }
     
     func dismissMoreView() {

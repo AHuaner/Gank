@@ -45,10 +45,14 @@ class AHCollectViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        UIApplication.shared.statusBarStyle = .default
         
         setNavigationBarStyle(BarColor: UIColor.white, backItemColor: .blue)
-        UIApplication.shared.statusBarStyle = .default
-        self.tableView.mj_header.beginRefreshing()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        tableView.mj_header.beginRefreshing()
     }
 
     override func didReceiveMemoryWarning() {
