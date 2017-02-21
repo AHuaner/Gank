@@ -130,8 +130,9 @@ class AHClassWebViewController: BaseWebViewController {
                 self.gankModel?.objectId = nil
             }
             
-            kWindow?.addSubview(self.maskBtnView)
-            kWindow?.addSubview(self.moreView)
+            guard let nav = self.navigationController else { return }
+            nav.view.insertSubview(self.maskBtnView, aboveSubview: self.webView)
+            nav.view.insertSubview(self.moreView, aboveSubview: self.webView)
             UIView.animate(withDuration: 0.25) {
                 self.moreView.alpha = 1
             }
