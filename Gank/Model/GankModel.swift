@@ -43,7 +43,7 @@ class GankModel: NSObject {
 //    }
 //    // 在bmob服务器的唯一标示
 //    var objectId: String?
-//    convenience init(bmob: BmobObject) {
+//    init(bmob: BmobObject) {
 //        super.init()
 //        self.id = bmob.object(forKey: "gankId") as? String
 //        self.desc = bmob.object(forKey: "gankDesc") as? String

@@ -26,6 +26,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // 初始化IQKeyboardManager
         setIQKeyboardManager()
         
+        // 初始化UMeng
+        setUMeng()
+        
         // 初始化Bmob
         setBmob()
         
@@ -58,6 +61,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    }
+    
+    
+    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+        let result = UMSocialManager.default().handleOpen(url)
+        if result {
+            AHLog("处理成功")
+        } else {
+            AHLog("处理失败")
+        }
+        return true
     }
     
     fileprivate func setRootVC() {
@@ -108,6 +122,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     fileprivate func setBmob() {
         Bmob.register(withAppKey: "480048add0eb994db572f59796aa9bb7")
+    }
+    
+    fileprivate func setUMeng() {
+        UMSocialManager.default().openLog(true)
+        UMSocialManager.default().umSocialAppkey = "587ed28d04e20582670008fe"
+        
+        UMSocialManager.default().setPlaform(UMSocialPlatformType.wechatSession, appKey: "wx63cb6a9a9328f689", appSecret: "389c351724e6b2be9dad31b626afa8e1", redirectURL: "http://mobile.umeng.com/social")
+        UMSocialManager.default().setPlaform(UMSocialPlatformType.wechatTimeLine, appKey: "wx63cb6a9a9328f689", appSecret: "389c351724e6b2be9dad31b626afa8e1", redirectURL: "http://mobile.umeng.com/social")
+        UMSocialManager.default().removePlatformProvider(with: UMSocialPlatformType.wechatFavorite)
+        
+        // 配置分享界面
+        let shareUIConfig = UMSocialShareUIConfig.shareInstance()!
+        shareUIConfig.shareTitleViewConfig.isShow = false
+        shareUIConfig.shareCancelControlConfig.isShow = false
+        shareUIConfig.sharePageGroupViewConfig.sharePageGroupViewPostionType = .bottom;
+        shareUIConfig.sharePageScrollViewConfig.shareScrollViewPageMaxRowCountForPortraitAndBottom = 2
+        shareUIConfig.sharePageScrollViewConfig.shareScrollViewPageMaxColumnCountForPortraitAndBottom = 3
     }
 }
 

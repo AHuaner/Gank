@@ -9,5 +9,7 @@
 #import <FMDB/FMDB.h>
 #import <Bugly/Bugly.h>
 #import <BmobSDK/Bmob.h>
+#import <UMSocialCore/UMSocialCore.h>
+#import <UShareUI/UShareUI.h>
 #import "FPSLabel.h"
 

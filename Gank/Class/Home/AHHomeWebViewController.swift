@@ -65,7 +65,7 @@ class AHHomeWebViewController: BaseWebViewController {
             case 0: // 收藏
                 self.collectGankAction()
             case 1: // 分享
-                ToolKit.showSuccess(withStatus: "收藏成功")
+                self.shareEvent()
             case 2: // 复制链接
                 let pasteboard = UIPasteboard.general
                 pasteboard.string = self.urlString!
@@ -122,7 +122,7 @@ class AHHomeWebViewController: BaseWebViewController {
     }
     
     // 点击收藏
-    func collectGankAction() {
+    fileprivate func collectGankAction() {
         if User.info == nil { // 未登录
             let loginVC = AHLoginViewController()
             let nav = UINavigationController(rootViewController: loginVC)
@@ -175,6 +175,24 @@ class AHHomeWebViewController: BaseWebViewController {
                 }
             })
         })
+    }
+    
+    fileprivate func shareEvent() {
+        UMSocialUIManager.showShareMenuViewInWindow { (platformType, userInfo) in
+            let messageObject = UMSocialMessageObject()
+            
+            let shareObject = UMShareWebpageObject.shareObject(withTitle: "Gank", descr: self.gankModel?.desc, thumImage: UIImage(named: "icon108"))
+            shareObject?.webpageUrl = self.gankModel?.url
+            messageObject.shareObject = shareObject
+            
+            UMSocialManager.default().share(to: platformType, messageObject: messageObject, currentViewController: self) { (data, error) in
+                if error == nil {
+                    AHLog(data)
+                } else {
+                    AHLog("分享失败\(error!)")
+                }
+            }
+        }
     }
     
 }
