@@ -301,6 +301,7 @@ extension AHDisplayViewController {
         
         if vc.isKind(of: AHClassViewController.self) {
             let classVC = vc as! AHClassViewController
+            // 延迟调用是为等AHClassViewController的tableview创建出来
             DispatchQueue.main.asyncAfter(deadline: 0.01, execute: {
                 classVC.firstLoadDate()
             })

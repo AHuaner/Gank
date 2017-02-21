@@ -42,6 +42,11 @@ class AHHomeViewController: BaseViewController {
         return navBar
     }()
     
+    fileprivate lazy var loadingView: AHLoadingView = {
+        let loadingView = AHLoadingView(frame: CGRect(x: 0, y: 0, width: kScreen_W, height: kScreen_H - kBottomBarHeight))
+        return loadingView
+    }()
+    
     // MARK: - life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -111,6 +116,7 @@ class AHHomeViewController: BaseViewController {
     fileprivate func loadGanks(WithDate date: String) {
         AHNewWorkingAgent.loadHomeRequest(date: date, success: { (result: Any) in
             guard let datasArray = result as? [AHHomeGroupModel] else { return }
+            self.loadingView.isHidden = true
             
             self.lastDate = date
             ToolKit.saveUserInfoObject(object: date, key: AHConfig.UserDefault.lastDate)
@@ -125,10 +131,16 @@ class AHHomeViewController: BaseViewController {
     
     // 读取缓存的首页数据
     fileprivate func loadGankFromCache() {
-        guard let datas = NSKeyedUnarchiver.unarchiveObject(withFile: "homeGanks".cachesDir()) as? [AHHomeGroupModel] else { return }
+        guard let datas = NSKeyedUnarchiver.unarchiveObject(withFile: "homeGanks".cachesDir()) as? [AHHomeGroupModel] else {
+            view.addSubview(loadingView)
+            return
+        }
         self.datasArray = datas
         self.setupHeaderView()
-        if datas.count == 0 { return }
+        if datas.count == 0 {
+            view.addSubview(loadingView)
+            return
+        }
         self.tableView.reloadData()
     }
     

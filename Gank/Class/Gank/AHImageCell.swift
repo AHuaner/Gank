@@ -32,7 +32,7 @@ class AHImageCell: UICollectionViewCell {
                             // 当前网络不是wifi, 而且仅允许wifi网络下载图片
                             if ToolKit.getNetWorkType() != "Wifi" && onlyWifiDownPic == true {
                                 // 缓存中有缩略图,直接加载
-                                imageView.image = imageFromCache(urlString: small_url) ?? UIImage(named: "loading1")
+                                imageView.image = imageFromCache(urlString: small_url) ?? UIImage(named: "placeImage")
                                 return
                             }
                             
@@ -41,7 +41,7 @@ class AHImageCell: UICollectionViewCell {
                     // 获取不到图片的高度宽度
                     } else {
                         if ToolKit.getNetWorkType() != "Wifi" && onlyWifiDownPic == true {
-                            imageView.image = imageFromCache(urlString: urlString) ?? UIImage(named: "loading1")
+                            imageView.image = imageFromCache(urlString: urlString) ?? UIImage(named: "placeImage")
                             return
                         }
                         
@@ -58,7 +58,7 @@ class AHImageCell: UICollectionViewCell {
                         let small_url = urlString + "?imageView2/0/w/\(Int(cellMaxWidth))"
                         
                         if ToolKit.getNetWorkType() != "Wifi" && onlyWifiDownPic == true {
-                            imageView.image = imageFromCache(urlString: small_url) ?? UIImage(named: "loading1")
+                            imageView.image = imageFromCache(urlString: small_url) ?? UIImage(named: "placeImage")
                             return
                         }
                         

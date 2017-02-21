@@ -40,7 +40,7 @@ class AHClassViewController: BaseViewController {
     }()
     
     fileprivate lazy var loadingView: AHLoadingView = {
-        let loadingView = AHLoadingView(frame: self.view.bounds)
+        let loadingView = AHLoadingView(frame: CGRect(x: 0, y: 0, width: kScreen_W, height: kScreen_H - kBottomBarHeight))
         return loadingView
     }()
     
@@ -76,7 +76,7 @@ class AHClassViewController: BaseViewController {
         
         view.addSubview(tableView)
         
-        tableView.backgroundColor = UIColorMainBG
+        view.addSubview(loadingView)
         
         NotificationCenter.default.addObserver(self, selector: #selector(AHClassViewController.tabBarSelector), name: NSNotification.Name(rawValue: "TabBarDidSelectNotification"), object: nil)
     }
@@ -157,7 +157,8 @@ class AHClassViewController: BaseViewController {
     
     func firstLoadDate() {
         // 延迟刷新
-        DispatchQueue.main.asyncAfter(deadline: 0.1, execute: {
+        DispatchQueue.main.asyncAfter(deadline: 0.2, execute: {
+            if self.datasArray.count > 0 { self.loadingView.removeFromSuperview() }
             self.tableView.reloadData()
         })
         
@@ -173,10 +174,7 @@ class AHClassViewController: BaseViewController {
             let dict = JSON(result)
             var datas = [AHClassModel]()
             
-            if dict.count <= 0 {
-                self.tableView.addSubview(self.loadingView)
-                return
-            }
+            if dict.count <= 0 { return }
             
             // 创建一个组队列
             let group = DispatchGroup()

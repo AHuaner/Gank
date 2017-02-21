@@ -12,7 +12,7 @@ class AHLoadingView: UIView {
     
     lazy var animView: UIImageView = {
         let animView = UIImageView()
-        animView.frame.size = CGSize(width: 150, height: 150)
+        animView.frame.size = CGSize(width: 300, height: 225)
         self.addSubview(animView)
         return animView
     }()
@@ -28,22 +28,23 @@ class AHLoadingView: UIView {
     
     func setupUI() {
         var images = [UIImage]()
-        for i in 1...5 {
+        for i in 1...9 {
             let image = UIImage(named: "loading\(i)")
             images.append(image!)
         }
-        animView.animationDuration = 1
+        animView.animationDuration = 0.8
         animView.animationRepeatCount = Int(MAXINTERP)
         animView.animationImages = images
         animView.startAnimating()
         animView.CenterX = self.CenterX
-        animView.CenterY = self.CenterY - 100
-        
-//        backgroundColor = UIColorMainBG
+        animView.CenterY = self.CenterY
+
+       
 //        let label = UILabel()
-//        label.text = "一大波干货正在来袭......."
+//        label.text = "正在加载"
 //        label.sizeToFit()
 //        label.center = self.center
+//        
 //        self.addSubview(label)
     }
 }
