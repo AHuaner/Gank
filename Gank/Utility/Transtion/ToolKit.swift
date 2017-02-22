@@ -50,7 +50,6 @@ extension ToolKit {
     class func saveUserInfoObject(object: Any, key: String) {
         let defaults = UserDefaults.standard
         defaults.set(object, forKey: key)
-        defaults.synchronize()
     }
     
     class func getUserInfoObjectForKey(key: String) -> Any? {
@@ -61,7 +60,6 @@ extension ToolKit {
     class func removeUserInfoObjectForKey(key: String) {
         let defaults = UserDefaults.standard
         defaults.removeObject(forKey: key)
-        defaults.synchronize()
     }
     
     // MARK: - 获取网络类型

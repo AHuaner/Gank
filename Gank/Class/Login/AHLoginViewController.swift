@@ -45,7 +45,7 @@ class AHLoginViewController: BaseViewController {
         passwordTextField.delegate = self
         
         // 获取上次登录的账号
-        if let lastPhoneNumber =  ToolKit.getUserInfoObjectForKey(key: AHConfig.UserDefault.mobilePhoneNumber) as? String {
+        if let lastPhoneNumber = UserDefaults.AHData.mobilePhoneNumber.storedString {
             accountTextField.text = lastPhoneNumber
         }
     }
@@ -111,7 +111,7 @@ class AHLoginViewController: BaseViewController {
         BmobUser.loginWithUsername(inBackground: userName, password: passWord) { (BmobUser, error) in
             if let user = BmobUser {
                 User.update()
-                ToolKit.saveUserInfoObject(object: user.mobilePhoneNumber, key: AHConfig.UserDefault.mobilePhoneNumber)
+                UserDefaults.AHData.mobilePhoneNumber.store(value: user.mobilePhoneNumber)
                 self.updateUUID()
             } else {
                 guard let nserror = error as? NSError else {

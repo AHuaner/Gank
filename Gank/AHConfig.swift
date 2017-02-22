@@ -48,12 +48,6 @@ class AHConfig {
     struct Notification {
         
     }
-    
-    // MARK: UserDefault通用字段
-    struct UserDefault {
-        static let lastDate = "lastDate"
-        static let mobilePhoneNumber = "mobilePhoneNumber"
-    }
 }
 
 extension Bundle {

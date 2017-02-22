@@ -182,7 +182,7 @@ class AHRegisterViewController: BaseViewController {
                 User.update()
                 AHLog("注册成功---\(User.info)")
                 ToolKit.showSuccess(withStatus: "注册成功")
-                ToolKit.saveUserInfoObject(object: user.mobilePhoneNumber, key: AHConfig.UserDefault.mobilePhoneNumber)
+                UserDefaults.AHData.mobilePhoneNumber.store(value: user.mobilePhoneNumber)
                 DispatchQueue.main.asyncAfter(deadline: 1, execute: {
                     if self.registerClouse != nil { self.registerClouse!() }
                 })

@@ -113,6 +113,7 @@
 		60939DC01E223F03003B3F13 /* icon_close_second@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60939DBF1E223F03003B3F13 /* icon_close_second@2x.png */; };
 		60A19DED1E213A98007D24D2 /* AHHomeWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A19DEC1E213A98007D24D2 /* AHHomeWebViewController.swift */; };
 		60A9D8721E52F3E2001517FC /* icon_collected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60A9D8711E52F3E2001517FC /* icon_collected@2x.png */; };
+		60B205241E5DA5540008736D /* UserDefaultsEVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B205231E5DA5540008736D /* UserDefaultsEVO.swift */; };
 		60BDD7AE1E56930C004C6B4C /* AHAccountSafeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60BDD7AC1E56930C004C6B4C /* AHAccountSafeViewController.swift */; };
 		60BDD7AF1E56930C004C6B4C /* AHAccountSafeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60BDD7AD1E56930C004C6B4C /* AHAccountSafeViewController.xib */; };
 		60C0935D1E2DBDBC004D6B90 /* icon_search_blue@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60C0935C1E2DBDBC004D6B90 /* icon_search_blue@2x.png */; };
@@ -292,6 +293,7 @@
 		60939DBF1E223F03003B3F13 /* icon_close_second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_close_second@2x.png"; sourceTree = "<group>"; };
 		60A19DEC1E213A98007D24D2 /* AHHomeWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHHomeWebViewController.swift; sourceTree = "<group>"; };
 		60A9D8711E52F3E2001517FC /* icon_collected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_collected@2x.png"; sourceTree = "<group>"; };
+		60B205231E5DA5540008736D /* UserDefaultsEVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserDefaultsEVO.swift; path = Utility/UserDefaultsEVO.swift; sourceTree = "<group>"; };
 		60BDD7AC1E56930C004C6B4C /* AHAccountSafeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHAccountSafeViewController.swift; sourceTree = "<group>"; };
 		60BDD7AD1E56930C004C6B4C /* AHAccountSafeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AHAccountSafeViewController.xib; sourceTree = "<group>"; };
 		60C0935C1E2DBDBC004D6B90 /* icon_search_blue@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_search_blue@2x.png"; sourceTree = "<group>"; };
@@ -465,6 +467,7 @@
 			children = (
 				601CF5B81DF836B4002AF8D5 /* AppDelegate.swift */,
 				60396BEA1DF83C6A00A23DAA /* AHConfig.swift */,
+				60B205231E5DA5540008736D /* UserDefaultsEVO.swift */,
 				601CF5E81DF8379A002AF8D5 /* AHMainViewController.swift */,
 				60C7F8C71DFA9CB20069E69A /* Gank-Bridging-Header.h */,
 				60270DF21E56CA87001610E3 /* LaunchScreen.storyboard */,
@@ -1039,6 +1042,7 @@
 				604A29BB1E273C3100228F69 /* AHSearchListView.swift in Sources */,
 				601560941DFEC46F00369E64 /* AHLoadingView.swift in Sources */,
 				60EB31581E2374D900E93715 /* AHClosePopTranstion.swift in Sources */,
+				60B205241E5DA5540008736D /* UserDefaultsEVO.swift in Sources */,
 				60116FAE1E518F3C0068663F /* AHCollectCell.swift in Sources */,
 				604A29C61E2767FE00228F69 /* AHTurnChannelViewController.swift in Sources */,
 				600BA1501E0BC469002E4D94 /* AHNavBar.swift in Sources */,
