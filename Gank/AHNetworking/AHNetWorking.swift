@@ -17,12 +17,12 @@ enum MethodType {
     case post
 }
 
-class AHNetWorking {
+protocol AHNetWorking: class {
     
 }
 
 extension AHNetWorking {
-    class func requestData(_ type: MethodType, URLString: String, parameters: JSONObject? = nil, success: @escaping Success, failure: @escaping Failure) {
+    func requestData(_ type: MethodType, URLString: String, parameters: JSONObject? = nil, success: @escaping Success, failure: @escaping Failure) {
         
         let method = type == .get ? HTTPMethod.get : HTTPMethod.post
         
@@ -39,7 +39,7 @@ extension AHNetWorking {
         }
     }
     
-    class func cancelAllRequest() {
+    func cancelAllRequest() {
         Alamofire.SessionManager().session.getAllTasks { (tasks) -> Void in
             AHLog("---")
             tasks.forEach({ $0.cancel() })

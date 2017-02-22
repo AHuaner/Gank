@@ -163,24 +163,19 @@ extension AHMineViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        if indexPath.section == 0 { // 个人主页
+        switch (indexPath.section, indexPath.row) {
+        case (0, 0): // 个人主页
             showPersonalPage()
-        } else if indexPath.section == 1 {
-            switch indexPath.row {
-            case 0: // 我的收藏
-                pushMyViewCollection()
-            default: break
-            }
-        } else if indexPath.section == 2 {
-            switch indexPath.row {
-            case 0: // 分享应用
-                shareApp()
-            case 1: // 意见反馈
-                pushFeedbackViewCollection()
-            default: break
-            }
-        } else if indexPath.section == 3 { // 设置
+        case (1, 0): // 我的收藏
+            pushMyViewCollection()
+        case (2, 0): // 分享应用
+            shareApp()
+        case (2, 1): // 意见反馈
+            pushFeedbackViewCollection()
+        case (3, 0): // 设置
             settingAction()
+        default:
+            break
         }
     }
     

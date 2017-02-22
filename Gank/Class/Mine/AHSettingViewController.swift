@@ -149,20 +149,17 @@ extension AHSettingViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // 未登录
         if User.info == nil {
-            switch indexPath.section {
-            case 0:
-                if indexPath.row == 0 { // 仅Wi-Fi网络下载图片
-                    let cell = cellForSwitch()
-                    cell.textLabel?.text = unLoginTitlesArray[indexPath.section][indexPath.row]
-                    return cell
-                } else { // 清除缓存
-                    let cell = cellForValue1()
-                    cell.textLabel?.text = unLoginTitlesArray[indexPath.section][indexPath.row]
-                    cell.detailTextLabel?.text = "\(cacheSize!.format(f: 0))MB"
-                    return cell
-                }
-            case 1:
-                // 给个好评 && 关于我们
+            switch (indexPath.section, indexPath.row) {
+            case (0, 0): // 仅Wi-Fi网络下载图片
+                let cell = cellForSwitch()
+                cell.textLabel?.text = unLoginTitlesArray[indexPath.section][indexPath.row]
+                return cell
+            case (0, 1): // 清除缓存
+                let cell = cellForValue1()
+                cell.textLabel?.text = unLoginTitlesArray[indexPath.section][indexPath.row]
+                cell.detailTextLabel?.text = "\(cacheSize!.format(f: 0))MB"
+                return cell
+            case (1, 0), (1, 1): // 给个好评 && 关于我们
                 let cell = cellForValue1()
                 cell.textLabel?.text = unLoginTitlesArray[indexPath.section][indexPath.row]
                 return cell
@@ -170,26 +167,23 @@ extension AHSettingViewController: UITableViewDelegate, UITableViewDataSource {
                 return cellForValue1()
             }
         }
-        
+
         // 已登录
-        switch indexPath.section {
-        case 0: // 账户与安全
+        switch (indexPath.section, indexPath.row) {
+        case (0, 0): // 账户与安全
             let cell = cellForValue1()
             cell.textLabel?.text = titlesArray[indexPath.section][indexPath.row]
             return cell
-        case 1:
-            if indexPath.row == 0 { // 仅Wi-Fi网络下载图片
-                let cell = cellForSwitch()
-                cell.textLabel?.text = titlesArray[indexPath.section][indexPath.row]
-                return cell
-            } else { // 清除缓存
-                let cell = cellForValue1()
-                cell.textLabel?.text = titlesArray[indexPath.section][indexPath.row]
-                cell.detailTextLabel?.text = "\(cacheSize!.format(f: 0))MB"
-                return cell
-            }
-        case 2:
-            // 给个好评 && 关于我们
+        case (1, 0): // 仅Wi-Fi网络下载图片
+            let cell = cellForSwitch()
+            cell.textLabel?.text = titlesArray[indexPath.section][indexPath.row]
+            return cell
+        case (1, 1): // 清除缓存
+            let cell = cellForValue1()
+            cell.textLabel?.text = titlesArray[indexPath.section][indexPath.row]
+            cell.detailTextLabel?.text = "\(cacheSize!.format(f: 0))MB"
+            return cell
+        case (2, 0), (2, 1): // 给个好评 && 关于我们
             let cell = cellForValue1()
             cell.textLabel?.text = titlesArray[indexPath.section][indexPath.row]
             return cell
@@ -203,17 +197,13 @@ extension AHSettingViewController: UITableViewDelegate, UITableViewDataSource {
         
         // 未登录
         if User.info == nil {
-            switch indexPath.section {
-            case 0:
-                if indexPath.row == 1 { // 清除缓存
-                    cleanCache()
-                }
-            case 1:
-                if indexPath.row == 0 { // 给个好评
-                    evaluateApp()
-                } else if indexPath.row == 1 { // 关于我们
-                    pushAboutUsController()
-                }
+            switch (indexPath.section, indexPath.row) {
+            case (0, 1): // 清除缓存
+                cleanCache()
+            case (1, 0): // 给个好评
+                evaluateApp()
+            case (1, 1): // 关于我们
+                pushAboutUsController()
             default:
                 break
             }
@@ -221,19 +211,15 @@ extension AHSettingViewController: UITableViewDelegate, UITableViewDataSource {
         }
         
         // 已登录
-        switch indexPath.section {
-        case 0: // 账户与安全
+        switch (indexPath.section, indexPath.row) {
+        case (0, 0): // 账户与安全
             pushAccountSafeController()
-        case 1:
-            if indexPath.row == 1 { // 清除缓存
-                cleanCache()
-            }
-        case 2:
-            if indexPath.row == 0 { // 给个好评
-                evaluateApp()
-            } else if indexPath.row == 1 { // 关于我们
-                pushAboutUsController()
-            }
+        case (1, 1): // 清除缓存
+            cleanCache()
+        case (2, 0): // 给个好评
+            evaluateApp()
+        case (2, 1): // 关于我们
+            pushAboutUsController()
         default:
             break
         }

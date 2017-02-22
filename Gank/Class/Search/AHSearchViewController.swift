@@ -129,7 +129,7 @@ class AHSearchViewController: BaseViewController {
         let currentPage = self.currentPage + 1
         guard let text = self.searchTextField.text else { return }
         
-        AHNewWorkingAgent.loadSearchRequest(text: text, page: currentPage, success: { (result) in
+        AHNewWork.agent.loadSearchRequest(text: text, page: currentPage, success: { (result) in
             guard let datas = result as? [AHSearchGankModel] else {
                 self.tableView.mj_footer.endRefreshing()
                 return
@@ -156,7 +156,7 @@ class AHSearchViewController: BaseViewController {
         self.lastText = text
         
         ToolKit.show(withStatus: "正在加载中")
-        AHNewWorkingAgent.loadSearchRequest(text: text, page: 1, success: { (result: Any) in
+        AHNewWork.agent.loadSearchRequest(text: text, page: 1, success: { (result: Any) in
             if self.lastText != text { return }
             
             ToolKit.dismissHUD()

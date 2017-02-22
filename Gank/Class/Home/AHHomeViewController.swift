@@ -93,7 +93,7 @@ class AHHomeViewController: BaseViewController {
     
     fileprivate func sendRequest() {
         // 获取发过干货的日期
-        AHNewWorkingAgent.loadDateRequest(success: { (result: Any) in
+        AHNewWork.agent.loadDateRequest(success: { (result: Any) in
             guard let dateArray = result as? [String] else { return }
             guard let newestDate = dateArray.first else { return }
             
@@ -114,7 +114,7 @@ class AHHomeViewController: BaseViewController {
     
     // 请求首页数据
     fileprivate func loadGanks(WithDate date: String) {
-        AHNewWorkingAgent.loadHomeRequest(date: date, success: { (result: Any) in
+        AHNewWork.agent.loadHomeRequest(date: date, success: { (result: Any) in
             guard let datasArray = result as? [AHHomeGroupModel] else { return }
             self.loadingView.isHidden = true
             

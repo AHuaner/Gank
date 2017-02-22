@@ -107,7 +107,7 @@ class AHClassViewController: BaseViewController {
         let currentPage: Int = 1
         // 更新最后一次请求的页码
         self.lastPage = currentPage
-        AHNewWorkingAgent.loadClassRequest(tpye: self.type, page: currentPage, success: { (result) in
+        AHNewWork.agent.loadClassRequest(tpye: self.type, page: currentPage, success: { (result) in
             if self.lastPage != currentPage { return }
             
             self.loadingView.isHidden = true
@@ -136,7 +136,7 @@ class AHClassViewController: BaseViewController {
         let currentPage = self.currentPage + 1
         // 更新最后一次请求的页码
         self.lastPage = currentPage
-        AHNewWorkingAgent.loadClassRequest(tpye: self.type, page: currentPage, success: { (result) in
+        AHNewWork.agent.loadClassRequest(tpye: self.type, page: currentPage, success: { (result) in
             if self.lastPage != currentPage { return }
             
             guard let datasArray = result as? [AHClassModel] else {
