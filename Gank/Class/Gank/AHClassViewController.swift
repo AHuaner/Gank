@@ -58,6 +58,8 @@ class AHClassViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        // 再开始动画一次, 不然快速滑动的时候, 动画不会显示
+        loadingView.animView.startAnimating()
     }
     
     override func didReceiveMemoryWarning() {
@@ -71,8 +73,8 @@ class AHClassViewController: BaseViewController {
     // MARK: - event && methods
     fileprivate func setupUI() {
         // 添加fps测试
-        let fpsLabel = FPSLabel(frame: CGRect(x: kScreen_W - 100, y: 0, width: 30, height: 20))
-        UIApplication.shared.keyWindow?.addSubview(fpsLabel)
+        // let fpsLabel = FPSLabel(frame: CGRect(x: kScreen_W - 100, y: 0, width: 30, height: 20))
+        // UIApplication.shared.keyWindow?.addSubview(fpsLabel)
         
         view.addSubview(tableView)
         
@@ -108,7 +110,7 @@ class AHClassViewController: BaseViewController {
         AHNewWorkingAgent.loadClassRequest(tpye: self.type, page: currentPage, success: { (result) in
             if self.lastPage != currentPage { return }
             
-            self.loadingView.removeFromSuperview()
+            self.loadingView.isHidden = true
             guard let datasArray = result as? [AHClassModel] else {
                 self.tableView.mj_header.endRefreshing()
                 return
@@ -157,8 +159,8 @@ class AHClassViewController: BaseViewController {
     
     func firstLoadDate() {
         // 延迟刷新
-        DispatchQueue.main.asyncAfter(deadline: 0.2, execute: {
-            if self.datasArray.count > 0 { self.loadingView.removeFromSuperview() }
+        DispatchQueue.main.asyncAfter(deadline: 0.1, execute: {
+            if self.datasArray.count > 0 { self.loadingView.isHidden = true }
             self.tableView.reloadData()
         })
         

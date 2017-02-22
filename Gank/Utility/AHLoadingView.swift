@@ -26,25 +26,24 @@ class AHLoadingView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setupUI() {
+    fileprivate func setupUI() {
         var images = [UIImage]()
-        for i in 1...9 {
+        for i in 1...8 {
             let image = UIImage(named: "loading\(i)")
             images.append(image!)
         }
-        animView.animationDuration = 0.8
+        animView.animationDuration = 1
         animView.animationRepeatCount = Int(MAXINTERP)
         animView.animationImages = images
         animView.startAnimating()
-        animView.CenterX = self.CenterX
-        animView.CenterY = self.CenterY
+        animView.center = self.center
 
        
 //        let label = UILabel()
 //        label.text = "正在加载"
 //        label.sizeToFit()
 //        label.center = self.center
-//        
+//
 //        self.addSubview(label)
     }
 }
