@@ -77,10 +77,9 @@ class AHClassViewController: BaseViewController {
         // UIApplication.shared.keyWindow?.addSubview(fpsLabel)
         
         view.addSubview(tableView)
-        
         view.addSubview(loadingView)
         
-        NotificationCenter.default.addObserver(self, selector: #selector(AHClassViewController.tabBarSelector), name: NSNotification.Name(rawValue: "TabBarDidSelectNotification"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(AHClassViewController.tabBarSelector), name: NSNotification.Name.AHTabBarDidSelectNotification, object: nil)
     }
     
     // 设置刷新控件

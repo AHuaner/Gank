@@ -88,7 +88,7 @@ class AHHomeViewController: BaseViewController {
         
         self.automaticallyAdjustsScrollViewInsets = false
         
-        NotificationCenter.default.addObserver(self, selector: #selector(AHHomeViewController.tabBarSelector), name: NSNotification.Name(rawValue: "TabBarDidSelectNotification"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(AHHomeViewController.tabBarSelector), name: NSNotification.Name.AHTabBarDidSelectNotification, object: nil)
     }
     
     fileprivate func sendRequest() {

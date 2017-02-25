@@ -79,7 +79,7 @@ class AHGankViewController: AHDisplayViewController {
         
         addTitleButton.addTarget(self, action: #selector(AHGankViewController.addTitleButtonClick(_:)), for: .touchUpInside)
         
-        NotificationCenter.default.addObserver(self, selector: #selector(AHGankViewController.changeStatusBar), name: NSNotification.Name(rawValue: "changeStatusBarNotifica"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(changeStatusBar), name: NSNotification.Name.AHChangeStatusBarNotification, object: nil)
         
         setupSqlite()
     }

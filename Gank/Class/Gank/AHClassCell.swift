@@ -149,7 +149,7 @@ extension AHClassCell: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         // 隐藏状态栏
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "changeStatusBarNotifica"), object: nil)
+        NotificationCenter.default.post(name: NSNotification.Name.AHChangeStatusBarNotification, object: nil)
         
         let browser = AHPhotoBrowser()
         browser.currentImageIndex = indexPath.item

@@ -144,7 +144,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 extension AppDelegate: UITabBarControllerDelegate {
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "TabBarDidSelectNotification"), object: nil)
+        NotificationCenter.default.post(name: NSNotification.Name.AHTabBarDidSelectNotification, object: nil)
     }
 }
 

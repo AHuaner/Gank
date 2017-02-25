@@ -117,7 +117,7 @@ class AHPhotoBrowser: UIView {
     
     func phonoClickAction(tap: UITapGestureRecognizer) {
         // 显示状态栏
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "changeStatusBarNotifica"), object: nil)
+        NotificationCenter.default.post(name: NSNotification.Name.AHChangeStatusBarNotification, object: nil)
         
         scrollView.isHidden = true
         isWillDisappear = true

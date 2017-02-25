@@ -30,6 +30,11 @@ class BaseWebViewController: BaseViewController {
         return progressView
     }()
     
+    fileprivate lazy var loadingView: AHLoadingView = {
+        let loadingView = AHLoadingView(frame: CGRect(x: 0, y: 0, width: kScreen_W, height: kScreen_H))
+        return loadingView
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -45,6 +50,7 @@ class BaseWebViewController: BaseViewController {
     
     fileprivate func setupUI() {
         view.addSubview(webView)
+        view.addSubview(loadingView)
         view.addSubview(progressView)
         
         webView.addObserver(self, forKeyPath: "estimatedProgress", options: .new, context: nil)
@@ -117,8 +123,14 @@ class BaseWebViewController: BaseViewController {
 }
 
 extension BaseWebViewController: WKNavigationDelegate {
+    /// 页面加载完成之后调用
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         self.title = "详细内容"
+    }
+    
+    /// 开始获取到网页内容时返回
+    func webView(_ webView: WKWebView, didCommit navigation: WKNavigation!) {
+        loadingView.isHidden = true
     }
 }
 
