@@ -9,21 +9,15 @@
 import UIKit
 import SwiftyJSON
 
-enum AHHomeError: Error {
-    case invalidDateSelection
-}
-
 class AHNewWork: NSObject, AHNetWorking {
-    
-    // 单粒
+    /// 单粒
     static let agent = AHNewWork()
     
+    /// 请求干货页面数据
     func loadClassRequest(tpye: String, page: Int, success: @escaping Success, failure: @escaping Failure) {
-
         let url = AHConfig.Http_ + "data/\(tpye)/20/\(page)"
-        let urlString = url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
         
-        requestData(.get, URLString: urlString!, parameters: nil, success: { (result: Any) in
+        requestData(url, success: { (result: Any) in
             
             // 缓存第一页的数据
             if page == 1 {
@@ -82,19 +76,13 @@ class AHNewWork: NSObject, AHNetWorking {
         })
     }
     
+    /// 请求首页数据
     func loadHomeRequest(date: String, success: @escaping Success, failure: @escaping Failure) {
         let url = AHConfig.Http_ + "day/\(date)"
-        let urlString = url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
         
-        requestData(.get, URLString: urlString!, success: { (result: Any) in
+        requestData(url, success: { (result: Any) in
             let dict = JSON(result)
             var datas = [AHHomeGroupModel]()
-            
-            if dict["category"].count == 0 {
-                let error = AHHomeError.invalidDateSelection
-                failure(error)
-                return
-            }
             
             for i in 0..<dict["category"].count {
                 let groupTitle = dict["category"][i].stringValue
@@ -112,11 +100,11 @@ class AHNewWork: NSObject, AHNetWorking {
         }
     }
     
+    /// 请求搜索数据
     func loadSearchRequest(text: String, page: Int, success: @escaping Success, failure: @escaping Failure) {
         let url = AHConfig.Http_ + "search/query/\(text)/category/all/count/20/page/\(page)"
-        let urlString = url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
         
-        requestData(.get, URLString: urlString!, success: { (result: Any) in
+        requestData(url, success: { (result: Any) in
             let dict = JSON(result)
             var datas = [AHSearchGankModel]()
             
@@ -131,11 +119,11 @@ class AHNewWork: NSObject, AHNetWorking {
         }
     }
     
+    /// 请求发过干货日期数据
     func loadDateRequest(success: @escaping Success, failure: @escaping Failure) {
         let url = AHConfig.Http_ + "day/history"
-        let urlString = url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
         
-        requestData(.get, URLString: urlString!, success: { (result: Any) in
+        requestData(url, success: { (result: Any) in
             let json = result as! JSONObject
             guard let dateArray = json["results"] else { return }
             success(dateArray)
