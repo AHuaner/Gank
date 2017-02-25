@@ -51,7 +51,7 @@ class AHSearchViewController: BaseViewController {
     
     lazy var contentView: UIScrollView = {
         let contentView = UIScrollView(frame: CGRect(x: 0, y: kNavBarHeight, width: kScreen_W, height: kScreen_H - kNavBarHeight))
-        let tap = UITapGestureRecognizer(target: self, action: #selector(AHSearchViewController.viewEndEditing))
+        let tap = UITapGestureRecognizer(target: self, action: #selector(viewEndEditing))
         contentView.addGestureRecognizer(tap)
         return contentView
     }()
@@ -96,7 +96,7 @@ class AHSearchViewController: BaseViewController {
             recentSearchTitles = saveRecentSearchTitles!
         }
         
-        closeBtn.addTarget(self, action: #selector(AHSearchViewController.popViewController), for: .touchUpInside)
+        closeBtn.addTarget(self, action: #selector(popViewController), for: .touchUpInside)
         self.recentSearchView.addObserver(self, forKeyPath: "frame", options: .new, context: nil)
         
         searchTextField.delegate = self
@@ -112,12 +112,12 @@ class AHSearchViewController: BaseViewController {
         contentView.contentSize = CGSize(width: kScreen_W, height: self.recentSearchView.Height)
         view.addSubview(contentView)
         contentView.addSubview(recentSearchView)
-        recentSearchView.cleanBtn.addTarget(self, action: #selector(AHSearchViewController.cleanBtnAction), for: .touchUpInside)
+        recentSearchView.cleanBtn.addTarget(self, action: #selector(cleanBtnAction), for: .touchUpInside)
     }
     
     // 设置刷新控件
     fileprivate func setupRefresh() {
-        let footer =  MJRefreshBackNormalFooter.init(refreshingTarget: self, refreshingAction: #selector(AHSearchViewController.loadMoreGank))
+        let footer =  MJRefreshBackNormalFooter.init(refreshingTarget: self, refreshingAction: #selector(loadMoreGank))
         footer?.setTitle("上拉加载更多", for: .idle)
         footer?.setTitle("释放立即加载", for: .pulling)
         footer?.setTitle("干货加载中...", for: .refreshing)

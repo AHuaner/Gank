@@ -31,8 +31,8 @@ class AHTimeButton: UIButton {
         titleLabel?.font = FontSize(size: 12)
         backgroundColor = UIColor.orange
         layer.cornerRadius = self.Height * 0.4
-        addTarget(self, action: #selector(AHLaunchViewController.skipAction), for: .touchUpInside)
-        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(AHTimeButton.timerAction), userInfo: nil, repeats: true)
+        addTarget(self, action: #selector(skipAction), for: .touchUpInside)
+        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(timerAction), userInfo: nil, repeats: true)
     }
     
     func skipAction() {

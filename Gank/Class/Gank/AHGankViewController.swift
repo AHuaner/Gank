@@ -77,7 +77,7 @@ class AHGankViewController: AHDisplayViewController {
         
         setupChildVCs(titles: showTagsArray)
         
-        addTitleButton.addTarget(self, action: #selector(AHGankViewController.addTitleButtonClick(_:)), for: .touchUpInside)
+        addTitleButton.addTarget(self, action: #selector(addTitleButtonClick(_:)), for: .touchUpInside)
         
         NotificationCenter.default.addObserver(self, selector: #selector(changeStatusBar), name: NSNotification.Name.AHChangeStatusBarNotification, object: nil)
         

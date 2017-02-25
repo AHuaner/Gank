@@ -85,10 +85,10 @@ extension AHSearchListView {
         tagBtn.tag = tagArray.count
         tagBtn.setTitle(tagTitle, for: .normal)
         
-        let longPress = UILongPressGestureRecognizer(target: self, action: #selector(AHListView.longPressAction(longPress:)))
+        let longPress = UILongPressGestureRecognizer(target: self, action: #selector(longPressAction(longPress:)))
         tagBtn.addGestureRecognizer(longPress)
         
-        tagBtn.addTarget(self, action: #selector(AHSearchListView.tagBtnClick(btn:)), for: .touchUpInside)
+        tagBtn.addTarget(self, action: #selector(tagBtnClick(btn:)), for: .touchUpInside)
     
         tagArray.insert(tagBtn, at: 0)
         

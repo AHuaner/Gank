@@ -242,7 +242,7 @@ extension AHDisplayViewController {
             btn.setTitleColor(titleBtnNorColor, for: UIControlState())
             btn.setTitleColor(titleBtnSelColor, for: .disabled)
             btn.setTitle(vc.title, for: UIControlState())
-            btn.addTarget(self, action: #selector(AHDisplayViewController.titleLabelClick(_:)), for: .touchUpInside)
+            btn.addTarget(self, action: #selector(titleLabelClick(_:)), for: .touchUpInside)
             
             if let lastBtn = titleButtons.last {
                 BtnX = titleMargin + lastBtn.MaxX
@@ -294,7 +294,7 @@ extension AHDisplayViewController {
         }
         
         // 移动标题滚动条
-        perform(#selector(self.setupSelectedBtnToCenter(_:)), with: selbtn, afterDelay: 0.15)
+        perform(#selector(setupSelectedBtnToCenter(_:)), with: selbtn, afterDelay: 0.15)
         
         // 取出对应控制器发出通知
         let vc = self.childViewControllers[selbtn.tag];

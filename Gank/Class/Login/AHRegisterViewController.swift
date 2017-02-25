@@ -131,7 +131,7 @@ class AHRegisterViewController: BaseViewController {
                 self.time = 60
                 
                 self.autocodeBtn.isUserInteractionEnabled = false
-                self.timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(AHRegisterViewController.timeRun), userInfo: nil, repeats: true)
+                self.timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.timeRun), userInfo: nil, repeats: true)
                 RunLoop.current.add(self.timer!, forMode: .commonModes)
                 
                 self.requestSMSCode()

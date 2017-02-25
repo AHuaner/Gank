@@ -29,7 +29,7 @@ class AHTurnChannelViewController: BaseViewController {
         let btnF = CGRect(x: kScreen_W - btnW - 5, y: 30, width: btnW, height: btnW)
         closeBtn.setImage(UIImage(named: "icon_close_block"), for: .normal)
         closeBtn.frame = btnF
-        closeBtn.addTarget(self, action: #selector(AHTurnChannelViewController.close), for: .touchUpInside)
+        closeBtn.addTarget(self, action: #selector(close), for: .touchUpInside)
         return closeBtn
     }()
     

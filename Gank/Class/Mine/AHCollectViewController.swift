@@ -68,14 +68,14 @@ class AHCollectViewController: BaseViewController {
     
     // 设置刷新控件
     fileprivate func setupRefresh() {
-        let header = MJRefreshNormalHeader.init(refreshingTarget: self, refreshingAction: #selector(AHCollectViewController.loadNewGank))
+        let header = MJRefreshNormalHeader.init(refreshingTarget: self, refreshingAction: #selector(loadNewGank))
         header?.lastUpdatedTimeLabel.isHidden = true
         header?.isAutomaticallyChangeAlpha = true
         header?.setTitle("下拉刷新", for: .idle)
         header?.setTitle("释放更新", for: .pulling)
         header?.setTitle("正在加载...", for: .refreshing)
         tableView.mj_header = header
-        let footer = MJRefreshBackNormalFooter.init(refreshingTarget: self, refreshingAction: #selector(AHCollectViewController.loadMoreGank))
+        let footer = MJRefreshBackNormalFooter.init(refreshingTarget: self, refreshingAction: #selector(loadMoreGank))
         footer?.setTitle("上拉加载更多", for: .idle)
         footer?.setTitle("释放立即加载", for: .pulling)
         footer?.setTitle("正在加载...", for: .refreshing)

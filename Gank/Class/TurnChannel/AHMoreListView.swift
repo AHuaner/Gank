@@ -69,7 +69,7 @@ extension AHMoreListView {
         let tagBtn = AHTagBtn()
         tagBtn.tag = tagArray.count
         tagBtn.setTitle(tagTitle, for: .normal)
-        tagBtn.addTarget(self, action: #selector(AHMoreListView.addMoreTag(btn:)), for: .touchUpInside)
+        tagBtn.addTarget(self, action: #selector(addMoreTag(btn:)), for: .touchUpInside)
         
         addSubview(tagBtn)
         tagArray.append(tagBtn)

@@ -35,7 +35,7 @@ class AHFeedbackViewController: BaseViewController {
     fileprivate func setupUI() {
         title = "反馈"
         setNavigationBarStyle(BarColor: UIColor.white, backItemColor: .blue)
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "提交", style: .plain, target: self, action: #selector(self.submitAction))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "提交", style: .plain, target: self, action: #selector(submitAction))
         
         IQKeyboardManager.sharedManager().enable = false
     }

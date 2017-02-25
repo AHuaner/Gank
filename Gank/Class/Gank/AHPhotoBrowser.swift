@@ -44,7 +44,7 @@ class AHPhotoBrowser: UIView {
         saveButton.backgroundColor = RGBColor(0, g: 0, b: 0, alpha: 0.9)
         saveButton.layer.cornerRadius = 5
         saveButton.clipsToBounds = true
-        saveButton.addTarget(self, action: #selector(AHPhotoBrowser.saveImage), for: .touchUpInside)
+        saveButton.addTarget(self, action: #selector(saveImage), for: .touchUpInside)
         return saveButton
     }()
     
@@ -66,10 +66,10 @@ class AHPhotoBrowser: UIView {
             let imageView = AHBrowserImageView(frame: CGRect.zero)
             imageView.tag = i
             
-            let singleTap = UITapGestureRecognizer(target: self, action: #selector(AHPhotoBrowser.phonoClickAction(tap:)))
+            let singleTap = UITapGestureRecognizer(target: self, action: #selector(phonoClickAction(tap:)))
             imageView.addGestureRecognizer(singleTap)
             
-            let doubleTap = UITapGestureRecognizer(target: self, action: #selector(AHPhotoBrowser.doubleTapAction(tap:)))
+            let doubleTap = UITapGestureRecognizer(target: self, action: #selector(doubleTapAction(tap:)))
             doubleTap.numberOfTapsRequired = 2
             imageView.addGestureRecognizer(doubleTap)
             singleTap.require(toFail: doubleTap)

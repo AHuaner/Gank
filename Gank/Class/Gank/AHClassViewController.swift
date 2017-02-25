@@ -79,19 +79,19 @@ class AHClassViewController: BaseViewController {
         view.addSubview(tableView)
         view.addSubview(loadingView)
         
-        NotificationCenter.default.addObserver(self, selector: #selector(AHClassViewController.tabBarSelector), name: NSNotification.Name.AHTabBarDidSelectNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(tabBarSelector), name: NSNotification.Name.AHTabBarDidSelectNotification, object: nil)
     }
     
     // 设置刷新控件
     fileprivate func setupRefresh() {
-        let header = MJRefreshNormalHeader.init(refreshingTarget: self, refreshingAction: #selector(AHClassViewController.loadNewGank))
+        let header = MJRefreshNormalHeader.init(refreshingTarget: self, refreshingAction: #selector(loadNewGank))
         header?.lastUpdatedTimeLabel.isHidden = true
         header?.isAutomaticallyChangeAlpha = true
         header?.setTitle("下拉刷新", for: .idle)
         header?.setTitle("释放更新", for: .pulling)
         header?.setTitle("干货加载中...", for: .refreshing)
         tableView.mj_header = header
-        let footer = MJRefreshBackNormalFooter.init(refreshingTarget: self, refreshingAction: #selector(AHClassViewController.loadMoreGank))
+        let footer = MJRefreshBackNormalFooter.init(refreshingTarget: self, refreshingAction: #selector(loadMoreGank))
         footer?.setTitle("上拉加载更多", for: .idle)
         footer?.setTitle("释放立即加载", for: .pulling)
         footer?.setTitle("干货加载中...", for: .refreshing)

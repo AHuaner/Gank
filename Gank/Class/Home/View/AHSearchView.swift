@@ -26,7 +26,7 @@ class AHSearchView: UIView {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        let tap = UITapGestureRecognizer(target: self, action: #selector(AHSearchView.showSearchVC))
+        let tap = UITapGestureRecognizer(target: self, action: #selector(showSearchVC))
         self.addGestureRecognizer(tap)
     }
     

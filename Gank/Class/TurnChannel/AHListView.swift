@@ -65,7 +65,7 @@ class AHListView: UIView {
         completeBtn.layer.borderWidth = 0.5
         completeBtn.layer.cornerRadius = 12.5
         
-        completeBtn.addTarget(self, action: #selector(AHListView.completeAction(btn:)), for: .touchUpInside)
+        completeBtn.addTarget(self, action: #selector(completeAction(btn:)), for: .touchUpInside)
         return completeBtn
     }()
     
@@ -96,12 +96,12 @@ extension AHListView {
         tagBtn.setTitle(tagTitle, for: .normal)
         if isEditModel {
             tagBtn.setImage(UIImage(named: "close2_button"), for: .normal)
-            let pan = UIPanGestureRecognizer(target: self, action: #selector(AHListView.panAction(pan:)))
+            let pan = UIPanGestureRecognizer(target: self, action: #selector(panAction(pan:)))
             tagBtn.addGestureRecognizer(pan)
         }
         tagBtn.alpha = 0
-        tagBtn.addTarget(self, action: #selector(AHListView.deleteBtnAction(btn:)), for: .touchUpInside)
-        let longPress = UILongPressGestureRecognizer(target: self, action: #selector(AHListView.longPressAction(longPress:)))
+        tagBtn.addTarget(self, action: #selector(deleteBtnAction(btn:)), for: .touchUpInside)
+        let longPress = UILongPressGestureRecognizer(target: self, action: #selector(longPressAction(longPress:)))
         tagBtn.addGestureRecognizer(longPress)
         
         tagArray.append(tagBtn)
@@ -289,7 +289,7 @@ extension AHListView {
         for btn in tagArray {
             btn.setImage(UIImage(named: "close2_button"), for: .normal)
             // 给每个tag添加拖拽手势
-            let pan = UIPanGestureRecognizer(target: self, action: #selector(AHListView.panAction(pan:)))
+            let pan = UIPanGestureRecognizer(target: self, action: #selector(panAction(pan:)))
             btn.addGestureRecognizer(pan)
         }
         completeBtn.isSelected = true

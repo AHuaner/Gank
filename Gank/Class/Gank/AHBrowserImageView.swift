@@ -51,7 +51,7 @@ class AHBrowserImageView: YYAnimatedImageView {
         self.isUserInteractionEnabled = true
         self.contentMode = .scaleAspectFit
         
-        let pinch = UIPinchGestureRecognizer(target: self, action: #selector(AHBrowserImageView.zoomImage(pinch:)))
+        let pinch = UIPinchGestureRecognizer(target: self, action: #selector(zoomImage(pinch:)))
         addGestureRecognizer(pinch)
         
         addSubview(waitingView)

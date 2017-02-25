@@ -86,9 +86,9 @@ class AHClassWebViewController: BaseWebViewController {
         webView.scrollView.delegate = self
         
         let oriImage = UIImage(named: "icon_more")?.withRenderingMode(UIImageRenderingMode.alwaysOriginal)
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: oriImage, style: .plain, target: self, action: #selector(AHClassWebViewController.moreClick))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: oriImage, style: .plain, target: self, action: #selector(moreClick))
         
-        maskBtnView.addTarget(self, action: #selector(self.dismissMoreView), for: .touchUpInside)
+        maskBtnView.addTarget(self, action: #selector(dismissMoreView), for: .touchUpInside)
         
         moreView.tableViewdidSelectClouse = { [unowned self] (indexPath) in
             self.dismissMoreView()

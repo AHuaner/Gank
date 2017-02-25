@@ -35,7 +35,7 @@ class AHClassCell: UITableViewCell {
         moreBrn.titleLabel?.textAlignment = .left
         moreBrn.setTitleColor(UIColorMainBlue, for: .normal)
         self.contentView.addSubview(moreBrn)
-        moreBrn.addTarget(self, action: #selector(AHClassCell.moreBtnClicked), for: .touchUpInside)
+        moreBrn.addTarget(self, action: #selector(moreBtnClicked), for: .touchUpInside)
         return moreBrn
     }()
     

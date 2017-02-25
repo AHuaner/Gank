@@ -32,7 +32,7 @@ class AHSettingViewController: BaseViewController {
         let footView = UIButton(frame: CGRect(x: 0, y: 0, width: kScreen_W, height: 44))
         footView.backgroundColor = UIColor.white
         footView.setTitleColor(UIColor.red, for: .normal)
-        footView.addTarget(self, action: #selector(AHSettingViewController.logoutORLoginAction), for: .touchUpInside)
+        footView.addTarget(self, action: #selector(logoutORLoginAction), for: .touchUpInside)
         return footView
     }()
     

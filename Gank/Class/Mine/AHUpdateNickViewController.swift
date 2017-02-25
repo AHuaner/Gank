@@ -37,7 +37,7 @@ class AHUpdateNickViewController: BaseViewController {
     fileprivate func setupUI() {
         title = "昵称"
         setNavigationBarStyle(BarColor: UIColor.white, backItemColor: .blue)
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "保存", style: .plain, target: self, action: #selector(self.saveAction))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "保存", style: .plain, target: self, action: #selector(saveAction))
         
         textField.text = User.info?.object(forKey: "nickName") as? String
         lastNickName = User.info?.object(forKey: "nickName") as? String
