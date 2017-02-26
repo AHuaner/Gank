@@ -47,7 +47,7 @@ class AHConfig {
 
 // MARK: - 通知通用字段
 extension NSNotification.Name {
-    // 点击TabBar item 发出的通知
+    // 点击tabBar item 发出的通知
     static let AHTabBarDidSelectNotification = NSNotification.Name(rawValue: "AHTabBarDidSelectNotification")
     // 隐藏或显示statusBar发出的通知
     static let AHChangeStatusBarNotification = NSNotification.Name(rawValue: "AHChangeStatusBarNotification")

@@ -102,11 +102,9 @@ class AHCollectViewController: BaseViewController {
             // 加载成功
             self.currentPage = 1
             
-            for i in 0..<ganksArr.count {
-                let gank = ganksArr[i] as! BmobObject
-                let model = GankModel(bmob: gank)
-                self.datasArray.append(model)
-            }
+            self.datasArray = ganksArr.map({ gank in
+                GankModel(bmob: gank as! BmobObject)
+            })
             self.tableView.reloadData()
         }
     }
@@ -130,11 +128,9 @@ class AHCollectViewController: BaseViewController {
             // 加载成功
             self.currentPage = self.currentPage + 1
             
-            for i in 0..<ganksArr.count {
-                let gank = ganksArr[i] as! BmobObject
-                let model = GankModel(bmob: gank)
-                self.datasArray.append(model)
-            }
+            self.datasArray = ganksArr.map({ gank in
+                GankModel(bmob: gank as! BmobObject)
+            })
             self.tableView.reloadData()
         }
     }

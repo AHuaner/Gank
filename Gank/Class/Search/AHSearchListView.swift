@@ -211,8 +211,7 @@ extension AHSearchListView {
     
     // 跟新按钮的tag
     fileprivate func updateTag() {
-        for i in 0..<tagArray.count {
-            let btn = tagArray[i]
+        for (i, btn) in tagArray.enumerated() {
             btn.tag = i
         }
     }

@@ -16,12 +16,10 @@ class AHHomeGroupModel: NSObject, NSCoding {
     
     init(dict: JSON, key: String) {
         groupTitle = key
-        ganks = [AHHomeGankModel]()
+        ganks = dict[key].arrayValue.map({ dict in
+            AHHomeGankModel(dict: dict)
+        })
         super.init()
-        for i in 0..<dict[key].count {
-            let gankModel = AHHomeGankModel(dict: dict[key][i])
-            ganks.append(gankModel)
-        }
     }
     
     required init(coder aDecoder: NSCoder) {

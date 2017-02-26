@@ -74,7 +74,7 @@ func removeValueFromArray<T: Equatable>(value: T, array: inout [T]){
     let correctArray = getRemoveIndex(value: value, array: array)
     
     //从原数组中删除指定元素
-    for index in correctArray{
+    for index in correctArray {
         array.remove(at: index)
     }
 }

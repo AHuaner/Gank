@@ -172,22 +172,23 @@ class AHClassViewController: BaseViewController {
     // 从数据库加载
     fileprivate func loadDataFromSQLite() {
         AHGankDAO.loadCacheGanks(type: self.type) { (result) in
-            let dict = JSON(result)
-            var datas = [AHClassModel]()
+            let dicts = JSON(result)
+            let datas: [AHClassModel]
             
-            if dict.count <= 0 { return }
+            if dicts.count <= 0 { return }
             
+            // 创建一个组队列
             // 创建一个组队列
             let group = DispatchGroup()
             let urlconfig = URLSessionConfiguration.default
             urlconfig.timeoutIntervalForRequest = 2
             urlconfig.timeoutIntervalForResource = 2
             
-            for i in 0..<dict.count {
-                let model = AHClassModel(dict: dict[i])
+            datas = dicts.arrayValue.map({ dict in
+                let model = AHClassModel(dict: dict)
                 
                 if let images = model.images, model.images?.count == 1 {
-                    let urlString = images[0] + "?imageInfo"
+                    let urlString = images.first! + "?imageInfo"
                     let url = URL(string: urlString)
                     
                     let session = URLSession(configuration: urlconfig)
@@ -210,8 +211,8 @@ class AHClassViewController: BaseViewController {
                     // 防止内存泄漏
                     session.finishTasksAndInvalidate()
                 }
-                datas.append(model)
-            }
+                return model
+            })
             
             // 等组队列执行完, 在主线程回调
             group.notify(queue: DispatchQueue.main, execute: {

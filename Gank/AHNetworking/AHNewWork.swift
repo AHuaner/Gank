@@ -27,8 +27,8 @@ class AHNewWork: NSObject, AHNetWorking {
                 AHGankDAO.cacheGanks(type: tpye, ganks: array)
             }
             
-            let dict = JSON(result)
-            var datas = [AHClassModel]()
+            let dicts = JSON(result)
+            let datas: [AHClassModel]
             
             // 创建一个组队列
             let group = DispatchGroup()
@@ -36,35 +36,35 @@ class AHNewWork: NSObject, AHNetWorking {
             urlconfig.timeoutIntervalForRequest = 2
             urlconfig.timeoutIntervalForResource = 2
             
-            for i in 0..<dict["results"].count {
-                let model = AHClassModel(dict: dict["results"][i])
+            datas = dicts["results"].arrayValue.map({ dict in
+                let model = AHClassModel(dict: dict)
                 
                 if let images = model.images, model.images?.count == 1 {
-                    let urlString = images[0] + "?imageInfo"
+                    let urlString = images.first! + "?imageInfo"
                     let url = URL(string: urlString)
                     
                     let session = URLSession(configuration: urlconfig)
                     // 当前线程加入组队列
                     group.enter()
                     let tast = session.dataTask(with: url!, completionHandler: { (data: Data?, _, error: Error?) in
-                    if let data = data {
-                        let json = JSON(data: data)
-                        if let width = json["width"].object as? CGFloat {
-                            model.imageW = width
+                        if let data = data {
+                            let json = JSON(data: data)
+                            if let width = json["width"].object as? CGFloat {
+                                model.imageW = width
+                            }
+                            if let height = json["height"].object as? CGFloat {
+                                model.imageH = height
+                            }
                         }
-                        if let height = json["height"].object as? CGFloat {
-                            model.imageH = height
-                        }
-                    }
-                    // 当前线程离开组队列
-                    group.leave()
-                })
+                        // 当前线程离开组队列
+                        group.leave()
+                    })
                     tast.resume()
                     // 防止内存泄漏
                     session.finishTasksAndInvalidate()
                 }
-                datas.append(model)
-            }
+                return model
+            })
             
             // 等组队列执行完, 在主线程回调
             group.notify(queue: DispatchQueue.main, execute: { 
@@ -81,12 +81,12 @@ class AHNewWork: NSObject, AHNetWorking {
         let url = AHConfig.Http_ + "day/\(date)"
         
         requestData(url, success: { (result: Any) in
-            let dict = JSON(result)
+            let dicts = JSON(result)
             var datas = [AHHomeGroupModel]()
             
-            for i in 0..<dict["category"].count {
-                let groupTitle = dict["category"][i].stringValue
-                let groupModel = AHHomeGroupModel(dict: dict["results"], key: groupTitle)
+            for dict in dicts["category"].arrayValue {
+                let groupTitle = dict.stringValue
+                let groupModel = AHHomeGroupModel(dict: dicts["results"], key: groupTitle)
                 datas.append(groupModel)
             }
             
@@ -105,13 +105,13 @@ class AHNewWork: NSObject, AHNetWorking {
         let url = AHConfig.Http_ + "search/query/\(text)/category/all/count/20/page/\(page)"
         
         requestData(url, success: { (result: Any) in
-            let dict = JSON(result)
-            var datas = [AHSearchGankModel]()
+            let dicts = JSON(result)
+            let datas: [AHSearchGankModel]
             
-            for i in 0..<dict["results"].count {
-                let model = AHSearchGankModel(dict: dict["results"][i])
-                datas.append(model)
-            }
+            datas = dicts["results"].arrayValue.map({ dict in
+                AHSearchGankModel(dict: dict)
+            })
+            
             success(datas)
             
         }) { (error: Error) in

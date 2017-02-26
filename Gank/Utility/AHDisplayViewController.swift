@@ -234,8 +234,8 @@ extension AHDisplayViewController {
         let BtnY: CGFloat = 0.0
         var BtnW: CGFloat = 0.0
         let BtnH: CGFloat = isShowUnderLine ? titleScrollViewH - underLineH : titleScrollViewH
-        for i in 0 ..< count {
-            let vc = childViewControllers[i]
+        
+        for (i, vc) in childViewControllers.enumerated() {
             let btn = UIButton()
             btn.tag = i
             btn.titleLabel?.font = titleFont
