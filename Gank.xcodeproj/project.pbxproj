@@ -19,8 +19,7 @@
 		600BA14C1E0BBA72002E4D94 /* AHHomeHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 600BA14B1E0BBA72002E4D94 /* AHHomeHeaderView.swift */; };
 		600BA14E1E0BBA88002E4D94 /* AHHomeHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 600BA14D1E0BBA88002E4D94 /* AHHomeHeaderView.xib */; };
 		600BA1501E0BC469002E4D94 /* AHNavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 600BA14F1E0BC469002E4D94 /* AHNavBar.swift */; };
-		600D2B6C1DF8F1C200D57EA0 /* DispatchTime+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 600D2B691DF8F1C200D57EA0 /* DispatchTime+Extension.swift */; };
-		600D2B6D1DF8F1C200D57EA0 /* NSObject+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 600D2B6A1DF8F1C200D57EA0 /* NSObject+Extension.swift */; };
+		600D2B6D1DF8F1C200D57EA0 /* GlobalFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 600D2B6A1DF8F1C200D57EA0 /* GlobalFunction.swift */; };
 		600D2B6E1DF8F1C200D57EA0 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 600D2B6B1DF8F1C200D57EA0 /* UIView+Extension.swift */; };
 		600D2B731DF8F33E00D57EA0 /* AHMineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 600D2B721DF8F33E00D57EA0 /* AHMineViewController.swift */; };
 		600D2B751DF8F35C00D57EA0 /* AHGankViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 600D2B741DF8F35C00D57EA0 /* AHGankViewController.swift */; };
@@ -127,6 +126,9 @@
 		60C7F8C11DFA6B4E0069E69A /* property@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60C7F8BC1DFA6B4E0069E69A /* property@2x.png */; };
 		60C7F8C21DFA6B4E0069E69A /* tabBar_bgwhiteColor@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60C7F8BD1DFA6B4E0069E69A /* tabBar_bgwhiteColor@2x.png */; };
 		60C7F8D01DFAD3FE0069E69A /* close2_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60C7F8CF1DFAD3FE0069E69A /* close2_button@2x.png */; };
+		60CF00641E6299C100EA5074 /* ResuableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60CF00631E6299C100EA5074 /* ResuableProtocol.swift */; };
+		60CF00661E629BD500EA5074 /* UserDefaultsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60CF00651E629BD500EA5074 /* UserDefaultsProtocol.swift */; };
+		60CF00681E62B62200EA5074 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60CF00671E62B62200EA5074 /* Extension.swift */; };
 		60CF67411E4AEB11001AD276 /* Validate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60CF67401E4AEB11001AD276 /* Validate.swift */; };
 		60CF67441E4B1B58001AD276 /* AHRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60CF67421E4B1B58001AD276 /* AHRegisterViewController.swift */; };
 		60CF67451E4B1B58001AD276 /* AHRegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60CF67431E4B1B58001AD276 /* AHRegisterViewController.xib */; };
@@ -158,7 +160,6 @@
 		60F315E01E4C6EDA00A0AB36 /* icon_copy@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60F315DF1E4C6EDA00A0AB36 /* icon_copy@2x.png */; };
 		60F462331E49AF5700FDBE72 /* AHLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F462311E49AF5700FDBE72 /* AHLoginViewController.swift */; };
 		60F462341E49AF5700FDBE72 /* AHLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60F462321E49AF5700FDBE72 /* AHLoginViewController.xib */; };
-		60F462361E49E22300FDBE72 /* CALayer+BorderColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F462351E49E22300FDBE72 /* CALayer+BorderColor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -191,8 +192,7 @@
 		600BA14B1E0BBA72002E4D94 /* AHHomeHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHHomeHeaderView.swift; sourceTree = "<group>"; };
 		600BA14D1E0BBA88002E4D94 /* AHHomeHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AHHomeHeaderView.xib; sourceTree = "<group>"; };
 		600BA14F1E0BC469002E4D94 /* AHNavBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AHNavBar.swift; path = ../../../Utility/AHNavBar.swift; sourceTree = "<group>"; };
-		600D2B691DF8F1C200D57EA0 /* DispatchTime+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DispatchTime+Extension.swift"; sourceTree = "<group>"; };
-		600D2B6A1DF8F1C200D57EA0 /* NSObject+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSObject+Extension.swift"; sourceTree = "<group>"; };
+		600D2B6A1DF8F1C200D57EA0 /* GlobalFunction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalFunction.swift; sourceTree = "<group>"; };
 		600D2B6B1DF8F1C200D57EA0 /* UIView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		600D2B721DF8F33E00D57EA0 /* AHMineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHMineViewController.swift; sourceTree = "<group>"; };
 		600D2B741DF8F35C00D57EA0 /* AHGankViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHGankViewController.swift; sourceTree = "<group>"; };
@@ -293,7 +293,7 @@
 		60939DBF1E223F03003B3F13 /* icon_close_second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_close_second@2x.png"; sourceTree = "<group>"; };
 		60A19DEC1E213A98007D24D2 /* AHHomeWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHHomeWebViewController.swift; sourceTree = "<group>"; };
 		60A9D8711E52F3E2001517FC /* icon_collected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_collected@2x.png"; sourceTree = "<group>"; };
-		60B205231E5DA5540008736D /* UserDefaultsEVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserDefaultsEVO.swift; path = Utility/UserDefaultsEVO.swift; sourceTree = "<group>"; };
+		60B205231E5DA5540008736D /* UserDefaultsEVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserDefaultsEVO.swift; path = ../Utility/UserDefaultsEVO.swift; sourceTree = "<group>"; };
 		60BDD7AC1E56930C004C6B4C /* AHAccountSafeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHAccountSafeViewController.swift; sourceTree = "<group>"; };
 		60BDD7AD1E56930C004C6B4C /* AHAccountSafeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AHAccountSafeViewController.xib; sourceTree = "<group>"; };
 		60C0935C1E2DBDBC004D6B90 /* icon_search_blue@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_search_blue@2x.png"; sourceTree = "<group>"; };
@@ -308,6 +308,9 @@
 		60C7F8BD1DFA6B4E0069E69A /* tabBar_bgwhiteColor@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabBar_bgwhiteColor@2x.png"; sourceTree = "<group>"; };
 		60C7F8C71DFA9CB20069E69A /* Gank-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Gank-Bridging-Header.h"; sourceTree = "<group>"; };
 		60C7F8CF1DFAD3FE0069E69A /* close2_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "close2_button@2x.png"; sourceTree = "<group>"; };
+		60CF00631E6299C100EA5074 /* ResuableProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResuableProtocol.swift; sourceTree = "<group>"; };
+		60CF00651E629BD500EA5074 /* UserDefaultsProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultsProtocol.swift; sourceTree = "<group>"; };
+		60CF00671E62B62200EA5074 /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		60CF67401E4AEB11001AD276 /* Validate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Validate.swift; sourceTree = "<group>"; };
 		60CF67421E4B1B58001AD276 /* AHRegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHRegisterViewController.swift; sourceTree = "<group>"; };
 		60CF67431E4B1B58001AD276 /* AHRegisterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AHRegisterViewController.xib; sourceTree = "<group>"; };
@@ -339,7 +342,6 @@
 		60F315DF1E4C6EDA00A0AB36 /* icon_copy@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_copy@2x.png"; sourceTree = "<group>"; };
 		60F462311E49AF5700FDBE72 /* AHLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHLoginViewController.swift; sourceTree = "<group>"; };
 		60F462321E49AF5700FDBE72 /* AHLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AHLoginViewController.xib; sourceTree = "<group>"; };
-		60F462351E49E22300FDBE72 /* CALayer+BorderColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CALayer+BorderColor.swift"; sourceTree = "<group>"; };
 		92E140CCC03B446F1E0E29B6 /* Pods-Gank.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gank.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Gank/Pods-Gank.debug.xcconfig"; sourceTree = "<group>"; };
 		BBF349F95A2C7F4277EE5517 /* Pods_Gank.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Gank.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -419,11 +421,10 @@
 			children = (
 				607042E31E28CB5400462731 /* NSObject+alertController.swift */,
 				605E07F31E026D0E00225BA3 /* String+Extension.swift */,
-				600D2B691DF8F1C200D57EA0 /* DispatchTime+Extension.swift */,
-				600D2B6A1DF8F1C200D57EA0 /* NSObject+Extension.swift */,
+				600D2B6A1DF8F1C200D57EA0 /* GlobalFunction.swift */,
 				600D2B6B1DF8F1C200D57EA0 /* UIView+Extension.swift */,
-				60F462351E49E22300FDBE72 /* CALayer+BorderColor.swift */,
 				60CF67401E4AEB11001AD276 /* Validate.swift */,
+				60CF00671E62B62200EA5074 /* Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -467,7 +468,6 @@
 			children = (
 				601CF5B81DF836B4002AF8D5 /* AppDelegate.swift */,
 				60396BEA1DF83C6A00A23DAA /* AHConfig.swift */,
-				60B205231E5DA5540008736D /* UserDefaultsEVO.swift */,
 				601CF5E81DF8379A002AF8D5 /* AHMainViewController.swift */,
 				60C7F8C71DFA9CB20069E69A /* Gank-Bridging-Header.h */,
 				60270DF21E56CA87001610E3 /* LaunchScreen.storyboard */,
@@ -478,6 +478,7 @@
 				600D2BA61DF8F80100D57EA0 /* Base */,
 				60396BE91DF83C2300A23DAA /* Utility */,
 				600D2B681DF8F1C200D57EA0 /* Extension */,
+				60CF00621E62998300EA5074 /* Potocol */,
 				60396BE11DF83BCF00A23DAA /* AHNetworking */,
 				60396BE81DF83C1E00A23DAA /* Resource */,
 				608EED101DF985A000D1984A /* Other */,
@@ -717,6 +718,16 @@
 				606920BC1E2B927C0010945F /* AHSearchCell.xib */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		60CF00621E62998300EA5074 /* Potocol */ = {
+			isa = PBXGroup;
+			children = (
+				60B205231E5DA5540008736D /* UserDefaultsEVO.swift */,
+				60CF00631E6299C100EA5074 /* ResuableProtocol.swift */,
+				60CF00651E629BD500EA5074 /* UserDefaultsProtocol.swift */,
+			);
+			path = Potocol;
 			sourceTree = "<group>";
 		};
 		60D2E2E41E55853F004292AE /* Setting */ = {
@@ -1025,6 +1036,7 @@
 				606920BD1E2B927C0010945F /* AHSearchCell.swift in Sources */,
 				60A19DED1E213A98007D24D2 /* AHHomeWebViewController.swift in Sources */,
 				6036A8731E2376A600ACDE90 /* AHSearchViewController.swift in Sources */,
+				60CF00681E62B62200EA5074 /* Extension.swift in Sources */,
 				60F315DE1E4C3F8000A0AB36 /* AHSettingViewController.swift in Sources */,
 				600BA1451E0B9478002E4D94 /* AHHomeGankModel.swift in Sources */,
 				6084E1731E2364C200E8AC15 /* AHSearchView.swift in Sources */,
@@ -1047,7 +1059,6 @@
 				604A29C61E2767FE00228F69 /* AHTurnChannelViewController.swift in Sources */,
 				600BA1501E0BC469002E4D94 /* AHNavBar.swift in Sources */,
 				600BA1481E0BB745002E4D94 /* AHHeaderSectionView.swift in Sources */,
-				600D2B6C1DF8F1C200D57EA0 /* DispatchTime+Extension.swift in Sources */,
 				600D2BC01DF8FA9200D57EA0 /* BaseViewController.swift in Sources */,
 				6045F3781E0919FB002B0FB6 /* AHWebToolView.swift in Sources */,
 				6020138D1E24FBD8009C0184 /* AHSearchGankModel.swift in Sources */,
@@ -1076,6 +1087,7 @@
 				60116FB31E51F6D00068663F /* GankModel.swift in Sources */,
 				60C7F8B61DFA66D30069E69A /* AHDisplayViewController.swift in Sources */,
 				60EB315B1E2374E100E93715 /* AHPushTransition.swift in Sources */,
+				60CF00661E629BD500EA5074 /* UserDefaultsProtocol.swift in Sources */,
 				601CF5E91DF8379A002AF8D5 /* AHMainViewController.swift in Sources */,
 				60D2E2E71E558612004292AE /* AHUpdateNickViewController.swift in Sources */,
 				6036A86C1E23762200ACDE90 /* BaseWebViewController.swift in Sources */,
@@ -1083,14 +1095,14 @@
 				60627D8B1E52A24900312500 /* AHResetPasswordController.swift in Sources */,
 				602754C11E01260700A2B757 /* FPSLabel.m in Sources */,
 				60F0EE821E041AB800D8ECA0 /* AHPhotoBrowser.swift in Sources */,
-				60F462361E49E22300FDBE72 /* CALayer+BorderColor.swift in Sources */,
 				600D2B731DF8F33E00D57EA0 /* AHMineViewController.swift in Sources */,
 				60116FAB1E5181160068663F /* AHCollectViewController.swift in Sources */,
+				60CF00641E6299C100EA5074 /* ResuableProtocol.swift in Sources */,
 				600D2B751DF8F35C00D57EA0 /* AHGankViewController.swift in Sources */,
 				602754BD1E00FCC400A2B757 /* AHClassCell.swift in Sources */,
 				607042E41E28CB5400462731 /* NSObject+alertController.swift in Sources */,
 				600DD41A1E0D1ABC00ACFC00 /* AHHomeCell.swift in Sources */,
-				600D2B6D1DF8F1C200D57EA0 /* NSObject+Extension.swift in Sources */,
+				600D2B6D1DF8F1C200D57EA0 /* GlobalFunction.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

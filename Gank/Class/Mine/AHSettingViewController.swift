@@ -10,7 +10,7 @@ import UIKit
 import YYWebImage
 
 // 仅Wi-Fi网络下载图片
-var onlyWifiDownPic = true
+var onlyWifiDownPic = UserConfig.bool(forKey: .isOnlyWifiDownPic)
 
 class AHSettingViewController: BaseViewController {
     
@@ -112,6 +112,7 @@ class AHSettingViewController: BaseViewController {
     // 仅Wi-Fi网络下载图片
     func wiFiNetwork() {
         onlyWifiDownPic = !onlyWifiDownPic
+        UserConfig.set(onlyWifiDownPic, forKey: .isOnlyWifiDownPic)
     }
     
     // 清理缓存
@@ -248,7 +249,7 @@ extension AHSettingViewController: UITableViewDelegate, UITableViewDataSource {
         if cell == nil {
             cell = UITableViewCell(style: .value1, reuseIdentifier: "settingSwitchCell")
             let switchView = UISwitch()
-            switchView.setOn(onlyWifiDownPic, animated: false)
+            switchView.isOn = onlyWifiDownPic
             switchView.addTarget(self, action: #selector(wiFiNetwork), for: .valueChanged)
             cell!.selectionStyle = .none
             cell!.accessoryView = switchView

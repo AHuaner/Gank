@@ -1,5 +1,5 @@
 //
-//  NSObject+Extension.swift
+//  GlobalFunction.swift
 //  Gank
 //
 //  Created by CoderAhuan on 2016/12/7.
@@ -7,14 +7,6 @@
 //
 
 import UIKit
-
-extension NSObject {
-    class func getClassName() -> String {
-        let name =  Bundle.main.infoDictionary!["CFBundleExecutable"] as! String
-        let reaName = name + "."
-        return NSStringFromClass(self).substring(from: reaName.endIndex)
-    }
-}
 
 func RGBColor(_ r:CGFloat, g:CGFloat, b:CGFloat, alpha:CGFloat) -> UIColor{
     return UIColor(red:r/255.0, green:g/255.0, blue:b/255.0, alpha:alpha)
@@ -51,20 +43,6 @@ func AHLog<T>(_ message: T, fileName: String = #file, methodName: String = #func
         let nowDate = Date().toString(WithFormat: "yyyy-MM-dd hh:mm:ss")
         print("**\(nowDate)--\(fileN)--\(methodName)--[\(lineNumber)]: \(message)")
     #endif
-}
-
-extension CGFloat {
-    func format(f: Int) -> String {
-        return NSString(format:"%.\(f)f" as NSString, self) as String
-    }
-}
-
-extension Date {
-    func toString(WithFormat format: String) -> String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = format
-        return dateFormatter.string(from: self)
-    }
 }
 
 //获取正确的删除索引

@@ -41,11 +41,11 @@ let UIColorLine = RGBColor(217, g: 217, b: 217, alpha: 1)
 typealias JSONObject = [String: Any]
 
 class AHConfig {
-    // MARK: 服务器地址
+    // MARK: - 服务器地址
     static let Http_ = "http://gank.io/api/"
 }
 
-// MARK: 通知通用字段
+// MARK: - 通知通用字段
 extension NSNotification.Name {
     // 点击TabBar item 发出的通知
     static let AHTabBarDidSelectNotification = NSNotification.Name(rawValue: "AHTabBarDidSelectNotification")
@@ -53,24 +53,16 @@ extension NSNotification.Name {
     static let AHChangeStatusBarNotification = NSNotification.Name(rawValue: "AHChangeStatusBarNotification")
 }
 
-extension Bundle {
-    static var releaseVersionNumber: String? {
-        return Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
+// MARK: - UserDefaults通用字段
+typealias UserDefaultsSettable = StringDefaultSettable & BoolDefaultSettable
+
+struct UserConfig: UserDefaultsSettable {
+    enum StringKey: String {
+        case mobilePhoneNumber                  /// 上一次登录的手机号
+        case lastDate                           /// 首页缓存数据的日期
     }
     
-    static var buildVersionNumber: String? {
-        return Bundle.main.infoDictionary?["CFBundleVersion"] as? String
-    }
-    
-    static var appName: String {
-        return Bundle.main.infoDictionary?["CFBundleName"] as! String
+    enum BoolKey: String {
+        case isOnlyWifiDownPic                  /// 仅在WiFi下载图片开关的状态
     }
 }
-
-extension UIDevice {
-    static func getUUID() -> String {
-        // let UUID = Foundation.UUID().uuidString
-        return UIDevice.current.identifierForVendor!.uuidString
-    }
-}
-
