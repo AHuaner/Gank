@@ -8,21 +8,16 @@
 
 import UIKit
 
-class AHListView: UIView {
+class AHListView: UIView, AHListViewPotocol {
     
     // MARK: - property
     var listViewMoveTagClouse: ((String) -> Void)?
     
     /// 存放ListView上所有的btn的标题
-    lazy var tagTitleArray: [String] = [String]()
+    var tagTitleArray: [String] = [String]()
     
     /// 存放所有的btn
-    fileprivate var tagArray: [AHTagBtn] = [AHTagBtn]()
-    
-    /// 一共有多少列
-    fileprivate let listCols: Int = 4
-    
-    fileprivate let margin: CGFloat = 10.0
+    var tagArray: [AHTagBtn] = [AHTagBtn]()
     
     fileprivate var moveFinalRect: CGRect = CGRect.zero
     
@@ -30,13 +25,6 @@ class AHListView: UIView {
     
     /// 编辑模式
     fileprivate var isEditModel: Bool = false
-    
-    /// 整体的高度
-    fileprivate var ListViewH: CGFloat {
-        get {
-            return (tagArray.count <= 0 ? 30.0 : ((tagArray.last?.MaxY)! + margin))
-        }
-    }
     
     // MARK: - control
     fileprivate lazy var infoButton: UIButton = {
@@ -112,7 +100,7 @@ extension AHListView {
         
         // 更新自己的frame
         UIView.animate(withDuration: 0.25, animations: {
-            self.Height = self.ListViewH
+            self.Height = self.listViewH
         }, completion: { (_) in // 动画完成以后再添加tagBtn
             self.addSubview(tagBtn)
             UIView.animate(withDuration: 0.15, animations: { 
@@ -138,7 +126,7 @@ extension AHListView {
         
         // 更新自己的frame
         UIView.animate(withDuration: 0.25, animations: {
-            self.Height = self.ListViewH
+            self.Height = self.listViewH
         })
     }
     
@@ -234,19 +222,14 @@ extension AHListView {
     }
     
     func deleteBtnAction(btn: AHTagBtn) {
-        if !isEditModel {
-            return
-        }
+        if !isEditModel { return }
         
         if tagArray.count <= 1 {
-            AHLog("至少保留一个频道")
             ToolKit.showError(withStatus: "至少保留一个频道")
             return
         }
         
-        guard let title = btn.titleLabel?.text else {
-            return
-        }
+        guard let title = btn.titleLabel?.text else { return }
         
         deleteTags(btn: btn)
         if listViewMoveTagClouse != nil {
@@ -268,7 +251,7 @@ extension AHListView {
 
 // MARK: - private methods
 extension AHListView {
-    // 编辑完成
+    /// 编辑完成
     fileprivate func completeChange() {
         // 退出编辑模式
         isEditModel = false
@@ -294,50 +277,5 @@ extension AHListView {
         }
         completeBtn.isSelected = true
         infoButton.isSelected = true
-    }
-    
-    fileprivate func getBtnCenterInButtons(curBtn: AHTagBtn) -> AHTagBtn? {
-        for btn in tagArray {
-            if curBtn == btn {
-                continue
-            }
-            if btn.frame.contains(curBtn.center) {
-                return btn
-            }
-        }
-        return nil
-    }
-    
-    // 跟新按钮的tag
-    fileprivate func updateTag() {
-        for (i, btn) in tagArray.enumerated() {
-            btn.tag = i
-        }
-    }
-    
-    // 更新以后按钮frame
-    fileprivate func updateLaterTagButtonFrame(laterIndex: Int) {
-        for i in laterIndex..<tagArray.count {
-            updateTagBtnFrame(btn: tagArray[i])
-        }
-    }
-    
-    // 更新之前按钮frame
-    fileprivate func updateBeforeTagButtonFrame(beforeIndex: Int) {
-        for i in 0..<beforeIndex {
-            updateTagBtnFrame(btn: tagArray[i])
-        }
-    }
-    
-    // 更新对应的frame
-    fileprivate func updateTagBtnFrame(btn: AHTagBtn) {
-        let index = btn.tag
-        let col = index % listCols
-        let row = index / listCols
-        let btnW = (Width - 5 * margin) / CGFloat(listCols)
-        let btnH = btnW * 0.55
-        let btnX = margin + CGFloat(col) * (btnW + margin)
-        let btnY = 30 + margin + CGFloat(row) * (btnH + margin)
-        btn.frame = CGRect(x: btnX, y: btnY, width: btnW, height: btnH)
     }
 }

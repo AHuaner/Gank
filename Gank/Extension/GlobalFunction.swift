@@ -29,7 +29,6 @@ func UIColorFromRGB(_ hex:String) -> UIColor {
     return UIColor(red: CGFloat(r) / 255.0, green: CGFloat(g) / 255.0, blue: CGFloat(b) / 255.0, alpha: CGFloat(1))
 }
 
-
 func FontSize(size: CGFloat) -> UIFont {
     let font = UIFont(name: UILabel().font.fontName, size: size)
     return font!
@@ -41,7 +40,7 @@ func AHLog<T>(_ message: T, fileName: String = #file, methodName: String = #func
         fileN = fileN.substring(with: NSMakeRange(0, fileN.length - 6)) as NSString
         
         let nowDate = Date().toString(WithFormat: "yyyy-MM-dd hh:mm:ss")
-        print("**\(nowDate)--\(fileN)--\(methodName)--[\(lineNumber)]: \(message)")
+        print("--\(nowDate)--\(fileN)--\(methodName)--[\(lineNumber)]: \(message)")
     #endif
 }
 
@@ -67,7 +66,6 @@ func getRemoveIndex<T: Equatable>(value: T, array: [T]) -> [Int]{
     }
     return correctArray
 }
-
 
 //从数组中删除指定元素
 func removeValueFromArray<T: Equatable>(value: T, array: inout [T]){

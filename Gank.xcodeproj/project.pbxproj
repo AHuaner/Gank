@@ -78,6 +78,7 @@
 		604A29C51E2767FE00228F69 /* AHTagBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604A29C11E2767FE00228F69 /* AHTagBtn.swift */; };
 		604A29C61E2767FE00228F69 /* AHTurnChannelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604A29C21E2767FE00228F69 /* AHTurnChannelViewController.swift */; };
 		604A29C81E27713B00228F69 /* icon_clean@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 604A29C71E27713B00228F69 /* icon_clean@2x.png */; };
+		604C29CF1E64194D00E50B52 /* AHListViewPotocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604C29CE1E64194D00E50B52 /* AHListViewPotocol.swift */; };
 		605E07F41E026D0E00225BA3 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 605E07F31E026D0E00225BA3 /* String+Extension.swift */; };
 		60627D8B1E52A24900312500 /* AHResetPasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60627D891E52A24900312500 /* AHResetPasswordController.swift */; };
 		60627D8C1E52A24900312500 /* AHResetPasswordController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60627D8A1E52A24900312500 /* AHResetPasswordController.xib */; };
@@ -259,6 +260,7 @@
 		604A29C11E2767FE00228F69 /* AHTagBtn.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHTagBtn.swift; sourceTree = "<group>"; };
 		604A29C21E2767FE00228F69 /* AHTurnChannelViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHTurnChannelViewController.swift; sourceTree = "<group>"; };
 		604A29C71E27713B00228F69 /* icon_clean@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_clean@2x.png"; sourceTree = "<group>"; };
+		604C29CE1E64194D00E50B52 /* AHListViewPotocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AHListViewPotocol.swift; path = ../Class/TurnChannel/AHListViewPotocol.swift; sourceTree = "<group>"; };
 		605E07F31E026D0E00225BA3 /* String+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		60627D891E52A24900312500 /* AHResetPasswordController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHResetPasswordController.swift; sourceTree = "<group>"; };
 		60627D8A1E52A24900312500 /* AHResetPasswordController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AHResetPasswordController.xib; sourceTree = "<group>"; };
@@ -723,6 +725,7 @@
 		60CF00621E62998300EA5074 /* Potocol */ = {
 			isa = PBXGroup;
 			children = (
+				604C29CE1E64194D00E50B52 /* AHListViewPotocol.swift */,
 				60B205231E5DA5540008736D /* UserDefaultsEVO.swift */,
 				60CF00631E6299C100EA5074 /* ResuableProtocol.swift */,
 				60CF00651E629BD500EA5074 /* UserDefaultsProtocol.swift */,
@@ -1037,6 +1040,7 @@
 				60A19DED1E213A98007D24D2 /* AHHomeWebViewController.swift in Sources */,
 				6036A8731E2376A600ACDE90 /* AHSearchViewController.swift in Sources */,
 				60CF00681E62B62200EA5074 /* Extension.swift in Sources */,
+				604C29CF1E64194D00E50B52 /* AHListViewPotocol.swift in Sources */,
 				60F315DE1E4C3F8000A0AB36 /* AHSettingViewController.swift in Sources */,
 				600BA1451E0B9478002E4D94 /* AHHomeGankModel.swift in Sources */,
 				6084E1731E2364C200E8AC15 /* AHSearchView.swift in Sources */,

@@ -8,28 +8,16 @@
 
 import UIKit
 
-class AHMoreListView: UIView {
+class AHMoreListView: UIView, AHListViewPotocol {
     
     // MARK: - property
     var listViewAddTagClouse: ((String) -> Void)?
     
     /// 存放所有的btn
-    fileprivate var tagArray: [AHTagBtn] = [AHTagBtn]()
+    var tagArray: [AHTagBtn] = [AHTagBtn]()
     
     /// 存放MoreListView上所有的btn的标题
     var tagTitleArray: [String] = [String]()
-    
-    /// 一共有多少列
-    fileprivate let listCols: Int = 4
-    
-    fileprivate let margin: CGFloat = 10.0
-    
-    /// 整体的高度
-    fileprivate var ListViewH: CGFloat {
-        get {
-            return (tagArray.count <= 0 ? 30.0 : ((tagArray.last?.MaxY)! + margin))
-        }
-    }
     
     // MARK: - control
     fileprivate lazy var infoView: UIView = {
@@ -79,7 +67,7 @@ extension AHMoreListView {
         
         // 更新自己的frame
         UIView.animate(withDuration: 0.25, animations: {
-            self.Height = self.ListViewH
+            self.Height = self.listViewH
         })
         
     }
@@ -108,7 +96,7 @@ extension AHMoreListView {
         
         // 更新自己的frame
         UIView.animate(withDuration: 0.25, animations: {
-            self.Height = self.ListViewH
+            self.Height = self.listViewH
         })
     }
 }
@@ -126,52 +114,3 @@ extension AHMoreListView {
         }
     }
 }
-
-// MARK: - private methods
-extension AHMoreListView {
-    fileprivate func getBtnCenterInButtons(curBtn: AHTagBtn) -> AHTagBtn? {
-        for btn in tagArray {
-            if curBtn == btn {
-                continue
-            }
-            if btn.frame.contains(curBtn.center) {
-                return btn
-            }
-        }
-        return nil
-    }
-    
-    // 跟新按钮的tag
-    fileprivate func updateTag() {
-        for (i, btn) in tagArray.enumerated() {
-            btn.tag = i
-        }
-    }
-    
-    // 更新以后按钮frame
-    fileprivate func updateLaterTagButtonFrame(laterIndex: Int) {
-        for i in laterIndex..<tagArray.count {
-            updateTagBtnFrame(btn: tagArray[i])
-        }
-    }
-    
-    // 更新之前按钮frame
-    fileprivate func updateBeforeTagButtonFrame(beforeIndex: Int) {
-        for i in 0..<beforeIndex {
-            updateTagBtnFrame(btn: tagArray[i])
-        }
-    }
-    
-    // 更新对应的frame
-    fileprivate func updateTagBtnFrame(btn: AHTagBtn) {
-        let index = btn.tag
-        let col = index % listCols
-        let row = index / listCols
-        let btnW = (Width - 5 * margin) / CGFloat(listCols)
-        let btnH = btnW * 0.55
-        let btnX = margin + CGFloat(col) * (btnW + margin)
-        let btnY = 30 + margin + CGFloat(row) * (btnH + margin)
-        btn.frame = CGRect(x: btnX, y: btnY, width: btnW, height: btnH)
-    }
-}
-

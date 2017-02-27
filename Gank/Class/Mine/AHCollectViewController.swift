@@ -45,9 +45,14 @@ class AHCollectViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        UIApplication.shared.statusBarStyle = .default
         
+        UIApplication.shared.statusBarStyle = .default
         setNavigationBarStyle(BarColor: UIColor.white, backItemColor: .blue)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        setNavigationBarStyle(BarColor: UIColorMainBlue, backItemColor: .white)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -73,12 +78,12 @@ class AHCollectViewController: BaseViewController {
         header?.isAutomaticallyChangeAlpha = true
         header?.setTitle("下拉刷新", for: .idle)
         header?.setTitle("释放更新", for: .pulling)
-        header?.setTitle("正在加载...", for: .refreshing)
+        header?.setTitle("正在加载", for: .refreshing)
         tableView.mj_header = header
         let footer = MJRefreshBackNormalFooter.init(refreshingTarget: self, refreshingAction: #selector(loadMoreGank))
         footer?.setTitle("上拉加载更多", for: .idle)
         footer?.setTitle("释放立即加载", for: .pulling)
-        footer?.setTitle("正在加载...", for: .refreshing)
+        footer?.setTitle("正在加载", for: .refreshing)
         tableView.mj_footer = footer
     }
     
