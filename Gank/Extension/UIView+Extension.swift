@@ -77,7 +77,11 @@ extension UIView {
     }
     
     class func viewFromNib() -> Any? {
-        return Bundle.main.loadNibNamed(self.getClassName(), owner: nil, options: nil)?.last as Any?
+        return Bundle.main.loadNibNamed(self.className, owner: nil, options: nil)?.last as Any?
+    }
+    
+    class func nib() -> UINib {
+        return UINib(nibName: self.className, bundle: nil)
     }
     
     // 判断一个控件是否真正显示在主窗口

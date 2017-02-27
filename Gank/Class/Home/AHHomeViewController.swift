@@ -182,7 +182,7 @@ extension AHHomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = AHHomeCell.cellWithTableView(tableView)
+        let cell = tableView.dequeueReusableCellFromNib() as AHHomeCell
         cell.gankModel = datasArray[indexPath.section].ganks[indexPath.row]
         cell.indexPath = indexPath
         

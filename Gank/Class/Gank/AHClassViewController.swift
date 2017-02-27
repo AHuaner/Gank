@@ -89,12 +89,13 @@ class AHClassViewController: BaseViewController {
         header?.isAutomaticallyChangeAlpha = true
         header?.setTitle("下拉刷新", for: .idle)
         header?.setTitle("释放更新", for: .pulling)
-        header?.setTitle("干货加载中...", for: .refreshing)
+        header?.setTitle("干货加载中", for: .refreshing)
+        
         tableView.mj_header = header
         let footer = MJRefreshBackNormalFooter.init(refreshingTarget: self, refreshingAction: #selector(loadMoreGank))
         footer?.setTitle("上拉加载更多", for: .idle)
         footer?.setTitle("释放立即加载", for: .pulling)
-        footer?.setTitle("干货加载中...", for: .refreshing)
+        footer?.setTitle("干货加载中", for: .refreshing)
         tableView.mj_footer = footer
     }
     
@@ -121,6 +122,7 @@ class AHClassViewController: BaseViewController {
             
         }, failure: { (error) in
             if self.lastPage != currentPage { return }
+            self.loadingView.isHidden = true
             
             AHLog("\(self.title!)----下拉刷新失败-----\(error)")
             self.tableView.mj_header.endRefreshing()
@@ -238,7 +240,7 @@ extension AHClassViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = AHClassCell.cellWithTableView(tableView)
+        let cell = tableView.dequeueReusableCellFromNib() as AHClassCell
         cell.classModel = datasArray[indexPath.row]
         cell.indexPath = indexPath
         

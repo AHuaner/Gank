@@ -145,11 +145,11 @@ extension AHMineViewController: UITableViewDelegate, UITableViewDataSource {
         
         if indexPath.section == 0 {
             if User.info == nil { // 未登录
-                let cell = AHNoLoginCell.cellWithTableView(tableView)
+                let cell = tableView.dequeueReusableCellFromNib() as AHNoLoginCell
                 cell.selectionStyle = .none
                 return cell
             } else { // 已登录
-                let cell = AHUserCell.cellWithTableView(tableView)
+                let cell = tableView.dequeueReusableCellFromNib() as AHUserCell
                 cell.accessoryType = .disclosureIndicator
                 cell.userInfo = User.info
                 return cell

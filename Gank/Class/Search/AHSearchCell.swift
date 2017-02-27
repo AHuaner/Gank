@@ -33,12 +33,6 @@ class AHSearchCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
-    
-    static func cellWithTableView(_ tableview: UITableView) -> AHSearchCell {
-        var cell = tableview.dequeueReusableCell(withIdentifier: "AHSearchCell")
-        if cell == nil {
-            cell = self.viewFromNib() as! AHSearchCell
-        }
-        return cell as! AHSearchCell
-    }
 }
+
+extension AHSearchCell: ViewNameReusable {}

@@ -22,7 +22,8 @@ class AHClassCell: UITableViewCell {
         pictureView.delegate = self
         pictureView.backgroundColor = UIColor.white
         pictureView.isScrollEnabled = false
-        pictureView.register(UINib(nibName: AHImageCell.getClassName(), bundle: nil), forCellWithReuseIdentifier: "collectionID")
+        pictureView.register(AHImageCell.nib(),
+                             forCellWithReuseIdentifier: AHImageCell.className)
         self.contentView.addSubview(pictureView)
         return pictureView
     }()
@@ -121,15 +122,9 @@ class AHClassCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
-    
-    static func cellWithTableView(_ tableview: UITableView) -> AHClassCell {
-        var cell = tableview.dequeueReusableCell(withIdentifier: "AHClassCell")
-        if cell == nil {
-            cell = self.viewFromNib() as! AHClassCell
-        }
-        return cell as! AHClassCell
-    }
 }
+
+extension AHClassCell: ViewNameReusable {}
 
 // MARK: - UICollectionViewDelegate, UICollectionViewDataSource
 extension AHClassCell: UICollectionViewDelegate, UICollectionViewDataSource {
@@ -141,7 +136,7 @@ extension AHClassCell: UICollectionViewDelegate, UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionID", for: indexPath) as! AHImageCell
+        let cell = collectionView.dequeueReusableCell(forIndexPath: indexPath) as AHImageCell
         cell.index = indexPath.item
         cell.classModel = classModel
         return cell

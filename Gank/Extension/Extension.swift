@@ -46,7 +46,7 @@ extension DispatchTime: ExpressibleByFloatLiteral {
 
 // MARK: - NSObject - Extension
 extension NSObject {
-    class func getClassName() -> String {
+    static var className: String {
         let name =  Bundle.main.infoDictionary!["CFBundleExecutable"] as! String
         let reaName = name + "."
         return NSStringFromClass(self).substring(from: reaName.endIndex)

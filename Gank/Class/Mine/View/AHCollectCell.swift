@@ -34,12 +34,6 @@ class AHCollectCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
-    
-    static func cellWithTableView(_ tableview: UITableView) -> AHCollectCell {
-        var cell = tableview.dequeueReusableCell(withIdentifier: "AHCollectCell")
-        if cell == nil {
-            cell = self.viewFromNib() as! AHCollectCell
-        }
-        return cell as! AHCollectCell
-    }
 }
+
+extension AHCollectCell: ViewNameReusable {}

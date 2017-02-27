@@ -81,11 +81,6 @@ class AHHomeCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
-    static func cellWithTableView(_ tableview: UITableView) -> AHHomeCell {
-        var cell = tableview.dequeueReusableCell(withIdentifier: "AHHomeCell")
-        if cell == nil {
-            cell = self.viewFromNib() as! AHHomeCell
-        }
-        return cell as! AHHomeCell
-    }
 }
+
+extension AHHomeCell: ViewNameReusable {}

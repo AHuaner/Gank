@@ -15,7 +15,7 @@ class AHCollectViewController: BaseViewController {
     fileprivate var datasArray: [GankModel] = [GankModel]()
     
     // 分页限制
-    fileprivate var limitCount: Int = 5
+    fileprivate var limitCount: Int = 10
     
     // 当前页码
     fileprivate var currentPage: Int = 1
@@ -128,9 +128,11 @@ class AHCollectViewController: BaseViewController {
             // 加载成功
             self.currentPage = self.currentPage + 1
             
-            self.datasArray = ganksArr.map({ gank in
+            let newDatas = ganksArr.map({ gank in
                 GankModel(bmob: gank as! BmobObject)
             })
+            
+            self.datasArray.append(contentsOf: newDatas)
             self.tableView.reloadData()
         }
     }
@@ -143,7 +145,7 @@ extension AHCollectViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = AHCollectCell.cellWithTableView(tableView)
+        let cell = tableView.dequeueReusableCellFromNib() as AHCollectCell
         cell.gankModel = self.datasArray[indexPath.row]
         return cell
     }

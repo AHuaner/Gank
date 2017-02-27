@@ -120,7 +120,7 @@ class AHSearchViewController: BaseViewController {
         let footer =  MJRefreshBackNormalFooter.init(refreshingTarget: self, refreshingAction: #selector(loadMoreGank))
         footer?.setTitle("上拉加载更多", for: .idle)
         footer?.setTitle("释放立即加载", for: .pulling)
-        footer?.setTitle("干货加载中...", for: .refreshing)
+        footer?.setTitle("干货加载中", for: .refreshing)
         tableView.mj_footer = footer
     }
     
@@ -213,7 +213,7 @@ extension AHSearchViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = AHSearchCell.cellWithTableView(tableView)
+        let cell = tableView.dequeueReusableCellFromNib() as AHSearchCell
         let model = datasArray[indexPath.row]
         cell.searchModel = model
         return cell

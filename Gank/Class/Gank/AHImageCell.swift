@@ -84,3 +84,5 @@ class AHImageCell: UICollectionViewCell {
         return image
     }
 }
+
+extension AHImageCell: ViewNameReusable {}

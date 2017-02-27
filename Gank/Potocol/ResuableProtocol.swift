@@ -23,4 +23,21 @@ extension UITableView {
         }
         return cell
     }
+    
+    func dequeueReusableCellFromNib<T: UITableViewCell>() -> T where T: ViewNameReusable {
+        guard let cell = dequeueReusableCell(withIdentifier: T.reuseIdentifier) as? T else {
+            //return T(style: .default, reuseIdentifier: T.reuseIdentifier)
+            return T.viewFromNib() as! T
+        }
+        return cell
+    }
+}
+
+extension UICollectionView {
+    func dequeueReusableCell<T: UICollectionViewCell>(forIndexPath indexPath: IndexPath) -> T where T: ViewNameReusable {
+        guard let cell = dequeueReusableCell(withReuseIdentifier: T.reuseIdentifier, for: indexPath) as? T else {
+            fatalError("Could not dequeue cell with identifier: \(T.reuseIdentifier)")
+        }
+        return cell
+    }
 }
