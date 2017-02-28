@@ -41,6 +41,7 @@ class AHMineViewController: BaseViewController {
         sendRequest()
         
         UIApplication.shared.statusBarStyle = .default
+        setNavigationBarStyle(BarColor: UIColor.white, backItemColor: .blue)
     }
     
     override func didReceiveMemoryWarning() {
@@ -118,7 +119,7 @@ class AHMineViewController: BaseViewController {
     
     // 分享应用
     fileprivate func shareApp() {
-        
+        ToolKit.showInfo(withStatus: "分享应用")
     }
     
     // 意见反馈

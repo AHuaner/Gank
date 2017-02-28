@@ -9,12 +9,12 @@
 import UIKit
 import Foundation
 
+let kWindow = UIApplication.shared.delegate!.window!
+
 let kScreen_BOUNDS = UIScreen.main.bounds
 let kScreen_W = UIScreen.main.bounds.size.width
 let kScreen_H = UIScreen.main.bounds.size.height
 let kScreen_Scale = UIScreen.main.scale
-
-let kWindow = UIApplication.shared.delegate!.window!
 
 let kStatusBarHeight: CGFloat = 20.0
 let kTopBarHeight: CGFloat = 44.0
