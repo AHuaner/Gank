@@ -31,6 +31,12 @@ class AHCollectViewController: BaseViewController {
         return tabelView
     }()
     
+    fileprivate lazy var noDataView: AHNoDataView = {
+        let noDataView = AHNoDataView(describeText: "还没有收藏的干货", frame: self.view.bounds)
+        noDataView.isHidden = true
+        return noDataView;
+    }()
+    
     // MARK: - life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -68,7 +74,13 @@ class AHCollectViewController: BaseViewController {
     fileprivate func setupUI() {
         self.title = "我的收藏"
         view.addSubview(tableView)
+        view.addSubview(noDataView)
         setNavigationBarStyle(BarColor: UIColor.white, backItemColor: .blue)
+        
+        noDataView.goGankClouse = { [unowned self] in
+            self.tabBarController?.selectedIndex = 1
+            self.navigationController!.popToRootViewController(animated: false)
+        }
     }
     
     // 设置刷新控件
@@ -101,6 +113,11 @@ class AHCollectViewController: BaseViewController {
             // 加载失败
             if error != nil { return }
             guard let ganksArr = array else { return }
+            
+            if ganksArr.count == 0 {
+                self.noDataView.isHidden = false
+                return
+            }
             
             // 加载成功
             self.currentPage = 1
@@ -175,6 +192,10 @@ extension AHCollectViewController: UITableViewDelegate, UITableViewDataSource {
                 
                 self.datasArray.remove(at: indexPath.row)
                 tableView.deleteRows(at: [indexPath], with: .automatic)
+                
+                if self.datasArray.count == 0 {
+                    self.noDataView.isHidden = false
+                }
             } else {
                 AHLog(error!)
                 ToolKit.showError(withStatus: "取消收藏失败")

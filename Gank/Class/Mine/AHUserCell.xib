@@ -14,10 +14,10 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="90"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="89"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="89.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_placeHead.png" translatesAutoresizingMaskIntoConstraints="NO" id="wQw-mZ-pRM">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_placeHead1.png" translatesAutoresizingMaskIntoConstraints="NO" id="wQw-mZ-pRM">
                         <rect key="frame" x="20" y="10" width="70" height="70"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -47,6 +47,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="icon_placeHead.png" width="64" height="64"/>
+        <image name="icon_placeHead1.png" width="64" height="64"/>
     </resources>
 </document>

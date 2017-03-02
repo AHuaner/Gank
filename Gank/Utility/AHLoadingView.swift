@@ -37,13 +37,5 @@ class AHLoadingView: UIView {
         animView.animationImages = images
         animView.startAnimating()
         animView.center = self.center
-
-       
-//        let label = UILabel()
-//        label.text = "正在加载"
-//        label.sizeToFit()
-//        label.center = self.center
-//
-//        self.addSubview(label)
     }
 }
