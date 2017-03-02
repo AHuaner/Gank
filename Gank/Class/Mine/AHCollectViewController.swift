@@ -89,8 +89,6 @@ class AHCollectViewController: BaseViewController {
     
     // 下拉刷新
     func loadNewGank() {
-        self.datasArray.removeAll()
-        
         let query: BmobQuery = BmobQuery(className: "Collect")
         query.order(byDescending: "createdAt")
         query.limit = limitCount
@@ -110,6 +108,7 @@ class AHCollectViewController: BaseViewController {
             self.datasArray = ganksArr.map({ gank in
                 GankModel(bmob: gank as! BmobObject)
             })
+            
             self.tableView.reloadData()
         }
     }
