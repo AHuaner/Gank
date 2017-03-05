@@ -12,12 +12,12 @@ import Alamofire
 typealias Success = (Any) -> Void
 typealias Failure = (Error) -> Void
 
-protocol AHNetWorking: class {
+protocol AHNetWorking {
     
 }
 
 extension AHNetWorking {
-    func requestData(_ url: String, method: HTTPMethod = .get, parameters: JSONObject? = nil, success: @escaping Success, failure: @escaping Failure) {
+    static func requestData(_ url: String, method: HTTPMethod = .get, parameters: JSONObject? = nil, success: @escaping Success, failure: @escaping Failure) {
         
         guard let urlString = url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else { return }
         
@@ -33,7 +33,7 @@ extension AHNetWorking {
         }
     }
     
-    func cancelAllRequest() {
+    static func cancelAllRequest() {
         Alamofire.SessionManager().session.getAllTasks { (tasks) -> Void in
             tasks.forEach({ $0.cancel() })
         }

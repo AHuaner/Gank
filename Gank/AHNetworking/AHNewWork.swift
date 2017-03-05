@@ -9,12 +9,9 @@
 import UIKit
 import SwiftyJSON
 
-class AHNewWork: NSObject, AHNetWorking {
-    /// 单粒
-    static let agent = AHNewWork()
-    
+struct AHNewWork: AHNetWorking {
     /// 请求干货页面数据
-    func loadClassRequest(tpye: String, page: Int, success: @escaping Success, failure: @escaping Failure) {
+    static func loadClassRequest(tpye: String, page: Int, success: @escaping Success, failure: @escaping Failure) {
         let url = AHConfig.Http_ + "data/\(tpye)/20/\(page)"
         
         requestData(url, success: { (result: Any) in
@@ -77,7 +74,7 @@ class AHNewWork: NSObject, AHNetWorking {
     }
     
     /// 请求首页数据
-    func loadHomeRequest(date: String, success: @escaping Success, failure: @escaping Failure) {
+    static func loadHomeRequest(date: String, success: @escaping Success, failure: @escaping Failure) {
         let url = AHConfig.Http_ + "day/\(date)"
         
         requestData(url, success: { (result: Any) in
@@ -101,7 +98,7 @@ class AHNewWork: NSObject, AHNetWorking {
     }
     
     /// 请求搜索数据
-    func loadSearchRequest(text: String, page: Int, success: @escaping Success, failure: @escaping Failure) {
+    static func loadSearchRequest(text: String, page: Int, success: @escaping Success, failure: @escaping Failure) {
         let url = AHConfig.Http_ + "search/query/\(text)/category/all/count/20/page/\(page)"
         
         requestData(url, success: { (result: Any) in
@@ -120,7 +117,7 @@ class AHNewWork: NSObject, AHNetWorking {
     }
     
     /// 请求发过干货日期数据
-    func loadDateRequest(success: @escaping Success, failure: @escaping Failure) {
+    static func loadDateRequest(success: @escaping Success, failure: @escaping Failure) {
         let url = AHConfig.Http_ + "day/history"
         
         requestData(url, success: { (result: Any) in

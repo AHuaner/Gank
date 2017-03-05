@@ -8,9 +8,9 @@
 
 import UIKit
 
-class Validate: NSObject {
+struct Validate {
     //MARK:- 正则匹配手机号
-    class func checkMobile(_ mobileNumbel: String) -> Bool {
+    static func checkMobile(_ mobileNumbel: String) -> Bool {
         /**
          * 手机号码:
          * 13[0-9], 14[5,7], 15[0, 1, 2, 3, 5, 6, 7, 8, 9], 17[6, 7, 8], 18[0-9], 170[0-9]
@@ -45,7 +45,7 @@ class Validate: NSObject {
     }
     
     //MARK:- 正则匹配用户身份证号15或18位
-    class func checkUserIdCard(_ idCard: String) -> Bool {
+    static func checkUserIdCard(_ idCard: String) -> Bool {
         let pattern = "(^[0-9]{15}$)|([0-9]{17}([0-9]|X)$)";
         let pred = NSPredicate(format: "SELF MATCHES %@", pattern)
         let isMatch:Bool = pred.evaluate(with: idCard)
@@ -53,7 +53,7 @@ class Validate: NSObject {
     }
     
     //MARK:- 正则匹配用户密码6-18位数字和字母组合
-    class func checkPassword(_ password: String) -> Bool {
+    static func checkPassword(_ password: String) -> Bool {
         let pattern = "^(?![0-9]+$)(?![a-zA-Z]+$)[a-zA-Z0-9]{6,18}"
         let pred = NSPredicate(format: "SELF MATCHES %@", pattern)
         let isMatch: Bool = pred.evaluate(with: password)
@@ -61,7 +61,7 @@ class Validate: NSObject {
     }
     
     //MARK:- 正则匹配URL
-    class func checkURL(_ url: String) -> Bool {
+    static func checkURL(_ url: String) -> Bool {
         let pattern = "^[0-9A-Za-z]{1,50}"
         let pred = NSPredicate(format: "SELF MATCHES %@", pattern)
         let isMatch: Bool = pred.evaluate(with: url)
@@ -69,7 +69,7 @@ class Validate: NSObject {
     }
     
     //MARK:- 正则匹配用户姓名,20位的中文或英文
-    class func checkUserName(_ userName: String) -> Bool {
+    static func checkUserName(_ userName: String) -> Bool {
         let pattern = "^[a-zA-Z\\u4E00-\\u9FA5]{1,20}"
         let pred = NSPredicate(format: "SELF MATCHES %@", pattern)
         let isMatch: Bool = pred.evaluate(with: userName)
@@ -77,7 +77,7 @@ class Validate: NSObject {
     }
     
     //MARK:- 正则匹配用户email
-    class func checkEmail(_ email: String) -> Bool {
+    static func checkEmail(_ email: String) -> Bool {
         let pattern = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}"
         let pred = NSPredicate(format: "SELF MATCHES %@", pattern)
         let isMatch: Bool = pred.evaluate(with: email)

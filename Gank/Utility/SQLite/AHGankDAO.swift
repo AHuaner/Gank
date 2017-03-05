@@ -8,9 +8,9 @@
 
 import UIKit
 
-class AHGankDAO: NSObject {
+struct AHGankDAO {
     /// 缓存干货数据
-    class func cacheGanks(type: String, ganks: [JSONObject]) {
+    static func cacheGanks(type: String, ganks: [JSONObject]) {
         let userId = "AHuaner"
         SQLiteManager.shareManager().dbQueue?.inTransaction({ (db, rollback) -> Void in
             for dict in ganks {
@@ -31,7 +31,7 @@ class AHGankDAO: NSObject {
     }
     
     /// 从数据库中加载缓存数据
-    class func loadCacheGanks(type: String, finished: @escaping ([JSONObject]) -> ()) {
+    static func loadCacheGanks(type: String, finished: @escaping ([JSONObject]) -> ()) {
         let sql = "SELECT * FROM T_\(type) "
         SQLiteManager.shareManager().dbQueue?.inDatabase({ (db) in
             var ganks = [JSONObject]()
@@ -50,7 +50,7 @@ class AHGankDAO: NSObject {
     }
     
     /// 清空对应的表
-    class func cleanCacheGanks(type: String) {
+    static func cleanCacheGanks(type: String) {
         let sql = "DELETE FROM T_\(type)"
         SQLiteManager.shareManager().dbQueue?.inDatabase({ (db) -> Void in
             db?.executeUpdate(sql, withArgumentsIn: nil)

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class User: NSObject {
+struct User {
     
     static var info = BmobUser.current()
     
