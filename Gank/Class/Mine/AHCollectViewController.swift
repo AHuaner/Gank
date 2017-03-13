@@ -46,7 +46,7 @@ class AHCollectViewController: BaseViewController {
         self.setupRefresh()
         
         // 检验用户是否在其他设备登录
-        ToolKit.checkUserLoginedWithOtherDevice(noLogin: { })
+        // ToolKit.checkUserLoginedWithOtherDevice(noLogin: { })
     }
     
     override func viewWillAppear(_ animated: Bool) {

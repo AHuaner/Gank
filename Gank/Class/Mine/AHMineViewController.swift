@@ -183,7 +183,7 @@ extension AHMineViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.section {
         case 0:
-            return User.info == nil ? 100 : 90
+            return User.info == nil ? 100 : 80
         default:
             return 44
         }
