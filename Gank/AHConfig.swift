@@ -30,17 +30,17 @@ let iPhone6_Height = 667.0
 let iPhone6Plus_Width = 414.0
 let iPhone6Plus_Height = 736.0
 
-let UIColorMainBG = RGBColor(239, g: 239, b: 245, alpha: 1)
-let UIColorTextLightGray = RGBColor(153, g: 153, b: 153, alpha: 1)
-let UIColorTextGray = RGBColor(99, g: 99, b: 99, alpha: 1)
-let UIColorTextBlock = RGBColor(47, g: 47, b: 47, alpha: 1)
-let UIColorTextBlue = RGBColor(40, g: 154, b: 236, alpha: 1)
-let UIColorMainBlue = RGBColor(30, g: 130, b: 210, alpha: 1)
-let UIColorLine = RGBColor(217, g: 217, b: 217, alpha: 1)
+let UIColorMainBG = RGBColor(r: 239, g: 239, b: 245, alpha: 1)
+let UIColorTextLightGray = RGBColor(r: 153, g: 153, b: 153, alpha: 1)
+let UIColorTextGray = RGBColor(r: 99, g: 99, b: 99, alpha: 1)
+let UIColorTextBlock = RGBColor(r: 47, g: 47, b: 47, alpha: 1)
+let UIColorTextBlue = RGBColor(r: 40, g: 154, b: 236, alpha: 1)
+let UIColorMainBlue = RGBColor(r: 30, g: 130, b: 210, alpha: 1)
+let UIColorLine = RGBColor(r: 217, g: 217, b: 217, alpha: 1)
 
 typealias JSONObject = [String: Any]
 
-class AHConfig {
+struct AHConfig {
     // MARK: - 服务器地址
     static let Http_ = "http://gank.io/api/"
 }

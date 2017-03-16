@@ -38,12 +38,12 @@ class AHTurnChannelViewController: BaseViewController {
         let titleLable = UILabel(frame: titleView.bounds)
         titleLable.text = "频道管理"
         titleLable.textAlignment = .center
-        titleLable.font = FontSize(size: 15)
+        titleLable.font = UIFont.systemFont(ofSize: 15)
         titleLable.textColor = UIColorTextBlock
         titleView.addSubview(titleLable)
         
         let lineView = UIView(frame: CGRect(x: 0, y: 34, width: kScreen_W, height: 1))
-        lineView.backgroundColor = RGBColor(222, g: 222, b: 222, alpha: 1)
+        lineView.backgroundColor = RGBColor(r: 222, g: 222, b: 222, alpha: 1)
         titleView.addSubview(lineView)
         return titleView
     }()

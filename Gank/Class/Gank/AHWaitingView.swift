@@ -45,7 +45,7 @@ class AHWaitingView: UIView {
         
         let centenX = rect.size.width * 0.5
         let centenY = rect.size.height * 0.5
-        RGBColor(255, g: 255, b: 255, alpha: 0.8).set()
+        RGBColor(r: 255, g: 255, b: 255, alpha: 0.8).set()
         
         if self.tpye == AHWaitingViewType.AHDWaitingViewTypePie {
             
@@ -57,7 +57,7 @@ class AHWaitingView: UIView {
             ctx.addEllipse(in: CGRect(x: bigX, y: bigY, width: bigW, height: bigH))
             ctx.fillPath()
             
-            RGBColor(0, g: 0, b: 0, alpha: 0.8).set()
+            RGBColor(r: 0, g: 0, b: 0, alpha: 0.8).set()
             let radius = bigRadius - 1
             let w = radius * 2
             let h = w
@@ -66,7 +66,7 @@ class AHWaitingView: UIView {
             ctx.addEllipse(in: CGRect(x: x, y: y, width: w, height: h))
             ctx.fillPath()
             
-            RGBColor(255, g: 255, b: 255, alpha: 0.8).set()
+            RGBColor(r: 255, g: 255, b: 255, alpha: 0.8).set()
             ctx.move(to: CGPoint(x: centenX, y: centenY))
             ctx.addLine(to: CGPoint(x: centenX, y: 0))
             
@@ -75,7 +75,7 @@ class AHWaitingView: UIView {
             ctx.closePath()
             ctx.fillPath()
         } else {
-            RGBColor(255, g: 255, b: 255, alpha: 0.7).set()
+            RGBColor(r: 255, g: 255, b: 255, alpha: 0.7).set()
             ctx.setLineWidth(10)
             ctx.setLineCap(CGLineCap.round)
             let to = CGFloat(-M_PI) * 0.5 + progresses * CGFloat(M_PI) * 2.0 + 0.05; // 初始值0.05

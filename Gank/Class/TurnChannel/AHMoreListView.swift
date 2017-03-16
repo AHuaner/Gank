@@ -28,7 +28,7 @@ class AHMoreListView: UIView, AHListViewPotocol {
         label.text = "点击添加更多频道"
         label.textAlignment = .left
         label.textColor = UIColorTextBlock
-        label.font = FontSize(size: 14)
+        label.font = UIFont.systemFont(ofSize: 14)
         infoView.addSubview(label)
         // infoView.backgroundColor = RGBColor(220.0, g: 220.0, b: 220.0, alpha: 1)
         return infoView

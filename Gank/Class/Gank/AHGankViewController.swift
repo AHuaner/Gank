@@ -49,7 +49,7 @@ class AHGankViewController: AHDisplayViewController {
         setupTitleEffect { (titleScrollViewColor, titleBtnNorColor, titleBtnSelColor, titleFont, titleScrollViewH) in
             titleBtnNorColor = UIColorTextLightGray
             titleBtnSelColor = UIColorTextBlue
-            titleFont = FontSize(size: 14)
+            titleFont = UIFont.systemFont(ofSize: 14)
         }
         
         // 设置下滑指示线样式

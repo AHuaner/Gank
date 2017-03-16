@@ -24,7 +24,7 @@ extension AHPushTransition: UIViewControllerAnimatedTransitioning {
         let toVC = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to)!
         
         let tempView = UIView(frame: fromVC.popRect)
-        tempView.backgroundColor = RGBColor(234, g: 234, b: 234, alpha: 1)
+        tempView.backgroundColor = RGBColor(r: 234, g: 234, b: 234, alpha: 1)
         
         guard let snapShotView = fromVC.tabBarController?.view.snapshotView(afterScreenUpdates: false) else { return }
         snapShotView.frame = containerView.frame

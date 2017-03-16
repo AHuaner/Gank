@@ -31,11 +31,11 @@ class AHSeatchTagBtn: UIButton {
     
     fileprivate func setup() {
         layer.cornerRadius = 3
-        backgroundColor = RGBColor(246, g: 246, b: 246, alpha: 1)
+        backgroundColor = RGBColor(r: 246, g: 246, b: 246, alpha: 1)
         adjustsImageWhenHighlighted = false
         setTitleColor(UIColorTextBlock, for: .normal)
         titleLabel?.textAlignment = .center
-        titleLabel?.font = FontSize(size: 12)
+        titleLabel?.font = UIFont.systemFont(ofSize: 12)
         imageView?.isHighlighted = true
     }
 }

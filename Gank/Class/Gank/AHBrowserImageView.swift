@@ -76,9 +76,9 @@ class AHBrowserImageView: YYAnimatedImageView {
                 label.bounds = CGRect(x: 0, y: 0, width: 160, height: 30)
                 label.center = CGPoint(x: weakSelf!.Width * 0.5, y: weakSelf!.Height * 0.5)
                 label.text = "图片加载失败"
-                label.font = FontSize(size: 16)
+                label.font = UIFont.systemFont(ofSize: 16)
                 label.textColor = UIColor.white
-                label.backgroundColor = RGBColor(0, g: 0, b: 0, alpha: 0.8)
+                label.backgroundColor = RGBColor(r: 0, g: 0, b: 0, alpha: 0.8)
                 label.layer.cornerRadius = 5
                 label.clipsToBounds = true
                 label.textAlignment = .center

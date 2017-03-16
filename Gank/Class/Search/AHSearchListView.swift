@@ -41,7 +41,7 @@ class AHSearchListView: UIView {
         let infoLabel = UILabel()
         infoLabel.X = self.margin
         infoLabel.CenterY = self.topMargin / 3
-        infoLabel.font = FontSize(size: 13)
+        infoLabel.font = UIFont.systemFont(ofSize: 13)
         infoLabel.textColor = UIColorTextBlock
         infoLabel.text = "历史搜索"
         infoLabel.sizeToFit()
@@ -242,8 +242,8 @@ extension AHSearchListView {
         }
         
         let text = curBtn.titleLabel!.text! as NSString
-        let titleW = text.size(attributes: [NSFontAttributeName : FontSize(size: 12)]).width
-        let titleH = text.size(attributes: [NSFontAttributeName : FontSize(size: 12)]).height
+        let titleW = text.size(attributes: [NSFontAttributeName : UIFont.systemFont(ofSize: 12)]).width
+        let titleH = text.size(attributes: [NSFontAttributeName : UIFont.systemFont(ofSize: 12)]).height
         
         btnH = titleH + 2 * curBtn.margin
         btnW = (titleW + 2 * curBtn.margin) > (kScreen_W - 2 * margin) ? (kScreen_W - 2 * margin) : (titleW + 2 * curBtn.margin)

@@ -8,8 +8,6 @@
 
 import UIKit
 
-
-
 class AHLaunchImageView: UIImageView {
     
     override init(frame: CGRect) {

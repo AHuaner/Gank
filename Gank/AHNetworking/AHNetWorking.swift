@@ -12,9 +12,7 @@ import Alamofire
 typealias Success = (Any) -> Void
 typealias Failure = (Error) -> Void
 
-protocol AHNetWorking {
-    
-}
+protocol AHNetWorking { }
 
 extension AHNetWorking {
     static func requestData(_ url: String, method: HTTPMethod = .get, parameters: JSONObject? = nil, success: @escaping Success, failure: @escaping Failure) {

@@ -27,7 +27,7 @@ class AHPhotoBrowser: UIView {
         let indexLabel = UILabel()
         indexLabel.textAlignment = .center
         indexLabel.textColor = UIColor.white
-        indexLabel.font = FontSize(size: 20)
+        indexLabel.font = UIFont.systemFont(ofSize: 20)
         indexLabel.backgroundColor = UIColor.clear
         indexLabel.frame = CGRect(x: 0, y: 0, width: 120, height: 30)
         indexLabel.isHidden = true
@@ -41,7 +41,7 @@ class AHPhotoBrowser: UIView {
         let saveButton = UIButton()
         saveButton.setTitle("保存", for: .normal)
         saveButton.setTitleColor(UIColor.white, for: .normal)
-        saveButton.backgroundColor = RGBColor(0, g: 0, b: 0, alpha: 0.9)
+        saveButton.backgroundColor = RGBColor(r: 0, g: 0, b: 0, alpha: 0.9)
         saveButton.layer.cornerRadius = 5
         saveButton.clipsToBounds = true
         saveButton.addTarget(self, action: #selector(saveImage), for: .touchUpInside)
@@ -95,13 +95,13 @@ class AHPhotoBrowser: UIView {
         indicatorView.removeFromSuperview()
         let label = UILabel()
         label.textColor = UIColor.white
-        label.backgroundColor = RGBColor(0.1, g: 0.1, b: 0.1, alpha: 0.9)
+        label.backgroundColor = RGBColor(r: 0.1, g: 0.1, b: 0.1, alpha: 0.9)
         label.layer.cornerRadius = 5
         label.clipsToBounds = true
         label.bounds = CGRect(x: 0, y: 0, width: 150, height: 150)
         label.center = self.center
         label.textAlignment = .center
-        label.font = FontSize(size: 17)
+        label.font = UIFont.systemFont(ofSize: 17)
         UIApplication.shared.keyWindow?.addSubview(label)
         UIApplication.shared.keyWindow?.bringSubview(toFront: label)
         
@@ -194,7 +194,7 @@ class AHPhotoBrowser: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.backgroundColor = RGBColor(0, g: 0, b: 0, alpha: 1)
+        self.backgroundColor = RGBColor(r: 0, g: 0, b: 0, alpha: 1)
     }
     
     required init?(coder aDecoder: NSCoder) {

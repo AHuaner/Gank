@@ -10,11 +10,11 @@ import UIKit
 
 // MARK: - Bundle - Extension
 extension Bundle {
-    static var releaseVersionNumber: String? {
+    static var releaseVersion: String? {
         return Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
     }
     
-    static var buildVersionNumber: String? {
+    static var buildVersion: String? {
         return Bundle.main.infoDictionary?["CFBundleVersion"] as? String
     }
     

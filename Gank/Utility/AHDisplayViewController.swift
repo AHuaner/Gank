@@ -163,7 +163,7 @@ class AHDisplayViewController: BaseViewController {
             isShow = true
         }
     }
-
+    
 }
 
 // MARK: - port methods
@@ -200,9 +200,7 @@ extension AHDisplayViewController {
         var totalWidth: CGFloat = 0
         for childVc in childViewControllers {
             
-            guard let titleText: NSString = childVc.title as NSString? else {
-                return
-            }
+            guard let titleText: NSString = childVc.title as NSString? else { return }
             
             let titleBounds = titleText.boundingRect(with: CGSize(width: CGFloat(MAXFLOAT), height: 0), options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSFontAttributeName : titleFont], context: nil)
             
@@ -261,9 +259,7 @@ extension AHDisplayViewController {
             }
         }
         
-        guard let lastBtn = titleButtons.last else {
-            return
-        }
+        guard let lastBtn = titleButtons.last else { return }
         
         titleScrollView.contentSize = CGSize(width: lastBtn.MaxX + titleMargin + (addTitleButton.isHidden ? 0 : addTitleButtonWidth), height: 0)
         contentScrollView.contentSize = CGSize(width: contentViewW * CGFloat(count), height: 0)
@@ -459,9 +455,7 @@ extension AHDisplayViewController: UIScrollViewDelegate {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         // 如果是点击顶部标题激发的滚动, 不需要设置
-        if isTitleClick == true {
-            return
-        }
+        if isTitleClick == true { return }
         
         // 偏移量
         let offsetX = scrollView.contentOffset.x
@@ -472,9 +466,7 @@ extension AHDisplayViewController: UIScrollViewDelegate {
         
         // 右边的角标, 按钮
         let rightIndex = leftIndex + 1
-        if rightIndex >= titleButtons.count {
-            return
-        }
+        if rightIndex >= titleButtons.count { return }
         let rightBtn = titleButtons[rightIndex]
         
         // 设置下标的偏移量

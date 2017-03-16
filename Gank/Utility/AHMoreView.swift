@@ -23,7 +23,7 @@ class AHMoreView: UIView {
         self.backgroundColor = UIColor.clear
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.backgroundColor = UIColorFromRGB("606060")
+        tableView.backgroundColor = RGBColor("606060")
         tableView.separatorStyle = .none
     }
     

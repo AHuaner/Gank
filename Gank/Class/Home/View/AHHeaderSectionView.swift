@@ -20,7 +20,7 @@ class AHHeaderSectionView: UIView {
     override func awakeFromNib() {
         super.awakeFromNib()
         titleLabel.textColor = UIColorTextLightGray
-        backgroundColor = RGBColor(248, g: 248, b: 248, alpha: 1.0)
+        backgroundColor = RGBColor(r: 248, g: 248, b: 248, alpha: 1.0)
     }
     
     class func headerSectionView() -> AHHeaderSectionView {

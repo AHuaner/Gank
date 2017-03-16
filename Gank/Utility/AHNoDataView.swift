@@ -21,7 +21,7 @@ class AHNoDataView: UIView {
         let label = UILabel()
         label.text = "还没有收藏的干货"
         label.textColor = UIColorTextGray
-        label.font = FontSize(size: 20)
+        label.font = UIFont.systemFont(ofSize: 20)
         label.sizeToFit()
         label.CenterX = self.CenterX
         label.CenterY = self.CenterY - 50
@@ -32,7 +32,7 @@ class AHNoDataView: UIView {
         let btn = UIButton(frame: CGRect(x: 0, y: 0, width: 130, height: 35))
         btn.setTitle("去读干货", for: .normal)
         btn.setTitleColor(UIColorTextBlue, for: .normal)
-        btn.titleLabel?.font = FontSize(size: 17)
+        btn.titleLabel?.font = UIFont.systemFont(ofSize: 17)
         btn.layer.borderColor = UIColorTextBlue.cgColor
         btn.layer.borderWidth = 1
         btn.layer.cornerRadius = 17.5

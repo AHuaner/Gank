@@ -34,13 +34,13 @@ class AHTagBtn: UIButton {
     fileprivate func setup() {
         layer.cornerRadius = 5
         layer.borderWidth = 1
-        layer.borderColor = RGBColor(230.0, g: 230.0, b: 230.0, alpha: 1).cgColor
-        backgroundColor = RGBColor(250.0, g: 250.0, b: 250.0, alpha: 1)
+        layer.borderColor = RGBColor(r: 230.0, g: 230.0, b: 230.0, alpha: 1).cgColor
+        backgroundColor = RGBColor(r: 250.0, g: 250.0, b: 250.0, alpha: 1)
         adjustsImageWhenHighlighted = false
         setTitleColor(UIColorTextGray, for: .normal)
         setTitleColor(UIColorTextBlue, for: .selected)
         titleLabel?.textAlignment = .center
-        titleLabel?.font = FontSize(size: 13)
+        titleLabel?.font = UIFont.systemFont(ofSize: 13)
         titleLabel?.adjustsFontSizeToFitWidth = true
         imageView?.isHighlighted = true
     }

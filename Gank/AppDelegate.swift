@@ -101,7 +101,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                         config: config)
         }
 
-        Bugly.updateAppVersion(Bundle.releaseVersionNumber!)
+        Bugly.updateAppVersion(Bundle.releaseVersion!)
         Bugly.setUserValue(ProcessInfo.processInfo.processName, forKey: "Process")
         Bugly.setUserIdentifier("\(UIDevice.current.name)")
     }

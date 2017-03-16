@@ -34,7 +34,7 @@ class AHListView: UIView, AHListViewPotocol {
         infoButton.setTitle("拖动排序, 点击删除", for: .selected)
         infoButton.setTitleColor(UIColorTextBlock, for: .normal)
         infoButton.frame.origin = CGPoint(x: 10, y: 0)
-        infoButton.titleLabel?.font = FontSize(size: 14)
+        infoButton.titleLabel?.font = UIFont.systemFont(ofSize: 14)
         infoButton.sizeToFit()
         return infoButton
     }()
@@ -47,7 +47,7 @@ class AHListView: UIView, AHListViewPotocol {
         completeBtn.setTitleColor(UIColorTextBlue, for: .normal)
         completeBtn.setTitleColor(UIColorTextBlue, for: .selected)
         completeBtn.frame = CGRect(x: kScreen_W - 45 - 10, y: 0, width: 45, height: 25)
-        completeBtn.titleLabel?.font = FontSize(size: 12)
+        completeBtn.titleLabel?.font = UIFont.systemFont(ofSize: 12)
         
         completeBtn.layer.borderColor = UIColorTextBlue.cgColor
         completeBtn.layer.borderWidth = 0.5

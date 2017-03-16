@@ -28,7 +28,7 @@ class AHTimeButton: UIButton {
     
     func setup() {
         setTitle("\(self.time)s跳过", for: .normal)
-        titleLabel?.font = FontSize(size: 12)
+        titleLabel?.font = UIFont.systemFont(ofSize: 12)
         backgroundColor = UIColor.orange
         layer.cornerRadius = self.Height * 0.4
         addTarget(self, action: #selector(skipAction), for: .touchUpInside)

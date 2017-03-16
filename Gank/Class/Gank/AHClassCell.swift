@@ -32,7 +32,7 @@ class AHClassCell: UITableViewCell {
         let moreBrn = UIButton()
         moreBrn.setTitle("全文", for: .normal)
         moreBrn.setTitle("收起", for: .selected)
-        moreBrn.titleLabel?.font = FontSize(size: 15)
+        moreBrn.titleLabel?.font = UIFont.systemFont(ofSize: 15)
         moreBrn.titleLabel?.textAlignment = .left
         moreBrn.setTitleColor(UIColorMainBlue, for: .normal)
         self.contentView.addSubview(moreBrn)
