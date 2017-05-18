@@ -141,7 +141,7 @@ extension ToolKit {
         query?.getObjectInBackground(withId: User.info?.objectId, block: { (bombObject, error) in
             if error != nil {
                 AHLog(error)
-                let nserror = error as! NSError
+                let nserror = error! as NSError
                 switch nserror.code {
                 case 20003:
                     let loginVC = AHLoginViewController()

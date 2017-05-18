@@ -97,7 +97,7 @@ class AHAccountSafeViewController: BaseViewController {
                 self.navigationController!.popToRootViewController(animated: true)
             } else {
                 AHLog(error)
-                let nserror = error as! NSError
+                let nserror = error! as NSError
                 switch nserror.code {
                 case 210:
                     ToolKit.showError(withStatus: "当前密码不正确")

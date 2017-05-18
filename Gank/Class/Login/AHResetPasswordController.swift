@@ -138,7 +138,7 @@ class AHResetPasswordController: BaseViewController {
         isGetAutoCode = true
         BmobSMS.requestCodeInBackground(withPhoneNumber: accountTextField.text, andTemplate: "干货") { (SMSID, error) in
             if error != nil {
-                let nserror = error as! NSError
+                let nserror = error! as NSError
                 ToolKit.showError(withStatus: "获取失败")
                 AHLog(nserror.code)
             } else {
@@ -174,7 +174,7 @@ class AHResetPasswordController: BaseViewController {
                 })
             } else {
                 AHLog(error!)
-                let nserror = error as! NSError
+                let nserror = error! as NSError
                 switch nserror.code {
                 case 207:
                     ToolKit.showError(withStatus: "验证码错误")

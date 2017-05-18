@@ -30,7 +30,7 @@ class AHListView: UIView, AHListViewPotocol {
     fileprivate lazy var infoButton: UIButton = {
         let infoButton = UIButton()
         infoButton.titleLabel?.textAlignment = .left
-        infoButton.setTitle("切换频道                 ", for: .normal)
+        infoButton.setTitle("切换频道                      ", for: .normal)
         infoButton.setTitle("拖动排序, 点击删除", for: .selected)
         infoButton.setTitleColor(UIColorTextBlock, for: .normal)
         infoButton.frame.origin = CGPoint(x: 10, y: 0)

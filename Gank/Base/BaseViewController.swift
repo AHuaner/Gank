@@ -73,10 +73,6 @@ class BaseViewController: UIViewController, UIGestureRecognizerDelegate {
     deinit {
         AHLog("---dealloc---\(type(of: self))")
     }
-    
-    override class func initialize() {
-        superclass()?.initialize()
-    }
 
     // MARK: - event && methods
     fileprivate func setupNav() {

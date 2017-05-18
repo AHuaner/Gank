@@ -70,17 +70,17 @@ class AHWaitingView: UIView {
             ctx.move(to: CGPoint(x: centenX, y: centenY))
             ctx.addLine(to: CGPoint(x: centenX, y: 0))
             
-            let to = CGFloat(-M_PI) * 0.5 + progresses * CGFloat(M_PI) * 2.0 + 0.05 // 初始值
-            ctx.addArc(center: CGPoint(x: centenX, y: centenY), radius: radius - 2, startAngle: CGFloat(-M_PI) * 0.5, endAngle: to, clockwise: false)
+            let to = -(.pi) * 0.5 + progresses * .pi * 2.0 + 0.05 // 初始值
+            ctx.addArc(center: CGPoint(x: centenX, y: centenY), radius: radius - 2, startAngle: -(.pi) * 0.5, endAngle: to, clockwise: false)
             ctx.closePath()
             ctx.fillPath()
         } else {
             RGBColor(r: 255, g: 255, b: 255, alpha: 0.7).set()
             ctx.setLineWidth(10)
             ctx.setLineCap(CGLineCap.round)
-            let to = CGFloat(-M_PI) * 0.5 + progresses * CGFloat(M_PI) * 2.0 + 0.05; // 初始值0.05
+            let to = -(.pi) * 0.5 + progresses * .pi * 2.0 + 0.05; // 初始值0.05
             let radius = min(rect.size.width, rect.size.height) * 0.5 - 10.0;
-            ctx.addArc(center: CGPoint(x: centenX, y: centenY), radius: radius, startAngle: CGFloat(-M_PI) * 0.5, endAngle: to, clockwise: false)
+            ctx.addArc(center: CGPoint(x: centenX, y: centenY), radius: radius, startAngle: -(.pi) * 0.5, endAngle: to, clockwise: false)
             ctx.strokePath()
         }
     }

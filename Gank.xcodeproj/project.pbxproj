@@ -73,8 +73,6 @@
 		604991791E5458A9000B1592 /* AHFeedbackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604991771E5458A9000B1592 /* AHFeedbackViewController.swift */; };
 		6049917A1E5458A9000B1592 /* AHFeedbackViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 604991781E5458A9000B1592 /* AHFeedbackViewController.xib */; };
 		6049917C1E546B10000B1592 /* icon_user1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6049917B1E546B10000B1592 /* icon_user1@2x.png */; };
-		604A29BB1E273C3100228F69 /* AHSearchListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604A29BA1E273C3100228F69 /* AHSearchListView.swift */; };
-		604A29BD1E27629800228F69 /* AHSeatchTagBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604A29BC1E27629800228F69 /* AHSeatchTagBtn.swift */; };
 		604A29C31E2767FE00228F69 /* AHListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604A29BF1E2767FE00228F69 /* AHListView.swift */; };
 		604A29C41E2767FE00228F69 /* AHMoreListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604A29C01E2767FE00228F69 /* AHMoreListView.swift */; };
 		604A29C51E2767FE00228F69 /* AHTagBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604A29C11E2767FE00228F69 /* AHTagBtn.swift */; };
@@ -84,8 +82,6 @@
 		605E07F41E026D0E00225BA3 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 605E07F31E026D0E00225BA3 /* String+Extension.swift */; };
 		60627D8B1E52A24900312500 /* AHResetPasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60627D891E52A24900312500 /* AHResetPasswordController.swift */; };
 		60627D8C1E52A24900312500 /* AHResetPasswordController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60627D8A1E52A24900312500 /* AHResetPasswordController.xib */; };
-		606920BD1E2B927C0010945F /* AHSearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 606920BB1E2B927C0010945F /* AHSearchCell.swift */; };
-		606920BE1E2B927C0010945F /* AHSearchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 606920BC1E2B927C0010945F /* AHSearchCell.xib */; };
 		6069380F1E04E86900918949 /* AHBrowserImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6069380E1E04E86900918949 /* AHBrowserImageView.swift */; };
 		606938111E05303700918949 /* AHWaitingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 606938101E05303700918949 /* AHWaitingView.swift */; };
 		606B1E2A1DFD7DFD00BD86E2 /* close_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 606B1E291DFD7DFD00BD86E2 /* close_button@2x.png */; };
@@ -163,6 +159,10 @@
 		60F315E01E4C6EDA00A0AB36 /* icon_copy@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60F315DF1E4C6EDA00A0AB36 /* icon_copy@2x.png */; };
 		60F462331E49AF5700FDBE72 /* AHLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F462311E49AF5700FDBE72 /* AHLoginViewController.swift */; };
 		60F462341E49AF5700FDBE72 /* AHLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60F462321E49AF5700FDBE72 /* AHLoginViewController.xib */; };
+		F0C0172E1EBCB5F0004B4A95 /* AHSearchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F0C0172D1EBCB5F0004B4A95 /* AHSearchCell.xib */; };
+		F0C017311EBCB608004B4A95 /* AHSearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C0172F1EBCB608004B4A95 /* AHSearchCell.swift */; };
+		F0C017321EBCB608004B4A95 /* AHSearchListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C017301EBCB608004B4A95 /* AHSearchListView.swift */; };
+		F0C017341EBCB60E004B4A95 /* AHSeatchTagBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C017331EBCB60E004B4A95 /* AHSeatchTagBtn.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -257,8 +257,6 @@
 		604991771E5458A9000B1592 /* AHFeedbackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHFeedbackViewController.swift; sourceTree = "<group>"; };
 		604991781E5458A9000B1592 /* AHFeedbackViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AHFeedbackViewController.xib; sourceTree = "<group>"; };
 		6049917B1E546B10000B1592 /* icon_user1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_user1@2x.png"; sourceTree = "<group>"; };
-		604A29BA1E273C3100228F69 /* AHSearchListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AHSearchListView.swift; path = ../AHSearchListView.swift; sourceTree = "<group>"; };
-		604A29BC1E27629800228F69 /* AHSeatchTagBtn.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AHSeatchTagBtn.swift; path = ../AHSeatchTagBtn.swift; sourceTree = "<group>"; };
 		604A29BF1E2767FE00228F69 /* AHListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHListView.swift; sourceTree = "<group>"; };
 		604A29C01E2767FE00228F69 /* AHMoreListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHMoreListView.swift; sourceTree = "<group>"; };
 		604A29C11E2767FE00228F69 /* AHTagBtn.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHTagBtn.swift; sourceTree = "<group>"; };
@@ -268,8 +266,6 @@
 		605E07F31E026D0E00225BA3 /* String+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		60627D891E52A24900312500 /* AHResetPasswordController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHResetPasswordController.swift; sourceTree = "<group>"; };
 		60627D8A1E52A24900312500 /* AHResetPasswordController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AHResetPasswordController.xib; sourceTree = "<group>"; };
-		606920BB1E2B927C0010945F /* AHSearchCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AHSearchCell.swift; path = ../AHSearchCell.swift; sourceTree = "<group>"; };
-		606920BC1E2B927C0010945F /* AHSearchCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AHSearchCell.xib; path = ../AHSearchCell.xib; sourceTree = "<group>"; };
 		6069380E1E04E86900918949 /* AHBrowserImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHBrowserImageView.swift; sourceTree = "<group>"; };
 		606938101E05303700918949 /* AHWaitingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AHWaitingView.swift; sourceTree = "<group>"; };
 		606B1E291DFD7DFD00BD86E2 /* close_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "close_button@2x.png"; sourceTree = "<group>"; };
@@ -350,6 +346,10 @@
 		60F462321E49AF5700FDBE72 /* AHLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AHLoginViewController.xib; sourceTree = "<group>"; };
 		92E140CCC03B446F1E0E29B6 /* Pods-Gank.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gank.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Gank/Pods-Gank.debug.xcconfig"; sourceTree = "<group>"; };
 		BBF349F95A2C7F4277EE5517 /* Pods_Gank.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Gank.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F0C0172D1EBCB5F0004B4A95 /* AHSearchCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AHSearchCell.xib; path = Gank/Class/Search/AHSearchCell.xib; sourceTree = SOURCE_ROOT; };
+		F0C0172F1EBCB608004B4A95 /* AHSearchCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AHSearchCell.swift; path = Gank/Class/Search/AHSearchCell.swift; sourceTree = SOURCE_ROOT; };
+		F0C017301EBCB608004B4A95 /* AHSearchListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AHSearchListView.swift; path = Gank/Class/Search/AHSearchListView.swift; sourceTree = SOURCE_ROOT; };
+		F0C017331EBCB60E004B4A95 /* AHSeatchTagBtn.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AHSeatchTagBtn.swift; path = Gank/Class/Search/AHSeatchTagBtn.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -720,10 +720,10 @@
 		60C0935E1E2DBFF2004D6B90 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				604A29BA1E273C3100228F69 /* AHSearchListView.swift */,
-				604A29BC1E27629800228F69 /* AHSeatchTagBtn.swift */,
-				606920BB1E2B927C0010945F /* AHSearchCell.swift */,
-				606920BC1E2B927C0010945F /* AHSearchCell.xib */,
+				F0C0172D1EBCB5F0004B4A95 /* AHSearchCell.xib */,
+				F0C0172F1EBCB608004B4A95 /* AHSearchCell.swift */,
+				F0C017301EBCB608004B4A95 /* AHSearchListView.swift */,
+				F0C017331EBCB60E004B4A95 /* AHSeatchTagBtn.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -847,9 +847,9 @@
 				TargetAttributes = {
 					601CF5B41DF836B4002AF8D5 = {
 						CreatedOnToolsVersion = 8.1;
-						DevelopmentTeam = LSWWVUU45W;
+						DevelopmentTeam = 49P572Q8VR;
 						LastSwiftMigration = 0810;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 					601CF5C81DF836B5002AF8D5 = {
 						CreatedOnToolsVersion = 8.1;
@@ -897,11 +897,11 @@
 				6045F3941E093624002B0FB6 /* toolBar_like@2x.png in Resources */,
 				60E0039D1E5C4DA10031DD07 /* loading3.png in Resources */,
 				60C7F8C21DFA6B4E0069E69A /* tabBar_bgwhiteColor@2x.png in Resources */,
+				F0C0172E1EBCB5F0004B4A95 /* AHSearchCell.xib in Resources */,
 				60270DF71E570587001610E3 /* icon_close_block@2x.png in Resources */,
 				6036A8751E2377DB00ACDE90 /* AHSearchViewController.xib in Resources */,
 				60E0039A1E5C4DA10031DD07 /* loading1.png in Resources */,
 				6045F3801E09316C002B0FB6 /* nav_back@2x.png in Resources */,
-				606920BE1E2B927C0010945F /* AHSearchCell.xib in Resources */,
 				6089C93D1E2E077200ACE2CB /* icon_share@2x.png in Resources */,
 				6049917A1E5458A9000B1592 /* AHFeedbackViewController.xib in Resources */,
 				60C7F8C01DFA6B4E0069E69A /* property_select@2x.png in Resources */,
@@ -1027,7 +1027,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -1041,9 +1041,7 @@
 				6069380F1E04E86900918949 /* AHBrowserImageView.swift in Sources */,
 				60396BEB1DF83C6A00A23DAA /* AHConfig.swift in Sources */,
 				608EED161DF9898C00D1984A /* AHTimeButton.swift in Sources */,
-				604A29BD1E27629800228F69 /* AHSeatchTagBtn.swift in Sources */,
 				600D2B6E1DF8F1C200D57EA0 /* UIView+Extension.swift in Sources */,
-				606920BD1E2B927C0010945F /* AHSearchCell.swift in Sources */,
 				60A19DED1E213A98007D24D2 /* AHHomeWebViewController.swift in Sources */,
 				6036A8731E2376A600ACDE90 /* AHSearchViewController.swift in Sources */,
 				60CF00681E62B62200EA5074 /* Extension.swift in Sources */,
@@ -1051,10 +1049,12 @@
 				60F315DE1E4C3F8000A0AB36 /* AHSettingViewController.swift in Sources */,
 				600BA1451E0B9478002E4D94 /* AHHomeGankModel.swift in Sources */,
 				6084E1731E2364C200E8AC15 /* AHSearchView.swift in Sources */,
+				F0C017341EBCB60E004B4A95 /* AHSeatchTagBtn.swift in Sources */,
 				601560921DFE820F00369E64 /* AHClassViewController.swift in Sources */,
 				608C52301E2F678600BBE794 /* SQLiteManager.swift in Sources */,
 				601731381DF97C200069D4C4 /* TabBarController.swift in Sources */,
 				60EB31591E2374D900E93715 /* AHPopTranstion.swift in Sources */,
+				F0C017311EBCB608004B4A95 /* AHSearchCell.swift in Sources */,
 				600D2BA31DF8F7A900D57EA0 /* AHLaunchImageView.swift in Sources */,
 				601731321DF952D40069D4C4 /* AHLaunchViewController.swift in Sources */,
 				60F462331E49AF5700FDBE72 /* AHLoginViewController.swift in Sources */,
@@ -1062,7 +1062,6 @@
 				60BDD7AE1E56930C004C6B4C /* AHAccountSafeViewController.swift in Sources */,
 				605E07F41E026D0E00225BA3 /* String+Extension.swift in Sources */,
 				60F315D41E4C206C00A0AB36 /* AHUserCell.swift in Sources */,
-				604A29BB1E273C3100228F69 /* AHSearchListView.swift in Sources */,
 				601560941DFEC46F00369E64 /* AHLoadingView.swift in Sources */,
 				60EB31581E2374D900E93715 /* AHClosePopTranstion.swift in Sources */,
 				60B205241E5DA5540008736D /* UserDefaultsEVO.swift in Sources */,
@@ -1094,6 +1093,7 @@
 				6045F37C1E092148002B0FB6 /* AHClassWebViewController.swift in Sources */,
 				60D2E2E31E55653D004292AE /* User.swift in Sources */,
 				60939DBC1E220BC0003B3F13 /* AHPresentationController.swift in Sources */,
+				F0C017321EBCB608004B4A95 /* AHSearchListView.swift in Sources */,
 				600BA13F1E0B7AC8002E4D94 /* AHHomeGroupModel.swift in Sources */,
 				60116FB31E51F6D00068663F /* GankModel.swift in Sources */,
 				60C7F8B61DFA66D30069E69A /* AHDisplayViewController.swift in Sources */,
@@ -1250,13 +1250,16 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = LSWWVUU45W;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 49P572Q8VR;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = Gank/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = AHuaner.Gank;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ahuaner.gank;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "1a5257af-55af-4213-8897-3410d950204e";
+				PROVISIONING_PROFILE_SPECIFIER = gankDev;
 				"SWIFT_ACTIVE_COMPILATION_CONDITIONS[arch=*]" = "-D DEBUG";
 				SWIFT_OBJC_BRIDGING_HEADER = "Gank/Gank-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1271,13 +1274,16 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = LSWWVUU45W;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 49P572Q8VR;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = Gank/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = AHuaner.Gank;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ahuaner.gank;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "1a5257af-55af-4213-8897-3410d950204e";
+				PROVISIONING_PROFILE_SPECIFIER = gankDev;
 				SWIFT_OBJC_BRIDGING_HEADER = "Gank/Gank-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};

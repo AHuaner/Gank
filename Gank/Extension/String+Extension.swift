@@ -77,8 +77,7 @@ extension String {
     
     // MARK: - 获得千分位分隔符字符串
     static func getBigDecimalString(_ string: String) -> String {
-        
-        guard var numString: NSString = string as NSString? else { return "" }
+        var numString = string as NSString
         
         if numString.doubleValue < 1000.0 {
             return numString as String

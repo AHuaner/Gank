@@ -144,7 +144,7 @@ class AHRegisterViewController: BaseViewController {
         isGetAutoCode = true
         BmobSMS.requestCodeInBackground(withPhoneNumber: accountTextField.text, andTemplate: "干货") { (SMSID, error) in
             if error != nil {
-                let nserror = error as! NSError
+                let nserror = error! as NSError
                 ToolKit.showError(withStatus: "获取失败")
                 AHLog(nserror.code)
             } else {
@@ -180,15 +180,15 @@ class AHRegisterViewController: BaseViewController {
         user.signUpOrLoginInbackground(withSMSCode: authcodeTextField.text) { (isSuccessful, error) in
             if error == nil {
                 User.update()
-                AHLog("注册成功---\(User.info)")
+                AHLog("注册成功---\(String(describing: User.info))")
                 ToolKit.showSuccess(withStatus: "注册成功")
                 UserDefaults.AHData.mobilePhoneNumber.store(value: user.mobilePhoneNumber)
                 DispatchQueue.main.asyncAfter(deadline: 1, execute: {
                     if self.registerClouse != nil { self.registerClouse!() }
                 })
             }else{
-                AHLog("\(error)")
-                let nserror = error as! NSError
+                AHLog("\(String(describing: error))")
+                let nserror = error! as NSError
                 switch nserror.code {
                 case 207:
                     ToolKit.showError(withStatus: "验证码错误")

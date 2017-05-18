@@ -115,7 +115,7 @@ class AHLoginViewController: BaseViewController {
                 UserConfig.set(user.mobilePhoneNumber, forKey: .mobilePhoneNumber)
                 self.updateUUID()
             } else {
-                guard let nserror = error as? NSError else {
+                guard let nserror = error as NSError? else {
                     ToolKit.showError(withStatus: "登录失败")
                     return
                 }
@@ -140,7 +140,7 @@ class AHLoginViewController: BaseViewController {
                 AHLog(error!)
                 return
             }
-            AHLog("登录成功---\(User.info)")
+            AHLog("登录成功---\(String(describing: User.info))")
             ToolKit.dismissHUD()
             self.dismiss(animated: true, completion: nil)
         })
