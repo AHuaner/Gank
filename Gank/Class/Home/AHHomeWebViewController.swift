@@ -182,7 +182,7 @@ class AHHomeWebViewController: BaseWebViewController {
         UMSocialUIManager.showShareMenuViewInWindow { (platformType, userInfo) in
             let messageObject = UMSocialMessageObject()
             
-            let shareObject = UMShareWebpageObject.shareObject(withTitle: "Gank", descr: self.gankModel?.desc, thumImage: UIImage(named: "icon108"))
+            let shareObject = UMShareWebpageObject.shareObject(withTitle: Bundle.appName, descr: self.gankModel?.desc, thumImage: UIImage(named: "icon108"))
             shareObject?.webpageUrl = self.gankModel?.url
             messageObject.shareObject = shareObject
             

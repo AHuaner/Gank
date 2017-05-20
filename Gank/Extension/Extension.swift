@@ -19,7 +19,7 @@ extension Bundle {
     }
     
     static var appName: String {
-        return Bundle.main.infoDictionary?["CFBundleName"] as! String
+        return Bundle.main.infoDictionary?["CFBundleDisplayName"] as! String
     }
 }
 
